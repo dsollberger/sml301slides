@@ -1,0 +1,10 @@
+---
+title: "Initialization"
+author: "Derek Sollberger"
+date: "2024-12-26"
+categories: [meta]
+---
+
+* made a Quarto blog to organize thougthts and host lecture "slides" (i.e. I use Quarto blog posts to deliver lecture materials)
+
+    * credit to the Albert Rapp guide for [setting up a Quarto blog](https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html)
