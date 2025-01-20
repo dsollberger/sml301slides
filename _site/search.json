@@ -5,5 +5,82 @@
     "title": "Initialization",
     "section": "",
     "text": "made a Quarto blog to organize thougthts and host lecture “slides” (i.e. I use Quarto blog posts to deliver lecture materials)\n\ncredit to the Albert Rapp guide for setting up a Quarto blog"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html",
+    "href": "posts/01_introduction/01_introduction.html",
+    "title": "1: Introductions",
+    "section": "",
+    "text": "Goal: Introduce machine learning\nObjective: Create a training set and discuss dimension\n\n\n\n\n\ntextbooks"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#start",
+    "href": "posts/01_introduction/01_introduction.html#start",
+    "title": "1: Introductions",
+    "section": "",
+    "text": "Goal: Introduce machine learning\nObjective: Create a training set and discuss dimension\n\n\n\n\n\ntextbooks"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
+    "href": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
+    "title": "1: Introductions",
+    "section": "Data Intelligence: Modern Data Science Methods",
+    "text": "Data Intelligence: Modern Data Science Methods\n\nSpring 2025\nMonday, Wednesday, 11 AM to 1250 PM\nLecturer: Derek\n\nI go by “Derek” or “teacher”\n\n\n\n\n\n\n\n\nCourse Description\n\n\n\n\n\nThis course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results."
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#lecturer",
+    "href": "posts/01_introduction/01_introduction.html#lecturer",
+    "title": "1: Introductions",
+    "section": "Lecturer",
+    "text": "Lecturer"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#current-research-in-pedagogy",
+    "href": "posts/01_introduction/01_introduction.html#current-research-in-pedagogy",
+    "title": "1: Introductions",
+    "section": "Current Research in Pedagogy",
+    "text": "Current Research in Pedagogy\n\n\n\n\n\nactive learning\ncomputer programming\nflipped classrooms"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#identity-statement",
+    "href": "posts/01_introduction/01_introduction.html#identity-statement",
+    "title": "1: Introductions",
+    "section": "Identity Statement",
+    "text": "Identity Statement\n\n\n\nOriginally from Los Angeles\nMath: easier to understand through graphs\nComputer Programming: years of experience with R, Python, MATLAB, PHP, HTML, etc.\nLearning: drawn to puzzles and manageable tasks\nPersonality: shy, introvert"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#textbooks",
+    "href": "posts/01_introduction/01_introduction.html#textbooks",
+    "title": "1: Introductions",
+    "section": "Textbooks",
+    "text": "Textbooks\n\nList1234Add’l\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\nDeep Learning Illustrated by Jon Krohn\nHow AI Works by Ronald T Kneusel\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\n\n\n\nISLP\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning Illustrated by Jon Krohn\n\n\n\n\n\n\nHow AI Works\n\n\n\nHow AI Works by Ronald T Kneusel\n\n\n\n\n\n\nProbabilistic Machine Learning\n\n\n\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\nThe following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.\n\nThe Seven Pillars of Statistical Wisdom by Stephen M Stigler provides a wonderful overview of the history of statistics and the field’s major developments.\nStatistical Rethinking by Richard McElreath is the premier body of work in the field of Bayesian analysis. This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.\nTeaching Statistics by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.\nBernoulli’s Fallacy by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed."
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#cooperative-classroom",
+    "href": "posts/01_introduction/01_introduction.html#cooperative-classroom",
+    "title": "1: Introductions",
+    "section": "Cooperative Classroom",
+    "text": "Cooperative Classroom\nLearning in a cooperative environment should be stimulating, demanding, and fair. Because this approach to learning is different from the competitive classroom structure that many other courses used to be based on, it is important for us to be clear about mutual expectations. Below are my expectations for students in this class. This set of expectations is intended to maximize debate and exchange of ideas in an atmosphere of mutual respect while preserving individual ownership of ideas and written words. If you feel you do not understand or cannot agree to these expectations, you should discuss this with your instructor and classmates.\n\nStudents are expected to work cooperatively with other members of the class and show respect for the ideas and contributions of other people.\nWhen working as part of a group, students should strive to be good contributors to the group, listen to others, not dominate, and recognize the contributions of others. Students should try to ensure that everyone in the group is welcome to contribute and recognize that everyone contributes in different ways to a group process.\nStudents should explore data, make observations, and develop inferences as part of a group. If you use material from published sources, you must provide appropriate attribution.\n\n\n\n(Students will be asked to acknowledge this document in an online form.)\nThis document has been adapted from Scientific Teaching by Jo Handelsman, Sarah Miller, and Christine Pfund\n\n\n\n\nScientific Teaching"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#pep-talk",
+    "href": "posts/01_introduction/01_introduction.html#pep-talk",
+    "title": "1: Introductions",
+    "section": "Pep Talk",
+    "text": "Pep Talk\nLearning R can be difficult at first—it is like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you will be using like ggplot2—made this wise observation:\n\n\n\n\n\n\nWisdom from Hadley Wickham\n\n\n\n\n\nIt’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nIf you are finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions … e-mail [Derek], etc. I promise you can do this.\n—Andrew Heiss, Georgia State University"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#inclusion-statement",
+    "href": "posts/01_introduction/01_introduction.html#inclusion-statement",
+    "title": "1: Introductions",
+    "section": "Inclusion Statement",
+    "text": "Inclusion Statement\nI value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment)."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "SML 301 Slides",
+    "section": "",
+    "text": "1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -1,0 +1,475 @@
+---
+title: "1: Introductions"
+author: "Derek Sollberger"
+date: "2025-01-27"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library("gt")
+library("tidyverse")
+
+topics_df <- readr::read_csv("SML_301_lecture_schedule.csv")
+```
+
+# Session 1: Introductions
+
+## Start
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* **Goal**: Introduce machine learning
+
+* **Objective**: Create a training set and discuss dimension
+:::
+
+::: {.column width="40%"}
+![textbooks](main_books.png)
+:::
+
+::::
+
+
+
+
+# SML 301
+
+## Data Intelligence: Modern Data Science Methods 
+
+* Spring 2025
+* Monday, Wednesday, 11 AM to 1250 PM
+* Lecturer: Derek
+
+    - I go by "Derek" or "teacher"
+
+::: {.callout-tip collapse="true"}
+## Course Description
+
+This course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results.
+:::
+
+# Introducting the Presenter
+
+## Lecturer
+
+![](Lecturer_Derek.png)
+
+
+## Current Research in Pedagogy
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](MBVP SABER poster.png)
+:::
+
+::: {.column width="50%"}
+- active learning
+- computer programming
+- flipped classrooms
+:::
+
+::::
+
+## Identity Statement
+
+:::: {.columns}
+
+::: {.column width="75%"}
+- Originally from Los Angeles
+- Math: easier to understand through graphs
+- Computer Programming: years of experience with R, Python, MATLAB, PHP, HTML, etc.
+- Learning: drawn to puzzles and manageable tasks
+- Personality: shy, introvert
+:::
+
+::: {.column width="25%"}
+![](math-zach-galifianakis.gif)
+:::
+
+::::
+
+<!--
+# Icebreaker
+
+* name
+* major (and minors or certificates if applicable)
+* unusual goal
+
+    - (please pick a goal other than "get good grades")
+    - whatever time frame makes sense
+    
+::: {.callout-tip collapse="true"}
+## Derek's Example
+
+"Hi.  My name is Derek, and I majored in applied mathematics.  My unusual goal is, for this upcoming year, to eat at that sushi place in Philadelphia that requires reservations a month in advance."
+:::
+-->
+
+
+
+# Reading List
+
+## Textbooks
+
+:::: {.panel-tabset}
+
+### List
+
+* [An Introduction to Statistical Learning](https://www.statlearning.com/) by James, Witten, Hastie, Tibshirani, Taylor
+* [Deep Learning Illustrated](https://www.statlearning.com/) by Jon Krohn
+* [How AI Works](https://nostarch.com/how-ai-works) by Ronald T Kneusel
+* [Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) by Kevin Patrick Murphy
+
+### 1
+
+![ISLP](ISLP.png)
+
+* [An Introduction to Statistical Learning](https://www.statlearning.com/) by James, Witten, Hastie, Tibshirani, Taylor
+
+### 2
+
+![Deep Learning](Deep_Learning_Illustrated.png)
+
+* [Deep Learning Illustrated](https://www.statlearning.com/) by Jon Krohn
+
+### 3
+
+![How AI Works](How_AI_Works.png)
+
+* [How AI Works](https://nostarch.com/how-ai-works) by Ronald T Kneusel
+
+### 4
+
+![Probabilistic Machine Learning](PML.png)
+
+* [Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) by Kevin Patrick Murphy
+
+### Add'l
+
+The following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.
+
+* *The Seven Pillars of Statistical Wisdom* by Stephen M Stigler provides a wonderful overview of the history of statistics and the field's major developments.
+* *Statistical Rethinking* by Richard McElreath is the premier body of work in the field of Bayesian analysis.  This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.
+* *Teaching Statistics* by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.
+* *Bernoulli's Fallacy* by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed.
+
+::::
+
+
+
+
+
+
+# Administrative
+
+::: {.callout-warning collapse="true"}
+
+## Prerequisites
+
+* Minimal prerequisites:
+
+    * computer skills: organizing files, file types
+    * math: algebraic inequalities, familiarity with calculus, Boolean logic
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Course Learning Outcomes
+
+By the end of this course, students will be able to:
+
+* Implement data science and statistical concepts and methods to data sets and real-world scenarios
+* Utilize software to load files, perform data wrangling, and produce visualizations
+* Compute results from data analyses and express the findings to academic and scientific communication audiences
+* Discuss ethical and societal impact of data science projects and equitable practices
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Lecture Sessions
+
+Please keep extra noise to a minimum.  Cell phones may be used as long as they are on silent or vibrate.  Please also review the Cooperative Classroom statement below.
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Precepts
+
+Precepts will be held for 80 minutes per week.  Students will develop problem-solving skills through collaborative work on the computer programming  while also working toward the projects.
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Computers
+
+Use of a laptop computer is highly recommended for this course, and students are asked to bring their laptop computer to every lecture and precept session.
+
+* More information about computer needs can be found at <https://princeton.service-now.com/service?id=kb_article&sys_id=KB0013768>
+* While Chromebooks (or other systems that discourage installation of software) can access cloud software, intensive calculations in this course may merit the use of a personal computer and downloaded software rather than server access.
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Special Accommodations
+
+Students must register with the Office of Disability Services (ODS) (ods@princeton.edu; 258-8840) for disability verification and determination of eligibility for reasonable academic accommodations. Requests for academic accommodations for this course need to be made at the beginning of the semester, or as soon as possible for newly approved students, and again at least two weeks in advance of any needed accommodations in order to make arrangements to implement the accommodations. Please make an appointment to meet with me in order to maintain confidentiality in addressing your needs. No accommodations will be given without authorization from ODS, or without advance notice.
+
+:::
+
+::: {.callout-important collapse="true"}
+
+## Academic Integrity Policy 
+
+You are allowed to read text books and resources online. You may not ask other individuals questions (e.g., you may not ask questions on Stack Exchange or Python help discussion groups). In accordance with the honor code, you must cite all sources of external information used in your work. This can be a book or a web site. Part of being a successful data scientist is having the ability to leverage existing information and techniques, so it is okay to do so in this course as long as you cite the reference.  University policies can be reviewed at <https://ua.princeton.edu/policies-resources/undergraduate-honor-system>
+
+:::
+
+# Learning Environment
+
+## Cooperative Classroom
+
+Learning in a cooperative environment should be stimulating, demanding, and fair.  Because this approach to learning is different from the competitive classroom structure that many other courses used to be based on, it is important for us to be clear about mutual expectations.  Below are my expectations for students in this class.  This set of expectations is intended to maximize debate and exchange of ideas in an atmosphere of mutual respect while preserving individual ownership of ideas and written words.  If you feel you do not understand or cannot agree to these expectations, you should discuss this with your instructor and classmates.
+
+1.	Students are expected to work cooperatively with other members of the class and show respect for the ideas and contributions of other people.
+2.	When working as part of a group, students should strive to be good contributors to the group, listen to others, not dominate, and recognize the contributions of others.  Students should try to ensure that everyone in the group is welcome to contribute and recognize that everyone contributes in different ways to a group process.
+3.	Students should explore data, make observations, and develop inferences as part of a group.  If you use material from published sources, you must provide appropriate attribution.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+(Students will be asked to acknowledge this document in an online form.)
+
+This document has been adapted from
+*Scientific Teaching*
+by Jo Handelsman, Sarah Miller, and Christine Pfund
+:::
+
+::: {.column width="50%"}
+![Scientific Teaching](Scientific_Teaching.png)
+:::
+
+::::
+
+## Pep Talk
+
+Learning R can be difficult at first---it is like learning a new language, just like Spanish, French, or
+Chinese. Hadley Wickham---the chief data scientist at RStudio and the author of some amazing R packages you will be using like `ggplot2`---made this wise observation:
+
+::: {.callout-tip collapse="true"}
+
+## Wisdom from Hadley Wickham
+
+It's easy when you start out programming to get really frustrated and think, “Oh it's me, I'm really stupid,” or, “I'm not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later.
+
+:::
+
+If you are finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions ... e-mail [Derek], etc.  I promise you can do this.
+
+---Andrew Heiss, Georgia State University   
+
+## Inclusion Statement
+
+I value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment).
+
+# Topics
+
+:::: {.panel-tabset}
+
+## table
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+topics_df |>
+  gt() |>
+  cols_align(align = "center") |>
+  tab_footnote(footnote = "Fall 2024") |>
+  tab_header(
+    title = "SML 201",
+    subtitle = "Lecture Topics"
+  )
+```
+
+
+
+::::
+
+
+
+# Learner Profiles
+
+:::: {.panel-tabset}
+
+## Pedagogy
+
+Sharing an overview of the types of students that might be taking this course.
+
+## 1
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Spike
+
+![Spike](LP_Spike.png)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* Senior
+* ORFE
+* Looking to add a variety of skills toward software development
+:::
+
+::::
+
+## 2
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Jet
+
+![Jet](LP_Jet.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* Junior
+* Psychology
+* Took AP Statistics years ago and a data science course
+:::
+
+::::
+
+## 3
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Faye
+
+![Faye](LP_Faye.png)		
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* Sophomore
+* Anthropology
+* Wants to add "machine learning" to CV before applying to internships
+:::
+
+::::
+
+## 4
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Ed
+
+![Ed](LP_Ed.png)		
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* Computer Science
+* Has a lot of experience programming in Python and VS Code, and is looking for larger projects 
+:::
+
+::::
+
+::::
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* Please read the weekly announcement in Canvas
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+    
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources
+
+
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+:::: {.panel-tabset}
+
+
+
+::::
