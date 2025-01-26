@@ -2,10 +2,10 @@ project:
   type: website
 
 website:
-  title: "SML 201 Fall 2024"
+  title: "SML 301 Spring 2025"
   navbar:
     right:
-      - about.qmd
+      - blog.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
