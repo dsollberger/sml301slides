@@ -1,7 +1,7 @@
 ---
 title: "1: Introductions"
 author: "Derek Sollberger"
-date: "2025-01-27"
+date: "2025-01-25"
 format:
   html:
     toc: true
@@ -24,9 +24,9 @@ topics_df <- readr::read_csv("SML_301_lecture_schedule.csv")
 :::: {.columns}
 
 ::: {.column width="60%"}
-* **Goal**: Introduce machine learning
+* **Goal**: Introduce course
 
-* **Objective**: Create a training set and discuss dimension
+* **Objective**: Explore some Python codes
 :::
 
 ::: {.column width="40%"}
@@ -77,40 +77,23 @@ This course provides the training for students to be independent in modern data 
 
 ::::
 
-## Identity Statement
+# Activity: Icebreaker
 
-:::: {.columns}
-
-::: {.column width="75%"}
-- Originally from Los Angeles
-- Math: easier to understand through graphs
-- Computer Programming: years of experience with R, Python, MATLAB, PHP, HTML, etc.
-- Learning: drawn to puzzles and manageable tasks
-- Personality: shy, introvert
-:::
-
-::: {.column width="25%"}
-![](math-zach-galifianakis.gif)
-:::
-
-::::
-
-<!--
-# Icebreaker
-
-* name
-* major (and minors or certificates if applicable)
-* unusual goal
+1. What is one of your unusual goals?
 
     - (please pick a goal other than "get good grades")
     - whatever time frame makes sense
+2. What is something that you are hoping to gain from this SML 301 course?
+3. Favorite food?
+
     
 ::: {.callout-tip collapse="true"}
 ## Derek's Example
 
-"Hi.  My name is Derek, and I majored in applied mathematics.  My unusual goal is, for this upcoming year, to eat at that sushi place in Philadelphia that requires reservations a month in advance."
+1. (unusual goal) I want to drive to Scranton and see some buildings from The Office TV show
+2. This semester, I will learn more about generative artificial intelligence and the underlying mathematics
+3. sushi!
 :::
--->
 
 
 
@@ -151,6 +134,7 @@ This course provides the training for students to be independent in modern data 
 
 * [Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) by Kevin Patrick Murphy
 
+<!---
 ### Add'l
 
 The following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.
@@ -159,6 +143,7 @@ The following list of books is optional for student studies, but the instructor 
 * *Statistical Rethinking* by Richard McElreath is the premier body of work in the field of Bayesian analysis.  This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.
 * *Teaching Statistics* by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.
 * *Bernoulli's Fallacy* by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed.
+--->
 
 ::::
 
@@ -173,10 +158,9 @@ The following list of books is optional for student studies, but the instructor 
 
 ## Prerequisites
 
-* Minimal prerequisites:
-
-    * computer skills: organizing files, file types
-    * math: algebraic inequalities, familiarity with calculus, Boolean logic
+* One semester of data science and statistics
+* Two semesters of calculus
+* Familiarity with R or Python programming is assumed
 
 :::
 
@@ -186,10 +170,11 @@ The following list of books is optional for student studies, but the instructor 
 
 By the end of this course, students will be able to:
 
-* Implement data science and statistical concepts and methods to data sets and real-world scenarios
-* Utilize software to load files, perform data wrangling, and produce visualizations
-* Compute results from data analyses and express the findings to academic and scientific communication audiences
-* Discuss ethical and societal impact of data science projects and equitable practices
+* Understand the main concepts of machine learning in supervised learning, unsupervised learning, and reinforcement learning
+* Deploy and experiment with various machine learning algorithms
+* Critique results and performance of machine learning computations
+* Refine artificial intelligence code and discuss parameter selection
+* Understand the ethical and societal implications of artificial intelligence, including issues such as algorithmic bias, data privacy, and the impact of automation
 
 :::
 
@@ -206,6 +191,19 @@ Please keep extra noise to a minimum.  Cell phones may be used as long as they a
 ## Precepts
 
 Precepts will be held for 80 minutes per week.  Students will develop problem-solving skills through collaborative work on the computer programming  while also working toward the projects.
+
+Upon completing precept work, either
+
+* ask an instructor to check your work for credit in your precept section
+* or, if otherwise submitting online, upload the HTML file back in Canvas
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Late Policy
+
+Most assignments will be due at 5 PM USA Eastern time on Friday.  Credit for late assignments may be deducted 10 percent (from the maximum point total), plus another 10 percent for each additional 12-hour period after the stated due date.
 
 :::
 
@@ -232,9 +230,49 @@ Students must register with the Office of Disability Services (ODS) (ods@princet
 
 ## Academic Integrity Policy 
 
-You are allowed to read text books and resources online. You may not ask other individuals questions (e.g., you may not ask questions on Stack Exchange or Python help discussion groups). In accordance with the honor code, you must cite all sources of external information used in your work. This can be a book or a web site. Part of being a successful data scientist is having the ability to leverage existing information and techniques, so it is okay to do so in this course as long as you cite the reference.  University policies can be reviewed at <https://ua.princeton.edu/policies-resources/undergraduate-honor-system>
+You are allowed to read text books and resources online. You may not ask other individuals questions (e.g., you may not ask questions on Stack Exchange or Python help discussion groups). 
+
+You may use artificial intelligence chatbots (e.g. ChatGPT, Claude) as a resource or study aid to review course ideas.  Do not use these chatbots to generate code for assignments.
+
+In accordance with the honor code, you must cite all sources of external information used in your work. This can be a book or a web site. Part of being a successful data scientist is having the ability to leverage existing information and techniques, so it is okay to do so in this course as long as you cite the reference.  University policies can be reviewed at <https://ua.princeton.edu/policies-resources/undergraduate-honor-system>
 
 :::
+
+
+# Activity: A short Python tutorial
+
+To the best of your present knowledge, what do each of the following lines of Python code do? What is the code output (if applicable)?
+
+* section 2.3.3 of *Introduction to Statistical Learning in Python*
+
+```
+import numpy as np
+x = np.array([3, 4, 5])
+y = np.array([4, 9, 7])
+x + y
+```
+
+```
+x = np.array([[1, 2], [3, 4]])
+#array([[1, 2],
+#[3, 4]])
+x.ndim
+x.shape
+```
+
+```
+x.dtype
+np.array([[1, 2], [3.0, 4]]).dtype
+```
+
+```
+x = np.array([1, 2, 3, 4])
+x.sum()
+x**2
+x**0.5
+```
+
+
 
 # Learning Environment
 
@@ -282,6 +320,39 @@ If you are finding yourself taking way too long hitting your head against a wall
 ## Inclusion Statement
 
 I value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment).
+
+
+
+
+# Activity: Quick Draw!
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![Quick Draw, by Google](QuickDraw.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="60%"}
+Try out Quick Draw!
+
+* [https://quickdraw.withgoogle.com/](https://quickdraw.withgoogle.com/)
+* app will ask you to sketch 6 images
+
+    * and it will try to recognize your artwork
+
+* caution: there is sound
+
+    * yes, you may leave the sound on
+
+:::
+
+::::
+
+
 
 # Topics
 
@@ -409,7 +480,30 @@ Sharing an overview of the types of students that might be taking this course.
 ::::
 
 
+# Activity: TF Playground
 
+:::: {.columns}
+
+::: {.column width="60%"}
+
+## TensorFlow Playground
+
+* link: [https://playground.tensorflow.org](https://playground.tensorflow.org)
+* explore the various menus and buttons
+* feel free to run a simulation
+
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+![TensorFlow Playground](Tensorflow_playground.PNG)
+:::
+
+::::
 
 
 # Quo Vadimus?
@@ -418,6 +512,10 @@ Sharing an overview of the types of students that might be taking this course.
 
 ::: {.column width="45%"}
 * Please read the weekly announcement in Canvas
+* due this Friday (5 PM):
+
+    - Precept 1
+    - CLO Assessment (survey)
 
 :::
 
@@ -426,8 +524,7 @@ Sharing an overview of the types of students that might be taking this course.
 :::
 
 ::: {.column width="45%"}
-
-    
+![](math-zach-galifianakis.gif)  
 :::
 
 ::::
