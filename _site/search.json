@@ -11,14 +11,14 @@
     "href": "posts/01_introduction/01_introduction.html",
     "title": "1: Introductions",
     "section": "",
-    "text": "Goal: Introduce machine learning\nObjective: Create a training set and discuss dimension\n\n\n\n\n\ntextbooks"
+    "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#start",
     "href": "posts/01_introduction/01_introduction.html#start",
     "title": "1: Introductions",
     "section": "",
-    "text": "Goal: Introduce machine learning\nObjective: Create a training set and discuss dimension\n\n\n\n\n\ntextbooks"
+    "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
@@ -53,7 +53,7 @@
     "href": "posts/01_introduction/01_introduction.html#textbooks",
     "title": "1: Introductions",
     "section": "Textbooks",
-    "text": "Textbooks\n\nList1234Add’l\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\nDeep Learning Illustrated by Jon Krohn\nHow AI Works by Ronald T Kneusel\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\n\n\n\nISLP\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning Illustrated by Jon Krohn\n\n\n\n\n\n\nHow AI Works\n\n\n\nHow AI Works by Ronald T Kneusel\n\n\n\n\n\n\nProbabilistic Machine Learning\n\n\n\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\nThe following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.\n\nThe Seven Pillars of Statistical Wisdom by Stephen M Stigler provides a wonderful overview of the history of statistics and the field’s major developments.\nStatistical Rethinking by Richard McElreath is the premier body of work in the field of Bayesian analysis. This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.\nTeaching Statistics by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.\nBernoulli’s Fallacy by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed."
+    "text": "Textbooks\n\nList1234\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\nDeep Learning Illustrated by Jon Krohn\nHow AI Works by Ronald T Kneusel\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\n\n\n\nISLP\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning Illustrated by Jon Krohn\n\n\n\n\n\n\nHow AI Works\n\n\n\nHow AI Works by Ronald T Kneusel\n\n\n\n\n\n\nProbabilistic Machine Learning\n\n\n\nProbabilistic Machine Learning by Kevin Patrick Murphy"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#cooperative-classroom",
@@ -82,5 +82,12 @@
     "title": "SML 301 Slides",
     "section": "",
     "text": "1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/01_introduction/01_introduction.html#tensorflow-playground",
+    "href": "posts/01_introduction/01_introduction.html#tensorflow-playground",
+    "title": "1: Introductions",
+    "section": "TensorFlow Playground",
+    "text": "TensorFlow Playground\n\nlink: https://playground.tensorflow.org\nexplore the various menus and buttons\nfeel free to run a simulation"
   }
 ]
