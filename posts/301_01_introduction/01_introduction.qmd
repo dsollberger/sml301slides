@@ -505,6 +505,14 @@ Sharing an overview of the types of students that might be taking this course.
 
 ::::
 
+# Large Data Sets
+
+> Data Intelligence: Modern Data Science Methods 
+
+* Hospital pricing: predict surgery prices
+* **AEC**: automating document scanning classification
+* Large Language Models
+
 
 # Quo Vadimus?
 

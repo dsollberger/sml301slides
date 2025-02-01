@@ -9,7 +9,7 @@
 <meta name="author" content="Derek Sollberger">
 <meta name="dcterms.date" content="2025-01-27">
 
-<title>1: Introductions – SML 301 Spring 2025</title>
+<title>1: Introductions – SML 301 Slides</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -115,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">SML 301 Spring 2025</span>
+    <span class="navbar-title">SML 301 Slides</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -126,17 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html"> 
-<span class="menu-text">sessions</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
-</i> 
-<span class="menu-text"></span></a>
+<span class="menu-text">eh</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -184,6 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#learner-profiles" id="toc-learner-profiles" class="nav-link" data-scroll-target="#learner-profiles">Learner Profiles</a></li>
   <li><a href="#activity-tf-playground" id="toc-activity-tf-playground" class="nav-link" data-scroll-target="#activity-tf-playground">Activity: TF Playground</a></li>
+  <li><a href="#large-data-sets" id="toc-large-data-sets" class="nav-link" data-scroll-target="#large-data-sets">Large Data Sets</a></li>
   <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
   <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
   </ul>
@@ -662,23 +652,23 @@ Wisdom from Hadley Wickham
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="uhoqtsnndh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uhoqtsnndh table {
+<div id="arppvootzf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#arppvootzf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uhoqtsnndh thead, #uhoqtsnndh tbody, #uhoqtsnndh tfoot, #uhoqtsnndh tr, #uhoqtsnndh td, #uhoqtsnndh th {
+#arppvootzf thead, #arppvootzf tbody, #arppvootzf tfoot, #arppvootzf tr, #arppvootzf td, #arppvootzf th {
   border-style: none;
 }
 
-#uhoqtsnndh p {
+#arppvootzf p {
   margin: 0;
   padding: 0;
 }
 
-#uhoqtsnndh .gt_table {
+#arppvootzf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -704,12 +694,12 @@ Wisdom from Hadley Wickham
   border-left-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_caption {
+#arppvootzf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uhoqtsnndh .gt_title {
+#arppvootzf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -721,7 +711,7 @@ Wisdom from Hadley Wickham
   border-bottom-width: 0;
 }
 
-#uhoqtsnndh .gt_subtitle {
+#arppvootzf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -733,7 +723,7 @@ Wisdom from Hadley Wickham
   border-top-width: 0;
 }
 
-#uhoqtsnndh .gt_heading {
+#arppvootzf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -745,13 +735,13 @@ Wisdom from Hadley Wickham
   border-right-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_bottom_border {
+#arppvootzf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_col_headings {
+#arppvootzf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -766,7 +756,7 @@ Wisdom from Hadley Wickham
   border-right-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_col_heading {
+#arppvootzf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -786,7 +776,7 @@ Wisdom from Hadley Wickham
   overflow-x: hidden;
 }
 
-#uhoqtsnndh .gt_column_spanner_outer {
+#arppvootzf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -798,15 +788,15 @@ Wisdom from Hadley Wickham
   padding-right: 4px;
 }
 
-#uhoqtsnndh .gt_column_spanner_outer:first-child {
+#arppvootzf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uhoqtsnndh .gt_column_spanner_outer:last-child {
+#arppvootzf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uhoqtsnndh .gt_column_spanner {
+#arppvootzf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -818,11 +808,11 @@ Wisdom from Hadley Wickham
   width: 100%;
 }
 
-#uhoqtsnndh .gt_spanner_row {
+#arppvootzf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uhoqtsnndh .gt_group_heading {
+#arppvootzf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -848,7 +838,7 @@ Wisdom from Hadley Wickham
   text-align: left;
 }
 
-#uhoqtsnndh .gt_empty_group_heading {
+#arppvootzf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -863,15 +853,15 @@ Wisdom from Hadley Wickham
   vertical-align: middle;
 }
 
-#uhoqtsnndh .gt_from_md > :first-child {
+#arppvootzf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uhoqtsnndh .gt_from_md > :last-child {
+#arppvootzf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uhoqtsnndh .gt_row {
+#arppvootzf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -890,7 +880,7 @@ Wisdom from Hadley Wickham
   overflow-x: hidden;
 }
 
-#uhoqtsnndh .gt_stub {
+#arppvootzf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -903,7 +893,7 @@ Wisdom from Hadley Wickham
   padding-right: 5px;
 }
 
-#uhoqtsnndh .gt_stub_row_group {
+#arppvootzf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -917,15 +907,15 @@ Wisdom from Hadley Wickham
   vertical-align: top;
 }
 
-#uhoqtsnndh .gt_row_group_first td {
+#arppvootzf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uhoqtsnndh .gt_row_group_first th {
+#arppvootzf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uhoqtsnndh .gt_summary_row {
+#arppvootzf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -935,16 +925,16 @@ Wisdom from Hadley Wickham
   padding-right: 5px;
 }
 
-#uhoqtsnndh .gt_first_summary_row {
+#arppvootzf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_first_summary_row.thick {
+#arppvootzf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uhoqtsnndh .gt_last_summary_row {
+#arppvootzf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -954,7 +944,7 @@ Wisdom from Hadley Wickham
   border-bottom-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_grand_summary_row {
+#arppvootzf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -964,7 +954,7 @@ Wisdom from Hadley Wickham
   padding-right: 5px;
 }
 
-#uhoqtsnndh .gt_first_grand_summary_row {
+#arppvootzf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -974,7 +964,7 @@ Wisdom from Hadley Wickham
   border-top-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_last_grand_summary_row_top {
+#arppvootzf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -984,11 +974,11 @@ Wisdom from Hadley Wickham
   border-bottom-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_striped {
+#arppvootzf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uhoqtsnndh .gt_table_body {
+#arppvootzf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -997,7 +987,7 @@ Wisdom from Hadley Wickham
   border-bottom-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_footnotes {
+#arppvootzf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1011,7 +1001,7 @@ Wisdom from Hadley Wickham
   border-right-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_footnote {
+#arppvootzf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1020,7 +1010,7 @@ Wisdom from Hadley Wickham
   padding-right: 5px;
 }
 
-#uhoqtsnndh .gt_sourcenotes {
+#arppvootzf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1034,7 +1024,7 @@ Wisdom from Hadley Wickham
   border-right-color: #D3D3D3;
 }
 
-#uhoqtsnndh .gt_sourcenote {
+#arppvootzf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1042,72 +1032,72 @@ Wisdom from Hadley Wickham
   padding-right: 5px;
 }
 
-#uhoqtsnndh .gt_left {
+#arppvootzf .gt_left {
   text-align: left;
 }
 
-#uhoqtsnndh .gt_center {
+#arppvootzf .gt_center {
   text-align: center;
 }
 
-#uhoqtsnndh .gt_right {
+#arppvootzf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uhoqtsnndh .gt_font_normal {
+#arppvootzf .gt_font_normal {
   font-weight: normal;
 }
 
-#uhoqtsnndh .gt_font_bold {
+#arppvootzf .gt_font_bold {
   font-weight: bold;
 }
 
-#uhoqtsnndh .gt_font_italic {
+#arppvootzf .gt_font_italic {
   font-style: italic;
 }
 
-#uhoqtsnndh .gt_super {
+#arppvootzf .gt_super {
   font-size: 65%;
 }
 
-#uhoqtsnndh .gt_footnote_marks {
+#arppvootzf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uhoqtsnndh .gt_asterisk {
+#arppvootzf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uhoqtsnndh .gt_indent_1 {
+#arppvootzf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uhoqtsnndh .gt_indent_2 {
+#arppvootzf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uhoqtsnndh .gt_indent_3 {
+#arppvootzf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uhoqtsnndh .gt_indent_4 {
+#arppvootzf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uhoqtsnndh .gt_indent_5 {
+#arppvootzf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#uhoqtsnndh .katex-display {
+#arppvootzf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#uhoqtsnndh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#arppvootzf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1398,6 +1388,17 @@ Wisdom from Hadley Wickham
 </div>
 </div>
 </section>
+<section id="large-data-sets" class="level1">
+<h1>Large Data Sets</h1>
+<blockquote class="blockquote">
+<p>Data Intelligence: Modern Data Science Methods</p>
+</blockquote>
+<ul>
+<li>Hospital pricing: predict surgery prices</li>
+<li><strong>AEC</strong>: automating document scanning classification</li>
+<li>Large Language Models</li>
+</ul>
+</section>
 <section id="quo-vadimus" class="level1">
 <h1>Quo Vadimus?</h1>
 <div class="columns">
@@ -1450,7 +1451,7 @@ Session Info
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
 Platform: x86_64-w64-mingw32/x64
 Running under: Windows 10 x64 (build 19045)
 
@@ -1476,17 +1477,17 @@ other attached packages:
  [9] ggplot2_3.5.1   tidyverse_2.0.0 gt_0.11.1      
 
 loaded via a namespace (and not attached):
- [1] bit_4.5.0         archive_1.1.8     gtable_0.3.6      jsonlite_1.8.8   
- [5] crayon_1.5.3      compiler_4.4.1    tidyselect_1.2.1  xml2_1.3.6       
- [9] parallel_4.4.1    scales_1.3.0      yaml_2.3.8        fastmap_1.2.0    
+ [1] bit_4.5.0.1       archive_1.1.8     gtable_0.3.6      jsonlite_1.8.9   
+ [5] crayon_1.5.3      compiler_4.4.2    tidyselect_1.2.1  xml2_1.3.6       
+ [9] parallel_4.4.2    scales_1.3.0      yaml_2.3.10       fastmap_1.2.0    
 [13] R6_2.5.1          generics_0.1.3    knitr_1.49        htmlwidgets_1.6.4
-[17] munsell_0.5.1     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.4      
-[21] utf8_1.2.4        stringi_1.8.4     xfun_0.48         sass_0.4.9       
-[25] bit64_4.5.2       timechange_0.3.0  cli_3.6.3         withr_3.0.2      
-[29] magrittr_2.0.3    digest_0.6.35     grid_4.4.1        vroom_1.6.5      
-[33] rstudioapi_0.17.1 hms_1.1.3         lifecycle_1.0.4   vctrs_0.6.5      
-[37] evaluate_1.0.1    glue_1.8.0        fansi_1.0.6       colorspace_2.1-1 
-[41] rmarkdown_2.29    tools_4.4.1       pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
+[17] munsell_0.5.1     pillar_1.10.1     tzdb_0.4.0        rlang_1.1.5      
+[21] stringi_1.8.4     xfun_0.50         sass_0.4.9        bit64_4.6.0-1    
+[25] timechange_0.3.0  cli_3.6.3         withr_3.0.2       magrittr_2.0.3   
+[29] digest_0.6.37     grid_4.4.2        vroom_1.6.5       rstudioapi_0.17.1
+[33] hms_1.1.3         lifecycle_1.0.4   vctrs_0.6.5       evaluate_1.0.3   
+[37] glue_1.8.0        colorspace_2.1-1  rmarkdown_2.29    tools_4.4.2      
+[41] pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
 </div>
 </div>
 </div>

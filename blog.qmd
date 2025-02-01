@@ -1,5 +1,5 @@
 ---
-title: "SML 301 (Spring 2025)"
+title: "eh"
 listing:
   contents: posts
   sort: "date desc"

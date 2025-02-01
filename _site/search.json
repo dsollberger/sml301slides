@@ -1,93 +1,128 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Initialization",
-    "section": "",
-    "text": "made a Quarto blog to organize thougthts and host lecture “slides” (i.e. I use Quarto blog posts to deliver lecture materials)\n\ncredit to the Albert Rapp guide for setting up a Quarto blog"
-  },
-  {
-    "objectID": "posts/01_introduction/01_introduction.html",
-    "href": "posts/01_introduction/01_introduction.html",
+    "objectID": "posts/301_01_introduction/01_introduction.html",
+    "href": "posts/301_01_introduction/01_introduction.html",
     "title": "1: Introductions",
     "section": "",
     "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#start",
-    "href": "posts/01_introduction/01_introduction.html#start",
+    "objectID": "posts/301_01_introduction/01_introduction.html#start",
+    "href": "posts/301_01_introduction/01_introduction.html#start",
     "title": "1: Introductions",
     "section": "",
     "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
-    "href": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
+    "objectID": "posts/301_01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
+    "href": "posts/301_01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
     "title": "1: Introductions",
     "section": "Data Intelligence: Modern Data Science Methods",
     "text": "Data Intelligence: Modern Data Science Methods\n\nSpring 2025\nMonday, Wednesday, 11 AM to 1250 PM\nLecturer: Derek\n\nI go by “Derek” or “teacher”\n\n\n\n\n\n\n\n\nCourse Description\n\n\n\n\n\nThis course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results."
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#lecturer",
-    "href": "posts/01_introduction/01_introduction.html#lecturer",
+    "objectID": "posts/301_01_introduction/01_introduction.html#lecturer",
+    "href": "posts/301_01_introduction/01_introduction.html#lecturer",
     "title": "1: Introductions",
     "section": "Lecturer",
     "text": "Lecturer"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#current-research-in-pedagogy",
-    "href": "posts/01_introduction/01_introduction.html#current-research-in-pedagogy",
+    "objectID": "posts/301_01_introduction/01_introduction.html#current-research-in-pedagogy",
+    "href": "posts/301_01_introduction/01_introduction.html#current-research-in-pedagogy",
     "title": "1: Introductions",
     "section": "Current Research in Pedagogy",
     "text": "Current Research in Pedagogy\n\n\n\n\n\nactive learning\ncomputer programming\nflipped classrooms"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#identity-statement",
-    "href": "posts/01_introduction/01_introduction.html#identity-statement",
-    "title": "1: Introductions",
-    "section": "Identity Statement",
-    "text": "Identity Statement\n\n\n\nOriginally from Los Angeles\nMath: easier to understand through graphs\nComputer Programming: years of experience with R, Python, MATLAB, PHP, HTML, etc.\nLearning: drawn to puzzles and manageable tasks\nPersonality: shy, introvert"
-  },
-  {
-    "objectID": "posts/01_introduction/01_introduction.html#textbooks",
-    "href": "posts/01_introduction/01_introduction.html#textbooks",
+    "objectID": "posts/301_01_introduction/01_introduction.html#textbooks",
+    "href": "posts/301_01_introduction/01_introduction.html#textbooks",
     "title": "1: Introductions",
     "section": "Textbooks",
     "text": "Textbooks\n\nList1234\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\nDeep Learning Illustrated by Jon Krohn\nHow AI Works by Ronald T Kneusel\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\n\n\n\nISLP\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning Illustrated by Jon Krohn\n\n\n\n\n\n\nHow AI Works\n\n\n\nHow AI Works by Ronald T Kneusel\n\n\n\n\n\n\nProbabilistic Machine Learning\n\n\n\nProbabilistic Machine Learning by Kevin Patrick Murphy"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#cooperative-classroom",
-    "href": "posts/01_introduction/01_introduction.html#cooperative-classroom",
+    "objectID": "posts/301_01_introduction/01_introduction.html#cooperative-classroom",
+    "href": "posts/301_01_introduction/01_introduction.html#cooperative-classroom",
     "title": "1: Introductions",
     "section": "Cooperative Classroom",
     "text": "Cooperative Classroom\nLearning in a cooperative environment should be stimulating, demanding, and fair. Because this approach to learning is different from the competitive classroom structure that many other courses used to be based on, it is important for us to be clear about mutual expectations. Below are my expectations for students in this class. This set of expectations is intended to maximize debate and exchange of ideas in an atmosphere of mutual respect while preserving individual ownership of ideas and written words. If you feel you do not understand or cannot agree to these expectations, you should discuss this with your instructor and classmates.\n\nStudents are expected to work cooperatively with other members of the class and show respect for the ideas and contributions of other people.\nWhen working as part of a group, students should strive to be good contributors to the group, listen to others, not dominate, and recognize the contributions of others. Students should try to ensure that everyone in the group is welcome to contribute and recognize that everyone contributes in different ways to a group process.\nStudents should explore data, make observations, and develop inferences as part of a group. If you use material from published sources, you must provide appropriate attribution.\n\n\n\n(Students will be asked to acknowledge this document in an online form.)\nThis document has been adapted from Scientific Teaching by Jo Handelsman, Sarah Miller, and Christine Pfund\n\n\n\n\nScientific Teaching"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#pep-talk",
-    "href": "posts/01_introduction/01_introduction.html#pep-talk",
+    "objectID": "posts/301_01_introduction/01_introduction.html#pep-talk",
+    "href": "posts/301_01_introduction/01_introduction.html#pep-talk",
     "title": "1: Introductions",
     "section": "Pep Talk",
     "text": "Pep Talk\nLearning R can be difficult at first—it is like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you will be using like ggplot2—made this wise observation:\n\n\n\n\n\n\nWisdom from Hadley Wickham\n\n\n\n\n\nIt’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.\n\n\n\nIf you are finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions … e-mail [Derek], etc. I promise you can do this.\n—Andrew Heiss, Georgia State University"
   },
   {
-    "objectID": "posts/01_introduction/01_introduction.html#inclusion-statement",
-    "href": "posts/01_introduction/01_introduction.html#inclusion-statement",
+    "objectID": "posts/301_01_introduction/01_introduction.html#inclusion-statement",
+    "href": "posts/301_01_introduction/01_introduction.html#inclusion-statement",
     "title": "1: Introductions",
     "section": "Inclusion Statement",
     "text": "Inclusion Statement\nI value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment)."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "SML 301 (Spring 2025)",
-    "section": "",
-    "text": "1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/01_introduction/01_introduction.html#tensorflow-playground",
-    "href": "posts/01_introduction/01_introduction.html#tensorflow-playground",
+    "objectID": "posts/301_01_introduction/01_introduction.html#tensorflow-playground",
+    "href": "posts/301_01_introduction/01_introduction.html#tensorflow-playground",
     "title": "1: Introductions",
     "section": "TensorFlow Playground",
     "text": "TensorFlow Playground\n\nlink: https://playground.tensorflow.org\nexplore the various menus and buttons\nfeel free to run a simulation"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html",
+    "href": "posts/301_02_convergence/02_convergence.html",
+    "title": "2: Convergence",
+    "section": "",
+    "text": "Goal: Discuss convergence\nObjective: Explore some Python codes about root finding and stochastic processes\n\n\nAs we get started, try to load a session in Google Colab"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html#start",
+    "href": "posts/301_02_convergence/02_convergence.html#start",
+    "title": "2: Convergence",
+    "section": "",
+    "text": "Goal: Discuss convergence\nObjective: Explore some Python codes about root finding and stochastic processes\n\n\nAs we get started, try to load a session in Google Colab"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html#tensorflow-playground",
+    "href": "posts/301_02_convergence/02_convergence.html#tensorflow-playground",
+    "title": "2: Convergence",
+    "section": "TensorFlow Playground",
+    "text": "TensorFlow Playground\n\nlink: https://playground.tensorflow.org\nexplore the various menus and buttons\nfeel free to run a simulation"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html#sequences",
+    "href": "posts/301_02_convergence/02_convergence.html#sequences",
+    "title": "2: Convergence",
+    "section": "Sequences",
+    "text": "Sequences\n\nindex: \\(n \\in \\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}\\)\nformulaic: f(n) = 2n - 1\n\n\\[1, 3, 5, 7, 9, ...\\]\n\nconstructive:\n\n\\[3, 3.1, 3.14, 3.141, 3.1415, 3.14159, ...\\]\n\nshapes:\n\n\n\n\ntriangular numbers\n\n\n\nimage source: BYJUs"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html#random-variables",
+    "href": "posts/301_02_convergence/02_convergence.html#random-variables",
+    "title": "2: Convergence",
+    "section": "Random Variables",
+    "text": "Random Variables\nA random variable has no set value, but rather represents an element of chance. We can better understand a random variable through statistics like\n\nmean\nvariance\ndistribution\n\n\n\n\n\n\n\nStochastic Process\n\n\n\n\n\nA stochastic process is a sequence of random variables"
+  },
+  {
+    "objectID": "posts/301_02_convergence/02_convergence.html#application-dinner-choices",
+    "href": "posts/301_02_convergence/02_convergence.html#application-dinner-choices",
+    "title": "2: Convergence",
+    "section": "Application: Dinner Choices",
+    "text": "Application: Dinner Choices\nSuppose that we have a Princeton student whose behavior includes eating only three types of dinner:\n\\[S = \\{\\text{ramen}, \\text{pizza}, \\text{sushi}\\}\\]\nwith transition matrix\n\\[P = \\left(\\begin{array}{ccc}\n0.2 & 0.4 & 0.4 \\\\\n0.3 & 0.4 & 0.3 \\\\\n0.2 & 0.2 & 0.6\n\\end{array}\\right)\\]\n\n\n\ndinner choices network\n\n\n\n\n\n\n\n\nNetwork terminology\n\n\n\n\n\n\ndirected versus undirected graphs\ncyclic versus acyclic graphs\n\nLater studies focus on DAGs: directed, acyclic network graphs\n\n\n\nSuppose that, on a Monday, the student’s preferences are\n\\[x_0 = \\left(\\begin{array}{ccc} 0.5 & 0.25 & 0.25 \\end{array}\\right)\\]\n\nWhat is the probability that the student will eat ramen on Tuesday (i.e. the next day)?\nWhat is the probability that the student will eat pizza on Wednesday (i.e. two days later)?\nWhat is the long-term dinner-choice behavior of this student?"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "eh",
+    "section": "",
+    "text": "2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
   }
 ]

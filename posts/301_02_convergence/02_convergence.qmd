@@ -1,0 +1,379 @@
+---
+title: "2: Convergence"
+author: "Derek Sollberger"
+date: "2025-01-29"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library("gt")
+library("tidyverse")
+```
+
+# Session 2: Convergence
+
+## Start
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* **Goal**: Discuss convergence
+
+* **Objective**: Explore some Python codes about root finding and stochastic processes
+:::
+
+::: {.column width="40%"}
+As we get started, try to load a session in Google Colab
+:::
+
+::::
+
+# Activity: TF Playground
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+## TensorFlow Playground
+
+* link: [https://playground.tensorflow.org](https://playground.tensorflow.org)
+* explore the various menus and buttons
+* feel free to run a simulation
+
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+![TensorFlow Playground](Tensorflow_playground.PNG)
+:::
+
+::::
+
+# Big Idea
+
+Eventually we will discuss upon how neural network weights are found via stochastic gradient descent
+
+* stochastic?
+* gradient?
+* descent?
+
+# Little Perturbations
+
+::::: {.panel-tabset}
+
+## rounding
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### 2 + 2 = 5
+
+... for extremely large values of 2
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![tshirt](2_2_5.png)
+:::
+
+::::
+
+## truncation
+
+![truncation error](truncation-errors.png)
+
+* image source: [BYJUs](https://byjus.com/maths/truncation-errors/)
+
+## consideration
+
+Numerical analysis: many computational algorithms have been designed to mitigate the possible propogation of rounding and truncation errors.
+
+* example: [the quadratic formula](https://zingale.github.io/comp_astro_tutorial/basics/floating-point/numerical_error.html)
+
+:::::
+
+::: {.callout-caution collapse="true"}
+## Dev Corner: Binary
+
+Research teams are still affected by these rounding and truncation errors
+
+* different operating systems (Mac, Windows, Linux)
+* different processor chips (Intel, AMD)
+
+Tip: data engineers can store computation results in their pure binary representations
+
+:::
+
+
+# Stochastic
+
+* **Stochastic**: word of Greek origin, meaning to guess at
+
+## Sequences
+
+* index: $n \in \mathbb{N} = \{1, 2, 3, 4, 5, ...\}$
+* formulaic: f(n) = 2n - 1
+
+$$1, 3, 5, 7, 9, ...$$
+
+* constructive:
+
+$$3, 3.1, 3.14, 3.141, 3.1415, 3.14159, ...$$
+
+* shapes:
+
+![triangular numbers](triangular-numbers.png)
+
+* image source: [BYJUs](https://byjus.com/maths/triangular-numbers/)
+
+
+## Random Variables
+
+A **random variable** has no set value, but rather represents an element of chance.  We can better understand a random variable through statistics like
+
+* mean
+* variance
+* distribution
+
+::: {.callout-tip collapse="true"}
+## Stochastic Process
+
+A **stochastic process** is a *sequence* of *random variables*
+:::
+
+
+# Gradient
+
+For a multivariate function $f(\vec{x})$, the **gradient** is a vector of partial derivatives
+
+$$\nabla f = \left[ \frac{\partial}{\partial x_{1}}, \frac{\partial}{\partial x_{2}}, \frac{\partial}{\partial x_{3}}, ..., \frac{\partial}{\partial x_{n}}  \right]$$
+
+
+# Descent
+
+::::: {.panel-tabset}
+
+## Scenario
+
+Find the roots of the function
+
+$$f(x) = x^{3} - 12x^{2} + 44x - 48$$
+
+In other words, find the solutions of the equation
+
+$$f(x) = x^{3} - 12x^{2} + 44x - 48 = 0$$
+
+## Bisection
+
+![Bisection Method](bisection_method.png)
+
+* image source: [Python Numerical Methods](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter19.03-Bisection-Method.html)
+
+## code
+
+```
+def bisection_method(f, a, b, tol):
+  # tries to find a root of f between a and b (i.e. f(root) = 0)
+  # Inputs: real numbers a, b; tolerance
+  # Output: root
+
+  # check if root is in the interval (i.e. Intermediate Value Theorem)
+    if np.sign(f(a)) == np.sign(f(b)):
+        raise Exception("The endpoints do not contain a root")
+
+  # initialization
+    iter_num = 1
+
+    while (b - a) > tol:
+      c = (a + b) / 2
+
+      print("iter_num: " + str(iter_num) + ", midpoint: " + str(c))
+
+      if f(c) * f(a) < 0:
+          b = c
+      else:
+          a = c
+
+      iter_num += 1
+
+    print("Root:", c)
+
+```
+
+```
+f = lambda x: x**3 - 12*x**2  + 44*x - 48
+```
+
+
+Try calling the `bisection_method` with different initial values for a and b, such as
+
+*    [0, 3]
+*    [3, 7]
+*    [5, 10]
+
+## Newton's
+
+![Newton's Method](Newtons_Method.png)
+
+* image source: [Paul's Online Notes](https://tutorial.math.lamar.edu/classes/calci/newtonsmethod.aspx)
+
+## code
+
+```
+def Newton_Method(f, f_prime, x_0, tol, max_iter):
+  # tries to find a root of f between a and b (i.e. f(root) = 0)
+  # Inputs: function f, derivative function f_prime,
+  # initial guess x_0, tolerance tol, and maximum number of iterations
+  # Output: root
+
+  # initialization
+    iter_num = 1
+    x_n = x_0
+
+    while (abs(f(x_n)) > tol) & (iter_num <= max_iter):
+      print("iter_num: " + str(iter_num) + ", guess: " + str(x_n))
+      f_x = f(x_n)
+      f_prime_x = f_prime(x_n)
+
+      x_n = x_n - f_x / f_prime_x
+      iter_num += 1
+
+    print("Root:", x_n)
+```
+
+```
+f_prime = lambda x: 3*x**2 - 24*x + 44
+```
+
+Try calling Newton_Method with a few different guesses for the initial value
+
+## Cauchy
+
+An infinite sequence $\{x_{i}\}_{i=1}^{\infty}$ is **Cauchy convergent** if
+
+$$\forall \epsilon \exists N \text{ such that } \forall m,n > N$$
+$$|x_{m} - x_{n}| < \epsilon$$
+
+:::::
+
+
+# Markov Chains
+
+A **Markov chain** is a stochastic process whose state depends only on the immediate previous iteration.
+
+$$P_{ij} = P(X_{n} = j | X_{n-1} = i)$$
+
+## Application: Dinner Choices
+
+Suppose that we have a Princeton student whose behavior includes eating only three types of dinner: 
+
+$$S = \{\text{ramen}, \text{pizza}, \text{sushi}\}$$
+
+with transition matrix
+
+$$P = \left(\begin{array}{ccc}
+0.2 & 0.4 & 0.4 \\
+0.3 & 0.4 & 0.3 \\
+0.2 & 0.2 & 0.6
+\end{array}\right)$$
+
+![dinner choices network](dinner_network.drawio.png)
+
+::: {.callout-note collapse="true"}
+## Network terminology
+
+* directed versus undirected graphs
+* cyclic versus acyclic graphs
+
+Later studies focus on **DAGs**: directed, acyclic network graphs
+:::
+
+Suppose that, on a Monday, the student's preferences are
+
+$$x_0 = \left(\begin{array}{ccc} 0.5 & 0.25 & 0.25 \end{array}\right)$$
+
+* What is the probability that the student will eat ramen on Tuesday (i.e. the next day)?
+* What is the probability that the student will eat pizza on Wednesday (i.e. two days later)?
+* What is the long-term dinner-choice behavior of this student?
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* Please read the weekly announcement in Canvas
+* due this Friday (5 PM):
+
+    - Precept 1
+    - CLO Assessment (survey)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+* tip: talk about your career and research goals with your instructors
+* (optional) If you have seen the Bisection and Newton's Methods before, let me know which class(es) cover that material.
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources
+
+* [Bisection Method](https://flexiple.com/python/bisection-method-python) by Harsh Pandey
+* [Newton's Method](https://flexiple.com/python/newton-raphson-method-python) by Harsh Pandey
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
