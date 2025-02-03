@@ -268,6 +268,16 @@ $$|x_{m} - x_{n}| < \epsilon$$
 
 :::::
 
+# Trade-Off: Speed versus Complexity
+
+Newton's Method
+
+$$x_{n} = x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}$$
+
+* converges faster
+* needs computation of the derivative
+* what if $f' \approx 0$?
+
 
 # Markov Chains
 

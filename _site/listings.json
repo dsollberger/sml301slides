@@ -2,8 +2,17 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/301_02_convergence/02_convergence.html",
-      "/posts/301_01_introduction/01_introduction.html"
+      "/posts/03_regression/03_regression.html",
+      "/posts/02_convergence/02_convergence.html",
+      "/posts/01_introduction/01_introduction.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/03_regression/03_regression.html",
+      "/posts/02_convergence/02_convergence.html",
+      "/posts/01_introduction/01_introduction.html"
     ]
   }
 ]

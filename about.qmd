@@ -1,0 +1,10 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+
+
+---
+
+SML 301 Spring 2025

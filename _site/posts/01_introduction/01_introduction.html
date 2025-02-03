@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-01-27">
+
+<title>1: Introductions – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-1-introductions" id="toc-session-1-introductions" class="nav-link active" data-scroll-target="#session-1-introductions">Session 1: Introductions</a>
+  <ul class="collapse">
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start</a></li>
+  </ul></li>
+  <li><a href="#sml-301" id="toc-sml-301" class="nav-link" data-scroll-target="#sml-301">SML 301</a>
+  <ul class="collapse">
+  <li><a href="#data-intelligence-modern-data-science-methods" id="toc-data-intelligence-modern-data-science-methods" class="nav-link" data-scroll-target="#data-intelligence-modern-data-science-methods">Data Intelligence: Modern Data Science Methods</a></li>
+  </ul></li>
+  <li><a href="#introducting-the-presenter" id="toc-introducting-the-presenter" class="nav-link" data-scroll-target="#introducting-the-presenter">Introducting the Presenter</a>
+  <ul class="collapse">
+  <li><a href="#lecturer" id="toc-lecturer" class="nav-link" data-scroll-target="#lecturer">Lecturer</a></li>
+  <li><a href="#current-research-in-pedagogy" id="toc-current-research-in-pedagogy" class="nav-link" data-scroll-target="#current-research-in-pedagogy">Current Research in Pedagogy</a></li>
+  </ul></li>
+  <li><a href="#activity-icebreaker" id="toc-activity-icebreaker" class="nav-link" data-scroll-target="#activity-icebreaker">Activity: Icebreaker</a></li>
+  <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list">Reading List</a>
+  <ul class="collapse">
+  <li><a href="#textbooks" id="toc-textbooks" class="nav-link" data-scroll-target="#textbooks">Textbooks</a></li>
+  </ul></li>
+  <li><a href="#administrative" id="toc-administrative" class="nav-link" data-scroll-target="#administrative">Administrative</a></li>
+  <li><a href="#activity-a-short-python-tutorial" id="toc-activity-a-short-python-tutorial" class="nav-link" data-scroll-target="#activity-a-short-python-tutorial">Activity: A short Python tutorial</a></li>
+  <li><a href="#learning-environment" id="toc-learning-environment" class="nav-link" data-scroll-target="#learning-environment">Learning Environment</a>
+  <ul class="collapse">
+  <li><a href="#cooperative-classroom" id="toc-cooperative-classroom" class="nav-link" data-scroll-target="#cooperative-classroom">Cooperative Classroom</a></li>
+  <li><a href="#pep-talk" id="toc-pep-talk" class="nav-link" data-scroll-target="#pep-talk">Pep Talk</a></li>
+  <li><a href="#inclusion-statement" id="toc-inclusion-statement" class="nav-link" data-scroll-target="#inclusion-statement">Inclusion Statement</a></li>
+  </ul></li>
+  <li><a href="#activity-quick-draw" id="toc-activity-quick-draw" class="nav-link" data-scroll-target="#activity-quick-draw">Activity: Quick Draw!</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#learner-profiles" id="toc-learner-profiles" class="nav-link" data-scroll-target="#learner-profiles">Learner Profiles</a></li>
+  <li><a href="#activity-tf-playground" id="toc-activity-tf-playground" class="nav-link" data-scroll-target="#activity-tf-playground">Activity: TF Playground</a></li>
+  <li><a href="#large-data-sets" id="toc-large-data-sets" class="nav-link" data-scroll-target="#large-data-sets">Large Data Sets</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">1: Introductions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 27, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-1-introductions" class="level1">
+<h1>Session 1: Introductions</h1>
+<section id="start" class="level2">
+<h2 class="anchored" data-anchor-id="start">Start</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><strong>Goal</strong>: Introduce course</p></li>
+<li><p><strong>Objective</strong>: Explore some Python codes</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="main_books.png" class="img-fluid figure-img"></p>
+<figcaption>textbooks</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sml-301" class="level1">
+<h1>SML 301</h1>
+<section id="data-intelligence-modern-data-science-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-intelligence-modern-data-science-methods">Data Intelligence: Modern Data Science Methods</h2>
+<ul>
+<li><p>Spring 2025</p></li>
+<li><p>Monday, Wednesday, 11 AM to 1250 PM</p></li>
+<li><p>Lecturer: Derek</p>
+<ul>
+<li>I go by “Derek” or “teacher”</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Description
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="introducting-the-presenter" class="level1">
+<h1>Introducting the Presenter</h1>
+<section id="lecturer" class="level2">
+<h2 class="anchored" data-anchor-id="lecturer">Lecturer</h2>
+<p><img src="Lecturer_Derek.png" class="img-fluid"></p>
+</section>
+<section id="current-research-in-pedagogy" class="level2">
+<h2 class="anchored" data-anchor-id="current-research-in-pedagogy">Current Research in Pedagogy</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="MBVP SABER poster.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>active learning</li>
+<li>computer programming</li>
+<li>flipped classrooms</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="activity-icebreaker" class="level1">
+<h1>Activity: Icebreaker</h1>
+<ol type="1">
+<li><p>What is one of your unusual goals?</p>
+<ul>
+<li>(please pick a goal other than “get good grades”)</li>
+<li>whatever time frame makes sense</li>
+</ul></li>
+<li><p>What is something that you are hoping to gain from this SML 301 course?</p></li>
+<li><p>Favorite food?</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Derek’s Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>(unusual goal) I want to drive to Scranton and see some buildings from The Office TV show</li>
+<li>This semester, I will learn more about generative artificial intelligence and the underlying mathematics</li>
+<li>sushi!</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-list" class="level1">
+<h1>Reading List</h1>
+<section id="textbooks" class="level2">
+<h2 class="anchored" data-anchor-id="textbooks">Textbooks</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">List</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a> by James, Witten, Hastie, Tibshirani, Taylor</li>
+<li><a href="https://www.statlearning.com/">Deep Learning Illustrated</a> by Jon Krohn</li>
+<li><a href="https://nostarch.com/how-ai-works">How AI Works</a> by Ronald T Kneusel</li>
+<li><a href="https://probml.github.io/pml-book/book1.html">Probabilistic Machine Learning</a> by Kevin Patrick Murphy</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ISLP.png" class="img-fluid figure-img"></p>
+<figcaption>ISLP</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a> by James, Witten, Hastie, Tibshirani, Taylor</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Deep_Learning_Illustrated.png" class="img-fluid figure-img"></p>
+<figcaption>Deep Learning</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://www.statlearning.com/">Deep Learning Illustrated</a> by Jon Krohn</li>
+</ul>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="How_AI_Works.png" class="img-fluid figure-img"></p>
+<figcaption>How AI Works</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://nostarch.com/how-ai-works">How AI Works</a> by Ronald T Kneusel</li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PML.png" class="img-fluid figure-img"></p>
+<figcaption>Probabilistic Machine Learning</figcaption>
+</figure>
+</div>
+<ul>
+<li><a href="https://probml.github.io/pml-book/book1.html">Probabilistic Machine Learning</a> by Kevin Patrick Murphy</li>
+</ul>
+<!---
+### Add'l
+
+The following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.
+
+* *The Seven Pillars of Statistical Wisdom* by Stephen M Stigler provides a wonderful overview of the history of statistics and the field's major developments.
+* *Statistical Rethinking* by Richard McElreath is the premier body of work in the field of Bayesian analysis.  This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.
+* *Teaching Statistics* by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.
+* *Bernoulli's Fallacy* by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed.
+--->
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="administrative" class="level1">
+<h1>Administrative</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prerequisites
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>One semester of data science and statistics</li>
+<li>Two semesters of calculus</li>
+<li>Familiarity with R or Python programming is assumed</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Learning Outcomes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By the end of this course, students will be able to:</p>
+<ul>
+<li>Understand the main concepts of machine learning in supervised learning, unsupervised learning, and reinforcement learning</li>
+<li>Deploy and experiment with various machine learning algorithms</li>
+<li>Critique results and performance of machine learning computations</li>
+<li>Refine artificial intelligence code and discuss parameter selection</li>
+<li>Understand the ethical and societal implications of artificial intelligence, including issues such as algorithmic bias, data privacy, and the impact of automation</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lecture Sessions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Please keep extra noise to a minimum. Cell phones may be used as long as they are on silent or vibrate. Please also review the Cooperative Classroom statement below.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Precepts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Precepts will be held for 80 minutes per week. Students will develop problem-solving skills through collaborative work on the computer programming while also working toward the projects.</p>
+<p>Upon completing precept work, either</p>
+<ul>
+<li>ask an instructor to check your work for credit in your precept section</li>
+<li>or, if otherwise submitting online, upload the HTML file back in Canvas</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Late Policy
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Most assignments will be due at 5 PM USA Eastern time on Friday. Credit for late assignments may be deducted 10 percent (from the maximum point total), plus another 10 percent for each additional 12-hour period after the stated due date.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Computers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use of a laptop computer is highly recommended for this course, and students are asked to bring their laptop computer to every lecture and precept session.</p>
+<ul>
+<li>More information about computer needs can be found at <a href="https://princeton.service-now.com/service?id=kb_article&amp;sys_id=KB0013768" class="uri">https://princeton.service-now.com/service?id=kb_article&amp;sys_id=KB0013768</a></li>
+<li>While Chromebooks (or other systems that discourage installation of software) can access cloud software, intensive calculations in this course may merit the use of a personal computer and downloaded software rather than server access.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Special Accommodations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Students must register with the Office of Disability Services (ODS) (ods@princeton.edu; 258-8840) for disability verification and determination of eligibility for reasonable academic accommodations. Requests for academic accommodations for this course need to be made at the beginning of the semester, or as soon as possible for newly approved students, and again at least two weeks in advance of any needed accommodations in order to make arrangements to implement the accommodations. Please make an appointment to meet with me in order to maintain confidentiality in addressing your needs. No accommodations will be given without authorization from ODS, or without advance notice.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Academic Integrity Policy
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You are allowed to read text books and resources online. You may not ask other individuals questions (e.g., you may not ask questions on Stack Exchange or Python help discussion groups).</p>
+<p>You may use artificial intelligence chatbots (e.g.&nbsp;ChatGPT, Claude) as a resource or study aid to review course ideas. Do not use these chatbots to generate code for assignments.</p>
+<p>In accordance with the honor code, you must cite all sources of external information used in your work. This can be a book or a web site. Part of being a successful data scientist is having the ability to leverage existing information and techniques, so it is okay to do so in this course as long as you cite the reference. University policies can be reviewed at <a href="https://ua.princeton.edu/policies-resources/undergraduate-honor-system" class="uri">https://ua.princeton.edu/policies-resources/undergraduate-honor-system</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-a-short-python-tutorial" class="level1">
+<h1>Activity: A short Python tutorial</h1>
+<p>To the best of your present knowledge, what do each of the following lines of Python code do? What is the code output (if applicable)?</p>
+<ul>
+<li>section 2.3.3 of <em>Introduction to Statistical Learning in Python</em></li>
+</ul>
+<pre><code>import numpy as np
+x = np.array([3, 4, 5])
+y = np.array([4, 9, 7])
+x + y</code></pre>
+<pre><code>x = np.array([[1, 2], [3, 4]])
+#array([[1, 2],
+#[3, 4]])
+x.ndim
+x.shape</code></pre>
+<pre><code>x.dtype
+np.array([[1, 2], [3.0, 4]]).dtype</code></pre>
+<pre><code>x = np.array([1, 2, 3, 4])
+x.sum()
+x**2
+x**0.5</code></pre>
+</section>
+<section id="learning-environment" class="level1">
+<h1>Learning Environment</h1>
+<section id="cooperative-classroom" class="level2">
+<h2 class="anchored" data-anchor-id="cooperative-classroom">Cooperative Classroom</h2>
+<p>Learning in a cooperative environment should be stimulating, demanding, and fair. Because this approach to learning is different from the competitive classroom structure that many other courses used to be based on, it is important for us to be clear about mutual expectations. Below are my expectations for students in this class. This set of expectations is intended to maximize debate and exchange of ideas in an atmosphere of mutual respect while preserving individual ownership of ideas and written words. If you feel you do not understand or cannot agree to these expectations, you should discuss this with your instructor and classmates.</p>
+<ol type="1">
+<li>Students are expected to work cooperatively with other members of the class and show respect for the ideas and contributions of other people.</li>
+<li>When working as part of a group, students should strive to be good contributors to the group, listen to others, not dominate, and recognize the contributions of others. Students should try to ensure that everyone in the group is welcome to contribute and recognize that everyone contributes in different ways to a group process.</li>
+<li>Students should explore data, make observations, and develop inferences as part of a group. If you use material from published sources, you must provide appropriate attribution.</li>
+</ol>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>(Students will be asked to acknowledge this document in an online form.)</p>
+<p>This document has been adapted from <em>Scientific Teaching</em> by Jo Handelsman, Sarah Miller, and Christine Pfund</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Scientific_Teaching.png" class="img-fluid figure-img"></p>
+<figcaption>Scientific Teaching</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="pep-talk" class="level2">
+<h2 class="anchored" data-anchor-id="pep-talk">Pep Talk</h2>
+<p>Learning R can be difficult at first—it is like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you will be using like <code>ggplot2</code>—made this wise observation:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wisdom from Hadley Wickham
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.</p>
+</div>
+</div>
+</div>
+<p>If you are finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions … e-mail [Derek], etc. I promise you can do this.</p>
+<p>—Andrew Heiss, Georgia State University</p>
+</section>
+<section id="inclusion-statement" class="level2">
+<h2 class="anchored" data-anchor-id="inclusion-statement">Inclusion Statement</h2>
+<p>I value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment).</p>
+</section>
+</section>
+<section id="activity-quick-draw" class="level1">
+<h1>Activity: Quick Draw!</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="QuickDraw.png" class="img-fluid figure-img"></p>
+<figcaption>Quick Draw, by Google</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:60%;">
+<p>Try out Quick Draw!</p>
+<ul>
+<li><p><a href="https://quickdraw.withgoogle.com/">https://quickdraw.withgoogle.com/</a></p></li>
+<li><p>app will ask you to sketch 6 images</p>
+<ul>
+<li>and it will try to recognize your artwork</li>
+</ul></li>
+<li><p>caution: there is sound</p>
+<ul>
+<li>yes, you may leave the sound on</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="topics" class="level1">
+<h1>Topics</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">table</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div id="efbubyomha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#efbubyomha table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#efbubyomha thead, #efbubyomha tbody, #efbubyomha tfoot, #efbubyomha tr, #efbubyomha td, #efbubyomha th {
+  border-style: none;
+}
+
+#efbubyomha p {
+  margin: 0;
+  padding: 0;
+}
+
+#efbubyomha .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#efbubyomha .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#efbubyomha .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#efbubyomha .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#efbubyomha .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#efbubyomha .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#efbubyomha .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#efbubyomha .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#efbubyomha .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#efbubyomha .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#efbubyomha .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#efbubyomha .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#efbubyomha .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#efbubyomha .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#efbubyomha .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#efbubyomha .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#efbubyomha .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#efbubyomha .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#efbubyomha .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#efbubyomha .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#efbubyomha .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#efbubyomha .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#efbubyomha .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#efbubyomha .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#efbubyomha .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#efbubyomha .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#efbubyomha .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#efbubyomha .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#efbubyomha .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#efbubyomha .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#efbubyomha .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#efbubyomha .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#efbubyomha .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#efbubyomha .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#efbubyomha .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#efbubyomha .gt_left {
+  text-align: left;
+}
+
+#efbubyomha .gt_center {
+  text-align: center;
+}
+
+#efbubyomha .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#efbubyomha .gt_font_normal {
+  font-weight: normal;
+}
+
+#efbubyomha .gt_font_bold {
+  font-weight: bold;
+}
+
+#efbubyomha .gt_font_italic {
+  font-style: italic;
+}
+
+#efbubyomha .gt_super {
+  font-size: 65%;
+}
+
+#efbubyomha .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#efbubyomha .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#efbubyomha .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#efbubyomha .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#efbubyomha .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#efbubyomha .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#efbubyomha .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#efbubyomha .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#efbubyomha div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">SML 201</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Lecture Topics</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Week" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Week</th>
+<th id="Date" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Date</th>
+<th id="topic" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">topic</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">1</td>
+<td class="gt_row gt_center" headers="Date">1/27/2024</td>
+<td class="gt_row gt_center" headers="topic">introduction</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">1</td>
+<td class="gt_row gt_center" headers="Date">1/29/2024</td>
+<td class="gt_row gt_center" headers="topic">classification</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">2</td>
+<td class="gt_row gt_center" headers="Date">2/3/2024</td>
+<td class="gt_row gt_center" headers="topic">regression</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">2</td>
+<td class="gt_row gt_center" headers="Date">2/5/2024</td>
+<td class="gt_row gt_center" headers="topic">SVM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">3</td>
+<td class="gt_row gt_center" headers="Date">2/10/2024</td>
+<td class="gt_row gt_center" headers="topic">decision trees</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">3</td>
+<td class="gt_row gt_center" headers="Date">2/12/2024</td>
+<td class="gt_row gt_center" headers="topic">decision trees</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">4</td>
+<td class="gt_row gt_center" headers="Date">2/17/2024</td>
+<td class="gt_row gt_center" headers="topic">random forest</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">4</td>
+<td class="gt_row gt_center" headers="Date">2/19/2024</td>
+<td class="gt_row gt_center" headers="topic">random forest</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">5</td>
+<td class="gt_row gt_center" headers="Date">2/24/2024</td>
+<td class="gt_row gt_center" headers="topic">KNN</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">5</td>
+<td class="gt_row gt_center" headers="Date">2/26/2024</td>
+<td class="gt_row gt_center" headers="topic">KNN</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">6</td>
+<td class="gt_row gt_center" headers="Date">3/3/2024</td>
+<td class="gt_row gt_center" headers="topic">ANN</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">6</td>
+<td class="gt_row gt_center" headers="Date">3/5/2024</td>
+<td class="gt_row gt_center" headers="topic">ANN</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">7</td>
+<td class="gt_row gt_center" headers="Date">3/17/2024</td>
+<td class="gt_row gt_center" headers="topic">numerical analysis</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">7</td>
+<td class="gt_row gt_center" headers="Date">3/19/2024</td>
+<td class="gt_row gt_center" headers="topic">numerical analysis</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">8</td>
+<td class="gt_row gt_center" headers="Date">3/24/2024</td>
+<td class="gt_row gt_center" headers="topic">deep learning</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">8</td>
+<td class="gt_row gt_center" headers="Date">3/26/2024</td>
+<td class="gt_row gt_center" headers="topic">deep learning</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">9</td>
+<td class="gt_row gt_center" headers="Date">3/31/2024</td>
+<td class="gt_row gt_center" headers="topic">computer vision</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">9</td>
+<td class="gt_row gt_center" headers="Date">4/2/2024</td>
+<td class="gt_row gt_center" headers="topic">computer vision</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">10</td>
+<td class="gt_row gt_center" headers="Date">4/7/2024</td>
+<td class="gt_row gt_center" headers="topic">NLP</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">10</td>
+<td class="gt_row gt_center" headers="Date">4/9/2024</td>
+<td class="gt_row gt_center" headers="topic">NLP</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">11</td>
+<td class="gt_row gt_center" headers="Date">4/14/2024</td>
+<td class="gt_row gt_center" headers="topic">GAN</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">11</td>
+<td class="gt_row gt_center" headers="Date">4/16/2024</td>
+<td class="gt_row gt_center" headers="topic">GAN</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">12</td>
+<td class="gt_row gt_center" headers="Date">4/21/2024</td>
+<td class="gt_row gt_center" headers="topic">LLM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">12</td>
+<td class="gt_row gt_center" headers="Date">4/23/2024</td>
+<td class="gt_row gt_center" headers="topic">LLM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Week">reading</td>
+<td class="gt_row gt_center" headers="Date">4/28/2024</td>
+<td class="gt_row gt_center" headers="topic">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Week">reading</td>
+<td class="gt_row gt_center" headers="Date">4/30/2024</td>
+<td class="gt_row gt_center" headers="topic">NA</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="3" class="gt_footnote">Fall 2024</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="learner-profiles" class="level1">
+<h1>Learner Profiles</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Pedagogy</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Sharing an overview of the types of students that might be taking this course.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="spike" class="level3">
+<h3 class="anchored" data-anchor-id="spike">Spike</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LP_Spike.png" class="img-fluid figure-img"></p>
+<figcaption>Spike</figcaption>
+</figure>
+</div>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Senior</li>
+<li>ORFE</li>
+<li>Looking to add a variety of skills toward software development</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="jet" class="level3">
+<h3 class="anchored" data-anchor-id="jet">Jet</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LP_Jet.png" class="img-fluid figure-img"></p>
+<figcaption>Jet</figcaption>
+</figure>
+</div>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Junior</li>
+<li>Psychology</li>
+<li>Took AP Statistics years ago and a data science course</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="faye" class="level3">
+<h3 class="anchored" data-anchor-id="faye">Faye</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LP_Faye.png" class="img-fluid figure-img"></p>
+<figcaption>Faye</figcaption>
+</figure>
+</div>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Sophomore</li>
+<li>Anthropology</li>
+<li>Wants to add “machine learning” to CV before applying to internships</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="ed" class="level3">
+<h3 class="anchored" data-anchor-id="ed">Ed</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LP_Ed.png" class="img-fluid figure-img"></p>
+<figcaption>Ed</figcaption>
+</figure>
+</div>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Computer Science</li>
+<li>Has a lot of experience programming in Python and VS Code, and is looking for larger projects</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-tf-playground" class="level1">
+<h1>Activity: TF Playground</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<section id="tensorflow-playground" class="level2">
+<h2 class="anchored" data-anchor-id="tensorflow-playground">TensorFlow Playground</h2>
+<ul>
+<li>link: <a href="https://playground.tensorflow.org">https://playground.tensorflow.org</a></li>
+<li>explore the various menus and buttons</li>
+<li>feel free to run a simulation</li>
+</ul>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Tensorflow_playground.PNG" class="img-fluid figure-img"></p>
+<figcaption>TensorFlow Playground</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="large-data-sets" class="level1">
+<h1>Large Data Sets</h1>
+<blockquote class="blockquote">
+<p>Data Intelligence: Modern Data Science Methods</p>
+</blockquote>
+<ul>
+<li>Hospital pricing: predict surgery prices</li>
+<li><strong>AEC</strong>: automating document scanning classification</li>
+<li>Large Language Models</li>
+</ul>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>Please read the weekly announcement in Canvas</p></li>
+<li><p>due this Friday (5 PM):</p>
+<ul>
+<li>Precept 1</li>
+<li>CLO Assessment (survey)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><img src="math-zach-galifianakis.gif" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
+ [5] purrr_1.0.2     readr_2.1.5     tidyr_1.3.1     tibble_3.2.1   
+ [9] ggplot2_3.5.1   tidyverse_2.0.0 gt_0.11.1      
+
+loaded via a namespace (and not attached):
+ [1] bit_4.5.0.1       archive_1.1.8     gtable_0.3.6      jsonlite_1.8.9   
+ [5] crayon_1.5.3      compiler_4.4.2    tidyselect_1.2.1  xml2_1.3.6       
+ [9] parallel_4.4.2    scales_1.3.0      yaml_2.3.10       fastmap_1.2.0    
+[13] R6_2.5.1          generics_0.1.3    knitr_1.49        htmlwidgets_1.6.4
+[17] munsell_0.5.1     pillar_1.10.1     tzdb_0.4.0        rlang_1.1.5      
+[21] stringi_1.8.4     xfun_0.50         sass_0.4.9        bit64_4.6.0-1    
+[25] timechange_0.3.0  cli_3.6.3         withr_3.0.2       magrittr_2.0.3   
+[29] digest_0.6.37     grid_4.4.2        vroom_1.6.5       rstudioapi_0.17.1
+[33] hms_1.1.3         lifecycle_1.0.4   vctrs_0.6.5       evaluate_1.0.3   
+[37] glue_1.8.0        colorspace_2.1-1  rmarkdown_2.29    tools_4.4.2      
+[41] pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
