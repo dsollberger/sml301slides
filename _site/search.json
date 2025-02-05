@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Cleaning\n\n\n\n\n\n\n\n\n\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Cleaning\n\n\n\n\n\n\n\n\n\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -327,5 +327,152 @@
     "title": "2: Convergence",
     "section": "Application: Dinner Choices",
     "text": "Application: Dinner Choices\nSuppose that we have a Princeton student whose behavior includes eating only three types of dinner:\n\\[S = \\{\\text{ramen}, \\text{pizza}, \\text{sushi}\\}\\]\nwith transition matrix\n\\[P = \\left(\\begin{array}{ccc}\n0.2 & 0.4 & 0.4 \\\\\n0.3 & 0.4 & 0.3 \\\\\n0.2 & 0.2 & 0.6\n\\end{array}\\right)\\]\n\n\n\ndinner choices network\n\n\n\n\n\n\n\n\nNetwork terminology\n\n\n\n\n\n\ndirected versus undirected graphs\ncyclic versus acyclic graphs\n\nLater studies focus on DAGs: directed, acyclic network graphs\n\n\n\nSuppose that, on a Monday, the student’s preferences are\n\\[x_0 = \\left(\\begin{array}{ccc} 0.5 & 0.25 & 0.25 \\end{array}\\right)\\]\n\nWhat is the probability that the student will eat ramen on Tuesday (i.e. the next day)?\nWhat is the probability that the student will eat pizza on Wednesday (i.e. two days later)?\nWhat is the long-term dinner-choice behavior of this student?"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html",
+    "href": "posts/04_classification/04_classification.html",
+    "title": "4: Classification",
+    "section": "",
+    "text": "Goal: Start to discuss classification methods\nObjective: Explore logistic regression and Naive Bayes classifiers\n\n\nAs we get started, try to install the palmerpenguins package in your Python software"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#start",
+    "href": "posts/04_classification/04_classification.html#start",
+    "title": "4: Classification",
+    "section": "",
+    "text": "Goal: Start to discuss classification methods\nObjective: Explore logistic regression and Naive Bayes classifiers\n\n\nAs we get started, try to install the palmerpenguins package in your Python software"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#palmer-penguins-example",
+    "href": "posts/04_classification/04_classification.html#palmer-penguins-example",
+    "title": "4: Classification",
+    "section": "Palmer Penguins Example",
+    "text": "Palmer Penguins Example\n\n\n\n\n\n\n\n\n\n\n\nR Code\n\n\nadelie_color = \"#fb7504\"\nchinstrap_color = \"#c65ccc\"\ngentoo_color = \"#067476\"\n\npenguin_class_df &lt;- penguins |&gt;\n  na.omit() |&gt;\n  mutate(chinstrap_bool = ifelse(species == \"Chinstrap\", 1, 0)) |&gt;\n  mutate(across(chinstrap_bool, as.factor)) #https://stackoverflow.com/questions/33180058/coerce-multiple-columns-to-factors-at-once\n\npenguin_class_df |&gt;\nggplot(aes(x = flipper_length_mm, y = bill_length_mm, \n           color = chinstrap_bool)) + \n  geom_point(size = 3) + \n  labs(title = \"Classification Task\",\n       subtitle = \"Finding the &lt;span style = 'color:#c65ccc'&gt;Chinstrap&lt;/span&gt; penguins among n = 333 penguins\",\n       caption = \"SML 301\") +\n  scale_color_manual(values = c(\"gray70\", chinstrap_color)) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\n\nGeneralized Linear Models\n\nlogistic_model &lt;- stats::glm(chinstrap_bool ~ flipper_length_mm + bill_length_mm,\n                      data = penguin_class_df,\n                      family = binomial) #makes logistic regression\n\n\n\n\n\n\n\n\n\n\n\n\nR code\n\n\n# https://stats.stackexchange.com/questions/6206/how-to-plot-decision-boundary-in-r-for-logistic-regression-model\nbeta_0 &lt;- coef(logistic_model)[1]\nbeta_1 &lt;- coef(logistic_model)[2]\nbeta_2 &lt;- coef(logistic_model)[3]\nboundary_slope &lt;- -1.0 * beta_1 / beta_2\nboundary_intercept &lt;- -1.0 * beta_0 / beta_2\n\npenguin_pred_df &lt;- penguin_class_df |&gt;\n  mutate(species_pred = ifelse(\n    bill_length_mm &gt; boundary_intercept + boundary_slope * flipper_length_mm,\n    1,0)) |&gt;\n  mutate(across(species_pred, as.factor))\n\npenguin_pred_df |&gt;\nggplot(aes(x = flipper_length_mm, y = bill_length_mm, \n           color = species_pred)) + \n  geom_point(size = 3) + \n  geom_abline(intercept = boundary_intercept,\n              slope = boundary_slope,\n              color = adelie_color,\n              linewidth = 2,\n              linetype = 2) +\n  labs(title = \"&lt;span style = 'color:#fb7504'&gt;Decision Boundary&lt;/span&gt;\",\n       subtitle = \"where logit a = 0\",\n       caption = \"SML 301\") +\n  scale_color_manual(values = c(\"gray70\", chinstrap_color)) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\n\npenguin_pred_df |&gt;\n  janitor::tabyl(chinstrap_bool, species_pred) |&gt;\n  janitor::adorn_totals(c(\"row\", \"col\"))\n\n chinstrap_bool   0  1 Total\n              0 258  7   265\n              1   8 60    68\n          Total 266 67   333\n\n\n\naccuracy: 0.9550\nsensitivity: 0.8824\nspecificity: 0.9736"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#adaboost",
+    "href": "posts/04_classification/04_classification.html#adaboost",
+    "title": "4: Classification",
+    "section": "Adaboost",
+    "text": "Adaboost\n\nA Decision-Theoretic Generalization of on-Line Learning and an Application to Boosting (1997—published as abstract in 1995), Freund and Schapire"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#alexnet",
+    "href": "posts/04_classification/04_classification.html#alexnet",
+    "title": "4: Classification",
+    "section": "AlexNet",
+    "text": "AlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#dropout",
+    "href": "posts/04_classification/04_classification.html#dropout",
+    "title": "4: Classification",
+    "section": "DropOut",
+    "text": "DropOut\n\nDropout: A Simple Way to Prevent Neural Networks from Overfitting (2014), Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#gans",
+    "href": "posts/04_classification/04_classification.html#gans",
+    "title": "4: Classification",
+    "section": "GANs",
+    "text": "GANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al."
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#tensorflow",
+    "href": "posts/04_classification/04_classification.html#tensorflow",
+    "title": "4: Classification",
+    "section": "TensorFlow",
+    "text": "TensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al."
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#word2vec",
+    "href": "posts/04_classification/04_classification.html#word2vec",
+    "title": "4: Classification",
+    "section": "Word2Vec",
+    "text": "Word2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#data-palmer-penguins",
+    "href": "posts/04_classification/04_classification.html#data-palmer-penguins",
+    "title": "4: Classification",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nThere exist multiple penguin species throughout Antarctica, including the Adelie, Chinstrap, and Gentoo. When encountering one of these penguins on an Antarctic trip, we might classify its species\n\\[Y = \\begin{cases} A & \\text{Adelie} \\\\ C & \\text{Chinstrap} \\\\ G & \\text{Gentoo} \\end{cases}\\]\n\n\n\nthree species\n\n\nExample comes from chapter 14 of Bayes Rules!\n\n\n\nBayes Rules! textbook\n\n\n\\(X_{1}\\) categorical variable: whether the penguin weighs more than the average 4200 grams\n\\[X_{1} = \\begin{cases} 1 & \\text{above-average weight} \\\\ 0 & \\text{below-average weight} \\end{cases}\\]\n\n\n\nAKA culmen length and depth\n\n\nNumerical variables:\n\\[\\begin{array}{rcl}\n  X_{2} & = & \\text{bill length (mm)} \\\\\n  X_{3} & = & \\text{flipper length (mm)} \\\\\n\\end{array}\\]\n\ndata(penguins_bayes)\npenguins &lt;- penguins_bayes\n\nadelie_color = \"#fb7504\"\nchinstrap_color = \"#c65ccc\"\ngentoo_color = \"#067476\"\n\npenguins |&gt;\n  tabyl(species)\n\n   species   n   percent\n    Adelie 152 0.4418605\n Chinstrap  68 0.1976744\n    Gentoo 124 0.3604651"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#motivation",
+    "href": "posts/04_classification/04_classification.html#motivation",
+    "title": "4: Classification",
+    "section": "Motivation",
+    "text": "Motivation\nHere, we have three categories, whereas logistic regression is limited to classifying binary response variables. As an alternative, naive Bayes classification\n\ncan classify categorical response variables \\(Y\\) with two or more categories\ndoesn’t require much theory beyond Bayes’ Rule\nit’s computationally efficient, i.e., doesn’t require MCMC simulation\n\nBut why is it called “naive”?"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#one-categorical-predictor",
+    "href": "posts/04_classification/04_classification.html#one-categorical-predictor",
+    "title": "4: Classification",
+    "section": "One Categorical Predictor",
+    "text": "One Categorical Predictor\nSuppose an Antarctic researcher comes across a penguin that weighs less than 4200g with a 195mm-long flipper and 50mm-long bill. Our goal is to help this researcher identify the species of this penguin: Adelie, Chinstrap, or Gentoo\n\n\n\n\n\n\n\n\n\n\n\nimage code\n\n\npenguins |&gt;\n  drop_na(above_average_weight) |&gt;\n  ggplot(aes(fill = above_average_weight, x = species)) + \n  geom_bar(position = \"fill\") + \n  labs(title = \"&lt;span style = 'color:#067476'&gt;For which species is a&lt;br&gt;below-average weight most likely?&lt;/span&gt;\",\n       subtitle = \"(focus on the &lt;span style = 'color:#c65ccc'&gt;below-average&lt;/span&gt; category)\",\n       caption = \"SML 301\") +\n  scale_fill_manual(values = c(\"#c65ccc\", \"#fb7504\")) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\n\nRecall: Bayes Rule\n\\[f(y|x_{1}) = \\frac{\\text{prior}\\cdot\\text{likelihood}}{\\text{normalizing constant}} = \\frac{f(y) \\cdot L(y|x_{1})}{f(x_{1})}\\] where, by the Law of Total Probability,\n\\[\\begin{array}{rcl}\nf(x_{1} & = & \\displaystyle\\sum_{\\text{all } y'} f(y')L(y'|x_{1}) \\\\\n~ & = & f(y' = A)L(y' = A|x_{1}) + f(y' = C)L(y' = C|x_{1}) + f(y' = G)L(y' = G|x_{1}) \\\\\n\\end{array}\\]\nover our three penguin species.\n\n\nCalculation\n\npenguins |&gt; \n  select(species, above_average_weight) |&gt; \n  na.omit() |&gt; \n  tabyl(species, above_average_weight) |&gt; \n  adorn_totals(c(\"row\", \"col\"))\n\n   species   0   1 Total\n    Adelie 126  25   151\n Chinstrap  61   7    68\n    Gentoo   6 117   123\n     Total 193 149   342\n\n\nPrior probabilities:\n\\[f(y = A) = \\frac{151}{342}, \\quad f(y = C) = \\frac{68}{342}, \\quad f(y = G) = \\frac{123}{342}\\]\nLikelihoods:\n\\[\\begin{array}{rcccl}\n  L(y = A | x_{1} = 0) & = & \\frac{126}{151} & \\approx & 0.8344 \\\\\n  L(y = C | x_{1} = 0) & = & \\frac{61}{68} & \\approx & 0.8971 \\\\\n  L(y = G | x_{1} = 0) & = & \\frac{6}{123} & \\approx & 0.0488 \\\\\n\\end{array}\\]\nTotal probability:\n\\[f(x_{1} = 0) = \\frac{151}{342}\\cdot\\frac{126}{151} + \\frac{68}{342}\\cdot\\frac{61}{68} + \\frac{123}{342}\\cdot\\frac{6}{123} = \\frac{193}{342}\\]\nBayes’ Rules:\n\\[\\begin{array}{rcccccl}\n  f(y = A | x_{1} = 0) & = & \\frac{f(y = A) \\cdot L(y = A | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{151}{342}\\cdot\\frac{126}{151}}{\\frac{193}{342}} & \\approx & 0.6528 \\\\\n  f(y = C | x_{1} = 0) & = & \\frac{f(y = A) \\cdot L(y = C | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{68}{342}\\cdot\\frac{61}{68}}{\\frac{193}{342}} & \\approx & 0.3161 \\\\\n  f(y = G | x_{1} = 0) & = & \\frac{f(y = A) \\cdot L(y = G | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{123}{342}\\cdot\\frac{6}{123}}{\\frac{193}{342}} & \\approx & 0.0311 \\\\\n\\end{array}\\]\nThe posterior probability that this penguin is an Adelie is more than double that of the other two species"
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#one-numerical-predictor",
+    "href": "posts/04_classification/04_classification.html#one-numerical-predictor",
+    "title": "4: Classification",
+    "section": "One Numerical Predictor",
+    "text": "One Numerical Predictor\nLet’s ignore the penguin’s weight for now and classify its species using only the fact that it has a 50mm-long bill\n\n\n\n\n\n\n\n\n\n\n\nimage code\n\n\npenguins|&gt;\n  ggplot(aes(x = bill_length_mm, fill = species)) + \n  geom_density(alpha = 0.7) + \n  geom_vline(xintercept = 50, linetype = \"dashed\", linewidth = 3) + \n  labs(title = \"&lt;span style = 'color:#c65ccc'&gt;For which species is a&lt;br&gt;50mm-long bill the most common?&lt;/span&gt;\",\n       subtitle = \"one numerical predictor\",\n       caption = \"SML 301\") +\n  scale_fill_manual(values = c(adelie_color, chinstrap_color, gentoo_color)) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\nOur data points to our penguin being a Chinstrap\n\nwe must weigh this data against the fact that Chinstraps are the rarest of these three species\ndifficult to compute likelihood \\(L(y = A | x_{2} = 50)\\)\n\nThis is where one “naive” part of naive Bayes classification comes into play. The naive Bayes method typically assumes that any quantitative predictor, here \\(X_{2}\\), is continuous and conditionally normal:\n\\[\\begin{array}{rcl}\n  X_{2} | (Y = A) & \\sim & N(\\mu_{A}, \\sigma_{A}^{2}) \\\\\n  X_{2} | (Y = C) & \\sim & N(\\mu_{C}, \\sigma_{C}^{2}) \\\\\n  X_{2} | (Y = G) & \\sim & N(\\mu_{G}, \\sigma_{G}^{2}) \\\\\n\\end{array}\\]\n\nPrior Probability Distributions\n\n# Calculate sample mean and sd for each Y group\npenguins |&gt; \n  group_by(species) |&gt; \n  summarize(mean = mean(bill_length_mm, na.rm = TRUE), \n            sd = sd(bill_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 3\n  species    mean    sd\n  &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;\n1 Adelie     38.8  2.66\n2 Chinstrap  48.8  3.34\n3 Gentoo     47.5  3.08\n\n\n\npenguins |&gt;\n  ggplot(aes(x = bill_length_mm, color = species)) + \n  stat_function(fun = dnorm, args = list(mean = 38.8, sd = 2.66), \n                aes(color = \"Adelie\"), linewidth = 3) +\n  stat_function(fun = dnorm, args = list(mean = 48.8, sd = 3.34),\n                aes(color = \"Chinstrap\"), linewidth = 3) +\n  stat_function(fun = dnorm, args = list(mean = 47.5, sd = 3.08),\n                aes(color = \"Gentoo\"), linewidth = 3) +\n  ...\n\n\n\n\n\n\n\n\n\n\n\n\nimage code\n\n\npenguins |&gt;\n  ggplot(aes(x = bill_length_mm, color = species)) + \n  stat_function(fun = dnorm, args = list(mean = 38.8, sd = 2.66), \n                aes(color = \"Adelie\"), linewidth = 3) +\n  stat_function(fun = dnorm, args = list(mean = 48.8, sd = 3.34),\n                aes(color = \"Chinstrap\"), linewidth = 3) +\n  stat_function(fun = dnorm, args = list(mean = 47.5, sd = 3.08),\n                aes(color = \"Gentoo\"), linewidth = 3) + \n  geom_vline(xintercept = 50, linetype = \"dashed\") + \n  labs(title = \"&lt;span style = 'color:#c65ccc'&gt;Prior Probabilities&lt;/span&gt;\",\n       subtitle = \"conditionally normal\",\n       caption = \"SML 301\") +\n  scale_color_manual(values = c(adelie_color, chinstrap_color, gentoo_color)) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\nComputing the likelihoods in R:\n\n# L(y = A | x_2 = 50) = 2.12e-05\ndnorm(50, mean = 38.8, sd = 2.66)\n\n# L(y = C | x_2 = 50) = 0.112\ndnorm(50, mean = 48.8, sd = 3.34)\n\n# L(y = G | x_2 = 50) = 0.09317\ndnorm(50, mean = 47.5, sd = 3.08)\n\nTotal probability:\n\\[f(x_{2} = 50) = \\frac{151}{342} \\cdot 0.0000212 + \\frac{68}{342} \\cdot 0.112 + \\frac{123}{342} \\cdot 0.09317 \\approx 0.05579\\]\nBayes’ Rules:\n\\[\\begin{array}{rcccccl}\n  f(y = A | x_{2} = 50) & = & \\frac{f(y = A) \\cdot L(y = A | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{151}{342} \\cdot 0.0000212}{0.05579} & \\approx & 0.0002 \\\\\n  f(y = C | x_{2} = 50) & = & \\frac{f(y = A) \\cdot L(y = C | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{68}{342} \\cdot 0.112}{0.05579} & \\approx & 0.3992 \\\\\n  f(y = G | x_{2} = 50) & = & \\frac{f(y = A) \\cdot L(y = G | x_{1} = 0)}{f(x_{1} = 0)} = \\frac{\\frac{123}{342} \\cdot 0.09317}{0.05579} & \\approx & 0.6006 \\\\\n\\end{array}\\]\nThough a 50mm-long bill is relatively less common among Gentoo than among Chinstrap, it follows that our naive Bayes classification, based on our prior information and penguin’s bill length alone, is that this penguin is a Gentoo – it has the highest posterior probability.\nWe’ve now made two naive Bayes classifications of our penguin’s species, one based solely on the fact that our penguin has below-average weight and the other based solely on its 50mm-long bill (in addition to our prior information). And these classifications disagree: we classified the penguin as Adelie in the former analysis and Gentoo in the latter. This discrepancy indicates that there’s room for improvement in our naive Bayes classification method."
+  },
+  {
+    "objectID": "posts/04_classification/04_classification.html#two-predictor-variables",
+    "href": "posts/04_classification/04_classification.html#two-predictor-variables",
+    "title": "4: Classification",
+    "section": "Two Predictor Variables",
+    "text": "Two Predictor Variables\n\n\n\n\n\n\n\n\n\n\n\nimage code\n\n\npenguins |&gt;\nggplot(aes(x = flipper_length_mm, y = bill_length_mm, \n           color = species)) + \n  geom_point(size = 3) + \n  geom_segment(aes(x = 195, y = 30, xend = 195, yend = 50),\n               color = \"black\", linetype = 2, linewidth = 2) +\n  geom_segment(aes(x = 170, y = 50, xend = 195, yend = 50),\n               color = \"black\", linetype = 2, linewidth = 2) +\n  labs(title = \"&lt;span style = 'color:#c65ccc'&gt;Two Predictor Variables&lt;/span&gt;\",\n       subtitle = \"50mm-long bill and 195mm-long flipper\",\n       caption = \"SML 301\") +\n  scale_color_manual(values = c(adelie_color, chinstrap_color, gentoo_color)) +\n  theme_minimal() +\n  theme(plot.title = element_markdown(face = \"bold\", size = 24),\n        plot.subtitle = element_markdown(size = 16))\n\n\nGeneralizing Bayes’ Rule:\n\\[f(y | x_{2}, x_{3}) = \\frac{f(y) \\cdot L(y | x_{2}, x_{3})}{\\sum_{y'} f(y') \\cdot L(y' | x_{2}, x_{3})}\\]\nAnother “naive” assumption of conditionally independent:\n\\[L(y | x_{2}, x_{3}) = f(x_{2}, x_{3} | y) = f(x_{2} | y) \\cdot f(x_{3} | y)\\]\n\nmathematically efficient\nbut what about correlation?\n\n\n# sample statistics of x_3: flipper length\npenguins |&gt; \n  group_by(species) |&gt; \n  summarize(mean = mean(flipper_length_mm, na.rm = TRUE), \n            sd = sd(flipper_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 3\n  species    mean    sd\n  &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;\n1 Adelie     190.  6.54\n2 Chinstrap  196.  7.13\n3 Gentoo     217.  6.48\n\n\nLikelihoods of a flipper length of 195 mm:\n\n# L(y = A | x_3 = 195) = 0.04554\ndnorm(195, mean = 190, sd = 6.54)\n\n# L(y = C | x_3 = 195) = 0.05541\ndnorm(195, mean = 196, sd = 7.13)\n\n# L(y = G | x_3 = 195) = 0.0001934\ndnorm(195, mean = 217, sd = 6.48)\n\nTotal probability:\n\\[f(x_{2} = 50, x_{3} = 195) = \\frac{151}{342} \\cdot 0.0000212 \\cdot 0.04554 + \\frac{68}{342} \\cdot 0.112 \\cdot 0.05541 + \\frac{123}{342} \\cdot 0.09317 \\cdot 0.0001931 \\approx 0.001241\\]\nBayes’ Rules:\n\\[\\begin{array}{rcccl}\n  f(y = A | x_{2} = 50, x_{3} = 195) & = & \\frac{\\frac{151}{342} \\cdot 0.0000212 \\cdot 0.04554}{0.0001931} & \\approx & 0.0003 \\\\\n  f(y = C | x_{2} = 50, x_{3} = 195) & = & \\frac{\\frac{68}{342} \\cdot 0.112 \\cdot 0.05541}{0.0001931} & \\approx & 0.9944 \\\\\n  f(y = G | x_{2} = 50, x_{3} = 195) & = & \\frac{\\frac{123}{342} \\cdot 0.09317 \\cdot 0.0001931}{0.0001931} & \\approx & 0.0052 \\\\\n\\end{array}\\]\nIn conclusion, our penguin is almost certainly a Chinstrap."
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html",
+    "href": "posts/04_classification/SML_301_session_4.html",
+    "title": "Data Cleaning",
+    "section": "",
+    "text": "#%pip install palmerpenguins #https://github.com/mcnakhaee/palmerpenguins\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nfrom palmerpenguins import load_penguins\nfrom sklearn import metrics\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import classification_report\nfrom sklearn.metrics import confusion_matrix\nfrom sklearn.metrics import roc_auc_score\nfrom sklearn.metrics import roc_curve\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.naive_bayes import GaussianNB\npenguins = load_penguins()\ntype(penguins)\npenguins['chinstrap_bool'] = np.where(penguins['species'] == 'Chinstrap', 1, 0)\npenguins.head()\n# remember to remove missing values before a machine learning algorithm\npenguins_subset = penguins[['chinstrap_bool', 'flipper_length_mm', 'bill_length_mm']].dropna()\npenguins_subset.head()"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#one-predictor-variable",
+    "href": "posts/04_classification/SML_301_session_4.html#one-predictor-variable",
+    "title": "Data Cleaning",
+    "section": "One predictor variable",
+    "text": "One predictor variable\n\nX = penguins_subset[['flipper_length_mm']] #explanatory variable\ny = penguins_subset['chinstrap_bool'] #response variable (Boolean)\n\n\n#main code for logistic regression\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nlogreg = LogisticRegression()\nlogreg.fit(X_train, y_train)\n\n\n# make predictions\ny_pred = logreg.predict(X_test)"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#confusion-matrix",
+    "href": "posts/04_classification/SML_301_session_4.html#confusion-matrix",
+    "title": "Data Cleaning",
+    "section": "Confusion Matrix",
+    "text": "Confusion Matrix\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nprint(confusion_mat)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#preview-roc-curves",
+    "href": "posts/04_classification/SML_301_session_4.html#preview-roc-curves",
+    "title": "Data Cleaning",
+    "section": "Preview: ROC Curves",
+    "text": "Preview: ROC Curves\nROC curves (receiver operating characteristic) are very popular for helping judge the quality of a classification computation.\n\nlogit_roc_auc = roc_auc_score(y_test, logreg.predict(X_test))\nfpr, tpr, thresholds = roc_curve(y_test, logreg.predict_proba(X_test)[:,1])\nplt.figure()\nplt.plot(fpr, tpr, label='Logistic Regression (area = %0.2f)' % logit_roc_auc)\nplt.plot([0, 1], [0, 1],'r--')\nplt.xlim([0.0, 1.0])\nplt.ylim([0.0, 1.05])\nplt.xlabel('False Positive Rate')\nplt.ylabel('True Positive Rate')\nplt.title('Receiver operating characteristic')\nplt.legend(loc=\"lower right\")\nplt.savefig('Log_ROC')\nplt.show()"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#two-predictor-variables",
+    "href": "posts/04_classification/SML_301_session_4.html#two-predictor-variables",
+    "title": "Data Cleaning",
+    "section": "Two predictor variables",
+    "text": "Two predictor variables\n\nX = penguins_subset[['flipper_length_mm', 'bill_length_mm']] #explanatory variables\ny = penguins_subset['chinstrap_bool'] #response variable (Boolean)\n\n\n#main code for logistic regression\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nlogreg = LogisticRegression()\nlogreg.fit(X_train, y_train)\n\n\n# make predictions\ny_pred = logreg.predict(X_test)\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nprint(confusion_mat)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))\n\n\nlogit_roc_auc = roc_auc_score(y_test, logreg.predict(X_test))\nfpr, tpr, thresholds = roc_curve(y_test, logreg.predict_proba(X_test)[:,1])\nplt.figure()\nplt.plot(fpr, tpr, label='Logistic Regression (area = %0.2f)' % logit_roc_auc)\nplt.plot([0, 1], [0, 1],'r--')\nplt.xlim([0.0, 1.0])\nplt.ylim([0.0, 1.05])\nplt.xlabel('False Positive Rate')\nplt.ylabel('True Positive Rate')\nplt.title('Receiver operating characteristic')\nplt.legend(loc=\"lower right\")\nplt.savefig('Log_ROC')\nplt.show()"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#one-categorical-predictor",
+    "href": "posts/04_classification/SML_301_session_4.html#one-categorical-predictor",
+    "title": "Data Cleaning",
+    "section": "One categorical predictor",
+    "text": "One categorical predictor\n\nmean_weight = penguins['body_mass_g'].mean()\npenguins['above_average_weight'] = np.where(penguins['body_mass_g'] &gt; mean_weight, 1, 0)\npenguins_subset = penguins[['species', 'above_average_weight']].dropna()\npenguins_subset.head()\nX = penguins_subset[['above_average_weight']] #explanatory variable\ny = penguins_subset['species'] #response variable (Boolean)\n\n\n# main code for Naive Bayes\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nNB_model = GaussianNB()\nNB_model.fit(X_train, y_train)\ny_pred = NB_model.predict(X_test)\n\n\n# make one prediction\nprint(NB_model.predict([[0]])) #here, \"0\" for \"below-average weight\"\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nsns.heatmap(confusion_mat, annot=True, fmt='d', cmap='Blues', cbar=False)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
+  },
+  {
+    "objectID": "posts/04_classification/SML_301_session_4.html#two-predictor-variables-1",
+    "href": "posts/04_classification/SML_301_session_4.html#two-predictor-variables-1",
+    "title": "Data Cleaning",
+    "section": "Two predictor variables",
+    "text": "Two predictor variables\n\npenguins_subset = penguins[['species', 'bill_length_mm', 'flipper_length_mm']].dropna()\npenguins_subset.head()\nX = penguins_subset[['bill_length_mm', 'flipper_length_mm']] #explanatory variables\ny = penguins_subset['species'] #response variable (Boolean)\n\n\n# main code for Naive Bayes\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nNB_model = GaussianNB()\nNB_model.fit(X_train, y_train)\ny_pred = NB_model.predict(X_test)\n\n\n# make one prediction\nprint(NB_model.predict([[50, 195]]))\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nsns.heatmap(confusion_mat, annot=True, fmt='d', cmap='Blues', cbar=False)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
   }
 ]

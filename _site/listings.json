@@ -2,6 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/04_classification/SML_301_session_4.html",
+      "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
       "/posts/02_convergence/02_convergence.html",
       "/posts/01_introduction/01_introduction.html"
@@ -10,6 +12,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/04_classification/SML_301_session_4.html",
+      "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
       "/posts/02_convergence/02_convergence.html",
       "/posts/01_introduction/01_introduction.html"
