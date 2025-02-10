@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/05_svm/05_svm.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
       "/posts/02_convergence/02_convergence.html",
@@ -11,6 +12,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/05_svm/05_svm.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
       "/posts/02_convergence/02_convergence.html",
