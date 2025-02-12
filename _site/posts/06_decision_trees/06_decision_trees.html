@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-02-12">
+
+<title>6: Decision Trees – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-6-decision-trees" id="toc-session-6-decision-trees" class="nav-link active" data-scroll-target="#session-6-decision-trees">Session 6: Decision Trees</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  </ul></li>
+  <li><a href="#scenario-palmer-penguins" id="toc-scenario-palmer-penguins" class="nav-link" data-scroll-target="#scenario-palmer-penguins">Scenario: Palmer Penguins</a></li>
+  <li><a href="#first-tree" id="toc-first-tree" class="nav-link" data-scroll-target="#first-tree">First Tree</a>
+  <ul class="collapse">
+  <li><a href="#first-choice" id="toc-first-choice" class="nav-link" data-scroll-target="#first-choice">First Choice</a></li>
+  <li><a href="#next-choice" id="toc-next-choice" class="nav-link" data-scroll-target="#next-choice">Next Choice</a></li>
+  <li><a href="#cutoff" id="toc-cutoff" class="nav-link" data-scroll-target="#cutoff">Cutoff</a></li>
+  <li><a href="#data-split" id="toc-data-split" class="nav-link" data-scroll-target="#data-split">Data Split</a></li>
+  <li><a href="#metrics" id="toc-metrics" class="nav-link" data-scroll-target="#metrics">Metrics</a></li>
+  </ul></li>
+  <li><a href="#another-tree" id="toc-another-tree" class="nav-link" data-scroll-target="#another-tree">Another Tree</a>
+  <ul class="collapse">
+  <li><a href="#categorical-prediction-1" id="toc-categorical-prediction-1" class="nav-link" data-scroll-target="#categorical-prediction-1">Categorical Prediction</a></li>
+  <li><a href="#first-choice-1" id="toc-first-choice-1" class="nav-link" data-scroll-target="#first-choice-1">First Choice</a></li>
+  <li><a href="#next-choice-1" id="toc-next-choice-1" class="nav-link" data-scroll-target="#next-choice-1">Next Choice</a></li>
+  <li><a href="#metrics-1" id="toc-metrics-1" class="nav-link" data-scroll-target="#metrics-1">Metrics</a></li>
+  </ul></li>
+  <li><a href="#several-splits" id="toc-several-splits" class="nav-link" data-scroll-target="#several-splits">Several Splits</a></li>
+  <li><a href="#choice-order" id="toc-choice-order" class="nav-link" data-scroll-target="#choice-order">Choice Order</a>
+  <ul class="collapse">
+  <li><a href="#entropy" id="toc-entropy" class="nav-link" data-scroll-target="#entropy">Entropy</a></li>
+  <li><a href="#categorical-predictors" id="toc-categorical-predictors" class="nav-link" data-scroll-target="#categorical-predictors">Categorical Predictors</a></li>
+  <li><a href="#numerical-predictors" id="toc-numerical-predictors" class="nav-link" data-scroll-target="#numerical-predictors">Numerical Predictors</a></li>
+  </ul></li>
+  <li><a href="#first-node" id="toc-first-node" class="nav-link" data-scroll-target="#first-node">First Node</a></li>
+  <li><a href="#second-node" id="toc-second-node" class="nav-link" data-scroll-target="#second-node">Second Node</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">6: Decision Trees</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 12, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-6-decision-trees" class="level1">
+<h1>Session 6: Decision Trees</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Start to form decision trees</li>
+<li>Partition decision space</li>
+<li>Explore Shannon entropy</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="penguins_tree_example.png" class="img-fluid figure-img"></p>
+<figcaption>decision tree</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="scenario-palmer-penguins" class="level1">
+<h1>Scenario: Palmer Penguins</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Penguins!</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Predictors</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Categorical Prediction</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lter_penguins.png" class="img-fluid figure-img"></p>
+<figcaption>Palmer Penguins</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="culmen_depth.png" class="img-fluid figure-img"></p>
+<figcaption>the bills</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="first-tree" class="level1">
+<h1>First Tree</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="first-choice" class="level2">
+<h2 class="anchored" data-anchor-id="first-choice">First Choice</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="next-choice" class="level2">
+<h2 class="anchored" data-anchor-id="next-choice">Next Choice</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cutoff" class="level2">
+<h2 class="anchored" data-anchor-id="cutoff">Cutoff</h2>
+<p>If we <em>cutoff</em> the tree-making process here, we have trained the tree model as follows</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-split" class="level2">
+<h2 class="anchored" data-anchor-id="data-split">Data Split</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="metrics" class="level2">
+<h2 class="anchored" data-anchor-id="metrics">Metrics</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       109         2      0
+  Chinstrap      2        43      0
+  Gentoo         0         4     89</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.9679</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.881</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="another-tree" class="level1">
+<h1>Another Tree</h1>
+<section id="categorical-prediction-1" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-prediction-1">Categorical Prediction</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="first-choice-1" class="level2">
+<h2 class="anchored" data-anchor-id="first-choice-1">First Choice</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="next-choice-1" class="level2">
+<h2 class="anchored" data-anchor-id="next-choice-1">Next Choice</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="metrics-1" class="level2">
+<h2 class="anchored" data-anchor-id="metrics-1">Metrics</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       107        49      0
+  Chinstrap      0         0      0
+  Gentoo         4         0     89</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.7871</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.75</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="several-splits" class="level1">
+<h1>Several Splits</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Motivation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-7" role="tab" aria-controls="tabset-2-7" aria-selected="false">CV Error</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>To avoid bias (part of the bias-variance trade-off), we should employ multiple training-testing splits.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       101        55      4
+  Chinstrap      0         0      0
+  Gentoo         3         1     85</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.747</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.7738</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       108        48      0
+  Chinstrap      0         0      0
+  Gentoo         1         1     91</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.7992</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.7143</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       113        50      2
+  Chinstrap      0         0      0
+  Gentoo         0         1     83</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.7871</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.7976</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       109        50      1
+  Chinstrap      4         6      0
+  Gentoo         0         1     78</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.7751</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.8571</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Truth
+Prediction  Adelie Chinstrap Gentoo
+  Adelie       105        41      0
+  Chinstrap      4         7      0
+  Gentoo         5         0     87</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Training accuracy: 0.7992</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing accuracy: 0.7381</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-7-tab">
+<p>After <span class="math inline">\(k\)</span> <strong>folds</strong> of cross-validation, we compute the cross-validation accuracy by taking the average of the accuracy values.</p>
+<p><span class="math display">\[\text{CV error} = \displaystyle\frac{0.7738 + 0.7143 + 0.7976 + 0.8571 + 0.7381}{5} \approx 0.7762\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="choice-order" class="level1">
+<h1>Choice Order</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="entropy" class="level2">
+<h2 class="anchored" data-anchor-id="entropy">Entropy</h2>
+<p>From information theory, we borrow the notion of <strong>Shannon entropy</strong> to get a sense of how well a choice can separate classes in the data.</p>
+<p><span class="math display">\[E = -\sum_{i=1}^{J} p_{i} \log_{2} p_{i}\]</span></p>
+<ul>
+<li><span class="math inline">\(J\)</span> groups in the categorical response variable</li>
+<li><span class="math inline">\(p_{i}\)</span>: probability of being in group <span class="math inline">\(i\)</span></li>
+<li>logarithm base does not matter (since we will simply be seeking a maximum)</li>
+</ul>
+</section>
+<section id="categorical-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-predictors">Categorical Predictors</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Island</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Sex</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Choice</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>In the <code>penguins</code> data, we have a distribution in the <code>island</code> variable.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   Biscoe     Dream Torgersen 
+      163       123        47 </code></pre>
+</div>
+</div>
+<p>Among <span class="math inline">\(n = 333\)</span> penguins in total, the entropy for this choice is</p>
+<p><span class="math display">\[E = -\left(\frac{163}{333}\right)\log_{2} \left(\frac{163}{333}\right) - \left(\frac{123}{333}\right)\log_{2} \left(\frac{123}{333}\right) - \left(\frac{47}{333}\right)\log_{2} \left(\frac{47}{333}\right)\]</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The entropy for this variable is: 1.4339"</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>In the <code>penguins</code> data, we have a distribution in the <code>sex</code> variable.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+female   male 
+   165    168 </code></pre>
+</div>
+</div>
+<p>Among <span class="math inline">\(n = 333\)</span> penguins in total, the entropy for this choice is</p>
+<p><span class="math display">\[E = -\left(\frac{165}{333}\right)\log_{2} \left(\frac{165}{333}\right) - \left(\frac{168}{333}\right)\log_{2} \left(\frac{168}{333}\right)\]</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The entropy for this variable is: 0.9999"</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Between these categorical variables, <code>island</code> presents more information entropy than <code>sex</code>, so <code>island</code> could be used before <code>sex</code> for the entire data set (i.e.&nbsp;the entropy comparison could change later under a smaller subset of data).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="numerical-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-predictors">Numerical Predictors</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">formula</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">bill depth</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">bill length</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">body mass</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">flipper length</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>We need to update our formula for Shannon entropy for a numerical variable. Here, I suggest computing the probabilities across a discretization of the numerical variable.</p>
+<p><span class="math display">\[\begin{array}{rcl}
+  E &amp; = &amp; -\displaystyle\text{max}_{z} \sum_{i=1}^{J} P(X_{i} \leq z)\log_{2}P(X_{i} \leq z) \\
+  ~ &amp; ~ &amp; - \sum_{i=1}^{J} P(X_{i} &gt; z)\log_{2}P(X_{i} &gt; z)
+\end{array}\]</span></p>
+<p><span class="math display">\[z \in \mathbb{N}, \quad \text{min}(X) &lt; z &lt; \text{max}(Z)\]</span></p>
+<p>To avoid taking logarithms of zero probabilities, we can apply a <em>Laplace adjustment</em></p>
+<p><span class="math display">\[P(X_{i} &lt; z) = \frac{(\text{count}_{i} &lt; z) + 1}{\text{total count} + 1}\]</span></p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.53757237950003</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 16</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.56651763573707</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 42</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.54388648974619</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 4800</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.36723424446796</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 207</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="first-node" class="level1">
+<h1>First Node</h1>
+<p>Out of the numerical predictors, we have the most entropy from the <code>flipper_length_mm</code> variable, so that becomes our first node in the decision tree.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="second-node" class="level1">
+<h1>Second Node</h1>
+<p>We now focus on one of leaves (<code>flipper_length_mm</code> &lt; 206)</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">bill depth</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">bill length</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">body mass</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">flipper length</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.76335733794724</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 21</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -0.825053496962708</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 45</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.68294309563248</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 3175</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>max entropy: -1.61011231175945</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>threshold: 186</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-73-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Out of the numerical predictors, we have the most entropy from the <code>bill_length_mm</code> variable, so that becomes our next node in the decision tree.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06_decision_trees_files/figure-html/unnamed-chunk-74-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>due this Friday (5 PM):</p>
+<ul>
+<li>Precept 3</li>
+<li>pick group members</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Plotting Decision Trees](https://www.spsanderson.com/steveondata/posts/2023-09-29/index.html) in R with <code>rpart</code> and <code>rpart.plot</code> by Steven P Sanderson II</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] yardstick_1.3.1      workflowsets_1.1.0   workflows_1.1.4     
+ [4] tune_1.2.1           tidyr_1.3.1          tibble_3.2.1        
+ [7] recipes_1.0.10       purrr_1.0.4          parsnip_1.2.1       
+[10] modeldata_1.4.0      infer_1.0.7          dials_1.3.0         
+[13] scales_1.3.0         broom_1.0.7          tidymodels_1.2.0    
+[16] rsample_1.2.1        rpart.plot_3.1.2     rpart_4.1.23        
+[19] palmerpenguins_0.1.1 ggtext_0.1.2         GGally_2.2.1        
+[22] ggplot2_3.5.1        dplyr_1.1.4         
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1    timeDate_4032.109   farver_2.1.2       
+ [4] fastmap_1.2.0       digest_0.6.37       timechange_0.3.0   
+ [7] lifecycle_1.0.4     survival_3.7-0      magrittr_2.0.3     
+[10] compiler_4.4.2      rlang_1.1.5         tools_4.4.2        
+[13] yaml_2.3.10         data.table_1.16.2   knitr_1.49         
+[16] labeling_0.4.3      htmlwidgets_1.6.4   plyr_1.8.9         
+[19] xml2_1.3.6          DiceDesign_1.10     RColorBrewer_1.1-3 
+[22] withr_3.0.2         nnet_7.3-19         grid_4.4.2         
+[25] colorspace_2.1-1    future_1.33.2       globals_0.16.3     
+[28] iterators_1.0.14    MASS_7.3-61         cli_3.6.3          
+[31] rmarkdown_2.29      generics_0.1.3      rstudioapi_0.17.1  
+[34] future.apply_1.11.2 commonmark_1.9.2    stringr_1.5.1      
+[37] splines_4.4.2       parallel_4.4.2      vctrs_0.6.5        
+[40] hardhat_1.4.0       Matrix_1.7-1        jsonlite_1.8.9     
+[43] listenv_0.9.1       foreach_1.5.2       gower_1.0.1        
+[46] glue_1.8.0          parallelly_1.37.1   ggstats_0.7.0      
+[49] codetools_0.2-20    stringi_1.8.4       lubridate_1.9.3    
+[52] gtable_0.3.6        munsell_0.5.1       GPfit_1.0-8        
+[55] furrr_0.3.1         pillar_1.10.1       htmltools_0.5.8.1  
+[58] ipred_0.9-14        lava_1.8.0          R6_2.5.1           
+[61] lhs_1.2.0           evaluate_1.0.3      lattice_0.22-6     
+[64] markdown_1.13       backports_1.5.0     gridtext_0.1.5     
+[67] class_7.3-22        Rcpp_1.0.12         prodlim_2024.06.25 
+[70] xfun_0.50           pkgconfig_2.0.3    </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

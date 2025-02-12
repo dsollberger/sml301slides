@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -551,5 +551,103 @@
     "title": "5: Support Vector Machines",
     "section": "SVM with Radial Kernels",
     "text": "SVM with Radial Kernels\n\n\n\nimage credit: Manin Bocss\n\n\n\nThe advantage of using a kernel rather than simply enlarging feature space is computational, since it is only necessary to compute \\(\\binom{n}{2}\\) kernel functions.\nFor radial kernels, the feature space is implicit and infinite dimensional, so we could not do the computations in such a space anyways."
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html",
+    "href": "posts/06_decision_trees/06_decision_trees.html",
+    "title": "6: Decision Trees",
+    "section": "",
+    "text": "Start to form decision trees\nPartition decision space\nExplore Shannon entropy\n\n\n\n\n\n\n\ndecision tree"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#learning-objectives",
+    "href": "posts/06_decision_trees/06_decision_trees.html#learning-objectives",
+    "title": "6: Decision Trees",
+    "section": "",
+    "text": "Start to form decision trees\nPartition decision space\nExplore Shannon entropy\n\n\n\n\n\n\n\ndecision tree"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#first-choice",
+    "href": "posts/06_decision_trees/06_decision_trees.html#first-choice",
+    "title": "6: Decision Trees",
+    "section": "First Choice",
+    "text": "First Choice"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#next-choice",
+    "href": "posts/06_decision_trees/06_decision_trees.html#next-choice",
+    "title": "6: Decision Trees",
+    "section": "Next Choice",
+    "text": "Next Choice"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#cutoff",
+    "href": "posts/06_decision_trees/06_decision_trees.html#cutoff",
+    "title": "6: Decision Trees",
+    "section": "Cutoff",
+    "text": "Cutoff\nIf we cutoff the tree-making process here, we have trained the tree model as follows"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#data-split",
+    "href": "posts/06_decision_trees/06_decision_trees.html#data-split",
+    "title": "6: Decision Trees",
+    "section": "Data Split",
+    "text": "Data Split"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#metrics",
+    "href": "posts/06_decision_trees/06_decision_trees.html#metrics",
+    "title": "6: Decision Trees",
+    "section": "Metrics",
+    "text": "Metrics\n\n\n\n\n           Truth\nPrediction  Adelie Chinstrap Gentoo\n  Adelie       109         2      0\n  Chinstrap      2        43      0\n  Gentoo         0         4     89\n\n\n\n\nTraining accuracy: 0.9679\n\n\n\n\nTesting accuracy: 0.881"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#categorical-prediction-1",
+    "href": "posts/06_decision_trees/06_decision_trees.html#categorical-prediction-1",
+    "title": "6: Decision Trees",
+    "section": "Categorical Prediction",
+    "text": "Categorical Prediction"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#first-choice-1",
+    "href": "posts/06_decision_trees/06_decision_trees.html#first-choice-1",
+    "title": "6: Decision Trees",
+    "section": "First Choice",
+    "text": "First Choice"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#next-choice-1",
+    "href": "posts/06_decision_trees/06_decision_trees.html#next-choice-1",
+    "title": "6: Decision Trees",
+    "section": "Next Choice",
+    "text": "Next Choice"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#metrics-1",
+    "href": "posts/06_decision_trees/06_decision_trees.html#metrics-1",
+    "title": "6: Decision Trees",
+    "section": "Metrics",
+    "text": "Metrics\n\n\n\n\n           Truth\nPrediction  Adelie Chinstrap Gentoo\n  Adelie       107        49      0\n  Chinstrap      0         0      0\n  Gentoo         4         0     89\n\n\n\n\nTraining accuracy: 0.7871\n\n\n\n\nTesting accuracy: 0.75"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#entropy",
+    "href": "posts/06_decision_trees/06_decision_trees.html#entropy",
+    "title": "6: Decision Trees",
+    "section": "Entropy",
+    "text": "Entropy\nFrom information theory, we borrow the notion of Shannon entropy to get a sense of how well a choice can separate classes in the data.\n\\[E = -\\sum_{i=1}^{J} p_{i} \\log_{2} p_{i}\\]\n\n\\(J\\) groups in the categorical response variable\n\\(p_{i}\\): probability of being in group \\(i\\)\nlogarithm base does not matter (since we will simply be seeking a maximum)"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#categorical-predictors",
+    "href": "posts/06_decision_trees/06_decision_trees.html#categorical-predictors",
+    "title": "6: Decision Trees",
+    "section": "Categorical Predictors",
+    "text": "Categorical Predictors\n\nIslandSexChoice\n\n\nIn the penguins data, we have a distribution in the island variable.\n\n\n\n   Biscoe     Dream Torgersen \n      163       123        47 \n\n\nAmong \\(n = 333\\) penguins in total, the entropy for this choice is\n\\[E = -\\left(\\frac{163}{333}\\right)\\log_{2} \\left(\\frac{163}{333}\\right) - \\left(\\frac{123}{333}\\right)\\log_{2} \\left(\\frac{123}{333}\\right) - \\left(\\frac{47}{333}\\right)\\log_{2} \\left(\\frac{47}{333}\\right)\\]\n\n\n[1] \"The entropy for this variable is: 1.4339\"\n\n\n\n\nIn the penguins data, we have a distribution in the sex variable.\n\n\n\nfemale   male \n   165    168 \n\n\nAmong \\(n = 333\\) penguins in total, the entropy for this choice is\n\\[E = -\\left(\\frac{165}{333}\\right)\\log_{2} \\left(\\frac{165}{333}\\right) - \\left(\\frac{168}{333}\\right)\\log_{2} \\left(\\frac{168}{333}\\right)\\]\n\n\n[1] \"The entropy for this variable is: 0.9999\"\n\n\n\n\nBetween these categorical variables, island presents more information entropy than sex, so island could be used before sex for the entire data set (i.e. the entropy comparison could change later under a smaller subset of data)."
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#numerical-predictors",
+    "href": "posts/06_decision_trees/06_decision_trees.html#numerical-predictors",
+    "title": "6: Decision Trees",
+    "section": "Numerical Predictors",
+    "text": "Numerical Predictors\n\nformulabill depthbill lengthbody massflipper length\n\n\nWe need to update our formula for Shannon entropy for a numerical variable. Here, I suggest computing the probabilities across a discretization of the numerical variable.\n\\[\\begin{array}{rcl}\n  E & = & -\\displaystyle\\text{max}_{z} \\sum_{i=1}^{J} P(X_{i} \\leq z)\\log_{2}P(X_{i} \\leq z) \\\\\n  ~ & ~ & - \\sum_{i=1}^{J} P(X_{i} &gt; z)\\log_{2}P(X_{i} &gt; z)\n\\end{array}\\]\n\\[z \\in \\mathbb{N}, \\quad \\text{min}(X) &lt; z &lt; \\text{max}(Z)\\]\nTo avoid taking logarithms of zero probabilities, we can apply a Laplace adjustment\n\\[P(X_{i} &lt; z) = \\frac{(\\text{count}_{i} &lt; z) + 1}{\\text{total count} + 1}\\]\n\n\n\n\n\n\nmax entropy: -1.53757237950003\n\n\nthreshold: 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.56651763573707\n\n\nthreshold: 42\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.54388648974619\n\n\nthreshold: 4800\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.36723424446796\n\n\nthreshold: 207"
   }
 ]

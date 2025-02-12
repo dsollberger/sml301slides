@@ -1,0 +1,1961 @@
+---
+title: "6: Decision Trees"
+author: "Derek Sollberger"
+date: "2025-02-12"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library("dplyr")
+library("GGally")
+library("ggplot2")
+library("ggtext")
+library("palmerpenguins")
+library("rpart")
+library("rpart.plot")
+library("rsample")
+library("tidymodels")
+
+adelie_color = "#fb7504"
+chinstrap_color = "#c65ccc"
+gentoo_color = "#067476"
+
+penguin_class_df <- penguins |>
+  na.omit()
+Adelie_penguins   <- penguin_class_df |> filter(species == "Adelie")
+Chinstrap_penguins <- penguin_class_df |> filter(species == "Chinstrap")
+Gentoo_penguins   <- penguin_class_df |> filter(species == "Gentoo")
+```
+
+# Session 6: Decision Trees
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Start to form decision trees
+- Partition decision space
+- Explore Shannon entropy
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![decision tree](penguins_tree_example.png)
+:::
+
+::::
+
+# Scenario: Palmer Penguins
+
+::::: {.panel-tabset}
+
+## Penguins!
+
+![Palmer Penguins](lter_penguins.png)
+
+## Predictors
+
+![the bills](culmen_depth.png)
+
+## Categorical Prediction
+
+```{r}
+#| echo: false
+#| eval: true
+penguin_class_df |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm, 
+             color = species)) + 
+  geom_point(size = 3) + 
+  labs(title = "Classification Task",
+       subtitle = "More than two groups",
+       caption = "SML 301") +
+  scale_color_manual(values = c(adelie_color, chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+
+:::::
+
+
+# First Tree
+
+```{r}
+#| echo: false
+#| eval: true
+flipper_bill_df <- penguin_class_df |>
+  select(species, flipper_length_mm, bill_length_mm)
+
+set.seed(301)
+data_split <- rsample::initial_split(flipper_bill_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       # control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```
+
+## First Choice
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$flipper_length_mm)
+bb_right  <- max(train_data$flipper_length_mm)
+bb_bottom <- min(train_data$bill_length_mm)
+bb_top    <- max(train_data$bill_length_mm)
+
+train_data |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_rect(aes(xmin = 206, xmax = bb_right, 
+                ymin = bb_bottom, ymax = bb_top), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = bb_bottom, ymax = bb_top), 
+            alpha = 0.25, fill = "#6BAED6") +
+  geom_point(color = "gray50") +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+
+## Next Choice
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 2),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$flipper_length_mm)
+bb_right  <- max(train_data$flipper_length_mm)
+bb_bottom <- min(train_data$bill_length_mm)
+bb_top    <- max(train_data$bill_length_mm)
+
+train_data |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_rect(aes(xmin = 206, xmax = bb_right, 
+                ymin = bb_top, ymax = bb_bottom), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = bb_bottom, ymax = 43), 
+            alpha = 0.25, fill = "#FB6A4A") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = 43, ymax = bb_top), 
+            alpha = 0.25, fill = "#999999") +
+  geom_point(color = "gray50") +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+
+## Cutoff
+
+If we *cutoff* the tree-making process here, we have trained the tree model as follows
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 2),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$flipper_length_mm)
+bb_right  <- max(train_data$flipper_length_mm)
+bb_bottom <- min(train_data$bill_length_mm)
+bb_top    <- max(train_data$bill_length_mm)
+
+train_data |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_rect(aes(xmin = 206, xmax = bb_right, 
+                ymin = bb_top, ymax = bb_bottom), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = bb_bottom, ymax = 43), 
+            alpha = 0.25, fill = "#FB6A4A") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = 43, ymax = bb_top), 
+            alpha = 0.25, fill = "#999999") +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+           color = species)) +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  scale_color_manual(values =
+                         c(adelie_color, chinstrap_color, gentoo_color)) +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+
+## Data Split
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+
+
+## Metrics
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$flipper_length_mm)
+bb_right  <- max(train_data$flipper_length_mm)
+bb_bottom <- min(train_data$bill_length_mm)
+bb_top    <- max(train_data$bill_length_mm)
+
+train_data |>
+  ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_rect(aes(xmin = 206, xmax = bb_right, 
+                ymin = bb_top, ymax = bb_bottom), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = bb_bottom, ymax = 43), 
+            alpha = 0.25, fill = "#FB6A4A") +
+  geom_rect(aes(xmin = bb_left, xmax = 206, 
+                ymin = 43, ymax = bb_top), 
+            alpha = 0.25, fill = "#999999") +
+  geom_point(aes(x = flipper_length_mm, y = bill_length_mm, 
+           color = species)) +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  scale_color_manual(values =
+                         c(adelie_color, chinstrap_color, gentoo_color)) +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+# Another Tree
+
+## Categorical Prediction
+
+```{r}
+#| echo: false
+#| eval: true
+penguin_class_df |>
+ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+           color = species)) + 
+  geom_point(size = 3) + 
+  labs(title = "Classification Task",
+       subtitle = "More than two groups",
+       caption = "SML 301") +
+  scale_color_manual(values = c(adelie_color, chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+```{r}
+#| echo: false
+#| eval: true
+mass_depth_df <- penguin_class_df |>
+  select(species, body_mass_g, bill_depth_mm)
+
+set.seed(301)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+```
+
+## First Choice
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$body_mass_g)
+bb_right  <- max(train_data$body_mass_g)
+bb_bottom <- min(train_data$bill_depth_mm)
+bb_top    <- max(train_data$bill_depth_mm)
+
+train_data |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
+  geom_rect(aes(xmin = bb_left, xmax = bb_right, 
+                ymin = bb_bottom, ymax = 16), 
+            alpha = 0.25, fill = "#6BAED6") +
+  geom_rect(aes(xmin = bb_left, xmax = bb_right, 
+                ymin = 16, ymax = bb_top), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_point(color = "gray50") +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+
+## Next Choice
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 2),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$body_mass_g)
+bb_right  <- max(train_data$body_mass_g)
+bb_bottom <- min(train_data$bill_depth_mm)
+bb_top    <- max(train_data$bill_depth_mm)
+
+train_data |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
+  geom_rect(aes(xmin = bb_left, xmax = 5025, 
+                ymin = bb_bottom, ymax = 16), 
+            alpha = 0.25, fill = "#6BAED6") +
+  geom_rect(aes(xmin = 5025, xmax = bb_right, 
+                ymin = bb_bottom, ymax = 16), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = bb_right, 
+                ymin = 16, ymax = bb_top), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_point(color = "gray50") +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+## Metrics
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| eval: true
+
+bb_left   <- min(train_data$body_mass_g)
+bb_right  <- max(train_data$body_mass_g)
+bb_bottom <- min(train_data$bill_depth_mm)
+bb_top    <- max(train_data$bill_depth_mm)
+
+train_data |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
+  geom_rect(aes(xmin = bb_left, xmax = 5025, 
+                ymin = bb_bottom, ymax = 16), 
+            alpha = 0.25, fill = "#6BAED6") +
+  geom_rect(aes(xmin = 5025, xmax = bb_right, 
+                ymin = bb_bottom, ymax = 16), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_rect(aes(xmin = bb_left, xmax = bb_right, 
+                ymin = 16, ymax = bb_top), 
+            alpha = 0.25, fill = "#74C476") +
+  geom_point(color = "gray50") +
+  labs(title = "Predictor Space",
+       subtitle = "decision regions",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+:::
+
+::::
+
+
+# Several Splits
+
+::::: {.panel-tabset}
+
+## Motivation
+
+To avoid bias (part of the bias-variance trade-off), we should employ multiple training-testing splits.
+
+## 1
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+
+set.seed(1)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+```
+
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+
+:::	
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+:::
+
+::::
+
+## 2
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+
+set.seed(2)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+```
+
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+
+:::	
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+:::
+
+::::
+
+## 3
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+
+set.seed(3)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+```
+
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+
+:::	
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+:::
+
+::::
+
+## 4
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+
+set.seed(4)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+```
+
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+
+:::	
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+:::
+
+::::
+
+## 5
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+
+set.seed(5)
+data_split <- rsample::initial_split(mass_depth_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+```
+
+```{r}
+#| echo: false
+
+class_tree_spec <- decision_tree() %>% 
+     set_engine("rpart") %>% 
+     set_mode("classification")
+class_tree_fit <- fit(class_tree_spec, 
+                      species ~ ., 
+                      data = train_data)
+augment(class_tree_fit, new_data = train_data) %>% 
+     conf_mat(truth = species, estimate = .pred_class)
+```
+
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = train_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Training accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+```{r}
+#| echo: false
+metric_df <- augment(class_tree_fit, new_data = test_data) %>% 
+     accuracy(truth = species, estimate = .pred_class)
+cat(paste0("Testing accuracy: ",
+             round(metric_df$.estimate, 4)))
+```
+
+:::	
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: false
+train_group <- train_data |>
+  mutate(split = "training data")
+test_group <- test_data |>
+  mutate(split = "testing data")
+recombined_df <- train_group |> rbind(test_group)
+
+recombined_df |>
+  ggplot(aes(x = body_mass_g, y = bill_depth_mm, 
+             color = split)) + 
+  geom_point(size = 3) + 
+  labs(title = "Machine Learning",
+       subtitle = "training-testing split",
+       caption = "SML 301") +
+  scale_color_manual(values = c("blue", "gray50")) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+:::
+
+::::
+
+## CV Error
+
+After $k$ **folds** of cross-validation, we compute the cross-validation accuracy by taking the average of the accuracy values.
+
+$$\text{CV error} = \displaystyle\frac{0.7738 + 0.7143 + 0.7976 + 0.8571 + 0.7381}{5} \approx 0.7762$$
+
+:::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Choice Order
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+penguin_class_df |>
+  ggpairs(aes(alpha = 0.5,
+              color = species),
+          columns = 3:6)
+```
+
+## Entropy
+
+From information theory, we borrow the notion of **Shannon entropy** to get a sense of how well a choice can separate classes in the data. 
+
+$$E = -\sum_{i=1}^{J} p_{i} \log_{2} p_{i}$$
+
+* $J$ groups in the categorical response variable
+* $p_{i}$: probability of being in group $i$
+* logarithm base does not matter (since we will simply be seeking a maximum)
+
+## Categorical Predictors
+
+::::: {.panel-tabset}
+
+### Island
+
+In the `penguins` data, we have a distribution in the `island` variable.
+
+```{r}
+#| echo: false
+table(penguin_class_df$island)
+```
+
+Among $n = 333$ penguins in total, the entropy for this choice is
+
+$$E = -\left(\frac{163}{333}\right)\log_{2} \left(\frac{163}{333}\right) - \left(\frac{123}{333}\right)\log_{2} \left(\frac{123}{333}\right) - \left(\frac{47}{333}\right)\log_{2} \left(\frac{47}{333}\right)$$
+
+```{r}
+#| echo: false
+counts <- c(163, 123, 47)
+probs = counts / sum(counts)
+entropy = -sum(probs*log2(probs))
+print(paste0("The entropy for this variable is: ",
+      round(entropy, 4)))
+```
+
+### Sex
+
+In the `penguins` data, we have a distribution in the `sex` variable.
+
+```{r}
+#| echo: false
+table(penguin_class_df$sex)
+```
+
+Among $n = 333$ penguins in total, the entropy for this choice is
+
+$$E = -\left(\frac{165}{333}\right)\log_{2} \left(\frac{165}{333}\right) - \left(\frac{168}{333}\right)\log_{2} \left(\frac{168}{333}\right)$$
+
+```{r}
+#| echo: false
+counts <- c(165, 168)
+probs = counts / sum(counts)
+entropy = -sum(probs*log2(probs))
+print(paste0("The entropy for this variable is: ",
+      round(entropy, 4)))
+```
+
+### Choice
+
+Between these categorical variables, `island` presents more information entropy than `sex`, so `island` could be used before `sex` for the entire data set (i.e. the entropy comparison could change later under a smaller subset of data).
+
+:::::
+
+
+## Numerical Predictors
+
+::::: {.panel-tabset}
+
+### formula
+
+We need to update our formula for Shannon entropy for a numerical variable.  Here, I suggest computing the probabilities across a discretization of the numerical variable.
+
+$$\begin{array}{rcl}
+  E & = & -\displaystyle\text{max}_{z} \sum_{i=1}^{J} P(X_{i} \leq z)\log_{2}P(X_{i} \leq z) \\
+  ~ & ~ & - \sum_{i=1}^{J} P(X_{i} > z)\log_{2}P(X_{i} > z)
+\end{array}$$
+
+$$z \in \mathbb{N}, \quad \text{min}(X) < z < \text{max}(Z)$$
+
+To avoid taking logarithms of zero probabilities, we can apply a *Laplace adjustment*
+
+$$P(X_{i} < z) = \frac{(\text{count}_{i} < z) + 1}{\text{total count} + 1}$$
+
+### bill depth
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df$bill_depth_mm))
+b <- ceiling(max(penguin_class_df$bill_depth_mm))
+n <- nrow(penguin_class_df)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$bill_depth_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$bill_depth_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$bill_depth_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$bill_depth_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$bill_depth_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$bill_depth_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### bill length
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df$bill_length_mm))
+b <- ceiling(max(penguin_class_df$bill_length_mm))
+n <- nrow(penguin_class_df)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$bill_length_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$bill_length_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$bill_length_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$bill_length_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$bill_length_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$bill_length_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### body mass
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df$body_mass_g))
+b <- ceiling(max(penguin_class_df$body_mass_g))
+n <- nrow(penguin_class_df)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$body_mass_g <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$body_mass_g <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$body_mass_g <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$body_mass_g > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$body_mass_g > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$body_mass_g > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### flipper length
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df$flipper_length_mm))
+b <- ceiling(max(penguin_class_df$flipper_length_mm))
+n <- nrow(penguin_class_df)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$flipper_length_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$flipper_length_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$flipper_length_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$flipper_length_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$flipper_length_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$flipper_length_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+:::::
+
+
+# First Node
+
+Out of the numerical predictors, we have the most entropy from the `flipper_length_mm` variable, so that becomes our first node in the decision tree.
+
+```{r}
+#| echo: false
+#| eval: true
+
+set.seed(301)
+data_split <- rsample::initial_split(penguin_class_df,
+                                     prop = 0.75)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 1),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```
+
+# Second Node
+
+We now focus on one of leaves (`flipper_length_mm` < 206)
+
+```{r}
+#| echo: false
+
+penguin_class_df2 <- penguin_class_df |>
+  filter(flipper_length_mm < 206)
+Adelie_penguins   <- penguin_class_df2 |> filter(species == "Adelie")
+Chinstrap_penguins <- penguin_class_df2 |> filter(species == "Chinstrap")
+Gentoo_penguins   <- penguin_class_df2 |> filter(species == "Gentoo")
+```
+
+::::: {.panel-tabset}
+
+### bill depth
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df2$bill_depth_mm))
+b <- ceiling(max(penguin_class_df2$bill_depth_mm))
+n <- nrow(penguin_class_df2)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df2)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$bill_depth_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$bill_depth_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$bill_depth_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$bill_depth_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$bill_depth_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$bill_depth_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### bill length
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df2$bill_length_mm))
+b <- ceiling(max(penguin_class_df2$bill_length_mm))
+n <- nrow(penguin_class_df2)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df2)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$bill_length_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$bill_length_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$bill_length_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$bill_length_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$bill_length_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$bill_length_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### body mass
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df2$body_mass_g))
+b <- ceiling(max(penguin_class_df2$body_mass_g))
+n <- nrow(penguin_class_df2)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df2)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$body_mass_g <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$body_mass_g <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$body_mass_g <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$body_mass_g > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$body_mass_g > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$body_mass_g > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+### flipper length
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| warning: false
+a <- floor(min(penguin_class_df2$flipper_length_mm))
+b <- ceiling(max(penguin_class_df2$flipper_length_mm))
+n <- nrow(penguin_class_df2)
+val_vec <- seq(a,b)
+
+n <- length(seq(a,b))
+N <- nrow(penguin_class_df2)
+
+A_counts <- rep(0,n)
+C_counts <- rep(0,n)
+G_counts <- rep(0,n)
+for(i in 1:n){
+  A_counts[i] <- sum(Adelie_penguins$flipper_length_mm <= val_vec[i])
+  C_counts[i] <- sum(Chinstrap_penguins$flipper_length_mm <= val_vec[i])
+  G_counts[i] <- sum(Gentoo_penguins$flipper_length_mm <= val_vec[i])
+}
+
+A_probs <- rep(0,n)
+C_probs <- rep(0,n)
+G_probs <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts[i] + C_counts[i] + G_counts[i] + 1)
+  A_probs[i] <- (A_counts[i] + 1) / denominator
+  C_probs[i] <- (C_counts[i] + 1) / denominator
+  G_probs[i] <- (G_counts[i] + 1) / denominator
+}
+
+A_counts2 <- rep(0,n)
+C_counts2 <- rep(0,n)
+G_counts2 <- rep(0,n)
+for(i in 1:n){
+  A_counts2[i] <- sum(Adelie_penguins$flipper_length_mm > val_vec[i])
+  C_counts2[i] <- sum(Chinstrap_penguins$flipper_length_mm > val_vec[i])
+  G_counts2[i] <- sum(Gentoo_penguins$flipper_length_mm > val_vec[i])
+}
+
+A_probs2 <- rep(0,n)
+C_probs2 <- rep(0,n)
+G_probs2 <- rep(0,n)
+
+# Laplace adjustment
+for(i in 1:n){
+  denominator <- (A_counts2[i] + C_counts2[i] + G_counts2[i] + 1)
+  A_probs2[i] <- (A_counts2[i] + 1) / denominator
+  C_probs2[i] <- (C_counts2[i] + 1) / denominator
+  G_probs2[i] <- (G_counts2[i] + 1) / denominator
+}
+
+entropy_vals <- -A_probs * log2(A_probs) - C_probs * log2(C_probs) - G_probs * log2(G_probs) - A_probs2 * log2(A_probs2) - C_probs2 * log2(C_probs2) - G_probs2 * log2(G_probs2)
+
+# remove endpoints?
+entropy_vals[1] <- max(entropy_vals)
+entropy_vals[n] <- max(entropy_vals)
+
+cat(paste0("max entropy: ", max(-entropy_vals), "\n"))
+cat(paste0("threshold: ", val_vec[which.max(-entropy_vals)]))
+```	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+data.frame(val_vec, entropy_vals) |>
+  ggplot(aes(x = val_vec, y = -entropy_vals)) +
+  geom_point() +
+  labs(title = "Entropy Plot",
+       subtitle = "seeking maximum entropy",
+       caption = "SML 301") +
+  theme_minimal()
+```
+:::
+
+::::
+
+:::::
+
+Out of the numerical predictors, we have the most entropy from the `bill_length_mm` variable, so that becomes our next node in the decision tree.
+
+```{r}
+#| echo: false
+#| eval: true
+d_tree <- rpart::rpart(species ~ ., 
+                       control = list(maxdepth = 2),
+                       data = train_data, 
+                       method = "class")
+
+rpart.plot::rpart.plot(d_tree, 
+                       main = "Decision Tree for the Penguins Dataset")
+```
+
+
+
+
+
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday (5 PM):
+
+    - Precept 3
+    - pick group members
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* Plotting Decision Trees](https://www.spsanderson.com/steveondata/posts/2023-09-29/index.html) in R with `rpart` and `rpart.plot` by Steven P Sanderson II
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

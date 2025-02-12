@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/06_decision_trees/06_decision_trees.html",
       "/posts/05_svm/05_svm.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
@@ -12,6 +13,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/06_decision_trees/06_decision_trees.html",
       "/posts/05_svm/05_svm.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_regression/03_regression.html",
