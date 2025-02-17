@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -649,5 +649,117 @@
     "title": "6: Decision Trees",
     "section": "Numerical Predictors",
     "text": "Numerical Predictors\n\nformulabill depthbill lengthbody massflipper length\n\n\nWe need to update our formula for Shannon entropy for a numerical variable. Here, I suggest computing the probabilities across a discretization of the numerical variable.\n\\[\\begin{array}{rcl}\n  E & = & -\\displaystyle\\text{max}_{z} \\sum_{i=1}^{J} P(X_{i} \\leq z)\\log_{2}P(X_{i} \\leq z) \\\\\n  ~ & ~ & - \\sum_{i=1}^{J} P(X_{i} &gt; z)\\log_{2}P(X_{i} &gt; z)\n\\end{array}\\]\n\\[z \\in \\mathbb{N}, \\quad \\text{min}(X) &lt; z &lt; \\text{max}(Z)\\]\nTo avoid taking logarithms of zero probabilities, we can apply a Laplace adjustment\n\\[P(X_{i} &lt; z) = \\frac{(\\text{count}_{i} &lt; z) + 1}{\\text{total count} + 1}\\]\n\n\n\n\n\n\nmax entropy: -1.53757237950003\n\n\nthreshold: 16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.56651763573707\n\n\nthreshold: 42\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.54388648974619\n\n\nthreshold: 4800\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmax entropy: -1.36723424446796\n\n\nthreshold: 207"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html",
+    "href": "posts/07_random_forests/07_random_forests.html",
+    "title": "7: Random Forests",
+    "section": "",
+    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#learning-objectives",
+    "href": "posts/07_random_forests/07_random_forests.html#learning-objectives",
+    "title": "7: Random Forests",
+    "section": "",
+    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#bootstrapping",
+    "href": "posts/07_random_forests/07_random_forests.html#bootstrapping",
+    "title": "7: Random Forests",
+    "section": "Bootstrapping",
+    "text": "Bootstrapping\nBootstrapping is performed by resampling with replacement on the data.\n\n\n\n\n# A tibble: 10 × 9\n     pid species island    bill_length_mm bill_depth_mm flipper_length_mm\n   &lt;int&gt; &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;\n 1     1 Adelie  Torgersen           39.1          18.7               181\n 2     2 Adelie  Torgersen           39.5          17.4               186\n 3     3 Adelie  Torgersen           40.3          18                 195\n 4     4 Adelie  Torgersen           NA            NA                  NA\n 5     5 Adelie  Torgersen           36.7          19.3               193\n 6     6 Adelie  Torgersen           39.3          20.6               190\n 7     7 Adelie  Torgersen           38.9          17.8               181\n 8     8 Adelie  Torgersen           39.2          19.6               195\n 9     9 Adelie  Torgersen           34.1          18.1               193\n10    10 Adelie  Torgersen           42            20.2               190\n# ℹ 3 more variables: body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\n\n# A tibble: 10 × 9\n     pid species   island    bill_length_mm bill_depth_mm flipper_length_mm\n   &lt;int&gt; &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;\n 1   220 Gentoo    Biscoe              49.5          16.2               229\n 2   141 Adelie    Dream               40.2          17.1               193\n 3   261 Gentoo    Biscoe              43.3          14                 208\n 4   313 Chinstrap Dream               47.6          18.3               195\n 5   261 Gentoo    Biscoe              43.3          14                 208\n 6    47 Adelie    Dream               41.1          19                 182\n 7   282 Chinstrap Dream               45.2          17.8               198\n 8   308 Chinstrap Dream               54.2          20.8               201\n 9     9 Adelie    Torgersen           34.1          18.1               193\n10   127 Adelie    Torgersen           38.8          17.6               191\n# ℹ 3 more variables: body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\nBagging is using the notion of bootstrapping to aggregate the data."
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#bags",
+    "href": "posts/07_random_forests/07_random_forests.html#bags",
+    "title": "7: Random Forests",
+    "section": "Bags",
+    "text": "Bags"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#in-bag",
+    "href": "posts/07_random_forests/07_random_forests.html#in-bag",
+    "title": "7: Random Forests",
+    "section": "In-Bag",
+    "text": "In-Bag\n\n\n  [1]   3   5   7   9  10  11  12  13  14  15  16  22  23  25  26  28  30  32\n [19]  38  41  42  43  47  48  49  51  52  54  55  58  60  63  65  66  68  69\n [37]  70  72  73  75  77  79  80  81  83  84  85  86  87  88  91  94  95  97\n [55]  98  99 100 101 102 104 105 106 107 108 109 111 112 113 116 117 118 119\n [73] 121 122 125 127 128 129 130 131 132 133 134 138 139 140 141 142 143 146\n [91] 150 152 153 155 156 157 158 159 162 167 168 169 170 173 174 175 177 179\n[109] 181 182 183 184 185 186 187 189 192 193 196 199 200 201 202 203 204 206\n[127] 207 208 209 210 211 212 213 215 216 217 219 220 221 223 225 226 227 228\n[145] 229 231 233 235 236 237 238 239 240 241 242 243 244 246 247 250 251 252\n[163] 253 254 255 258 259 260 261 262 263 265 267 269 270 271 272 273 274 275\n[181] 277 278 282 283 284 285 286 287 288 289 292 294 295 296 297 298 300 301\n[199] 302 303 305 306 307 308 309 310 311 313 314 317 318 319 320 323 324 326\n[217] 327 328 329 330 331 332 333 334 335 337 338 339 340 343 344"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#out-of-bag",
+    "href": "posts/07_random_forests/07_random_forests.html#out-of-bag",
+    "title": "7: Random Forests",
+    "section": "Out-of-Bag",
+    "text": "Out-of-Bag\n\n\n  [1]   1   2   4   6   8  17  18  19  20  21  24  27  29  31  33  34  35  36\n [19]  37  39  40  44  45  46  50  53  56  57  59  61  62  64  67  71  74  76\n [37]  78  82  89  90  92  93  96 103 110 114 115 120 123 124 126 135 136 137\n [55] 144 145 147 148 149 151 154 160 161 163 164 165 166 171 172 176 178 180\n [73] 188 190 191 194 195 197 198 205 214 218 222 224 230 232 234 245 248 249\n [91] 256 257 264 266 268 276 279 280 281 290 291 293 299 304 312 315 316 321\n[109] 322 325 336 341 342"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#classfication-tasks",
+    "href": "posts/07_random_forests/07_random_forests.html#classfication-tasks",
+    "title": "7: Random Forests",
+    "section": "Classfication Tasks",
+    "text": "Classfication Tasks\nFor classification tasks, after making a random forest (say, 1000 trees), class labels are assigned by the majority of predictions.\n\n\n\n\n\n\nVariable Importance\n\n\n\n\n\nSince we have created many trees—each choice order determined by entropy—we can create a list of variable importance by reporting which explanatory variables appeared in a higher proportion of trees. This could aid in variable selection and interpretability."
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#adaboost",
+    "href": "posts/07_random_forests/07_random_forests.html#adaboost",
+    "title": "7: Random Forests",
+    "section": "Adaboost",
+    "text": "Adaboost\n\nA Decision-Theoretic Generalization of on-Line Learning and an Application to Boosting (1997—published as abstract in 1995), Freund and Schapire"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#alexnet",
+    "href": "posts/07_random_forests/07_random_forests.html#alexnet",
+    "title": "7: Random Forests",
+    "section": "AlexNet",
+    "text": "AlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#dropout",
+    "href": "posts/07_random_forests/07_random_forests.html#dropout",
+    "title": "7: Random Forests",
+    "section": "DropOut",
+    "text": "DropOut\n\nDropout: A Simple Way to Prevent Neural Networks from Overfitting (2014), Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#gans",
+    "href": "posts/07_random_forests/07_random_forests.html#gans",
+    "title": "7: Random Forests",
+    "section": "GANs",
+    "text": "GANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al."
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#tensorflow",
+    "href": "posts/07_random_forests/07_random_forests.html#tensorflow",
+    "title": "7: Random Forests",
+    "section": "TensorFlow",
+    "text": "TensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al."
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#word2vec",
+    "href": "posts/07_random_forests/07_random_forests.html#word2vec",
+    "title": "7: Random Forests",
+    "section": "Word2Vec",
+    "text": "Word2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#stratified-samples",
+    "href": "posts/07_random_forests/07_random_forests.html#stratified-samples",
+    "title": "7: Random Forests",
+    "section": "Stratified Samples",
+    "text": "Stratified Samples\n\nFor stratified sampling, subsets maintain proportions of categorical data.\n\nFor example, 88 percent of people are right-handed. We assume population proportions\n\\[p = 0.88, \\quad 1 - p = 0.12\\]\nIf we employ a training-testing split, each should also have approximately 12 percent representation for left-handed people."
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#rescaling",
+    "href": "posts/07_random_forests/07_random_forests.html#rescaling",
+    "title": "7: Random Forests",
+    "section": "Rescaling",
+    "text": "Rescaling\n\nIf a sample data set exhibits different proportions, we can perform inverse probability weighting to try to correct for bias in the sample.\n\nFor example, if our tree model predicts 70 percent right-handed people, then we can apply some weights\n\non right-handed: weight = \\(\\frac{0.88}{0.70} \\approx 1.2571\\)\non left-handed: weight = \\(\\frac{0.12}{0.30} = 0.4\\)"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#boosting-1",
+    "href": "posts/07_random_forests/07_random_forests.html#boosting-1",
+    "title": "7: Random Forests",
+    "section": "Boosting",
+    "text": "Boosting\nFor tree models, boosting resamples underrepresented data and applies larger weights to aim toward stratified sampling."
   }
 ]

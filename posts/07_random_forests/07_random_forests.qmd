@@ -1,0 +1,261 @@
+---
+title: "7: Random Forests"
+author: "Derek Sollberger"
+date: "2025-02-17"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library("palmerpenguins")
+library("tidyverse")
+
+penguins_df <- penguins |>
+  mutate(pid = 1:nrow(penguins), .before = species)
+```
+
+# Session 7: Random Forests
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Deploy many decision trees
+- Explore ensemble learning:
+
+    - bagging
+    - boosting
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+:::
+
+::::
+
+
+# Bagging
+
+## Bootstrapping
+
+**Bootstrapping** is performed by *resampling with replacement* on the data.
+
+```{r}
+#| echo: false
+set.seed(301)
+penguins_resampled <- penguins_df |>
+  sample_frac(1.0, replace = TRUE)
+```
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+head(penguins_df, 10)
+```
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+head(penguins_resampled, 10)
+```
+:::
+
+::::
+
+> **Bagging** is using the notion of **b**ootstrapping to **agg**regate the data.
+
+## Bags
+
+:::: {.columns}
+
+::: {.column width="45%"}
+## In-Bag
+```{r}
+#| echo: false
+print(sort(unique(penguins_resampled$pid)))
+```
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+## Out-of-Bag
+```{r}
+#| echo: false
+out_bag_df <- penguins_df |>
+  anti_join(penguins_resampled, by = "pid")
+print(sort(unique(out_bag_df$pid)))
+```
+:::
+
+::::
+
+* In general, about 1/3 of the data falls into the *out-of-bag* category
+* For each resampling, we can create a decision tree with the *in-bag* sample
+* We can use the out-of-bag data as a testing set
+
+    * **out-of-bag error** (OOB error)
+
+## Classfication Tasks
+
+For classification tasks, after making a random forest (say, 1000 trees), class labels are assigned by the majority of predictions.
+
+::: {.callout-tip collapse="true"}
+## Variable Importance
+
+Since we have created many trees---each choice order determined by entropy---we can create a list of *variable importance* by reporting which explanatory variables appeared in a higher proportion of trees.  This could aid in variable selection and interpretability.
+
+:::
+
+
+# Activity: Literature Methods
+
+We will look at the concluding paragraphs for some of the most influential papers in the history of machine learning:
+
+## Adaboost
+
+* A Decision-Theoretic Generalization of on-Line Learning and an Application to Boosting (1997—published as abstract in 1995), Freund and Schapire
+
+## AlexNet
+
+* ImageNet Classification with Deep Convolutional Neural Networks (2012)
+
+## DropOut
+
+* Dropout: A Simple Way to Prevent Neural Networks from Overfitting (2014), Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov
+
+## GANs
+
+* General Adversarial Nets (2014), Goodfellow et al.
+
+## TensorFlow
+
+* TensorFlow: A system for large-scale machine learning (2016), Abadi et al.
+
+## Word2Vec
+
+* Efficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean
+
+
+# Boosting
+
+## Stratified Samples
+
+> For **stratified sampling**, subsets maintain proportions of categorical data.
+
+For example, 88 percent of people are right-handed. We assume population proportions
+
+$$p = 0.88, \quad 1 - p = 0.12$$
+
+If we employ a training-testing split, each should also have approximately 12 percent representation for left-handed people.
+
+## Rescaling
+
+> If a sample data set exhibits different proportions, we can perform **inverse probability weighting** to try to correct for bias in the sample.
+
+For example, if our tree model predicts 70 percent right-handed people, then we can apply some weights
+
+* on right-handed: weight = $\frac{0.88}{0.70} \approx 1.2571$
+* on left-handed: weight = $\frac{0.12}{0.30} = 0.4$
+
+## Boosting
+
+For tree models, **boosting** resamples underrepresented data and applies larger weights to aim toward stratified sampling.
+
+
+# Comparing Methods
+
+![bagging vs boosting](bagging_boosting.png)
+
+* image credit: Roshmita Dey
+
+
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday (5 PM):
+
+    - Precept 4
+    - Literature Report
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [Bagging vs Boosting](https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1) by Roshmita Dey
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
