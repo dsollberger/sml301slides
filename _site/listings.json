@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/08_dimension_reduction/08_dimension_reduction.html",
       "/posts/07_random_forests/07_random_forests.html",
       "/posts/06_decision_trees/06_decision_trees.html",
       "/posts/05_svm/05_svm.html",
@@ -14,6 +15,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/08_dimension_reduction/08_dimension_reduction.html",
       "/posts/07_random_forests/07_random_forests.html",
       "/posts/06_decision_trees/06_decision_trees.html",
       "/posts/05_svm/05_svm.html",
