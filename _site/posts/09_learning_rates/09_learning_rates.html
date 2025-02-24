@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-02-24">
 
-<title>Lecture Sessions – SML 301 Slides</title>
+<title>9: Learning Rates – SML 301 Slides</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +102,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -133,11 +138,11 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">SML 301 Slides</span>
     </a>
   </div>
@@ -148,7 +153,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Lecture Sessions</span></a>
   </li>  
 </ul>
@@ -159,298 +164,344 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Lecture Sessions</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-9-learning-rates" id="toc-session-9-learning-rates" class="nav-link active" data-scroll-target="#session-9-learning-rates">Session 9: Learning Rates</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  </ul></li>
+  <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link" data-scroll-target="#eulers-method">Euler’s Method</a></li>
+  <li><a href="#shooting-methods" id="toc-shooting-methods" class="nav-link" data-scroll-target="#shooting-methods">Shooting Methods</a>
+  <ul class="collapse">
+  <li><a href="#matrix-equation" id="toc-matrix-equation" class="nav-link" data-scroll-target="#matrix-equation">Matrix Equation</a></li>
+  </ul></li>
+  <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient Descent</a></li>
+  <li><a href="#preview-color-sensitivity" id="toc-preview-color-sensitivity" class="nav-link" data-scroll-target="#preview-color-sensitivity">Preview: Color Sensitivity</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">9: Learning Rates</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 24, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="session-9-learning-rates" class="level1">
+<h1>Session 9: Learning Rates</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Preview terminology for studies of artificial intelligence methods</p>
+<ul>
+<li>forward propagation</li>
+<li>back propagation</li>
+<li>learning rates</li>
+<li>batch sizes</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Artillery_game_-_example.svg.png" class="img-fluid figure-img"></p>
+<figcaption>Tanks!</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://en.wikipedia.org/wiki/Artillery_game">Wikipedia</a></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="eulers-method" class="level1">
+<h1>Euler’s Method</h1>
+<p>For solving <strong>boundary value problems</strong> (BVP) of the form</p>
+<p><span class="math display">\[\frac{du}{dt} = f(t,u), \quad a \leq t \leq b, \quad u(a) = u_{0}\]</span> Approximate solution with</p>
+<p><span class="math display">\[\begin{array}{rcl}
+  U_{0} &amp; = &amp; u_{0} \\
+  U_{t+1} &amp; = &amp; U_{i} + hf(t_{i}, U_{i}) \\
+\end{array}\]</span></p>
+<p>where <span class="math inline">\(h = \frac{b-a}{n}\)</span> is the step size (with <span class="math inline">\(n\)</span> steps)</p>
+</section>
+<section id="shooting-methods" class="level1">
+<h1>Shooting Methods</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="math display">\[\frac{d^{2}y}{dt^{2}} = -g\]</span></p>
+<p><span class="math display">\[y(0) = 0, \quad y(5) = 42\]</span></p>
+<p><span class="math display">\[y'(0) = ?\]</span></p>
+<ul>
+<li>gravity: <span class="math inline">\(g = 9.8\)</span></li>
+</ul>
+<p>We are trying to estimate the initial muzzle velocity <span class="math inline">\(y'(0)\)</span></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Artillery_game_-_example.svg.png" class="img-fluid figure-img"></p>
+<figcaption>Tanks!</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="matrix-equation" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-equation">Matrix Equation</h2>
+<p>If we have <span class="math inline">\(S = \left[\begin{array}{c} y(t) \\ v(t) \end{array}\right]\)</span>, and</p>
+<p><span class="math display">\[\frac{dy}{dt} = v, \quad \frac{dv}{dt} = -g\]</span></p>
+<p>then</p>
+<p><span class="math display">\[\frac{dS}{dt} = \left[\begin{array}{rr} 0 &amp; 1 \\ 0 &amp; -\frac{g}{v}\end{array}\right]S\]</span></p>
+</section>
+</section>
+<section id="gradient-descent" class="level1">
+<h1>Gradient Descent</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Global Minimum</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Local Minima</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gradient_descent_1D.png" class="img-fluid figure-img"></p>
+<figcaption>global minimum</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: Mirko Stojiljkovic</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gradient_descent_1D_2.png" class="img-fluid figure-img"></p>
+<figcaption>local minima</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: Mirko Stojiljkovic</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="preview-color-sensitivity" class="level1">
+<h1>Preview: Color Sensitivity</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Conditions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Training Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Deployment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Prototype</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Goal</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="color_conditions.png" class="img-fluid figure-img"></p>
+<figcaption>color blindness types</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: WebAIM</li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ishihara_cards_example.png" class="img-fluid figure-img"></p>
+<figcaption>Ishihara data set</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<blockquote class="blockquote">
+<p>measuring color sensitivity in works from the Princeton Art Museum</p>
+</blockquote>
+<p><img src="art_selection.png" class="img-fluid"></p>
+<ul>
+<li>(left) Vincent van Gogh, <em>Tarascon Stagecoach</em>, 1888.</li>
+<li>(right) Leni Paquet-Morante, <em>Winter Sky on a Shallow</em>, 2021. Acrylic on canvas</li>
+</ul>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Morante_Winter_Sky.png" class="img-fluid figure-img"></p>
+<figcaption>Morante, 2021</figcaption>
+</figure>
+</div>
+<ul>
+<li>protanopia: 0.42</li>
+<li>deuteranopia: 0.61</li>
+<li>tritanopia: 0.59</li>
+</ul>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<blockquote class="blockquote">
+<p>apply transformation to RBG palette</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="matrix_colors.png" class="img-fluid figure-img"></p>
+<figcaption>The Matrix</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>due this Friday (Feb 28):</p>
+<ul>
+<li>Precept 5</li>
+</ul></li>
+<li><p>due next Friday (Mar 7):</p>
+<ul>
+<li><p>midsemester lab</p>
+<ul>
+<li>report</li>
+<li>poster</li>
+<li>video presentation</li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="penguins_fly.png" class="img-fluid figure-img"></p>
+<figcaption>more penguins</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: Twonks</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://lemesurierb.people.charleston.edu/introduction-to-numerical-methods-and-analysis-python/main/ODE-IVP-1-basics-and-Euler-python.html">Euler’s Method</a> to solve BVP by Brenton le Mesurier</li>
+<li><a href="https://realpython.com/gradient-descent-algorithm-python/">Gradient Descent in Python</a> by Mirko Stojiljkovic</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1740373200000" data-listing-file-modified-sort="1740369914058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="327">
-<div class="thumbnail">
-<p><a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external"></a></p><a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external">
-<p class="card-img-top"><img src="posts\09_learning_rates\Artillery_game_-_example.svg.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external">9: Learning Rates</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external">Preview terminology for studies of artificial intelligence methods</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/09_learning_rates/09_learning_rates.html" class="no-external">
-<div class="listing-date">
-Feb 24, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1739941200000" data-listing-file-modified-sort="1739935074033" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2418">
-<div class="thumbnail">
-<p><a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external"></a></p><a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external">
-<p class="card-img-top"><img src="posts\08_dimension_reduction\08_dimension_reduction_files\figure-html\unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external">8: Dimension Reduction</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external"><span class="math display">\[\hat{y} = \beta_{0} + \beta_{1}P_{1} + \beta_{2}P_{2}\]</span></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/08_dimension_reduction/08_dimension_reduction.html" class="no-external">
-<div class="listing-date">
-Feb 19, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1739768400000" data-listing-file-modified-sort="1739770253892" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
-<div class="thumbnail">
-<p><a href="./posts/07_random_forests/07_random_forests.html" class="no-external"></a></p><a href="./posts/07_random_forests/07_random_forests.html" class="no-external">
-<p class="card-img-top"><img src="posts\07_random_forests\bagging_boosting.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/07_random_forests/07_random_forests.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/07_random_forests/07_random_forests.html" class="no-external">7: Random Forests</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/07_random_forests/07_random_forests.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/07_random_forests/07_random_forests.html" class="no-external">Deploy many decision trees</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/07_random_forests/07_random_forests.html" class="no-external">
-<div class="listing-date">
-Feb 17, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1739336400000" data-listing-file-modified-sort="1739339589921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="40" data-listing-word-count-sort="7805">
-<div class="thumbnail">
-<p><a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external"></a></p><a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external">
-<p class="card-img-top"><img src="posts\06_decision_trees\penguins_tree_example.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external">6: Decision Trees</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external">If we <em>cutoff</em> the tree-making process here, we have trained the tree model as follows</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/06_decision_trees/06_decision_trees.html" class="no-external">
-<div class="listing-date">
-Feb 12, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1739163600000" data-listing-file-modified-sort="1739159407819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4067">
-<div class="thumbnail">
-<p><a href="./posts/05_svm/05_svm.html" class="no-external"></a></p><a href="./posts/05_svm/05_svm.html" class="no-external">
-<p class="card-img-top"><img src="posts\05_svm\images\svm_protest.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/05_svm/05_svm.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/05_svm/05_svm.html" class="no-external">5: Support Vector Machines</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/05_svm/05_svm.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/05_svm/05_svm.html" class="no-external"><strong>Support vector machine (SVM)</strong>, an approach for classification developed in 1990. SVM is a generalizaion of classifiers methods, in particular:</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/05_svm/05_svm.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1738731600000" data-listing-file-modified-sort="1738713579581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3729">
-<div class="thumbnail">
-<p><a href="./posts/04_classification/04_classification.html" class="no-external"></a></p><a href="./posts/04_classification/04_classification.html" class="no-external">
-<p class="card-img-top"><img src="posts\04_classification\04_classification_files\figure-html\unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/04_classification/04_classification.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/04_classification/04_classification.html" class="no-external">4: Classification</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/04_classification/04_classification.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/04_classification/04_classification.html" class="no-external"><strong>Goal</strong>: Start to discuss classification methods</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/04_classification/04_classification.html" class="no-external">
-<div class="listing-date">
-Feb 5, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1738558800000" data-listing-file-modified-sort="1738554866805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="907">
-<div class="thumbnail">
-<p><a href="./posts/03_regression/03_regression.html" class="no-external"></a></p><a href="./posts/03_regression/03_regression.html" class="no-external">
-<p class="card-img-top"><img src="posts\03_regression\03_regression_files\figure-html\unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/03_regression/03_regression.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/03_regression/03_regression.html" class="no-external">3: Regression</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/03_regression/03_regression.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/03_regression/03_regression.html" class="no-external"><strong>Goal</strong>: Discuss the bias-variance trade-ff</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/03_regression/03_regression.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1738126800000" data-listing-file-modified-sort="1738556174433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="967">
-<div class="thumbnail">
-<p><a href="./posts/02_convergence/02_convergence.html" class="no-external"></a></p><a href="./posts/02_convergence/02_convergence.html" class="no-external">
-<p class="card-img-top"><img src="posts\02_convergence\Tensorflow_playground.PNG"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/02_convergence/02_convergence.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/02_convergence/02_convergence.html" class="no-external">2: Convergence</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/02_convergence/02_convergence.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/02_convergence/02_convergence.html" class="no-external"><strong>Goal</strong>: Discuss convergence</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/02_convergence/02_convergence.html" class="no-external">
-<div class="listing-date">
-Jan 29, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1737954000000" data-listing-file-modified-sort="1737937466114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1925">
-<div class="thumbnail">
-<p><a href="./posts/01_introduction/01_introduction.html" class="no-external"></a></p><a href="./posts/01_introduction/01_introduction.html" class="no-external">
-<p class="card-img-top"><img src="posts\01_introduction\main_books.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/01_introduction/01_introduction.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/01_introduction/01_introduction.html" class="no-external">1: Introductions</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/01_introduction/01_introduction.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/01_introduction/01_introduction.html" class="no-external"><strong>Goal</strong>: Introduce course</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/01_introduction/01_introduction.html" class="no-external">
-<div class="listing-date">
-Jan 27, 2025
-</div>
-<div class="listing-author">
-Derek Sollberger
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.4.2    fastmap_1.2.0     cli_3.6.3        
+ [5] tools_4.4.2       htmltools_0.5.8.1 rstudioapi_0.17.1 yaml_2.3.10      
+ [9] rmarkdown_2.29    knitr_1.49        jsonlite_1.8.9    xfun_0.50        
+[13] digest_0.6.37     rlang_1.1.5       evaluate_1.0.3   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
