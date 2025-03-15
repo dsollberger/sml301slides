@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -971,5 +971,124 @@
     "title": "9: Learning Rates",
     "section": "Matrix Equation",
     "text": "Matrix Equation\nIf we have \\(S = \\left[\\begin{array}{c} y(t) \\\\ v(t) \\end{array}\\right]\\), and\n\\[\\frac{dy}{dt} = v, \\quad \\frac{dv}{dt} = -g\\]\nthen\n\\[\\frac{dS}{dt} = \\left[\\begin{array}{rr} 0 & 1 \\\\ 0 & -\\frac{g}{v}\\end{array}\\right]S\\]"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html",
+    "href": "posts/13_FCN/13_FCN.html",
+    "title": "13: Fully Connected Networks",
+    "section": "",
+    "text": "Explore elementary calculations in neural networks\nIntroduce PyTorch code\n\n\n\n\n\n\n\nfully-connected network"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#learning-objectives",
+    "href": "posts/13_FCN/13_FCN.html#learning-objectives",
+    "title": "13: Fully Connected Networks",
+    "section": "",
+    "text": "Explore elementary calculations in neural networks\nIntroduce PyTorch code\n\n\n\n\n\n\n\nfully-connected network"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#motivation",
+    "href": "posts/13_FCN/13_FCN.html#motivation",
+    "title": "13: Fully Connected Networks",
+    "section": "motivation",
+    "text": "motivation\nFor 32-bit float number representation\n\n\n\nfloating-point representation\n\n\n\nrange: \\((1.1755 \\times 10^{-38}, 1.7014 \\times 10^{38})\\)\n\nAnticipating neural networks and performing many calculations, we want to avoid overflow or underflow errors.\n\n\n\n\n\n\nPreprocessing Numbers\n\n\n\nTo make the numerical inputs and outputs more manageable, we will employ\n\nmin-max normalization\nsoftmax\n\n\n\n\nsceneformularescaledbases\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe want numerical inputs to be between 0 and 1, so we can employ min-max normalization:\n\\[\\text{scaled}(x) = \\frac{x - \\text{min}}{\\text{max} - \\text{min}}\\]"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#trained-model",
+    "href": "posts/13_FCN/13_FCN.html#trained-model",
+    "title": "13: Fully Connected Networks",
+    "section": "Trained Model",
+    "text": "Trained Model\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[flipper length]\ninput_2[body mass]\noutput_1[Adelie]\noutput_2[Chinstrap]\noutput_3[Gentoo]\n\ninput_1 -- -1.16A + 0.38 --&gt; output_1\ninput_1 -- 0.24A - 0.38 --&gt; output_2\ninput_1 -- 1.77A + 0.16 --&gt; output_3\ninput_2 -- -0.05B + 0.38 --&gt; output_1\ninput_2 -- 0.18B - 0.38 --&gt; output_2\ninput_2 -- 1.07B + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\n\ninput layer size: 2\noutput layer size: 3\nfully-connected network: every output is connected to every input by an edge\n\nhere: no hidden layer\nlater: LSTM, transformers, encoder-decorders\n\n\n\n\n\n\n\n\n\n\nWhere did the coefficients come from?\n\n\n\nWe will train the neural network and compute the weights and bias values soon! For now, let us see how the forward calculations work in this trained model.\n\n\n\n\n\n\n\n\nThese will be poor results\n\n\n\n\n\nThe examples in today’s session will have poor results (i.e. accuracy values close to 50 percent). This is because of\n\nsmall data sets\nmodels run for a limited number of epochs (iterations)"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#parameters",
+    "href": "posts/13_FCN/13_FCN.html#parameters",
+    "title": "13: Fully Connected Networks",
+    "section": "Parameters",
+    "text": "Parameters\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[flipper length]\ninput_2[body mass]\noutput_1[Adelie]\noutput_2[Chinstrap]\noutput_3[Gentoo]\n\ninput_1 -- -1.16A + 0.38 --&gt; output_1\ninput_1 -- 0.24A - 0.38 --&gt; output_2\ninput_1 -- 1.77A + 0.16 --&gt; output_3\ninput_2 -- -0.05B + 0.38 --&gt; output_1\ninput_2 -- 0.18B - 0.38 --&gt; output_2\ninput_2 -- 1.07B + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\nThis model has 9 parameters:\n\nweights\n\n\\[\\begin{array}{rcr}\n  w_{1,1} & \\approx & -1.16 \\\\\n  w_{1,2} & \\approx & 0.24 \\\\\n  w_{1,3} & \\approx & 1.77 \\\\\n  w_{2,1} & \\approx & -0.05 \\\\\n  w_{2,2} & \\approx & 0.18 \\\\\n  w_{2,3} & \\approx & 1.07 \\\\\n\\end{array}\\]\n\nbias\n\n\\[\\begin{array}{rcr}\n  b_{1} & \\approx & 0.76 \\\\\n  b_{2} & \\approx & -0.76 \\\\\n  b_{3} & \\approx & 0.32 \\\\\n\\end{array}\\]\n\n\n\n\n\n\n\n\nSplit Bias?\n\n\n\nEditor’s note: for the sake of simplifying the diagram, the bias values were split in half (two input variables). In practice, the bias values are added after the weight multiplications. This will be more apparent in the matrix computations later. Furthermore, the values going into the output nodes are also added together."
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#obvious-example",
+    "href": "posts/13_FCN/13_FCN.html#obvious-example",
+    "title": "13: Fully Connected Networks",
+    "section": "Obvious Example",
+    "text": "Obvious Example\nWhat will our model predict for a Gentoo penguin whose measurements (after min-max normalization) include a flipper length of 0.75 and a body mass of 0.75?\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.75]\ninput_2[0.75]\noutput_1[-0.1475]\noutput_2[-0.4450]\noutput_3[2.4500]\n\ninput_1 -- -1.16*0.75 + 0.38 --&gt; output_1\ninput_1 -- 0.24*0.75 - 0.38 --&gt; output_2\ninput_1 -- 1.77*0.75 + 0.16 --&gt; output_3\ninput_2 -- -0.05*0.75 + 0.38 --&gt; output_1\ninput_2 -- 0.18*0.75 - 0.38 --&gt; output_2\ninput_2 -- 1.07*0.75 + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\nSince the output value is the largest for the Gentoo label, we predict that such a penguin is of the Gentoo species."
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#tough-classification",
+    "href": "posts/13_FCN/13_FCN.html#tough-classification",
+    "title": "13: Fully Connected Networks",
+    "section": "Tough Classification",
+    "text": "Tough Classification\nWhat will our model predict for a penguin whose measurements (after min-max normalization) include a flipper length of 0.301 and a body mass of 0.301?\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.301]\ninput_2[0.301]\noutput_1[0.37579]\noutput_2[-0.63358]\noutput_3[1.17484]\n\ninput_1 -- -1.16*0.301 + 0.38 --&gt; output_1\ninput_1 -- 0.24*0.301 - 0.38 --&gt; output_2\ninput_1 -- 1.77*0.301 + 0.16 --&gt; output_3\ninput_2 -- -0.05*0.301 + 0.38 --&gt; output_1\ninput_2 -- 0.18*0.301 - 0.38 --&gt; output_2\ninput_2 -- 1.07*0.301 + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\nSince the output value is the largest for the Gentoo label, we predict that such a penguin is of the Gentoo species.\nHowever, the output values should have favored the Adelie and Chinstrap penguins here."
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#obvious-example-1",
+    "href": "posts/13_FCN/13_FCN.html#obvious-example-1",
+    "title": "13: Fully Connected Networks",
+    "section": "Obvious Example",
+    "text": "Obvious Example\nWhat will our model predict for a penguin whose measurements (after min-max normalization) include a flipper length of 0.75 and a body mass of 0.75?\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.75]\ninput_2[0.75]\noutput_1[-0.1475]\noutput_2[-0.4450]\noutput_3[2.4500]\n\ninput_1 -- -1.16*0.75 + 0.38 --&gt; output_1\ninput_1 -- 0.24*0.75 - 0.38 --&gt; output_2\ninput_1 -- 1.77*0.75 + 0.16 --&gt; output_3\ninput_2 -- -0.05*0.75 + 0.38 --&gt; output_1\ninput_2 -- 0.18*0.75 - 0.38 --&gt; output_2\ninput_2 -- 1.07*0.75 + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\n\\(\\frac{e^{-0.1475}}{e^{-0.1475} + e^{-0.4450} + e^{2.4500}} \\approx 0.0659\\) \\(\\frac{e^{-0.4450}}{e^{-0.1475} + e^{-0.4450} + e^{2.4500}} \\approx 0.0489\\) \\(\\frac{e^{2.4500}}{e^{-0.1475} + e^{-0.4450} + e^{2.4500}} \\approx 0.8851\\)"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#tough-classification-1",
+    "href": "posts/13_FCN/13_FCN.html#tough-classification-1",
+    "title": "13: Fully Connected Networks",
+    "section": "Tough Classification",
+    "text": "Tough Classification\nWhat will our model predict for a penguin whose measurements (after min-max normalization) include a flipper length of 0.301 and a body mass of 0.301?\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.301]\ninput_2[0.301]\noutput_1[0.37579]\noutput_2[-0.63358]\noutput_3[1.17484]\n\ninput_1 -- -1.16*0.301 + 0.38 --&gt; output_1\ninput_1 -- 0.24*0.301 - 0.38 --&gt; output_2\ninput_1 -- 1.77*0.301 + 0.16 --&gt; output_3\ninput_2 -- -0.05*0.301 + 0.38 --&gt; output_1\ninput_2 -- 0.18*0.301 - 0.38 --&gt; output_2\ninput_2 -- 1.07*0.301 + 0.16 --&gt; output_3\n\n\n\n\n\n\n\n\n\n\\[\\begin{array}{c|c|c}\n  \\text{signal} & \\text{exponent} & \\text{softmax} \\\\\n  \\hline\n  0.3758 & e^{0.3758} & 0.2787 \\\\\n  -0.6336 & e^{-0.6336} & 0.1016 \\\\\n  1.1748 & e^{1.1748} & 0.6197 \\\\\n\\end{array}\\]\n\n\n\n\n\n\n\n\nDoes the softmax output create a probability distribution?\n\n\n\n\n\nIt’s debatable.\nWhile the values from a softmax computation are positive sum up to one (up to a rounding error), it is debatable whether or not the softmax result is a probability distribution.\n\nNodes earlier in the network (especially in neural networks) can be permuted. While we might end up with the same distribution, the underlying weights might be quite different.\nWhat do these proportions represent? Later, if we use this softmax output as inputs for another module, then we can say something like “The output signal is about 28 percent Adelie, 10 percent Chinstrap, and 62 percent Gentoo.”\nAre these proportions unbiased estimators of population proportions?"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#derivative",
+    "href": "posts/13_FCN/13_FCN.html#derivative",
+    "title": "13: Fully Connected Networks",
+    "section": "Derivative",
+    "text": "Derivative\n\n\nSoftmax function \\[\\sigma({\\vec{x}})_{i} = \\frac{e^{x_{i}}}{\\sum_{i=1}^{n}e^{x_{i}}}\\]\n\n\n\nDerivative \\[\\frac{\\partial \\sigma_{k}}{\\partial x_{i}} = \\sigma_{k}(\\delta_{ik} - \\sigma_{i})\\] where \\[\\delta_{ik} = \\begin{cases} 1, & i = k \\\\ 0, & i \\neq k \\\\ \\end{cases}\\]"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#initialization",
+    "href": "posts/13_FCN/13_FCN.html#initialization",
+    "title": "13: Fully Connected Networks",
+    "section": "Initialization",
+    "text": "Initialization\nConsider a fully-connected network (FCN) where all of the weights have been initialized to the same uniform value of 0.2 and each bias has been initialized to be zero. What will our model predict for a Gentoo penguin whose measurements (after min-max normalization) include a flipper length of 0.75 and a body mass of 0.75?\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.75]\ninput_2[0.75]\noutput_1[0.3]\noutput_2[0.3]\noutput_3[0.3]\n\ninput_1 -- 0.2*0.75 + 0 --&gt; output_1\ninput_1 -- 0.2*0.75 + 0 --&gt; output_2\ninput_1 -- 0.2*0.75 + 0 --&gt; output_3\ninput_2 -- 0.2*0.75 + 0 --&gt; output_1\ninput_2 -- 0.2*0.75 + 0 --&gt; output_2\ninput_2 -- 0.2*0.75 + 0 --&gt; output_3\n\n\n\n\n\n\n\n\n\n\\[\\begin{array}{c|c|c}\n  \\text{predicted} & \\text{observed} & \\text{residual} \\\\\n  \\hline\n  0.3333 & 0 & 0.3333 \\\\\n  0.3333 & 0 & 0.3333 \\\\\n  0.3333 & 1 & -0.6667 \\\\\n\\end{array}\\]\nNote: this initialization assumes that each penguin species is equally likely."
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#partial-derivatives",
+    "href": "posts/13_FCN/13_FCN.html#partial-derivatives",
+    "title": "13: Fully Connected Networks",
+    "section": "Partial Derivatives",
+    "text": "Partial Derivatives\nHere, we will update weight \\(w_{2,3} = 0.2\\). The composition of the linear transformation, softmax, and SSR loss yields the following partial derivatives:\n\nlinear transformation:\n\n\\[\\frac{\\partial L}{\\partial w_{2,3}} = x_{2}\\]\n\nsoftmax:\n\n\\[\\frac{\\partial \\sigma_{3}}{\\partial L_{3}} = (\\sigma_{3})(1 - \\sigma_{3})\\]\n\nloss:\n\n\\[\\frac{\\partial\\text{SSR}}{\\partial{\\sigma_{3}}} = -2(\\text{observed}_{3} - \\text{predicted}_{3})\\]"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#chain-rule",
+    "href": "posts/13_FCN/13_FCN.html#chain-rule",
+    "title": "13: Fully Connected Networks",
+    "section": "Chain Rule",
+    "text": "Chain Rule\nPutting it all together, we can now compute the overall derviative through the chain rule:\n\\[\\begin{array}{rcl}\n\\frac{\\partial\\text{SSR}}{\\partial w_{2,3}} & = & \\frac{\\partial\\text{SSR}}{\\partial{\\sigma_{3}}} \\cdot \\frac{\\partial \\sigma_{3}}{\\partial L_{3}} \\cdot \\frac{\\partial L}{\\partial w_{2,3}} \\\\\n~ & = & -2(\\text{observed}_{3} - \\text{predicted}_{3}) \\cdot (\\sigma_{3})(1 - \\sigma_{3}) \\cdot x_{2} \\\\\n~ & = & -2(1 - 0.3333) \\cdot (0.3)(1 - 0.3) \\cdot (0.75) \\\\\n~ & \\approx & -0.2100 \\\\\n\\end{array}\\]\n\n\n\n\n\n\nWhy do we use the softmax?\n\n\n\n\n\nOne question that may appear here is, “Why do we use min-max normalization for the input layer but then use a softmax for the output layer?”\n\nmin-max normalization\n\npro: easier to calculate (more easily vectorized)\ncon: the derivative is simply just the number one (same if we used an argmax), so applying this normalization does not create information for us for back propogation\n\nsoftmax\n\npro: derivative values between 0 and 1\ncon: more intense calculation (especially for long vectors)\n\n\n\n\n\n\n\n\n\n\n\nWhy don’t we use the SSR?\n\n\n\n\n\nThe derivative values from the SSR are relatively small, and hence the learning is slow."
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#update",
+    "href": "posts/13_FCN/13_FCN.html#update",
+    "title": "13: Fully Connected Networks",
+    "section": "Update",
+    "text": "Update\nFinally, we can apply a step size\n\\[\\text{step size} = \\text{derivative} \\cdot \\text{learning rate}\\] If we had a learning rate of 0.1 (i.e. as a hyperparameter), then our step size here is\n\\[\\text{step size} = (-0.2100)(0.1) = -0.0210\\] Our new weight is\n\\[\\begin{array}{rcl}\n  \\text{new weight} & = & \\text{old weight} - \\text{step size} \\\\\n  ~ & = & 0.2 - (-0.0210) \\\\\n  ~ & = & 0.2210 \\\\\n\\end{array}\\]"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#feed-foward",
+    "href": "posts/13_FCN/13_FCN.html#feed-foward",
+    "title": "13: Fully Connected Networks",
+    "section": "Feed Foward",
+    "text": "Feed Foward\nApplying this new weight, our network now looks like this\n\n\n\n\n\n\n\nflowchart LR\n\ninput_1[0.75]\ninput_2[0.75]\noutput_1[0.3000]\noutput_2[0.3000]\noutput_3[0.3158]\n\ninput_1 -- 0.2*0.75 + 0 --&gt; output_1\ninput_1 -- 0.2*0.75 + 0 --&gt; output_2\ninput_1 -- 0.2*0.75 + 0 --&gt; output_3\ninput_2 -- 0.2*0.75 + 0 --&gt; output_1\ninput_2 -- 0.2*0.75 + 0 --&gt; output_2\ninput_2 -- 0.2210*0.75 + 0 --&gt; output_3\n\n\n\n\n\n\n\n\n\n\\[\\begin{array}{c|c|c}\n  \\text{predicted} & \\text{observed} & \\text{residual} \\\\\n  \\hline\n  0.3316 & 0 & 0.3316 \\\\\n  0.3316 & 0 & 0.3316 \\\\\n  0.3366 & 1 & -0.6637 \\\\\n\\end{array}\\]\nNow:\n\nthe prediction moved correctly toward “Gentoo”!\nthe residuals decreased!"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#tensors",
+    "href": "posts/13_FCN/13_FCN.html#tensors",
+    "title": "13: Fully Connected Networks",
+    "section": "Tensors",
+    "text": "Tensors\nWe will use tensors in Pytorch Lightning\n\n\n\n3D tensor\n\n\n\nimage source: MIT\n\n\nWhat are tensors?\nAt first, tensors (for machine learning) are multidimensional arrays.\n\na value is a 0D tensor\nan array is a 1D tensor\na matrix is a 2D tensor\n\n\n\nWhy do we use tensors?\n\naccelerated computations via graphical processing units (GPUs)\nautomatic differentiation\nhelps with parallelizable processes\n\n\n\n\nparallel processes\n\n\n\nimage source: Faisal Shahbaz"
+  },
+  {
+    "objectID": "posts/13_FCN/13_FCN.html#object-oriented-programming",
+    "href": "posts/13_FCN/13_FCN.html#object-oriented-programming",
+    "title": "13: Fully Connected Networks",
+    "section": "Object-Oriented Programming",
+    "text": "Object-Oriented Programming\nFramework choice:\n\nKeras\nPyTorch\nScikit Learn\nTensorFlow\n\nWhy Pytorch?\n\nrecency bias (Derek studied these concepts with PyTorch)\nobject-oriented programming\n\nWhy Object-Oriented Programming?\nLater concepts are probably better understood as modular steps in a workflow, which lend themselves to object-oriented programming (OOP)\n\nExample 1Example 2Class Definition\n\n\nFor the penguins examples, we needed a fully-connected network whose input layer size was 2 and whose output layer size was 3\n\n\n\nexample 1\n\n\n\nPython code: model = FCN(2,3)\n\n\n\nFor the next example, we need a fully-connected network whose input layer size is 4 and whose output layer size is 2\n\n\n\nexample 2\n\n\n\nPython code: model = FCN(4,2)\n\n\n\n\nclass FCN(pl.LightningModule):\n  # Fully-Connected Network\n  # assumes no hidden layer (i.e. going directly into activation functions)\n\n    def __init__(self, input_layer_size, output_layer_size):\n        super().__init__()\n        self.input_layer_size = input_layer_size \n        self.output_layer_size = output_layer_size \n        self.fc1 = nn.Linear(input_layer_size, output_layer_size)\n        self.test_step_outputs = []\n\n    def forward(self, x):\n        x = F.relu(self.fc1(x))\n        return x\n\n    def training_step(self, batch, batch_idx):\n        x, y = batch\n        output = self(x)\n        loss = F.cross_entropy(output, y)\n        return {'loss':loss}\n\n    def test_step(self, batch, batch_idx):\n        x, y = batch\n        output = self(x)\n        loss = F.cross_entropy(output, y)\n        self.test_step_outputs.append(loss)\n        return {'loss':loss}\n\n    def on_test_epoch_end(self):\n        epoch_average = torch.stack(self.test_step_outputs).mean()\n        self.log(\"test_epoch_average\", epoch_average)\n        self.test_step_outputs.clear()\n\n    def configure_optimizers(self):\n        optimizer = torch.optim.SGD(self.parameters(), lr=lr)\n        return optimizer"
   }
 ]

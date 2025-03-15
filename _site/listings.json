@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
       "/posts/08_dimension_reduction/08_dimension_reduction.html",
       "/posts/07_random_forests/07_random_forests.html",
@@ -16,6 +17,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
       "/posts/08_dimension_reduction/08_dimension_reduction.html",
       "/posts/07_random_forests/07_random_forests.html",
