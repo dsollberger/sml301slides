@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
       "/posts/08_dimension_reduction/08_dimension_reduction.html",
@@ -17,6 +18,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
       "/posts/08_dimension_reduction/08_dimension_reduction.html",
