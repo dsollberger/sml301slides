@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/18_parsing/18_Parsing.html",
       "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
@@ -18,6 +19,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/18_parsing/18_Parsing.html",
       "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
       "/posts/09_learning_rates/09_learning_rates.html",
