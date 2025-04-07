@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/19_RL/19_reinforcement_learning.html",
       "/posts/18_parsing/18_Parsing.html",
       "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
@@ -19,6 +20,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/19_RL/19_reinforcement_learning.html",
       "/posts/18_parsing/18_Parsing.html",
       "/posts/14_RNN/14_RNN.html",
       "/posts/13_FCN/13_FCN.html",
