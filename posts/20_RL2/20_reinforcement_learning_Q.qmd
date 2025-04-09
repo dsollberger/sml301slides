@@ -1,0 +1,329 @@
+---
+title: "20: Reinforcement Learning"
+author: "Derek Sollberger"
+date: "2025-04-09"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+```
+
+# Session 20: Reinforcement Learning
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Explore the breadth of reinforcement learning
+- Introduce Q Learning
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![Reinforcement Learning](RL_robot.png)
+
+* image credit: [Data Base Camp](https://databasecamp.de/en/ml/q-learnings)
+:::
+
+::::
+
+# Monte Carlo Methods
+
+::: {.callout-note}
+## Relaxing the Distribution Assumption
+
+We start out by no longer assuming that we know the distribution
+
+$$p(s',r|s,a)$$
+
+Similar to bootstrapping methods in statistics, we *simulate* a distribution by collecting samples of trajectories
+
+$$S_{0}, A_{0}, R_{1}, S_{1}, A_{1}, R_{2}, ..., R_{T}, S_{T}$$
+
+by proceeding through a Markov Decision Process (MDP)
+:::
+
+::: {.callout-warning}
+## MC distribution
+
+Without the theoretical distribution $p(s',r|s,a)$
+
+* we don't have the expected values, so instead we use averages of Monte Carlo methods as unbiased estimators
+* we deploy Generalized Policy Iteration (GPI) to approximate the optimal policy $\pi_{*}$
+:::
+
+## Model-Free
+
+::: {.callout-tip}
+## Model
+
+A **model** is a mechanism that an agent uses to predict the results of its actions
+
+* e.g. estimating $p(s',r|s,a)$
+:::
+
+::: {.callout-tip}
+## Model-Free
+
+* **Model-Based**: methods that use a model to *plan* actions beforehand
+* **Model-Free**: methods that *learn* action-to return associations
+:::
+
+::: {.callout-note}
+## MC is Model-Free
+
+*Monte Carlo methods are model-free*. As such, it may be more useful to estimate state-action values $q$ rather than state values $v$. Recall that
+
+$$Q(s,a) = \displaystyle\sum_{\begin{array}{c} s'\in\mathcal{S} \\ r\in\mathcal{R}\end{array}} p(s',r|s,a)[r + \gamma V(s')]$$
+
+But since we are no longer assuming knowledge of $p(s',r|s,a)$, let us estimate the optimal state-action values $q_{*}(s,a)$ directly.
+
+:::
+
+
+# Monte Carlo Evaluation
+
+::: {.callout-tip}
+## MRP
+
+A **Markov Reward Process** (MRP) is a Markov Decision Process (MDP) without actions
+
+$$S_{0}, R_{1}, S_{1}, R_{2}, S_{3}, R_{3}, ..., R_{T}, S_{T}$$
+:::
+
+::: {.callout-note}
+## Update Rule
+
+With a data set of $M$ trajectories ($m = 1, 2, ..., M$),
+
+$$V(s_{t}^{m}) \leftarrow V(s_{t}^{m}) + \frac{1}{C(s_{t}^{m})}\left( g_{t}^{m} - V(s_{t}^{m}) \right)$$
+
+where
+
+$$V(s_{t}^{m}) = \frac{1}{C(s)}\displaystyle\sum_{m=1}^{M}\sum_{\tau=0}^{T_{m}-1} \delta(s_{\tau}^{m}, s)g_{\tau}^{m}$$
+
+is estimating the expected return $\text{E}_{\pi}]G_{t}|S_{t}=s]$
+
+* $C(s)$ is a count of how many times state $s$ was visited
+* to keep track if state $s$ was visited: $\delta(s_{\tau}^{m}, s) = \begin{cases} 1, & s_{\tau}^{m} = s \\ 0, & s_{\tau}^{m} \neq s \end{cases}$
+
+:::
+
+::: {.callout-tip}
+## Constant $\alpha$ MC
+
+But if we are assured that our Monte Carlo approach will converge, then we can simplify the update rule to
+
+$$V(s_{t}^{m}) \leftarrow V(s_{t}^{m}) + \alpha\left( g_{t}^{m} - V(s_{t}^{m}) \right), \quad \alpha \in (0,1)$$
+:::
+
+::: {.callout-warning}
+## How do we choose $\alpha$?
+
+Alas, **learning rate** $\alpha$ is yet another hyperparameter that has trade-offs
+
+* "small" $\alpha$: slow learning, but more reliable estimate
+* "large" $\alpha$: fast learning, but noisy estimate
+:::
+
+# Exploration-Exploitation Trade-Off
+
+::: {.callout-tip}
+## Exploration-Exploitation Trade-Off
+
+* To *discover optimal policies*, we must **explore** all state-action pairs.
+* To *get high returns*, we must **exploit** known high value pairs.
+
+:::
+
+::: {.callout-note}
+## $\epsilon$ Greedy Policy
+
+In theory, with infinite data, optimal policy $\pi_{*}$ is always a limit of a **soft policy**:
+
+$$\pi(a|s) > 0, \quad \forall s \in \mathcal{S} \quad \forall a \in \mathcal{A}$$
+
+Instead, we allow for some random selection of actions.  For $u \in U(0,1)$ and probability $\epsilon \in (0,1)$
+
+* if $u < \epsilon$, choose an action randomly from $\mathcal{A}$ (uniformly distributed)
+* if $u \geq \epsilon$, choose action $\text{argmax}_{a}Q(s,a)$
+
+:::
+
+# Case Study: Blackjack
+
+::::: {.panel-tabset}
+
+## Game
+
+In the card game Blackjack ([rules](https://bicyclecards.com/how-to-play/blackjack)), a player is dealt two cards and the dealer also starts with two cards for themselves.  Only one of the dealer's cards is visible.  If the dealer's visible card is a "usable" ace, the odds can change drastically.  We hope to find a *policy* for choosing between "hit" (gain another card) or "stay"---while also considering the possibility of a usuable ace by the dealer---toward the goal of having cards that have a high total that does not exceed 21.
+
+## Settings
+
+The following images come from Mutual information ([video](https://www.youtube.com/watch?v=bpUszPiWM7o&t=300s), [code](https://github.com/Duane321/mutual_information/tree/main/videos/monte_carlo_for_RL_and_off_policy_methods)), where the hyperparameter settings included
+
+* $\epsilon = 0.1$
+* $\alpha = \frac{1}{5000}$
+* $M = 10^{7}$ games played!
+
+## Q Table
+
+![Q Table](blackjack_Q_table.png)
+
+* image credit: [Mutual Information](https://www.youtube.com/watch?v=bpUszPiWM7o&t=300s)
+
+## Constant alpha
+
+![Constant alpha](blackjack_constant_alpha.png)
+
+* image credit: [Mutual Information](https://www.youtube.com/watch?v=bpUszPiWM7o&t=300s)
+
+:::::
+
+# Off-Policy Methods
+
+::: {.callout-warning}
+## Behavior Policy
+
+* **Behavior policy** $b(a|s)$ generates the trajectory data
+* **Target policy** $\pi(a|s)$ is what we have been generating so far
+
+and they might not be the same (especially if we do not have the data trajectories known in advance).
+
+:::
+
+::: {.callout-note}
+## Off-Policy Methods
+
+* **On-Policy Methods** $b = \pi$ 
+* **Off-Policy Methods** $b \neq \pi$ 
+
+That is, the data trajectories should be generated after estimating a policy.
+
+:::
+
+::: {.callout-note}
+## State-Action Calculation
+
+We still want to estimate the state-action values from a policy as
+
+$$q_{\pi}(s,a) = \text{E}_{\pi}[G_{t}|S_{t} = s, A_{t}= a]$$
+
+but the data trajectories might have a slightly different distribution with 
+
+$$\text{E}_{b}[G_{t}|S_{t} = s, A_{t} = a]$$
+
+From [importance sampling](https://builtin.com/articles/importance-sampling)
+
+$$q_{\pi}(s,a) = \text{E}_{\pi}[\rho \cdot G_{t}|S_{t} = s, A_{t}= a]$$
+where
+
+$$\rho = \frac{p_{\pi}(G_{t})}{p_{b}(G_{t})} = \displaystyle\prod_{\tau = t+1}^{T-1} \frac{\pi(A_{t}|S_{t})}{b(A_{t}|S_{t})}$$
+
+and we need **coverage** (i.e. non-zero probabilities $\pi(a|s) > 0$ and $b(a|s) > 0$ over the same states).
+
+
+:::
+
+
+# Case Study: Blackjack Revisited
+
+::::: {.panel-tabset}
+
+## Settings
+
+Instead of an $\epsilon$-soft algorithm, the trajectory samples are now created under a provided behavior policy $b$, and the returns $g_{t}^{m}$ are calculated in part with a scaling factor of $\rho_{t}^{m}$.
+
+## Q Table
+
+![Q Table](blackjack_Q_table.png)
+
+* image credit: [Mutual Information](https://www.youtube.com/watch?v=bpUszPiWM7o&t=1500s)
+
+## Constant alpha
+
+![Constant alpha](blackjack_constant_alpha.png)
+
+* image credit: [Mutual Information](https://www.youtube.com/watch?v=bpUszPiWM7o&t=1500s)
+
+
+
+:::::
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* due this Friday (April 11):
+
+    - Precept 9
+    - Data Glimpse
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* semester projects will be due May 10
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [Reinforcement Learning by the Book](https://www.youtube.com/watch?v=bpUszPiWM7o) by Duane "Mutual Information" Rich
+
+* [Q-Learning Easily Explained](https://databasecamp.de/en/ml/q-learnings) at Data Base Camp
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

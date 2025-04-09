@@ -30,9 +30,9 @@ format:
 :::
 
 ::: {.column width="45%"}
-![robots!](boston_dynamics_robots.png)
+![Reinforcement Learning](RL_robot.png)
 
-* image credit: [Boston Dynamics](https://johnkoetsier.com/boston-dynamics-the-golden-age-of-robotics/)
+* image credit: [Data Base Camp](https://databasecamp.de/en/ml/q-learnings)
 
 :::
 
@@ -440,9 +440,7 @@ $$\begin{array}{rcl}
 
 To rigorously formulate the concepts of reinforcement learning, we think of states, actions, and rewards.
 
-![reinforcement learing structure](RL_main.png)
 
-* image credit: [Dive into Deep Learning](https://d2l.ai/chapter_reinforcement-learning/index.html)
 
 For some terminology,
 

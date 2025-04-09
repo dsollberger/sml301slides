@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1173,14 +1173,14 @@
     "href": "posts/19_RL/19_reinforcement_learning.html",
     "title": "19: Reinforcement Learning",
     "section": "",
-    "text": "Introduce reinforcement learning\nDiscuss Markov Decision Processes\n\n\n\n\n\n\n\nrobots!\n\n\n\nimage credit: Boston Dynamics"
+    "text": "Introduce reinforcement learning\nDiscuss Markov Decision Processes\n\n\n\n\n\n\n\nReinforcement Learning\n\n\n\nimage credit: Data Base Camp"
   },
   {
     "objectID": "posts/19_RL/19_reinforcement_learning.html#learning-objectives",
     "href": "posts/19_RL/19_reinforcement_learning.html#learning-objectives",
     "title": "19: Reinforcement Learning",
     "section": "",
-    "text": "Introduce reinforcement learning\nDiscuss Markov Decision Processes\n\n\n\n\n\n\n\nrobots!\n\n\n\nimage credit: Boston Dynamics"
+    "text": "Introduce reinforcement learning\nDiscuss Markov Decision Processes\n\n\n\n\n\n\n\nReinforcement Learning\n\n\n\nimage credit: Data Base Camp"
   },
   {
     "objectID": "posts/19_RL/19_reinforcement_learning.html#neural-network",
@@ -1279,5 +1279,26 @@
     "title": "19: Reinforcement Learning",
     "section": "GPI",
     "text": "GPI\nFor Generalized Policy Iteration, we hope to converge to the optimal policy \\(\\pi_{*}\\) and optimal state value function \\(v_{*}\\).\n“Almost all reinforcement learning methods are well described as GPI” — Simon and Barto"
+  },
+  {
+    "objectID": "posts/20_RL2/20_reinforcement_learning_Q.html",
+    "href": "posts/20_RL2/20_reinforcement_learning_Q.html",
+    "title": "20: Reinforcement Learning",
+    "section": "",
+    "text": "Explore the breadth of reinforcement learning\nIntroduce Q Learning\n\n\n\n\n\n\n\nReinforcement Learning\n\n\n\nimage credit: Data Base Camp"
+  },
+  {
+    "objectID": "posts/20_RL2/20_reinforcement_learning_Q.html#learning-objectives",
+    "href": "posts/20_RL2/20_reinforcement_learning_Q.html#learning-objectives",
+    "title": "20: Reinforcement Learning",
+    "section": "",
+    "text": "Explore the breadth of reinforcement learning\nIntroduce Q Learning\n\n\n\n\n\n\n\nReinforcement Learning\n\n\n\nimage credit: Data Base Camp"
+  },
+  {
+    "objectID": "posts/20_RL2/20_reinforcement_learning_Q.html#model-free",
+    "href": "posts/20_RL2/20_reinforcement_learning_Q.html#model-free",
+    "title": "20: Reinforcement Learning",
+    "section": "Model-Free",
+    "text": "Model-Free\n\n\n\n\n\n\nModel\n\n\n\nA model is a mechanism that an agent uses to predict the results of its actions\n\ne.g. estimating \\(p(s',r|s,a)\\)\n\n\n\n\n\n\n\n\n\nModel-Free\n\n\n\n\nModel-Based: methods that use a model to plan actions beforehand\nModel-Free: methods that learn action-to return associations\n\n\n\n\n\n\n\n\n\nMC is Model-Free\n\n\n\nMonte Carlo methods are model-free. As such, it may be more useful to estimate state-action values \\(q\\) rather than state values \\(v\\). Recall that\n\\[Q(s,a) = \\displaystyle\\sum_{\\begin{array}{c} s'\\in\\mathcal{S} \\\\ r\\in\\mathcal{R}\\end{array}} p(s',r|s,a)[r + \\gamma V(s')]\\]\nBut since we are no longer assuming knowledge of \\(p(s',r|s,a)\\), let us estimate the optimal state-action values \\(q_{*}(s,a)\\) directly."
   }
 ]
