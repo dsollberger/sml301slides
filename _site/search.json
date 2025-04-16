@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1398,5 +1398,131 @@
     "title": "21: Generative Adversarial Networks",
     "section": "Architecture",
     "text": "Architecture\n\n\n\n\ncycle GAN architecture\n\n\n\nimages source: Bansal and Rathore\n\n\n\n\n\n\n\ncGAN Objective\n\n\n\nIn a cyclic GAN, the generator and discriminator converge toward a Nash equilibrium."
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html",
+    "href": "posts/22_transformers/22_transformers.html",
+    "title": "22: Transformers",
+    "section": "",
+    "text": "Revise understanding of long-term memory\nExplore text encoder-decoder modeling\n\n\n\n\n\n\n\nencoder-decoder\n\n\n\nimage credit: StatQuest\n\n\n\n\n\n\n\n\n\nDatenwissenschaft\n\n\n\n\n\n\n\n\nDeutsch\n\n\n\n\n\nI did ask a German person to check my translation. They kindly informed me that German data scientists tend to say “data science” instead of “Datenwissenschaft”.\nI opted for the large compound word to fermet discussion about the grammatical differences.\n\n\n\n\n\n\n\nExampleUnfoldedVanishing Gradients\n\n\n\n\n\n\n\nflowchart LR\n\ninput1[input]\n\nneuron1[neuron]\n\noutput1[output]\n\ninput1 --&gt; neuron1\nneuron1 --&gt; output1\nneuron1 --&gt; neuron1\n\n\n\n\n\n\n\n\n\n\n\nunfolded RNN\n\n\n\n\n\n\n\n\n\n\nGradient Propagation\n\n\n\n\nwe have vanishing gradients if \\(|w_{h,h}| &lt; 1\\)\nwe have exploding gradients if \\(|w_{h,h}| &gt; 1\\)"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#learning-objectives",
+    "href": "posts/22_transformers/22_transformers.html#learning-objectives",
+    "title": "22: Transformers",
+    "section": "",
+    "text": "Revise understanding of long-term memory\nExplore text encoder-decoder modeling\n\n\n\n\n\n\n\nencoder-decoder\n\n\n\nimage credit: StatQuest"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#main-example",
+    "href": "posts/22_transformers/22_transformers.html#main-example",
+    "title": "22: Transformers",
+    "section": "",
+    "text": "Datenwissenschaft\n\n\n\n\n\n\n\n\nDeutsch\n\n\n\n\n\nI did ask a German person to check my translation. They kindly informed me that German data scientists tend to say “data science” instead of “Datenwissenschaft”.\nI opted for the large compound word to fermet discussion about the grammatical differences."
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#recall-rnns",
+    "href": "posts/22_transformers/22_transformers.html#recall-rnns",
+    "title": "22: Transformers",
+    "section": "",
+    "text": "ExampleUnfoldedVanishing Gradients\n\n\n\n\n\n\n\nflowchart LR\n\ninput1[input]\n\nneuron1[neuron]\n\noutput1[output]\n\ninput1 --&gt; neuron1\nneuron1 --&gt; output1\nneuron1 --&gt; neuron1\n\n\n\n\n\n\n\n\n\n\n\nunfolded RNN\n\n\n\n\n\n\n\n\n\n\nGradient Propagation\n\n\n\n\nwe have vanishing gradients if \\(|w_{h,h}| &lt; 1\\)\nwe have exploding gradients if \\(|w_{h,h}| &gt; 1\\)"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#main-example-1",
+    "href": "posts/22_transformers/22_transformers.html#main-example-1",
+    "title": "22: Transformers",
+    "section": "Main Example",
+    "text": "Main Example\nLet us try running through our main example through a trained transformer\n\n\n\n\n\nDatenwissenschaft\n\n\n\n\n\n\n\n\nencoder-decoder\n\n\n\nimage credit: StatQuest"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#word-encoding",
+    "href": "posts/22_transformers/22_transformers.html#word-encoding",
+    "title": "22: Transformers",
+    "section": "Word Encoding",
+    "text": "Word Encoding\nWe start out with one-hot encoding of the input multiplied by the encoder weights:\n\\[\\begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 \\end{pmatrix}\\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\\\ 1.11 & -1.69 \\end{pmatrix} = \\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\\\ 1.11 & -1.69 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#position-encoding-1",
+    "href": "posts/22_transformers/22_transformers.html#position-encoding-1",
+    "title": "22: Transformers",
+    "section": "Position Encoding",
+    "text": "Position Encoding\nNext, we get our position encoding values\n\n\\(n_{\\text{input}} = 7\\)\n\\(d_{\\text{model}} = 2\\)\n\n\\[\\begin{pmatrix} 0.84 & 0.54 \\\\ 0.91 & -0.42 \\\\ 0.14 & -0.99 \\\\ -0.76 & -0.65 \\\\ -0.96 & 0.28 \\\\ -0.28 & 0.96 \\\\ 0.66 & 0.75 \\end{pmatrix}\\]\nand then the word embedding plus position encoding is\n\\[\\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\\\ 1.11 & -1.69 \\end{pmatrix} + \\begin{pmatrix} 0.84 & 0.54 \\\\ 0.91 & -0.42 \\\\ 0.14 & -0.99 \\\\ -0.76 & -0.65 \\\\ -0.96 & 0.28 \\\\ -0.28 & 0.96 \\\\ 0.66 & 0.75 \\end{pmatrix} = \\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\\\ 1.77 & -0.94 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#self-attention",
+    "href": "posts/22_transformers/22_transformers.html#self-attention",
+    "title": "22: Transformers",
+    "section": "Self-Attention",
+    "text": "Self-Attention\n\nQueries\nWe find the queries by multiplying the encoded values by the transpose of the query weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\\\ 1.77 & -0.94 \\end{pmatrix}\\begin{pmatrix} 0.07 & 0.64 \\\\ -0.70 & -0.60 \\end{pmatrix} = \\begin{pmatrix} -0.39 & 0.35 \\\\ 0.21 & 0.84 \\\\ 0.76 & 0.08 \\\\ 1 & 1.70 \\\\ -0.42 & -0.65 \\\\ -1.22 & -0.90 \\\\ 0.78 & 1.70 \\end{pmatrix}\\]\n\n\nKeys\nWe find the keys by multiplying the encoded values by the transpose of the key weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\\\ 1.77 & -0.94 \\end{pmatrix}\\begin{pmatrix} 0.55 & -0.23 \\\\ 0.12 & 0.44 \\end{pmatrix} = \\begin{pmatrix} 0.73 & 0.02 \\\\ 0.60 & -0.35 \\\\ -0.68 & -0.29 \\\\ 0.64 & -0.90 \\\\ -0.21 & 0.36 \\\\ 0.35 & 0.72 \\\\ 0.86 & -0.82 \\end{pmatrix}\\]\n\n\nValues\nWe find the values by multiplying the encoded values by the transpose of the value weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\\\ 1.77 & -0.94 \\end{pmatrix}\\begin{pmatrix} 0.11 & 0.08 \\\\ 0.57 & -0.22 \\end{pmatrix} = \\begin{pmatrix} 0.51 & -0.05 \\\\ 0.02 & 0.13 \\\\ -0.78 & 0.18 \\\\ -0.58 & 0.40 \\\\ 0.26 & -0.16 \\\\ 1.04 & -0.37 \\\\ -0.34 & 0.35 \\end{pmatrix}\\]\n\n\nSelf-Attention\nNow, self-attention is defined (in AI literature) as\n\\[\\text{Attention}(Q, K, V) = \\text{Softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_{\\text{model}}}}\\right)V\\]\n\\[\\begin{pmatrix} 0.13 & 0.12 & 0.18 & 0.11 & 0.18 & 0.17 & 0.10 \\\\ 0.16 & 0.13 & 0.11 & 0.09 & 0.17 & 0.23 & 0.10 \\\\ 0.17 & 0.16 & 0.08 & 0.16 & 0.11 & 0.15 & 0.18 \\\\ 0.20 & 0.12 & 0.05 & 0.06 & 0.15 & 0.35 & 0.08 \\\\ 0.11 & 0.14 & 0.20 & 0.18 & 0.13 & 0.09 & 0.16 \\\\ 0.08 & 0.11 & 0.33 & 0.15 & 0.14 & 0.07 & 0.12 \\\\ 0.19 & 0.11 & 0.06 & 0.06 & 0.17 & 0.35 & 0.07 \\end{pmatrix}\\begin{pmatrix} 0.51 & -0.05 \\\\ 0.02 & 0.13 \\\\ -0.78 & 0.18 \\\\ -0.58 & 0.40 \\\\ 0.26 & -0.16 \\\\ 1.04 & -0.37 \\\\ -0.34 & 0.35 \\end{pmatrix}\\]\n\n\n\n\n\n\nSoftmax\n\n\n\nBefore multiplying by \\(V\\), the result of the softmax gives us a glimpse of how the machine views the relationship between the words. For example, in the last row for “science”, we see that “science” is most related to “data” in our input phrase.\n\n\n\\[\\text{Attention}(Q, K, V) = \\begin{pmatrix} 0.06 & 0.03 \\\\ 0.20 & -0.01 \\\\ 0.06 & 0.08 \\\\ 0.40 & -0.09 \\\\ -0.12 & 0.12 \\\\ -0.23 & 0.12 \\\\ 0.40 & -0.09 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#encoder-output",
+    "href": "posts/22_transformers/22_transformers.html#encoder-output",
+    "title": "22: Transformers",
+    "section": "Encoder Output",
+    "text": "Encoder Output\nFinally, the encoder output is the sum of the encoded values and the self-attention:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\\\ 1.77 & -0.94 \\end{pmatrix} + \\begin{pmatrix} 0.06 & 0.03 \\\\ 0.20 & -0.01 \\\\ 0.06 & 0.08 \\\\ 0.40 & -0.09 \\\\ -0.12 & 0.12 \\\\ -0.23 & 0.12 \\\\ 0.40 & -0.09 \\end{pmatrix} = \\begin{pmatrix} 1.24 & 0.70 \\\\ 1.34 & -0.20 \\\\ -0.92 & -1.10 \\\\ 1.85 & -1.38 \\\\ -0.62 & 0.67 \\\\ 0.02 & 1.89 \\\\ 2.17 & -1.03 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#word-encoding-1",
+    "href": "posts/22_transformers/22_transformers.html#word-encoding-1",
+    "title": "22: Transformers",
+    "section": "Word Encoding",
+    "text": "Word Encoding\nWe start out with one-hot encoding of the input multiplied by the encoder weights:\n\\[\\begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0  \\\\ 0 & 1 & 0 & 0 & 0 & 0  \\\\ 0 & 0 & 1 & 0 & 0 & 0  \\\\ 0 & 0 & 0 & 1 & 0 & 0  \\\\ 0 & 0 & 0 & 0 & 1 & 0 & \\\\ 0 & 0 & 0 & 0 & 0 & 1  \\end{pmatrix}\\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\end{pmatrix} = \\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#position-encoding-2",
+    "href": "posts/22_transformers/22_transformers.html#position-encoding-2",
+    "title": "22: Transformers",
+    "section": "Position Encoding",
+    "text": "Position Encoding\nNext, we get our position encoding values\n\n\\(n_{\\text{output}} = 6\\)\n\\(d_{\\text{model}} = 2\\)\n\n\\[\\begin{pmatrix} 0.84 & 0.54 \\\\ 0.91 & -0.42 \\\\ 0.14 & -0.99 \\\\ -0.76 & -0.65 \\\\ -0.96 & 0.28 \\\\ -0.28 & 0.96 \\end{pmatrix}\\]\nand then the word embedding plus position encoding is\n\\[\\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\end{pmatrix} + \\begin{pmatrix} 0.84 & 0.54 \\\\ 0.91 & -0.42 \\\\ 0.14 & -0.99 \\\\ -0.76 & -0.65 \\\\ -0.96 & 0.28 \\\\ -0.28 & 0.96 \\end{pmatrix} = \\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#self-attention-2",
+    "href": "posts/22_transformers/22_transformers.html#self-attention-2",
+    "title": "22: Transformers",
+    "section": "Self-Attention",
+    "text": "Self-Attention\n\nQueries\nWe find the queries by multiplying the encoded values by the transpose of the query weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\end{pmatrix}\\begin{pmatrix} -0.56 & -0.20 \\\\ -0.33 & -0.43 \\end{pmatrix} = \\begin{pmatrix} -0.88 & -0.52 \\\\ -0.58 & -0.15 \\\\ 0.94 & 0.70 \\\\ -0.39 & 0.26 \\\\ 0.10 & -0.14 \\\\ -0.72 & -0.81 \\end{pmatrix}\\]\n\n\nKeys\nWe find the keys by multiplying the encoded values by the transpose of the key weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\end{pmatrix}\\begin{pmatrix} 0.07 & 0.64 \\\\ -0.70 & -0.60 \\end{pmatrix} = \\begin{pmatrix} -0.39 & 0.35 \\\\ 0.21 & 0.84 \\\\ 0.76 & 0.08 \\\\ 1 & 1.70 \\\\ -0.42 & -0.65 \\\\ -1.22 & -0.90 \\end{pmatrix}\\]\n\n\nValues\nWe find the values by multiplying the encoded values by the transpose of the value weights:\n\\[\\begin{pmatrix} 1.18 & 0.67 \\\\ 1.14 & -0.19 \\\\ -0.98 & -1.18 \\\\ 1.45 & -1.29 \\\\ \\frac{-1}{2} & 0.55 \\\\ \\frac{1}{4} & 1.77 \\end{pmatrix}\\begin{pmatrix} 0.55 & -0.23 \\\\ 0.12 & 0.44 \\end{pmatrix} = \\begin{pmatrix} 0.73 & 0.02 \\\\ 0.60 & -0.35 \\\\ -0.68 & -0.29 \\\\ 0.64 & -0.90 \\\\ -0.21 & 0.36 \\\\ 0.35 & 0.72 \\end{pmatrix}\\]\n\n\nMasked Self-Attention\nNow, masked self-attention is defined (in AI literature) as\n\\[\\text{Attention}(Q, K, V) = \\text{Softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_{\\text{model}}}} + M\\right)V\\]\n\\[\\begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\\\ 0.57 & 0.43 & 0 & 0 & 0 & 0 \\\\ 0.21 & 0.40 & 0.39 & 0 & 0 & 0 \\\\ 0.29 & 0.27 & 0.20 & \\frac{1}{4} & 0 & 0 \\\\ 0.19 & 0.19 & 0.21 & 0.19 & 0.21 & 0 \\\\ 0.14 & 0.08 & 0.09 & 0.03 & 0.24 & 0.43 \\end{pmatrix}\\begin{pmatrix} 0.73 & 0.02 \\\\ 0.60 & -0.35 \\\\ -0.68 & -0.29 \\\\ 0.64 & -0.90 \\\\ -0.21 & 0.36 \\\\ 0.35 & 0.72 \\end{pmatrix}\\]\n\n\n\n\n\n\nSoftmax\n\n\n\nBefore multiplying by \\(V\\), the result of the softmax gives us a glimpse of how the machine views the relationship between the words. For example, in the last row for \\(EOS\\) (“end of sequence”), we see that \\(EOS\\) is most related to \\(EOS\\) in our output phrase.\n\n\n\\[\\text{Attention}(Q, K, V) = \\begin{pmatrix} 0.73 & 0.02 \\\\ 0.60 & -0.35 \\\\ -0.68 & -0.29 \\\\ 0.64 & -0.90 \\\\ -0.21 & 0.36 \\\\ 0.35 & 0.72 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#decoder-output",
+    "href": "posts/22_transformers/22_transformers.html#decoder-output",
+    "title": "22: Transformers",
+    "section": "Decoder Output",
+    "text": "Decoder Output\nFinally, the decoder output is the sum of the encoded values and the self-attention:\n\\[\\begin{pmatrix} 0.34 & 0.13 \\\\ 0.23 & 0.23 \\\\ -1.12 & -0.19 \\\\ 2.21 & -0.64 \\\\ 0.46 & 0.27 \\\\ 0.53 & 0.81 \\end{pmatrix} + \\begin{pmatrix} 0.73 & 0.02 \\\\ 0.60 & -0.35 \\\\ -0.68 & -0.29 \\\\ 0.64 & -0.90 \\\\ -0.21 & 0.36 \\\\ 0.35 & 0.72 \\end{pmatrix} = \\begin{pmatrix} 1.91 & 0.69 \\\\ 1.82 & -0.32 \\\\ -0.85 & -1.43 \\\\ 1.84 & -1.66 \\\\ -0.31 & 0.33 \\\\ 0.45 & 2.09 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#self-attention-3",
+    "href": "posts/22_transformers/22_transformers.html#self-attention-3",
+    "title": "22: Transformers",
+    "section": "Self-Attention",
+    "text": "Self-Attention\n\nQueries\nWe find the queries by multiplying the decoder values by the transpose of the query weights:\n\\[\\begin{pmatrix} 1.91 & 0.69 \\\\ 1.82 & -0.32 \\\\ -0.85 & -1.43 \\\\ 1.84 & -1.66 \\\\ -0.31 & 0.33 \\\\ 0.45 & 2.09 \\end{pmatrix}\\begin{pmatrix} -0.56 & -0.20 \\\\ -0.33 & -0.43 \\end{pmatrix} = \\begin{pmatrix} -1.30 & -0.68 \\\\ -0.91 & -0.22 \\\\ 0.95 & 0.78 \\\\ -0.49 & 0.34 \\\\ 0.07 & -0.08 \\\\ -0.94 & -0.99 \\end{pmatrix}\\]\n\n\nKeys\nWe find the keys by multiplying the encoder values by the transpose of the key weights:\n\\[\\begin{pmatrix} 1.24 & 0.70 \\\\ 1.34 & -0.20 \\\\ -0.92 & -1.10 \\\\ 1.85 & -1.38 \\\\ -0.62 & 0.67 \\\\ 0.02 & 1.89 \\\\ 2.17 & -1.03 \\end{pmatrix}\\begin{pmatrix} 0.19 & 0.30 \\\\ -0.19 & 0.63 \\end{pmatrix} = \\begin{pmatrix} 0.23 & 1.01 \\\\ 0.41 & 0.34 \\\\ 0.11 & -1.16 \\\\ 0.67 & -0.49 \\\\ -0.12 & 0.12 \\\\ -0.31 & 1.45 \\end{pmatrix}\\]\n\n\nValues\nWe find the values by multiplying the encoder values by the transpose of the value weights:\n\\[\\begin{pmatrix} 1.24 & 0.70 \\\\ 1.34 & -0.20 \\\\ -0.92 & -1.10 \\\\ 1.85 & -1.38 \\\\ -0.62 & 0.67 \\\\ 0.02 & 1.89 \\\\ 2.17 & -1.03 \\end{pmatrix}\\begin{pmatrix} 0.41 & 0.41 \\\\ -0.31 & 0.13 \\end{pmatrix} = \\begin{pmatrix} 0.57 & 0.87 \\\\ 0.85 & 0.70 \\\\ 0.09 & -0.54 \\\\ 1.27 & 0.54 \\\\ -0.23 & -0.09 \\\\ -0.46 & 0.46 \\end{pmatrix}\\]\n\n\nSelf-Attention\nNow, self-attention is defined (in AI literature) as\n\\[\\text{Attention}(Q, K, V) = \\text{Softmax}\\left(\\frac{QK^{T}}{\\sqrt{d_{\\text{model}}}}\\right)V\\]\n\\[\\begin{pmatrix} 0.10 & 0.12 & 0.31 & 0.14 & 0.21 & 0.13 \\\\ 0.14 & 0.14 & 0.21 & 0.13 & 0.20 & 0.18 \\\\ \\frac{1}{4} & 0.19 & 0.07 & 0.15 & 0.12 & 0.22 \\\\ 0.19 & 0.15 & 0.12 & 0.11 & 0.17 & \\frac{1}{4} \\\\ 0.16 & 0.17 & 0.18 & 0.18 & 0.17 & 0.15 \\\\ 0.08 & 0.11 & 0.38 & 0.17 & 0.18 & 0.08 \\end{pmatrix}\\begin{pmatrix} 0.57 & 0.87 \\\\ 0.85 & 0.70 \\\\ 0.09 & -0.54 \\\\ 1.27 & 0.54 \\\\ -0.23 & -0.09 \\\\ -0.46 & 0.46 \\end{pmatrix}\\] \\[\\begin{pmatrix} 0.57 & 0.87 \\\\ 0.69 & 0.80 \\\\ 0.49 & \\frac{1}{4} \\\\ 0.72 & 0.47 \\\\ 0.48 & 0.27 \\\\ -0.07 & 0.31 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#encoder-decoder-output",
+    "href": "posts/22_transformers/22_transformers.html#encoder-decoder-output",
+    "title": "22: Transformers",
+    "section": "Encoder-Decoder Output",
+    "text": "Encoder-Decoder Output\nFinally, the encoder-decoder output is the sum of the decoder values and the self-attention:\n\\[\\begin{pmatrix} 1.91 & 0.69 \\\\ 1.82 & -0.32 \\\\ -0.85 & -1.43 \\\\ 1.84 & -1.66 \\\\ -0.31 & 0.33 \\\\ 0.45 & 2.09 \\end{pmatrix} + \\begin{pmatrix} 0.57 & 0.87 \\\\ 0.69 & 0.80 \\\\ 0.49 & \\frac{1}{4} \\\\ 0.72 & 0.47 \\\\ 0.48 & 0.27 \\\\ -0.07 & 0.31 \\end{pmatrix} = \\begin{pmatrix} \\frac{7}{4} & 1.54 \\\\ 1.83 & 0.61 \\\\ -0.49 & -0.93 \\\\ 2.17 & -0.82 \\\\ -0.02 & 0.82 \\\\ 0.18 & 2.08 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#weights",
+    "href": "posts/22_transformers/22_transformers.html#weights",
+    "title": "22: Transformers",
+    "section": "Weights",
+    "text": "Weights\nFor the fully-connected layer at the end of the transformer, we multiply the output of the encoder-decoder by the weights of the dense layer:\n\\[\\begin{pmatrix} \\frac{7}{4} & 1.54 \\\\ 1.83 & 0.61 \\\\ -0.49 & -0.93 \\\\ 2.17 & -0.82 \\\\ -0.02 & 0.82 \\\\ 0.18 & 2.08 \\end{pmatrix}\\begin{pmatrix} 0.36 & -0.70 & -0.54 & 0.20 & 0.22 & 0.55 \\\\ -0.43 & -0.27 & 0.58 & 0.29 & -0.01 & \\frac{-1}{2} \\end{pmatrix}\\] \\[\\begin{pmatrix} -0.03 & -1.64 & -0.05 & 0.80 & 0.37 & 0.19 \\\\ 0.40 & -1.44 & -0.63 & 0.54 & 0.40 & 0.70 \\\\ 0.22 & 0.59 & -0.27 & -0.37 & -0.10 & 0.20 \\\\ 1.14 & -1.30 & -1.65 & 0.20 & 0.49 & 1.61 \\\\ -0.36 & -0.21 & 0.49 & 0.23 & -0.01 & -0.42 \\\\ -0.83 & -0.69 & 1.11 & 0.64 & 0.02 & -0.94 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#bias",
+    "href": "posts/22_transformers/22_transformers.html#bias",
+    "title": "22: Transformers",
+    "section": "Bias",
+    "text": "Bias\nWe add the bias values to each column of the previous result:\n\\[\\begin{pmatrix} 0.01 & -2.12 & 0.17 & 0.56 & 0.59 & 0.04 \\\\ 0.44 & -1.92 & -0.41 & 0.30 & 0.62 & 0.55 \\\\ 0.26 & 0.11 & -0.05 & -0.61 & 0.12 & 0.05 \\\\ 1.18 & -1.78 & -1.43 & -0.04 & 0.71 & 1.46 \\\\ -0.32 & -0.69 & 0.71 & -0.01 & 0.21 & -0.57 \\\\ -0.79 & -1.17 & 1.33 & 0.40 & 0.24 & -1.09 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/22_transformers/22_transformers.html#softmax-2",
+    "href": "posts/22_transformers/22_transformers.html#softmax-2",
+    "title": "22: Transformers",
+    "section": "Softmax",
+    "text": "Softmax\nFinally, we apply a softmax rowwise.\n\\[\\begin{pmatrix} 0.15 & 0.02 & 0.17 & \\frac{1}{4} & 0.26 & 0.15 \\\\ 0.21 & 0.02 & 0.09 & 0.19 & \\frac{1}{4} & 0.24 \\\\ 0.21 & 0.18 & 0.16 & 0.09 & 0.19 & 0.17 \\\\ 0.30 & 0.02 & 0.02 & 0.09 & 0.19 & 0.39 \\\\ 0.12 & 0.08 & 0.34 & 0.16 & 0.20 & 0.09 \\\\ 0.06 & 0.04 & 0.49 & 0.20 & 0.17 & 0.04 \\end{pmatrix}\\]"
   }
 ]

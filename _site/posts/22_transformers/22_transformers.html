@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-04-16">
+
+<title>22: Transformers – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-22-transformers" id="toc-session-22-transformers" class="nav-link active" data-scroll-target="#session-22-transformers">Session 22: Transformers</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  <li><a href="#main-example" id="toc-main-example" class="nav-link" data-scroll-target="#main-example">Main Example</a></li>
+  <li><a href="#recall-rnns" id="toc-recall-rnns" class="nav-link" data-scroll-target="#recall-rnns">Recall: RNNs</a></li>
+  </ul></li>
+  <li><a href="#lstms" id="toc-lstms" class="nav-link" data-scroll-target="#lstms">LSTMs</a></li>
+  <li><a href="#grus" id="toc-grus" class="nav-link" data-scroll-target="#grus">GRUs</a></li>
+  <li><a href="#position-encoding" id="toc-position-encoding" class="nav-link" data-scroll-target="#position-encoding">Position Encoding</a></li>
+  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention</a></li>
+  <li><a href="#encoder" id="toc-encoder" class="nav-link" data-scroll-target="#encoder">Encoder</a>
+  <ul class="collapse">
+  <li><a href="#main-example-1" id="toc-main-example-1" class="nav-link" data-scroll-target="#main-example-1">Main Example</a></li>
+  <li><a href="#word-encoding" id="toc-word-encoding" class="nav-link" data-scroll-target="#word-encoding">Word Encoding</a></li>
+  <li><a href="#position-encoding-1" id="toc-position-encoding-1" class="nav-link" data-scroll-target="#position-encoding-1">Position Encoding</a></li>
+  <li><a href="#self-attention" id="toc-self-attention" class="nav-link" data-scroll-target="#self-attention">Self-Attention</a>
+  <ul class="collapse">
+  <li><a href="#queries" id="toc-queries" class="nav-link" data-scroll-target="#queries">Queries</a></li>
+  <li><a href="#keys" id="toc-keys" class="nav-link" data-scroll-target="#keys">Keys</a></li>
+  <li><a href="#values" id="toc-values" class="nav-link" data-scroll-target="#values">Values</a></li>
+  <li><a href="#self-attention-1" id="toc-self-attention-1" class="nav-link" data-scroll-target="#self-attention-1">Self-Attention</a></li>
+  </ul></li>
+  <li><a href="#encoder-output" id="toc-encoder-output" class="nav-link" data-scroll-target="#encoder-output">Encoder Output</a></li>
+  </ul></li>
+  <li><a href="#decoder" id="toc-decoder" class="nav-link" data-scroll-target="#decoder">Decoder</a>
+  <ul class="collapse">
+  <li><a href="#word-encoding-1" id="toc-word-encoding-1" class="nav-link" data-scroll-target="#word-encoding-1">Word Encoding</a></li>
+  <li><a href="#position-encoding-2" id="toc-position-encoding-2" class="nav-link" data-scroll-target="#position-encoding-2">Position Encoding</a></li>
+  <li><a href="#self-attention-2" id="toc-self-attention-2" class="nav-link" data-scroll-target="#self-attention-2">Self-Attention</a>
+  <ul class="collapse">
+  <li><a href="#queries-1" id="toc-queries-1" class="nav-link" data-scroll-target="#queries-1">Queries</a></li>
+  <li><a href="#keys-1" id="toc-keys-1" class="nav-link" data-scroll-target="#keys-1">Keys</a></li>
+  <li><a href="#values-1" id="toc-values-1" class="nav-link" data-scroll-target="#values-1">Values</a></li>
+  <li><a href="#masked-self-attention" id="toc-masked-self-attention" class="nav-link" data-scroll-target="#masked-self-attention">Masked Self-Attention</a></li>
+  </ul></li>
+  <li><a href="#decoder-output" id="toc-decoder-output" class="nav-link" data-scroll-target="#decoder-output">Decoder Output</a></li>
+  </ul></li>
+  <li><a href="#encoder-decoder" id="toc-encoder-decoder" class="nav-link" data-scroll-target="#encoder-decoder">Encoder-Decoder</a>
+  <ul class="collapse">
+  <li><a href="#self-attention-3" id="toc-self-attention-3" class="nav-link" data-scroll-target="#self-attention-3">Self-Attention</a>
+  <ul class="collapse">
+  <li><a href="#queries-2" id="toc-queries-2" class="nav-link" data-scroll-target="#queries-2">Queries</a></li>
+  <li><a href="#keys-2" id="toc-keys-2" class="nav-link" data-scroll-target="#keys-2">Keys</a></li>
+  <li><a href="#values-2" id="toc-values-2" class="nav-link" data-scroll-target="#values-2">Values</a></li>
+  <li><a href="#self-attention-4" id="toc-self-attention-4" class="nav-link" data-scroll-target="#self-attention-4">Self-Attention</a></li>
+  </ul></li>
+  <li><a href="#encoder-decoder-output" id="toc-encoder-decoder-output" class="nav-link" data-scroll-target="#encoder-decoder-output">Encoder-Decoder Output</a></li>
+  </ul></li>
+  <li><a href="#fully-connected-layer" id="toc-fully-connected-layer" class="nav-link" data-scroll-target="#fully-connected-layer">Fully-Connected Layer</a>
+  <ul class="collapse">
+  <li><a href="#weights" id="toc-weights" class="nav-link" data-scroll-target="#weights">Weights</a></li>
+  <li><a href="#bias" id="toc-bias" class="nav-link" data-scroll-target="#bias">Bias</a></li>
+  <li><a href="#softmax-2" id="toc-softmax-2" class="nav-link" data-scroll-target="#softmax-2">Softmax</a></li>
+  </ul></li>
+  <li><a href="#translation" id="toc-translation" class="nav-link" data-scroll-target="#translation">Translation?</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">22: Transformers</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 16, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-22-transformers" class="level1">
+<h1>Session 22: Transformers</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Revise understanding of long-term memory</li>
+<li>Explore text encoder-decoder modeling</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="statquest_transformer.png" class="img-fluid figure-img"></p>
+<figcaption>encoder-decoder</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: <a href="https://github.com/StatQuest/signa/blob/main/chapter_12/chapter_12_encoder_decoder_transformer.ipynb">StatQuest</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="main-example" class="level2">
+<h2 class="anchored" data-anchor-id="main-example">Main Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Datenwissenschaft.png" class="img-fluid figure-img"></p>
+<figcaption>Datenwissenschaft</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Deutsch
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I did ask a German person to check my translation. They kindly informed me that German data scientists tend to say “data science” instead of “Datenwissenschaft”.</p>
+<p>I opted for the large compound word to fermet discussion about the grammatical differences.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="recall-rnns" class="level2">
+<h2 class="anchored" data-anchor-id="recall-rnns">Recall: RNNs</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Example</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Unfolded</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Vanishing Gradients</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+input1[input]
+
+neuron1[neuron]
+
+output1[output]
+
+input1 --&gt; neuron1
+neuron1 --&gt; output1
+neuron1 --&gt; neuron1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="RNN_example_unfolded.png" class="img-fluid figure-img"></p>
+<figcaption>unfolded RNN</figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gradient Propagation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>we have <strong>vanishing gradients</strong> if <span class="math inline">\(|w_{h,h}| &lt; 1\)</span></li>
+<li>we have <strong>exploding gradients</strong> if <span class="math inline">\(|w_{h,h}| &gt; 1\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lstms" class="level1">
+<h1>LSTMs</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+LSTM
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each <em>module</em> of a <strong>Long Short Term Memory</strong> (LSTM) network has</p>
+<ul>
+<li>3 inputs: data input, long-term memory (aka <strong>forget gate</strong>), short-term memory (aka <strong>output gate</strong>)</li>
+</ul>
+<p>and outputs new values for the forget gate and the output gate</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LSTM_chain.png" class="img-fluid figure-img"></p>
+<figcaption>LSTM network</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Chris Olah</a></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+867-5309
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TO DO: apply LSTM to the “8675309” sequence of integers</p>
+</div>
+</div>
+</section>
+<section id="grus" class="level1">
+<h1>GRUs</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+GRU
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each <em>module</em> of a <strong>Gated Recurrent Unit</strong> (GRU) network has</p>
+<ul>
+<li><em>2</em> inputs: data input, long-term memory (aka <strong>forget gate</strong>)</li>
+</ul>
+<p>and outputs a new value for the forget gate along with the data prediction. Hence, the GRU architecture is simpler than an LSTM, but can produce similar results.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GRU_diagram.png" class="img-fluid figure-img"></p>
+<figcaption>GRU diagram</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.oreilly.com/library/view/advanced-deep-learning/9781789956177/8ad9dc41-3237-483e-8f6b-7e5f653dc693.xhtml">O’Reilly</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GRU_conceptual.png" class="img-fluid figure-img"></p>
+<figcaption>GRU concepts</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://medium.com/@harshedabdulla/understanding-gated-recurrent-units-grus-in-deep-learning-4404599dcefb">Harshed Abdulla</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Long-term memory
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both LSTM and GRU architectures allow for processing of sequences of data while avoiding the vanishing gradient problem.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="RNN_LSTM_GRU.png" class="img-fluid figure-img"></p>
+<figcaption>recap</figcaption>
+</figure>
+</div>
+</section>
+<section id="position-encoding" class="level1">
+<h1>Position Encoding</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Indexing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At this moment, we wish to keep track of word order (i.e.&nbsp;where they are in a sentence). A first draft is to create an <em>index column</em>:</p>
+<ol type="1">
+<li>I</li>
+<li>want</li>
+<li>to</li>
+<li>learn</li>
+<li>data</li>
+<li>science</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Motivation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>However, as developers explored <strong>positional embedding</strong>, they wanted a system that satisfied useful qualities such as</p>
+<ul>
+<li>distinguish between small and large distances</li>
+<li>bounded values (between zero and one)</li>
+<li>invariant to sequence length</li>
+<li>deterministic (does not depend on RNG seed or initial values)</li>
+</ul>
+<p>source: <a href="https://harrisonpim.com/blog/understanding-positional-embeddings-in-transformer-models">Harrison Pim</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fourier Series
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="positional_encoding_sine_cosine.png" class="img-fluid figure-img"></p>
+<figcaption>positional encoding calculations</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://erdem.pl/2021/05/understanding-positional-encoding-in-transformers">Kemal Erdem</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="attention" class="level1">
+<h1>Attention</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Attention</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Masked Attention</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Transformer Attention</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="self_attention_1.png" class="img-fluid figure-img"></p>
+<figcaption>attention</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://github.com/StatQuest/signa/blob/main/chapter_12/chapter_12_encoder_decoder_transformer.ipynb">StatQuest</a></li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="masked_attention_1.png" class="img-fluid figure-img"></p>
+<figcaption>attention</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://github.com/StatQuest/signa/blob/main/chapter_12/chapter_12_encoder_decoder_transformer.ipynb">StatQuest</a></li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="enc_dec_attention_1.png" class="img-fluid figure-img"></p>
+<figcaption>attention</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://github.com/StatQuest/signa/blob/main/chapter_12/chapter_12_encoder_decoder_transformer.ipynb">StatQuest</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="encoder" class="level1">
+<h1>Encoder</h1>
+<section id="main-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="main-example-1">Main Example</h2>
+<p>Let us try running through our main example through a trained transformer</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Datenwissenschaft.png" class="img-fluid figure-img"></p>
+<figcaption>Datenwissenschaft</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="statquest_transformer.png" class="img-fluid figure-img"></p>
+<figcaption>encoder-decoder</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: <a href="https://github.com/StatQuest/signa/blob/main/chapter_12/chapter_12_encoder_decoder_transformer.ipynb">StatQuest</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="word-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="word-encoding">Word Encoding</h2>
+<p>We start out with one-hot encoding of the input multiplied by the encoder weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \\ 1.11 &amp; -1.69 \end{pmatrix} = \begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \\ 1.11 &amp; -1.69 \end{pmatrix}\]</span></p>
+</section>
+<section id="position-encoding-1" class="level2">
+<h2 class="anchored" data-anchor-id="position-encoding-1">Position Encoding</h2>
+<p>Next, we get our position encoding values</p>
+<ul>
+<li><span class="math inline">\(n_{\text{input}} = 7\)</span></li>
+<li><span class="math inline">\(d_{\text{model}} = 2\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{pmatrix} 0.84 &amp; 0.54 \\ 0.91 &amp; -0.42 \\ 0.14 &amp; -0.99 \\ -0.76 &amp; -0.65 \\ -0.96 &amp; 0.28 \\ -0.28 &amp; 0.96 \\ 0.66 &amp; 0.75 \end{pmatrix}\]</span></p>
+<p>and then the word embedding plus position encoding is</p>
+<p><span class="math display">\[\begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \\ 1.11 &amp; -1.69 \end{pmatrix} + \begin{pmatrix} 0.84 &amp; 0.54 \\ 0.91 &amp; -0.42 \\ 0.14 &amp; -0.99 \\ -0.76 &amp; -0.65 \\ -0.96 &amp; 0.28 \\ -0.28 &amp; 0.96 \\ 0.66 &amp; 0.75 \end{pmatrix} = \begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \\ 1.77 &amp; -0.94 \end{pmatrix}\]</span></p>
+</section>
+<section id="self-attention" class="level2">
+<h2 class="anchored" data-anchor-id="self-attention">Self-Attention</h2>
+<section id="queries" class="level3">
+<h3 class="anchored" data-anchor-id="queries">Queries</h3>
+<p>We find the <strong>queries</strong> by multiplying the encoded values by the transpose of the query weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \\ 1.77 &amp; -0.94 \end{pmatrix}\begin{pmatrix} 0.07 &amp; 0.64 \\ -0.70 &amp; -0.60 \end{pmatrix} = \begin{pmatrix} -0.39 &amp; 0.35 \\ 0.21 &amp; 0.84 \\ 0.76 &amp; 0.08 \\ 1 &amp; 1.70 \\ -0.42 &amp; -0.65 \\ -1.22 &amp; -0.90 \\ 0.78 &amp; 1.70 \end{pmatrix}\]</span></p>
+</section>
+<section id="keys" class="level3">
+<h3 class="anchored" data-anchor-id="keys">Keys</h3>
+<p>We find the <strong>keys</strong> by multiplying the encoded values by the transpose of the key weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \\ 1.77 &amp; -0.94 \end{pmatrix}\begin{pmatrix} 0.55 &amp; -0.23 \\ 0.12 &amp; 0.44 \end{pmatrix} = \begin{pmatrix} 0.73 &amp; 0.02 \\ 0.60 &amp; -0.35 \\ -0.68 &amp; -0.29 \\ 0.64 &amp; -0.90 \\ -0.21 &amp; 0.36 \\ 0.35 &amp; 0.72 \\ 0.86 &amp; -0.82 \end{pmatrix}\]</span></p>
+</section>
+<section id="values" class="level3">
+<h3 class="anchored" data-anchor-id="values">Values</h3>
+<p>We find the <strong>values</strong> by multiplying the encoded values by the transpose of the value weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \\ 1.77 &amp; -0.94 \end{pmatrix}\begin{pmatrix} 0.11 &amp; 0.08 \\ 0.57 &amp; -0.22 \end{pmatrix} = \begin{pmatrix} 0.51 &amp; -0.05 \\ 0.02 &amp; 0.13 \\ -0.78 &amp; 0.18 \\ -0.58 &amp; 0.40 \\ 0.26 &amp; -0.16 \\ 1.04 &amp; -0.37 \\ -0.34 &amp; 0.35 \end{pmatrix}\]</span></p>
+</section>
+<section id="self-attention-1" class="level3">
+<h3 class="anchored" data-anchor-id="self-attention-1">Self-Attention</h3>
+<p>Now, <strong>self-attention</strong> is defined (in AI literature) as</p>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^{T}}{\sqrt{d_{\text{model}}}}\right)V\]</span></p>
+<p><span class="math display">\[\begin{pmatrix} 0.13 &amp; 0.12 &amp; 0.18 &amp; 0.11 &amp; 0.18 &amp; 0.17 &amp; 0.10 \\ 0.16 &amp; 0.13 &amp; 0.11 &amp; 0.09 &amp; 0.17 &amp; 0.23 &amp; 0.10 \\ 0.17 &amp; 0.16 &amp; 0.08 &amp; 0.16 &amp; 0.11 &amp; 0.15 &amp; 0.18 \\ 0.20 &amp; 0.12 &amp; 0.05 &amp; 0.06 &amp; 0.15 &amp; 0.35 &amp; 0.08 \\ 0.11 &amp; 0.14 &amp; 0.20 &amp; 0.18 &amp; 0.13 &amp; 0.09 &amp; 0.16 \\ 0.08 &amp; 0.11 &amp; 0.33 &amp; 0.15 &amp; 0.14 &amp; 0.07 &amp; 0.12 \\ 0.19 &amp; 0.11 &amp; 0.06 &amp; 0.06 &amp; 0.17 &amp; 0.35 &amp; 0.07 \end{pmatrix}\begin{pmatrix} 0.51 &amp; -0.05 \\ 0.02 &amp; 0.13 \\ -0.78 &amp; 0.18 \\ -0.58 &amp; 0.40 \\ 0.26 &amp; -0.16 \\ 1.04 &amp; -0.37 \\ -0.34 &amp; 0.35 \end{pmatrix}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Softmax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before multiplying by <span class="math inline">\(V\)</span>, the result of the softmax gives us a glimpse of how the machine views the relationship between the words. For example, in the last row for “science”, we see that “science” is most related to “data” in our input phrase.</p>
+</div>
+</div>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \begin{pmatrix} 0.06 &amp; 0.03 \\ 0.20 &amp; -0.01 \\ 0.06 &amp; 0.08 \\ 0.40 &amp; -0.09 \\ -0.12 &amp; 0.12 \\ -0.23 &amp; 0.12 \\ 0.40 &amp; -0.09 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="encoder-output" class="level2">
+<h2 class="anchored" data-anchor-id="encoder-output">Encoder Output</h2>
+<p>Finally, the encoder output is the sum of the encoded values and the self-attention:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \\ 1.77 &amp; -0.94 \end{pmatrix} + \begin{pmatrix} 0.06 &amp; 0.03 \\ 0.20 &amp; -0.01 \\ 0.06 &amp; 0.08 \\ 0.40 &amp; -0.09 \\ -0.12 &amp; 0.12 \\ -0.23 &amp; 0.12 \\ 0.40 &amp; -0.09 \end{pmatrix} = \begin{pmatrix} 1.24 &amp; 0.70 \\ 1.34 &amp; -0.20 \\ -0.92 &amp; -1.10 \\ 1.85 &amp; -1.38 \\ -0.62 &amp; 0.67 \\ 0.02 &amp; 1.89 \\ 2.17 &amp; -1.03 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="decoder" class="level1">
+<h1>Decoder</h1>
+<p>Now, let us try to extract the German translation through the decoder.</p>
+<section id="word-encoding-1" class="level2">
+<h2 class="anchored" data-anchor-id="word-encoding-1">Word Encoding</h2>
+<p>We start out with one-hot encoding of the input multiplied by the encoder weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0  \\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0  \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0  \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1  \end{pmatrix}\begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \end{pmatrix} = \begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \end{pmatrix}\]</span></p>
+</section>
+<section id="position-encoding-2" class="level2">
+<h2 class="anchored" data-anchor-id="position-encoding-2">Position Encoding</h2>
+<p>Next, we get our position encoding values</p>
+<ul>
+<li><span class="math inline">\(n_{\text{output}} = 6\)</span></li>
+<li><span class="math inline">\(d_{\text{model}} = 2\)</span></li>
+</ul>
+<p><span class="math display">\[\begin{pmatrix} 0.84 &amp; 0.54 \\ 0.91 &amp; -0.42 \\ 0.14 &amp; -0.99 \\ -0.76 &amp; -0.65 \\ -0.96 &amp; 0.28 \\ -0.28 &amp; 0.96 \end{pmatrix}\]</span></p>
+<p>and then the word embedding plus position encoding is</p>
+<p><span class="math display">\[\begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \end{pmatrix} + \begin{pmatrix} 0.84 &amp; 0.54 \\ 0.91 &amp; -0.42 \\ 0.14 &amp; -0.99 \\ -0.76 &amp; -0.65 \\ -0.96 &amp; 0.28 \\ -0.28 &amp; 0.96 \end{pmatrix} = \begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \end{pmatrix}\]</span></p>
+</section>
+<section id="self-attention-2" class="level2">
+<h2 class="anchored" data-anchor-id="self-attention-2">Self-Attention</h2>
+<section id="queries-1" class="level3">
+<h3 class="anchored" data-anchor-id="queries-1">Queries</h3>
+<p>We find the <strong>queries</strong> by multiplying the encoded values by the transpose of the query weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \end{pmatrix}\begin{pmatrix} -0.56 &amp; -0.20 \\ -0.33 &amp; -0.43 \end{pmatrix} = \begin{pmatrix} -0.88 &amp; -0.52 \\ -0.58 &amp; -0.15 \\ 0.94 &amp; 0.70 \\ -0.39 &amp; 0.26 \\ 0.10 &amp; -0.14 \\ -0.72 &amp; -0.81 \end{pmatrix}\]</span></p>
+</section>
+<section id="keys-1" class="level3">
+<h3 class="anchored" data-anchor-id="keys-1">Keys</h3>
+<p>We find the <strong>keys</strong> by multiplying the encoded values by the transpose of the key weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \end{pmatrix}\begin{pmatrix} 0.07 &amp; 0.64 \\ -0.70 &amp; -0.60 \end{pmatrix} = \begin{pmatrix} -0.39 &amp; 0.35 \\ 0.21 &amp; 0.84 \\ 0.76 &amp; 0.08 \\ 1 &amp; 1.70 \\ -0.42 &amp; -0.65 \\ -1.22 &amp; -0.90 \end{pmatrix}\]</span></p>
+</section>
+<section id="values-1" class="level3">
+<h3 class="anchored" data-anchor-id="values-1">Values</h3>
+<p>We find the <strong>values</strong> by multiplying the encoded values by the transpose of the value weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.18 &amp; 0.67 \\ 1.14 &amp; -0.19 \\ -0.98 &amp; -1.18 \\ 1.45 &amp; -1.29 \\ \frac{-1}{2} &amp; 0.55 \\ \frac{1}{4} &amp; 1.77 \end{pmatrix}\begin{pmatrix} 0.55 &amp; -0.23 \\ 0.12 &amp; 0.44 \end{pmatrix} = \begin{pmatrix} 0.73 &amp; 0.02 \\ 0.60 &amp; -0.35 \\ -0.68 &amp; -0.29 \\ 0.64 &amp; -0.90 \\ -0.21 &amp; 0.36 \\ 0.35 &amp; 0.72 \end{pmatrix}\]</span></p>
+</section>
+<section id="masked-self-attention" class="level3">
+<h3 class="anchored" data-anchor-id="masked-self-attention">Masked Self-Attention</h3>
+<p>Now, <strong>masked self-attention</strong> is defined (in AI literature) as</p>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^{T}}{\sqrt{d_{\text{model}}}} + M\right)V\]</span></p>
+<p><span class="math display">\[\begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0.57 &amp; 0.43 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0.21 &amp; 0.40 &amp; 0.39 &amp; 0 &amp; 0 &amp; 0 \\ 0.29 &amp; 0.27 &amp; 0.20 &amp; \frac{1}{4} &amp; 0 &amp; 0 \\ 0.19 &amp; 0.19 &amp; 0.21 &amp; 0.19 &amp; 0.21 &amp; 0 \\ 0.14 &amp; 0.08 &amp; 0.09 &amp; 0.03 &amp; 0.24 &amp; 0.43 \end{pmatrix}\begin{pmatrix} 0.73 &amp; 0.02 \\ 0.60 &amp; -0.35 \\ -0.68 &amp; -0.29 \\ 0.64 &amp; -0.90 \\ -0.21 &amp; 0.36 \\ 0.35 &amp; 0.72 \end{pmatrix}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Softmax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before multiplying by <span class="math inline">\(V\)</span>, the result of the softmax gives us a glimpse of how the machine views the relationship between the words. For example, in the last row for <span class="math inline">\(EOS\)</span> (“end of sequence”), we see that <span class="math inline">\(EOS\)</span> is most related to <span class="math inline">\(EOS\)</span> in our output phrase.</p>
+</div>
+</div>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \begin{pmatrix} 0.73 &amp; 0.02 \\ 0.60 &amp; -0.35 \\ -0.68 &amp; -0.29 \\ 0.64 &amp; -0.90 \\ -0.21 &amp; 0.36 \\ 0.35 &amp; 0.72 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="decoder-output" class="level2">
+<h2 class="anchored" data-anchor-id="decoder-output">Decoder Output</h2>
+<p>Finally, the decoder output is the sum of the encoded values and the self-attention:</p>
+<p><span class="math display">\[\begin{pmatrix} 0.34 &amp; 0.13 \\ 0.23 &amp; 0.23 \\ -1.12 &amp; -0.19 \\ 2.21 &amp; -0.64 \\ 0.46 &amp; 0.27 \\ 0.53 &amp; 0.81 \end{pmatrix} + \begin{pmatrix} 0.73 &amp; 0.02 \\ 0.60 &amp; -0.35 \\ -0.68 &amp; -0.29 \\ 0.64 &amp; -0.90 \\ -0.21 &amp; 0.36 \\ 0.35 &amp; 0.72 \end{pmatrix} = \begin{pmatrix} 1.91 &amp; 0.69 \\ 1.82 &amp; -0.32 \\ -0.85 &amp; -1.43 \\ 1.84 &amp; -1.66 \\ -0.31 &amp; 0.33 \\ 0.45 &amp; 2.09 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="encoder-decoder" class="level1">
+<h1>Encoder-Decoder</h1>
+<section id="self-attention-3" class="level2">
+<h2 class="anchored" data-anchor-id="self-attention-3">Self-Attention</h2>
+<section id="queries-2" class="level3">
+<h3 class="anchored" data-anchor-id="queries-2">Queries</h3>
+<p>We find the <strong>queries</strong> by multiplying the decoder values by the transpose of the query weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.91 &amp; 0.69 \\ 1.82 &amp; -0.32 \\ -0.85 &amp; -1.43 \\ 1.84 &amp; -1.66 \\ -0.31 &amp; 0.33 \\ 0.45 &amp; 2.09 \end{pmatrix}\begin{pmatrix} -0.56 &amp; -0.20 \\ -0.33 &amp; -0.43 \end{pmatrix} = \begin{pmatrix} -1.30 &amp; -0.68 \\ -0.91 &amp; -0.22 \\ 0.95 &amp; 0.78 \\ -0.49 &amp; 0.34 \\ 0.07 &amp; -0.08 \\ -0.94 &amp; -0.99 \end{pmatrix}\]</span></p>
+</section>
+<section id="keys-2" class="level3">
+<h3 class="anchored" data-anchor-id="keys-2">Keys</h3>
+<p>We find the <strong>keys</strong> by multiplying the encoder values by the transpose of the key weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.24 &amp; 0.70 \\ 1.34 &amp; -0.20 \\ -0.92 &amp; -1.10 \\ 1.85 &amp; -1.38 \\ -0.62 &amp; 0.67 \\ 0.02 &amp; 1.89 \\ 2.17 &amp; -1.03 \end{pmatrix}\begin{pmatrix} 0.19 &amp; 0.30 \\ -0.19 &amp; 0.63 \end{pmatrix} = \begin{pmatrix} 0.23 &amp; 1.01 \\ 0.41 &amp; 0.34 \\ 0.11 &amp; -1.16 \\ 0.67 &amp; -0.49 \\ -0.12 &amp; 0.12 \\ -0.31 &amp; 1.45 \end{pmatrix}\]</span></p>
+</section>
+<section id="values-2" class="level3">
+<h3 class="anchored" data-anchor-id="values-2">Values</h3>
+<p>We find the <strong>values</strong> by multiplying the encoder values by the transpose of the value weights:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.24 &amp; 0.70 \\ 1.34 &amp; -0.20 \\ -0.92 &amp; -1.10 \\ 1.85 &amp; -1.38 \\ -0.62 &amp; 0.67 \\ 0.02 &amp; 1.89 \\ 2.17 &amp; -1.03 \end{pmatrix}\begin{pmatrix} 0.41 &amp; 0.41 \\ -0.31 &amp; 0.13 \end{pmatrix} = \begin{pmatrix} 0.57 &amp; 0.87 \\ 0.85 &amp; 0.70 \\ 0.09 &amp; -0.54 \\ 1.27 &amp; 0.54 \\ -0.23 &amp; -0.09 \\ -0.46 &amp; 0.46 \end{pmatrix}\]</span></p>
+</section>
+<section id="self-attention-4" class="level3">
+<h3 class="anchored" data-anchor-id="self-attention-4">Self-Attention</h3>
+<p>Now, <strong>self-attention</strong> is defined (in AI literature) as</p>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^{T}}{\sqrt{d_{\text{model}}}}\right)V\]</span></p>
+<p><span class="math display">\[\begin{pmatrix} 0.10 &amp; 0.12 &amp; 0.31 &amp; 0.14 &amp; 0.21 &amp; 0.13 \\ 0.14 &amp; 0.14 &amp; 0.21 &amp; 0.13 &amp; 0.20 &amp; 0.18 \\ \frac{1}{4} &amp; 0.19 &amp; 0.07 &amp; 0.15 &amp; 0.12 &amp; 0.22 \\ 0.19 &amp; 0.15 &amp; 0.12 &amp; 0.11 &amp; 0.17 &amp; \frac{1}{4} \\ 0.16 &amp; 0.17 &amp; 0.18 &amp; 0.18 &amp; 0.17 &amp; 0.15 \\ 0.08 &amp; 0.11 &amp; 0.38 &amp; 0.17 &amp; 0.18 &amp; 0.08 \end{pmatrix}\begin{pmatrix} 0.57 &amp; 0.87 \\ 0.85 &amp; 0.70 \\ 0.09 &amp; -0.54 \\ 1.27 &amp; 0.54 \\ -0.23 &amp; -0.09 \\ -0.46 &amp; 0.46 \end{pmatrix}\]</span> <span class="math display">\[\begin{pmatrix} 0.57 &amp; 0.87 \\ 0.69 &amp; 0.80 \\ 0.49 &amp; \frac{1}{4} \\ 0.72 &amp; 0.47 \\ 0.48 &amp; 0.27 \\ -0.07 &amp; 0.31 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="encoder-decoder-output" class="level2">
+<h2 class="anchored" data-anchor-id="encoder-decoder-output">Encoder-Decoder Output</h2>
+<p>Finally, the encoder-decoder output is the sum of the decoder values and the self-attention:</p>
+<p><span class="math display">\[\begin{pmatrix} 1.91 &amp; 0.69 \\ 1.82 &amp; -0.32 \\ -0.85 &amp; -1.43 \\ 1.84 &amp; -1.66 \\ -0.31 &amp; 0.33 \\ 0.45 &amp; 2.09 \end{pmatrix} + \begin{pmatrix} 0.57 &amp; 0.87 \\ 0.69 &amp; 0.80 \\ 0.49 &amp; \frac{1}{4} \\ 0.72 &amp; 0.47 \\ 0.48 &amp; 0.27 \\ -0.07 &amp; 0.31 \end{pmatrix} = \begin{pmatrix} \frac{7}{4} &amp; 1.54 \\ 1.83 &amp; 0.61 \\ -0.49 &amp; -0.93 \\ 2.17 &amp; -0.82 \\ -0.02 &amp; 0.82 \\ 0.18 &amp; 2.08 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="fully-connected-layer" class="level1">
+<h1>Fully-Connected Layer</h1>
+<p>We are almost done!</p>
+<section id="weights" class="level2">
+<h2 class="anchored" data-anchor-id="weights">Weights</h2>
+<p>For the fully-connected layer at the end of the transformer, we multiply the output of the encoder-decoder by the weights of the dense layer:</p>
+<p><span class="math display">\[\begin{pmatrix} \frac{7}{4} &amp; 1.54 \\ 1.83 &amp; 0.61 \\ -0.49 &amp; -0.93 \\ 2.17 &amp; -0.82 \\ -0.02 &amp; 0.82 \\ 0.18 &amp; 2.08 \end{pmatrix}\begin{pmatrix} 0.36 &amp; -0.70 &amp; -0.54 &amp; 0.20 &amp; 0.22 &amp; 0.55 \\ -0.43 &amp; -0.27 &amp; 0.58 &amp; 0.29 &amp; -0.01 &amp; \frac{-1}{2} \end{pmatrix}\]</span> <span class="math display">\[\begin{pmatrix} -0.03 &amp; -1.64 &amp; -0.05 &amp; 0.80 &amp; 0.37 &amp; 0.19 \\ 0.40 &amp; -1.44 &amp; -0.63 &amp; 0.54 &amp; 0.40 &amp; 0.70 \\ 0.22 &amp; 0.59 &amp; -0.27 &amp; -0.37 &amp; -0.10 &amp; 0.20 \\ 1.14 &amp; -1.30 &amp; -1.65 &amp; 0.20 &amp; 0.49 &amp; 1.61 \\ -0.36 &amp; -0.21 &amp; 0.49 &amp; 0.23 &amp; -0.01 &amp; -0.42 \\ -0.83 &amp; -0.69 &amp; 1.11 &amp; 0.64 &amp; 0.02 &amp; -0.94 \end{pmatrix}\]</span></p>
+</section>
+<section id="bias" class="level2">
+<h2 class="anchored" data-anchor-id="bias">Bias</h2>
+<p>We add the bias values to each column of the previous result:</p>
+<span class="math display">\[\begin{pmatrix} 0.01 &amp; -2.12 &amp; 0.17 &amp; 0.56 &amp; 0.59 &amp; 0.04 \\ 0.44 &amp; -1.92 &amp; -0.41 &amp; 0.30 &amp; 0.62 &amp; 0.55 \\ 0.26 &amp; 0.11 &amp; -0.05 &amp; -0.61 &amp; 0.12 &amp; 0.05 \\ 1.18 &amp; -1.78 &amp; -1.43 &amp; -0.04 &amp; 0.71 &amp; 1.46 \\ -0.32 &amp; -0.69 &amp; 0.71 &amp; -0.01 &amp; 0.21 &amp; -0.57 \\ -0.79 &amp; -1.17 &amp; 1.33 &amp; 0.40 &amp; 0.24 &amp; -1.09 \end{pmatrix}\]</span>
+</section>
+<section id="softmax-2" class="level2">
+<h2 class="anchored" data-anchor-id="softmax-2">Softmax</h2>
+<p>Finally, we apply a softmax rowwise.</p>
+<p><span class="math display">\[\begin{pmatrix} 0.15 &amp; 0.02 &amp; 0.17 &amp; \frac{1}{4} &amp; 0.26 &amp; 0.15 \\ 0.21 &amp; 0.02 &amp; 0.09 &amp; 0.19 &amp; \frac{1}{4} &amp; 0.24 \\ 0.21 &amp; 0.18 &amp; 0.16 &amp; 0.09 &amp; 0.19 &amp; 0.17 \\ 0.30 &amp; 0.02 &amp; 0.02 &amp; 0.09 &amp; 0.19 &amp; 0.39 \\ 0.12 &amp; 0.08 &amp; 0.34 &amp; 0.16 &amp; 0.20 &amp; 0.09 \\ 0.06 &amp; 0.04 &amp; 0.49 &amp; 0.20 &amp; 0.17 &amp; 0.04 \end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="translation" class="level1">
+<h1>Translation?</h1>
+<p>Following the softmax, starting with <span class="math inline">\(SOS\)</span> (“start of sequence”), we have</p>
+<blockquote class="blockquote">
+<p>SOS, lernen, mÖchte, SOS, …</p>
+</blockquote>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>due this Friday (April 18):</p>
+<ul>
+<li>Precept 10</li>
+<li>Research Consent</li>
+</ul></li>
+<li><p>semester projects will be due May 10</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>Student evaluation custom questions:</p>
+<ol type="1">
+<li><p>In the space below, please describe the learning environment of your precept section – what about it worked for you, what suggestions do you have to make it work better for you, what challenges did you face – and mention your preceptor by name.</p></li>
+<li><p>For future offerings of this course, how could we better align with the research goals of a Princeton student (such as their senior thesis)?</p></li>
+<li><p>Which course topics do you wish we discussed more of the mathematical background and rigor?&nbsp; On the contrary, which topics could have had less of an emphasis &nbsp;on mathematical background and rigor? Please be as specific as possible.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.4.2    fastmap_1.2.0     cli_3.6.3        
+ [5] tools_4.4.2       htmltools_0.5.8.1 rstudioapi_0.17.1 yaml_2.3.10      
+ [9] rmarkdown_2.29    knitr_1.49        jsonlite_1.8.9    xfun_0.50        
+[13] digest_0.6.37     rlang_1.1.5       evaluate_1.0.3   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
