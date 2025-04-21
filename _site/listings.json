@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/23_LLMs/23_LLMs.html",
       "/posts/22_transformers/22_transformers.html",
       "/posts/21_GAN/21_GAN.html",
       "/posts/20_RL2/20_reinforcement_learning_Q.html",
@@ -23,6 +24,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/23_LLMs/23_LLMs.html",
       "/posts/22_transformers/22_transformers.html",
       "/posts/21_GAN/21_GAN.html",
       "/posts/20_RL2/20_reinforcement_learning_Q.html",

@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "23: LLMs\n\n\n\n\n\n\n\n\n\n\n\nApr 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "23: LLMs\n\n\n\n\n\n\n\n\n\n\n\nApr 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n22: Transformers\n\n\n\n\n\n\n\n\n\n\n\nApr 16, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: Generative Adversarial Networks\n\n\n\n\n\n\n\n\n\n\n\nApr 14, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n19: Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nApr 7, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: Parsing\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Recurrent Neural Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Fully Connected Networks\n\n\n\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: Learning Rates\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nFeb 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Support Vector Machines\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nFeb 5, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nFeb 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Convergence\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nJan 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1524,5 +1524,68 @@
     "title": "22: Transformers",
     "section": "Softmax",
     "text": "Softmax\nFinally, we apply a softmax rowwise.\n\\[\\begin{pmatrix} 0.15 & 0.02 & 0.17 & \\frac{1}{4} & 0.26 & 0.15 \\\\ 0.21 & 0.02 & 0.09 & 0.19 & \\frac{1}{4} & 0.24 \\\\ 0.21 & 0.18 & 0.16 & 0.09 & 0.19 & 0.17 \\\\ 0.30 & 0.02 & 0.02 & 0.09 & 0.19 & 0.39 \\\\ 0.12 & 0.08 & 0.34 & 0.16 & 0.20 & 0.09 \\\\ 0.06 & 0.04 & 0.49 & 0.20 & 0.17 & 0.04 \\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html",
+    "href": "posts/23_LLMs/23_LLMs.html",
+    "title": "23: LLMs",
+    "section": "",
+    "text": "Discuss encoder-only models\nDiscuss decoder-only models\nGive example of semester project\n\n\n\n\n\n\n\n301"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#learning-objectives",
+    "href": "posts/23_LLMs/23_LLMs.html#learning-objectives",
+    "title": "23: LLMs",
+    "section": "",
+    "text": "Discuss encoder-only models\nDiscuss decoder-only models\nGive example of semester project\n\n\n\n\n\n\n\n301"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#transformers",
+    "href": "posts/23_LLMs/23_LLMs.html#transformers",
+    "title": "23: LLMs",
+    "section": "Transformers",
+    "text": "Transformers\n\nEncoder-only: BERT\n\n\nbidirectional encoder representations from transformers\n\n\nDecoder-only: GPT\n\n\ngenerative pre-trained transformer"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#encoders-vs-decoders",
+    "href": "posts/23_LLMs/23_LLMs.html#encoders-vs-decoders",
+    "title": "23: LLMs",
+    "section": "Encoders vs Decoders",
+    "text": "Encoders vs Decoders\n\n\n\nBERT vs GPT\n\n\n\nimage source: Ronak Verma"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#applications",
+    "href": "posts/23_LLMs/23_LLMs.html#applications",
+    "title": "23: LLMs",
+    "section": "Applications",
+    "text": "Applications\n\nBERT\n\ntext classification\ndata labeling\nrecommender\nsentiment analysis\n\nGPT\n\ncontent generation\nconversational chatbots"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#introduction",
+    "href": "posts/23_LLMs/23_LLMs.html#introduction",
+    "title": "23: LLMs",
+    "section": "Introduction",
+    "text": "Introduction\n\n\n\nWe hope to build a CNN to classify pictures in terms of susceptibility to color blindness\nTrained model on Ishihara data set\nRan model on novel images from the Princeton Art Museum\n\n\n\n\n\n\n\n301\n\n\n\n\n\nData Description\n\n\n\nKaggle data set by Dupeljan\nsynethetic set of 1400 Ishihara blind test cards\ndigits 0 to 9\nGoogle fonts\nfor exploring dichromacy:\n\nprotanopia\ndeuteranopia\ntritanopia\n\n\n\n\n\n\n\n\ncolor vision deficiency\n\n\n\nimage source: Male, et al., 2022\n\n\n\n\n\nLiterature Search\n\ncGANsNIRLineGAN\n\n\n\n\n\nConditional Adversarial Networks\n\nPhillip Isola, et al.\n“… learn the mapping from input image to output image, but also learn a loss function to train this mapping”\n\n\n\n\n\n\n\nIsola et al., 2018\n\n\n\n\n\n\n\n\n\nThe Potential of Diffusion-Based Near-Infrared Image Colorization\n\nBorsetelmann, et al., 2024\n“… utilizing diffusion models for the colorization of NIR images”\n\n\n\n\n\n\n\nBorsetelmann, et al., 2024\n\n\n\n\n\n\n\n\n\nLineGAN: An image colourisation method combined with a line art network\n\nDahua Lv, Yuanyuan Pu, Rencan Nie\n“LineGAN learns the corresponding colour mapping from datasets, improving the accuracy of image colourisation”\n\n\n\n\n\n\n\nLv, et al., 2022"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#methods",
+    "href": "posts/23_LLMs/23_LLMs.html#methods",
+    "title": "23: LLMs",
+    "section": "Methods",
+    "text": "Methods\n\nExploratory Data Analysis\n\n\n\n1400 images\n531x531 pixels\n\n3 channels (RGB)\n\n45 Google fonts\npartition:\n\ntraining: 70%\ntesting: 30%\n\nstrata:\n\ntype 1: 25%\ntype 2: 25%\ntype 3: 50%\n\n\n\n\n\n\nscript.ipynb\nishihara_train_test/\n\ntraining_data/\n\ntype_1/\ntype_2/\ntype_3/\n\ntesting_data/\n\ntype_1/\ntype_2/\ntype_3/\n\n\n\n\n\n\n\n\n\n\n\nTabular Data?\n\n\n\n\n\nIf you are working with tabular data (such as a CSV file), your EDA is more conventional, and you should provide explorations such as bar graphs, histograms, and/or scatterplots along with counts and/or correlations.\n\n\n\n\n\nCNN\n\n\n\nconvolutional neural network\n\n\n\n30,000 parameters!\nimage source: NN-SVG"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#discussion",
+    "href": "posts/23_LLMs/23_LLMs.html#discussion",
+    "title": "23: LLMs",
+    "section": "Discussion",
+    "text": "Discussion\n\nHyperparameters\n\nDeep LearningLearning RateMomentum\n\n\n\n\n\ninput: 3x32x32\n2 convolution layers\n\neach with max-pool\n\ndense layers of 400, 64, 32\noutput: 3 class labels\n\n\n\n\n\nWe increased the hidden layer sizes and the number of hidden layers in hopes of reducing the classification error.\n\n\n\n\n\nWe chose a learning rate of 0.05 based on work done on the CIFAR-10 data set.\nTODO: elaborate on larger or smaller learning rate\n\n\n\n\nWe chose a momentum of 0.9 based on the PyTorch Lightning documentation for the SGD optimizer\nTODO: elaborate on larger or smaller momentum\n\n\n\n\n\n\nResults\n\n\n\nsample of predictions\n\n\n\nclassification test error: 50%\n\nbeat random guessing (33%)\ndid not outperform majority classifier (50%)\n\n\n\n\nFuture Directions\n\nbetter data\n\nincrease data set by factor of 10\nrecenter, resize, rotations, shears\n\nmodel architecture\n\nmore hidden layers\nvary filter sizes\n\nhyperparameter search\nvalidate results\nregression model\n\ngoal: image’s susceptibility to color vision deficiency"
+  },
+  {
+    "objectID": "posts/23_LLMs/23_LLMs.html#conclusion",
+    "href": "posts/23_LLMs/23_LLMs.html#conclusion",
+    "title": "23: LLMs",
+    "section": "Conclusion",
+    "text": "Conclusion\nTODO: summarize discussion and results\n\nCitations\n\nBorstelmann, A., Haucke, T., & Steinhage, V. (2024). “The Potential of Diffusion-Based Near-Infrared Image Colorization. Sensors”, 24(5), 1565. https://doi.org/10.3390/s24051565\nDupeljian (2021). Ishihara blind test cards. Retrieved February 2025 from https://www.kaggle.com/datasets/dupeljan/ishihara-blind-test-cards/data.\nIsola, Phillip, et al. ‘Image-to-Image Translation with Conditional Adversarial Networks’. CoRR, vol. abs/1611.07004, 2016.\nLeNail, (2019). NN-SVG: Publication-Ready Neural Network Architecture Schematics. Journal of Open Source Software, 4(33), 747, https://doi.org/10.21105/joss.00747\nLv, Dahua et al. “LineGAN: An image colourisation method combined with a line art network.” IET Computer Vision vol. 16,5, pages 403-417. 08 Mar. 2022, doi:10.1049/cvi2.12096\nMale, Shiva Ram et al. “Color vision devices for color vision deficiency patients: A systematic review and meta-analysis.” Health science reports vol. 5,5 e842. 22 Sep. 2022, doi:10.1002/hsr2.842"
   }
 ]
