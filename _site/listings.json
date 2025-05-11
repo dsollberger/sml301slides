@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/24_MLLMs/24_MLLMs.html",
       "/posts/23_LLMs/23_LLMs.html",
       "/posts/22_transformers/22_transformers.html",
       "/posts/21_GAN/21_GAN.html",
@@ -24,6 +25,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/24_MLLMs/24_MLLMs.html",
       "/posts/23_LLMs/23_LLMs.html",
       "/posts/22_transformers/22_transformers.html",
       "/posts/21_GAN/21_GAN.html",
