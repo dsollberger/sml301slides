@@ -1,0 +1,580 @@
+---
+title: "24: Multimodal Models"
+author: "Derek Sollberger"
+date: "2025-04-23"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+```
+
+# 24: Multimodal Models
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Introduce generative adversarial networks
+- Introduce multimodal models
+- Finish!
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![Cycle GANs](cycle_gan_paintings.png)
+
+* image credit: [Jun-Yan Zhu, et al.](https://junyanz.github.io/CycleGAN/)
+:::
+
+::::
+
+## Generative AI
+
+::::: {.panel-tabset}
+
+### Definition
+
+:::: {.columns}
+
+::: {.column width="75%"}
+* "Generative AI is a form of artificial intelligence that is designed to generate content, including text, images, video and music. It uses large language models and algorithms to analyze patterns in datasets to mimic the style or structure of specific types of content."
+* [quote and image source](https://www.eweek.com/artificial-intelligence/generative-ai-vs-machine-learning/)
+:::
+
+::: {.column width="25%"}
+![generative AI](generative_ai.png)
+:::
+
+::::
+
+### Dall-E
+
+![June 2022](Dall_e_cheeseburgers.png)
+
+[image source](https://www.onefootdown.com/2022/6/21/23175949/notre-dame-football-immersive-and-horrifying-dall-e-mini-art-experience-gumbo-pitbull-cheeseburgers)
+
+### Stable Diffusion
+
+![August 2023](stable_diffusion.png)
+
+[image source](https://www.geeky-gadgets.com/stable-diffusion-sdxl-beginners-guide/)
+
+:::::
+
+# GANS
+
+## Overview
+
+![GANs overview](DLI_fig_12_1.png)
+
+* image source: [Deep Learning Illustrated](https://www.deeplearningillustrated.com/)
+
+## Discriminator
+
+![Training the discriminator](DLI_fig_12_2.png)
+
+* image source: [Deep Learning Illustrated](https://www.deeplearningillustrated.com/)
+
+## Generator
+
+![Training the generator](DLI_fig_12_3.png)
+
+* image source: [Deep Learning Illustrated](https://www.deeplearningillustrated.com/)
+
+::: {.callout-tip}
+## GAN Objectives
+
+* the goal of a generator is to create better fake images
+* the goal of a discriminator is to better classify fake images
+
+:::
+
+## Adversarial Network
+
+![Adversarial network](DLI_fig_12_4.png)
+
+* image source: [Deep Learning Illustrated](https://www.deeplearningillustrated.com/)
+
+## Initial Results
+
+![Goodfellow, et al., 2014](Goodfellow_2014.png)
+
+
+# Conditional GANs
+
+::: {.callout-note}
+## cGANs
+
+"We investigate conditional adversarial networks as a general-purpose solution to image-to-image translation problems. These networks not only learn the mapping from input image to output image, but also **learn a loss function** to train this mapping. This makes it possible to apply the same generic approach to problems that traditionally would require very different loss formulations."
+
+* [Isola, et al.](https://phillipi.github.io/pix2pix/)
+:::
+
+![cGAN in ecology](cGAN_ecology.png)
+
+* image source: [Hayatbini, et al.](https://www.mdpi.com/2072-4292/11/19/2193#)
+
+## Activity: Pix2Pix Image-to-Image
+
+::::: {.panel-tabset}
+
+## App
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![image-to-image](pix2pix_shoes.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* [app (link)](https://affinelayer.com/pixsrv/) by Christopher Hesse
+* [GitHub repo](https://github.com/affinelayer/pix2pix-tensorflow)
+:::
+
+::::
+
+## ex1
+
+![edges2cats](edges2cats.png)
+
+## ex2
+
+![facades](facades.png)
+
+## ex1
+
+![edges2handbags](edges2handbags.png)
+
+:::::
+
+## Activity: Pix2Pix Instruct
+
+::::: {.panel-tabset}
+
+## App
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![pix2pix](pix2pix.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* [app (link)](https://huggingface.co/spaces/timbrooks/instruct-pix2pix) by Tim Brooks
+* [GitHub repo](https://github.com/timothybrooks/instruct-pix2pix)
+:::
+
+::::
+
+## ex1
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![New Jersey flag](NJ_flag.png)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![convert to grayscale](NJ_flag_grayscale.png)
+:::
+
+::::
+
+## ex2
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![New Jersey flag](NJ_flag.png)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![add more horses](NJ_flag_more_horses.png)
+:::
+
+::::
+
+## ex3
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![New Jersey flag](NJ_flag.png)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![replace humans with ramen](NJ_flag_ramen.png)
+:::
+
+::::
+
+:::::
+
+
+# Stacked GANs
+
+::: {.callout-note}
+## Stacked GANs
+
+*  "Stage-I GAN sketches the primitive shape and colors of the object based on the given text description, yielding Stage-I low-resolution images"
+* " Stage-II GAN takes Stage-I results and text descriptions as inputs, and generates high-resolution images with photo-realistic details"
+
+:::
+
+![Zhang, et al., 2016](stackGAN_stages.png)
+
+## Architecture
+
+![Zhang, et al., 2016](stackGAN_architecture.png)
+
+## Scaling
+
+![Zhang, et al., 2016](stackGAN_scaling.png)
+
+
+# Cycle GANs
+
+![cycle GAN possibilities](cycle_GAN_splash.png)
+
+::: {.callout-note}
+## cGANs
+
+* "... learning to translate an image from a source domain $X$ to a target domain $Y$ in the absence of paired examples ..." --- [Jun-Yan Zhu, et al., 2017](https://junyanz.github.io/CycleGAN/)
+
+:::
+
+## Architecture
+
+![](cycle_GAN_architecture_A2B.png)
+
+![cycle GAN architecture](cycle_GAN_architecture_B2A.png)
+
+* images source: [Bansal and Rathore](https://hardikbansal.github.io/CycleGANBlog/)
+
+::: {.callout-tip}
+## cGAN Objective
+
+In a cyclic GAN, the generator and discriminator converge toward a Nash equilibrium.
+
+:::
+
+# Unsupervised Representation Learning
+
+![modifications to pictures](radford_rooms.png)
+
+* image source: [Radford, et al, 2016](https://arxiv.org/abs/1511.06434)
+
+![trained filters](radford_filters.png)
+
+* image source: [Radford, et al, 2016](https://arxiv.org/abs/1511.06434)
+
+::::: {.panel-tabset}
+
+## Image Space
+
+![vector space of images](image space.png)
+
+* image source: [Deep Learning Illustrated](https://www.deeplearningillustrated.com/)
+
+## ex1
+
+![image space](image_space_ex1.png)
+
+* image source: [Radford, et al, 2016](https://arxiv.org/abs/1511.06434)
+
+## ex2
+
+![image space](image_space_ex2.png)
+
+* image source: [Radford, et al, 2016](https://arxiv.org/abs/1511.06434)
+
+:::::
+
+
+# Variational Auto-Encoders
+
+:::: {.columns}
+
+::: {.column width="45%"}
+In AI architecture, **variational autoencoders** simulate the latent space (between the encoder and decoder)---usually with a mixture of Gaussian functions---to maximize the ELBO (**evidence lower bound**)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![VAE Gaussians](VAE_gaussians.png)
+
+* [image source](https://www.researchgate.net/publication/379478988_HGMVAE_hierarchical_disentanglement_in_Gaussian_mixture_variational_autoencoder)
+:::
+
+::::
+
+
+::::: {.panel-tabset}
+
+## without
+
+![without VAE](VAE_before.png)
+
+* image source: [Jeff Orchard](https://www.youtube.com/watch?v=FSBLj74Qy4I)
+
+## with
+
+![with VAE](VAE_after.png)
+
+* image source: [Jeff Orchard](https://www.youtube.com/watch?v=FSBLj74Qy4I)
+
+:::::
+
+## VQ-VAE
+
+**Vector quantized variational autoencoders** (VQ-VAE) utilize an *discrete embedding space*
+
+* for example: 32x32 embedding space of vectors
+
+![VQ-VAE](VQ_VAE.png)
+
+* [image source](https://www.researchgate.net/publication/370101880_DL-based_Generation_of_facial_portraits_from_diverse_data_sources)
+
+
+# Diffusion Models
+
+::: {.callout-tip}
+## Diffusion Models
+
+> A (denoising) **diffusion model** isn't that complex if you compare it to other generative models such as Normalizing Flows, GANs or VAEs: they all convert noise from some simple distribution to a data sample. This is also the case here where *a neural network learns to gradually denoise data* starting from pure noise. 
+
+---[HuggingFace](https://huggingface.co/blog/annotated-diffusion)
+:::
+
+![U-net architecture](unet_architecture.png)
+
+* image source: [HuggingFace](https://huggingface.co/blog/annotated-diffusion)
+
+
+# Tokenization Beyond Text
+
+## Text
+
+![tokenization of text](tokenization_text.png)
+
+* image source: [Murilo Gustineli](https://medium.com/data-science/the-art-of-tokenization-breaking-down-text-for-ai-43c7bccaed25)
+
+## Images
+
+::::: {.panel-tabset}
+
+## Vectorization
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![tokenization of images](tokenization_images_vectorization.png)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* images are partitioned into **patches**
+* each patch is flattened into a vector
+
+* image source: [Shusen Wang](https://github.com/wangshusen/DeepLearning/blob/master/Slides/10_ViT.pdf)
+:::
+
+::::
+
+## Positional Encoding
+
+![positional encoding of patches](tokenization_images_pe.png)
+
+* image source: [Shusen Wang](https://github.com/wangshusen/DeepLearning/blob/master/Slides/10_ViT.pdf)
+
+:::::
+
+## Audio
+
+::::: {.panel-tabset}
+
+## Abstraction
+
+![audio abstraction](tokenization_audio_abstraction.png)
+
+* image source: [Valerio Velardo](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0)
+
+## Music
+
+* beat
+* timbre
+* pitch
+* harmony
+* ...
+
+* source: [Valerio Velardo](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0)
+
+## Fourier
+
+![signal domain](tokenization_audio_Fourier.png)
+
+* image source: [Valerio Velardo](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0)
+
+## Trends
+
+* digital signal processing $\rightarrow$ rule-based systems
+* traditional ML $\rightarrow$ feature engineering
+* deep learning $\rightarrow$ automatic feature engineering
+
+* source: [Valerio Velardo](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0)
+
+:::::
+
+
+# Multimodal Models
+
+## CLIP
+
+**Contrastive Language Image Pre-Training**
+
+![CLIP architecture](7-clip.png)
+
+* image source: [Chip Huyen](https://huyenchip.com/2023/10/10/multimodal.html)
+
+## Vision Neurons
+
+![vision neurons](vision_neurons.png)
+
+![vision neurons](vision_neuron_grid.png)
+
+* image source: [dstill.pub](https://distill.pub/2021/multimodal-neurons/)
+
+## Audio Example
+
+Video game streamer Jesse Cox tried out a generative AI program that was specifically built to create music and lyrics.  Here is a [theme song for constipation medicine](https://www.youtube.com/clip/Ugkxp9W922jbYWPvfggHRQ-84vsS2aIhOKRq)
+
+
+# Quo Vadimus?
+
+Presently, here are some more applications of multimodal models.
+
+::::: {.panel-tabset}
+
+## home
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![receipt bookkeeping](receipts.png)
+
+* image source: [Recycle This Pittsburgh](https://recyclethispgh.com/item/paper-receipts/)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+* scan grocery receipts
+* OCR
+* AI text decoding
+* code expense report
+
+:::
+
+::::
+
+## pedagogy
+
+![COPUS](copus.png)
+
+* image source: [COPUS](https://www.lifescied.org/doi/10.1187/cbe.13-08-0154)
+
+## software dev
+
+**Vision Question Answering**
+
+![VQA](vqa_examples.png)
+
+* image source: [paper](https://arxiv.org/pdf/1612.00837)
+
+## comp bio
+
+*transfer learning* between RNA and ATAC sequencing
+
+![scButterfly](scButterfly.png)
+
+* image source: [scButterfly](https://www.nature.com/articles/s41467-024-47418-x?fromPaywallRec=false)
+
+## medicine
+
+![data types](multimodel_models_for_medicine.png)
+
+* image source: [Science Direct](https://www.sciencedirect.com/science/article/pii/S1566253524004688)
+
+:::::
+
+
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
