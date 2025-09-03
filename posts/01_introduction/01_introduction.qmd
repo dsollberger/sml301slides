@@ -14,7 +14,7 @@ format:
 library("gt")
 library("tidyverse")
 
-topics_df <- readr::read_csv("SML_301_lecture_schedule.csv")
+# topics_df <- readr::read_csv("SML_301_lecture_schedule.csv")
 ```
 
 # Session 1: Introductions
@@ -505,13 +505,45 @@ Sharing an overview of the types of students that might be taking this course.
 
 ::::
 
-# Large Data Sets
+# Semester Projects
 
-> Data Intelligence: Modern Data Science Methods 
+:::: {.panel-tabset}
 
-* Hospital pricing: predict surgery prices
-* **AEC**: automating document scanning classification
-* Large Language Models
+## Overview
+
+For SML 301, students will complete a substantial machine learning project
+
+- exploration of large data set
+- neural network tuning
+- machine learning modeling
+- video presentation
+- research poster/slides
+
+You (and your group) may select one of the following project ideas
+
+* or you may propose your own projec (please do so before Fall Break)
+
+## 1
+
+### TRAIL Microcard Collection
+
+:::: {.columns}
+
+::: {.column width="45%"}
+"Imaged from microcard, these technical reports describe research performed for U.S. government agencies from the 1930s to the 1960s. The reports were provided by the Technical Report Archive and Image Library ([TRAIL](https://digital.library.unt.edu/explore/collections/TRAMC/)). "	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::
 
 
 # Quo Vadimus?
@@ -524,6 +556,9 @@ Sharing an overview of the types of students that might be taking this course.
 
     - Precept 1
     - CLO Assessment (survey)
+    - CuriosityPre (survey)
+
+* If you are not enrolled in this course, please sign in
 
 :::
 
