@@ -26,11 +26,14 @@ library("tidyverse")
 ::: {.column width="60%"}
 * **Goal**: Introduce course
 
-* **Objective**: Explore some Python codes
+* **Objective**: Describe types of learning
 :::
 
 ::: {.column width="40%"}
-![textbooks](main_books.png)
+![machine learning](machine_learning_web.png)
+
+image source: [Sankalp Salve](https://medium.com/@xsankalp13/advanced-topics-in-machine-learning-e55d8b0dc7f9)
+
 :::
 
 ::::
@@ -42,11 +45,14 @@ library("tidyverse")
 
 ## Data Intelligence: Modern Data Science Methods 
 
-* Spring 2025
-* Monday, Wednesday, 11 AM to 1250 PM
-* Lecturer: Derek
+* Fall 2025
+* Monday, Wednesday, 1040 AM to 12 noon
+* Lecturer: Derek Sollberger
 
     - I go by "Derek" or "teacher"
+    - office hours: 
+      - Mon, 2 to 4 PM
+      - Bendheim House 201
 
 ::: {.callout-tip collapse="true"}
 ## Course Description
@@ -81,8 +87,9 @@ This course provides the training for students to be independent in modern data 
 
 1. What is one of your unusual goals?
 
-    - (please pick a goal other than "get good grades")
-    - whatever time frame makes sense
+    - What drives you? What makes you unique?
+    - (Please pick a goal other than "get good grades")
+    - For whatever time frame makes sense
 2. What is something that you are hoping to gain from this SML 301 course?
 3. Favorite food?
 
@@ -90,12 +97,18 @@ This course provides the training for students to be independent in modern data 
 ::: {.callout-tip collapse="true"}
 ## Derek's Example
 
-1. (unusual goal) I want to drive to Scranton and see some buildings from The Office TV show
-2. This semester, I will learn more about generative artificial intelligence and the underlying mathematics
-3. sushi!
+1. (unusual goal) I am learning some of the Polish language before traveling to Warsaw next July.
+2. This semester, I will learn more about RAGs (retrieval augmented generation) and their applications.
+3. Sushi!
 :::
 
+::: {.callout-warning collapse="true"}
 
+## DCP 1
+
+DCP 1
+
+:::
 
 # Reading List
 
@@ -103,47 +116,41 @@ This course provides the training for students to be independent in modern data 
 
 :::: {.panel-tabset}
 
-### List
+### General
 
-* [An Introduction to Statistical Learning](https://www.statlearning.com/) by James, Witten, Hastie, Tibshirani, Taylor
-* [Deep Learning Illustrated](https://www.statlearning.com/) by Jon Krohn
-* [How AI Works](https://nostarch.com/how-ai-works) by Ronald T Kneusel
-* [Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) by Kevin Patrick Murphy
+![](books_1.png)
 
-### 1
+* *Deep Learning Illustrated* Jon Krohn et al
+* *ISLP* James, Witten, Hastie, Tibshirani, Taylor
+* *ML Cookbook* Gallatin, Albon
 
-![ISLP](ISLP.png)
+### Enthusiasts
 
-* [An Introduction to Statistical Learning](https://www.statlearning.com/) by James, Witten, Hastie, Tibshirani, Taylor
+![](books_2.png)
 
-### 2
+* *DL with Python* Francois Chollet
+* *Hands-On LLMs* Allammar, Grootendorst
+* *StatQuest AI* Josh Starmer
 
-![Deep Learning](Deep_Learning_Illustrated.png)
+### Cerebral
 
-* [Deep Learning Illustrated](https://www.statlearning.com/) by Jon Krohn
+![](books_3.png)
 
-### 3
+* *Probabilistic ML* Kevin P Murphy
+* *Programmer’s Brain* Felienne Hermans
+* *Why Machines Learn* Anil Ananthaswamy
 
-![How AI Works](How_AI_Works.png)
+### Humanities
 
-* [How AI Works](https://nostarch.com/how-ai-works) by Ronald T Kneusel
+![](books_4.png)
 
-### 4
+* *Co-Intelligence* Ethan Mollick
+* *How Data Happened* Wiggins, Jones
+* *Weapons of Math* Destruction Cathy O’Neil
 
-![Probabilistic Machine Learning](PML.png)
+### all
 
-* [Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) by Kevin Patrick Murphy
-
-<!---
-### Add'l
-
-The following list of books is optional for student studies, but the instructor may use some materials to add depth and interest to the course.
-
-* *The Seven Pillars of Statistical Wisdom* by Stephen M Stigler provides a wonderful overview of the history of statistics and the field's major developments.
-* *Statistical Rethinking* by Richard McElreath is the premier body of work in the field of Bayesian analysis.  This resource is great for people who want to build a strong foundation in philosophy and theory in this branch of mathematics.
-* *Teaching Statistics* by Andrew Gelman and Deborah Nolan features a variety of classroom activities that engage audiences at prestigious universities into learning statistical concepts.
-* *Bernoulli's Fallacy* by Aubrey Clayton is a scathing review of the history of statistics and posits that the foundations of the field are flawed.
---->
+![](book_selection.png)
 
 ::::
 
@@ -238,6 +245,68 @@ In accordance with the honor code, you must cite all sources of external informa
 
 :::
 
+# Topics
+
+![lecture session topics](4.png)
+
+# Supervised Learning
+
+Today's big ideas:
+
+* supervised learning vs unsupervised learning
+* regression versus classification
+
+::: {.callout-note collapse="true"}
+
+## Supervised Learning
+
+**Supervised Learning** algorithms act on *labeled data* (where we know the outcomes of the *training* and *testing* data).
+
+Example techniques:
+
+* regression models
+* decision trees
+
+:::
+
+::: {.callout-note collapse="true"}
+
+## Unsupervised Learning
+
+For **unsupervised Learning**, we tend to seek to discover structure within *unlabeled data*.
+
+Example techniques:
+
+* clustering
+* K Nearest Neighbors
+
+:::
+
+::: {.callout-tip}
+
+## Regression
+
+**Regression models** take data and output a *numerical outcome*
+
+:::
+
+::: {.callout-tip}
+
+## Classification
+
+**Classification models** take data and output a *categorical label*
+
+:::
+
+::: {.callout-warning collapse="true"}
+
+## On that nomenclature
+
+Those definitions above for regression and classifications are colloquial guidelines, and they do not apply to every situation.
+
+For example, *logistic regression* technically predicts a number, but it is used in classification contexts.
+
+:::
 
 # Activity: A short Python tutorial
 
@@ -271,7 +340,13 @@ x.sum()
 x**2
 x**0.5
 ```
+::: {.callout-warning collapse="true"}
 
+# DCP 2
+
+DCP 2
+
+:::
 
 
 # Learning Environment
@@ -323,62 +398,6 @@ I value all students regardless of their background, country of origin, race, re
 
 
 
-
-# Activity: Quick Draw!
-
-:::: {.columns}
-
-::: {.column width="30%"}
-![Quick Draw, by Google](QuickDraw.png)	
-:::
-
-::: {.column width="10%"}
-	
-:::
-
-::: {.column width="60%"}
-Try out Quick Draw!
-
-* [https://quickdraw.withgoogle.com/](https://quickdraw.withgoogle.com/)
-* app will ask you to sketch 6 images
-
-    * and it will try to recognize your artwork
-
-* caution: there is sound
-
-    * yes, you may leave the sound on
-
-:::
-
-::::
-
-
-
-# Topics
-
-:::: {.panel-tabset}
-
-## table
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-
-topics_df |>
-  gt() |>
-  cols_align(align = "center") |>
-  tab_footnote(footnote = "Fall 2024") |>
-  tab_header(
-    title = "SML 201",
-    subtitle = "Lecture Topics"
-  )
-```
-
-
-
-::::
 
 
 
@@ -480,6 +499,27 @@ Sharing an overview of the types of students that might be taking this course.
 ::::
 
 
+# Ethics Enclave: Tea
+
+::::: {.panel-tabset}
+
+## app
+
+![Tea app](tea_app.png)
+
+"Share experiences and seek advice within a secure, anonymous platform. Tea is built on trust; screenshots are blocked and all members are verified as women
+
+"[Tea](https://www.teaforwomen.com/) is more than an app; it’s a sisterhood. Together, we’re redefining modern dating. Plus, we give back—10% of profits are donated to the National Domestic Violence Hotline"
+
+## news
+
+![Tea news](tea_news.png)
+
+[NPR article](https://www.npr.org/2025/08/02/nx-s1-5483886/tea-app-breach-hacked-whisper-networks)
+
+:::::
+
+
 # Activity: TF Playground
 
 :::: {.columns}
@@ -491,7 +531,6 @@ Sharing an overview of the types of students that might be taking this course.
 * link: [https://playground.tensorflow.org](https://playground.tensorflow.org)
 * explore the various menus and buttons
 * feel free to run a simulation
-
 
 :::
 
@@ -505,9 +544,17 @@ Sharing an overview of the types of students that might be taking this course.
 
 ::::
 
+::: {.callout-warning collapse="true"}
+
+# DCP 3
+
+DCP 3
+
+:::
+
 # Semester Projects
 
-:::: {.panel-tabset}
+::::: {.panel-tabset}
 
 ## Overview
 
@@ -521,7 +568,7 @@ For SML 301, students will complete a substantial machine learning project
 
 You (and your group) may select one of the following project ideas
 
-* or you may propose your own projec (please do so before Fall Break)
+* or you may propose your own project (please do so before Fall Break)
 
 ## 1
 
@@ -530,7 +577,10 @@ You (and your group) may select one of the following project ideas
 :::: {.columns}
 
 ::: {.column width="45%"}
-"Imaged from microcard, these technical reports describe research performed for U.S. government agencies from the 1930s to the 1960s. The reports were provided by the Technical Report Archive and Image Library ([TRAIL](https://digital.library.unt.edu/explore/collections/TRAMC/)). "	
+"Imaged from microcard, these technical reports describe research performed for U.S. government agencies from the 1930s to the 1960s. The reports were provided by the Technical Report Archive and Image Library ([TRAIL](https://digital.library.unt.edu/explore/collections/TRAMC/)). "
+
+* University Librarian Zachary Painter
+
 :::
 
 ::: {.column width="10%"}
@@ -538,12 +588,103 @@ You (and your group) may select one of the following project ideas
 :::
 
 ::: {.column width="45%"}
-
+![TRAIL Microcards](collection_TRAMC.png)
 :::
 
 ::::
 
+## 2
+
+### Meso-American Migration Project
+
+:::: {.columns}
+
+::: {.column width="45%"}
+"The [MMP's](https://mmp.research.brown.edu/mmp) main focus is to gather social as well as economic information on Mexican and Central American migration to the United States. It is a unique source of data that enables researchers to track patterns and processes of migration, immigrant integration, and the consequences of migration for households and communities in places of origin."
+
+* Sociology Professor Filiz Garip
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Meso-American Migration Project](MMP_Map.png)
+:::
+
 ::::
+
+## 3
+
+### Yelp Open Dataset
+
+:::: {.columns}
+
+::: {.column width="45%"}
+"The [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/) is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience."
+
+* DataX Post-Doc Omar Hagrass
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Yelp Open Dataset](Yelp_Dataset_Map.png)
+:::
+
+::::
+
+## 4
+
+### NYC Taxi
+
+:::: {.columns}
+
+::: {.column width="45%"}
+"datasets were collected and provided to the NYC Taxi and Limousine Commission ([TLC](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)) by technology providers authorized under the Taxicab & Livery Passenger Enhancement Programs (TPEP/LPEP)"
+
+* DataX Post-Doc Guiseppe Ferro
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![NYC TLC](NYC_taxi.png)
+:::
+
+::::
+
+:::::
+
+# Motivation
+
+::::: {.panel-tabset}
+
+## CLOs
+
+* Understand the main concepts of machine learning in supervised learning, unsupervised learning, and reinforcement learning
+* Deploy and experiment with various machine learning algorithms
+* Critique results and performance of machine learning computations
+* Refine artificial intelligence code and discuss parameter selection
+* Understand the ethical and societal implications of artificial intelligence, including issues such as algorithmic bias, data privacy, and the impact of automation
+
+## Skills
+
+![AI Literacy is the top skill!](Justin_Wright_LinkedIn_Skills2025.png)
+
+## Engineering
+
+![broaching topics 1, 4, 9, 10](LinkedIn_Engineering2025.png)
+
+:::::
 
 
 # Quo Vadimus?
@@ -552,7 +693,7 @@ You (and your group) may select one of the following project ideas
 
 ::: {.column width="45%"}
 * Please read the weekly announcement in Canvas
-* due this Friday (5 PM):
+* due this Friday:
 
     - Precept 1
     - CLO Assessment (survey)
@@ -608,8 +749,8 @@ sessionInfo()
 
 ::::
 
-:::: {.panel-tabset}
+::::: {.panel-tabset}
 
 
 
-::::
+:::::

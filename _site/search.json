@@ -214,21 +214,21 @@
     "href": "posts/01_introduction/01_introduction.html",
     "title": "1: Introductions",
     "section": "",
-    "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
+    "text": "Goal: Introduce course\nObjective: Describe types of learning\n\n\n\n\n\nmachine learning\n\n\nimage source: Sankalp Salve"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#start",
     "href": "posts/01_introduction/01_introduction.html#start",
     "title": "1: Introductions",
     "section": "",
-    "text": "Goal: Introduce course\nObjective: Explore some Python codes\n\n\n\n\n\ntextbooks"
+    "text": "Goal: Introduce course\nObjective: Describe types of learning\n\n\n\n\n\nmachine learning\n\n\nimage source: Sankalp Salve"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
     "href": "posts/01_introduction/01_introduction.html#data-intelligence-modern-data-science-methods",
     "title": "1: Introductions",
     "section": "Data Intelligence: Modern Data Science Methods",
-    "text": "Data Intelligence: Modern Data Science Methods\n\nSpring 2025\nMonday, Wednesday, 11 AM to 1250 PM\nLecturer: Derek\n\nI go by “Derek” or “teacher”\n\n\n\n\n\n\n\n\nCourse Description\n\n\n\n\n\nThis course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results."
+    "text": "Data Intelligence: Modern Data Science Methods\n\nFall 2025\nMonday, Wednesday, 1040 AM to 12 noon\nLecturer: Derek Sollberger\n\nI go by “Derek” or “teacher”\noffice hours:\n\nMon, 2 to 4 PM\nBendheim House 201\n\n\n\n\n\n\n\n\n\nCourse Description\n\n\n\n\n\nThis course provides the training for students to be independent in modern data analysis. The course emphasizes the rigorous treatment of data and the programming skills and conceptual understanding required for dealing with modern datasets. The course examines data analysis through the lens of statistics and machine learning methods. Students verify their understanding by working with real datasets. The course also covers supporting topics such as experiment design, ethical data use, best practices for statistical and machine learning methods, reproducible research, writing a quantitative research paper, and presenting research results."
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#lecturer",
@@ -249,7 +249,7 @@
     "href": "posts/01_introduction/01_introduction.html#textbooks",
     "title": "1: Introductions",
     "section": "Textbooks",
-    "text": "Textbooks\n\nList1234\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\nDeep Learning Illustrated by Jon Krohn\nHow AI Works by Ronald T Kneusel\nProbabilistic Machine Learning by Kevin Patrick Murphy\n\n\n\n\n\n\nISLP\n\n\n\nAn Introduction to Statistical Learning by James, Witten, Hastie, Tibshirani, Taylor\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning Illustrated by Jon Krohn\n\n\n\n\n\n\nHow AI Works\n\n\n\nHow AI Works by Ronald T Kneusel\n\n\n\n\n\n\nProbabilistic Machine Learning\n\n\n\nProbabilistic Machine Learning by Kevin Patrick Murphy"
+    "text": "Textbooks\n\nGeneralEnthusiastsCerebralHumanitiesall\n\n\n\n\nDeep Learning Illustrated Jon Krohn et al\nISLP James, Witten, Hastie, Tibshirani, Taylor\nML Cookbook Gallatin, Albon\n\n\n\n\n\nDL with Python Francois Chollet\nHands-On LLMs Allammar, Grootendorst\nStatQuest AI Josh Starmer\n\n\n\n\n\nProbabilistic ML Kevin P Murphy\nProgrammer’s Brain Felienne Hermans\nWhy Machines Learn Anil Ananthaswamy\n\n\n\n\n\nCo-Intelligence Ethan Mollick\nHow Data Happened Wiggins, Jones\nWeapons of Math Destruction Cathy O’Neil"
   },
   {
     "objectID": "posts/01_introduction/01_introduction.html#cooperative-classroom",
@@ -1734,5 +1734,47 @@
     "title": "SML 301 Slides",
     "section": "",
     "text": "print(\"Hello World!\")\n\nHello World!"
+  },
+  {
+    "objectID": "code/01_introduction.html",
+    "href": "code/01_introduction.html",
+    "title": "SML 301: Data Intelligence",
+    "section": "",
+    "text": "In these code chunks, we will briefly talk about\n\ninstalling libraries\nregression and classification\nsample statistics\n\n\n# If need be, install the following packages\n#%pip install numpy\n#%pip install pandas\n#%pip install sklearn"
+  },
+  {
+    "objectID": "code/01_introduction.html#lecture-1-introduction",
+    "href": "code/01_introduction.html#lecture-1-introduction",
+    "title": "SML 301: Data Intelligence",
+    "section": "",
+    "text": "In these code chunks, we will briefly talk about\n\ninstalling libraries\nregression and classification\nsample statistics\n\n\n# If need be, install the following packages\n#%pip install numpy\n#%pip install pandas\n#%pip install sklearn"
+  },
+  {
+    "objectID": "code/01_introduction.html#python-tutorial",
+    "href": "code/01_introduction.html#python-tutorial",
+    "title": "SML 301: Data Intelligence",
+    "section": "Python tutorial",
+    "text": "Python tutorial\nTo the best of your present knowledge, what do each of the following lines of Python code do? What is the code output (if applicable)?\n\nsection 2.3.3 of Introduction to Statistical Learning in Python\n\nLeave a comment by each line of code in the following code chunk. The first one has been done already.\n\nimport numpy as np #import numpy library and alias as np\nx = np.array([3, 4, 5])\ny = np.array([4, 9, 7])\nx + y\n\nx = np.array([[1, 2], [3, 4]])\nx.ndim\nx.shape\n\nx.dtype\nnp.array([[1, 2], [3.0, 4]]).dtype\n\nx = np.array([1, 2, 3, 4])\nx.sum()\nx**2\nx**0.5\n\n\n# Load libraries\nimport pandas as pd\n\nfrom sklearn import datasets\nfrom sklearn.linear_model import LinearRegression, LogisticRegression\nfrom sklearn.datasets import make_regression\nfrom sklearn.preprocessing import StandardScaler"
+  },
+  {
+    "objectID": "code/01_introduction.html#regression",
+    "href": "code/01_introduction.html#regression",
+    "title": "SML 301: Data Intelligence",
+    "section": "Regression",
+    "text": "Regression\nThe following code comes from the Python Cookbook\n\nfeatures, target = make_regression(n_samples = 100,\n                                  n_features = 3,\n                                  n_informative = 2,\n                                  n_targets = 1,\n                                  noise = 0.2,\n                                  coef = False,\n                                  random_state = 301)\n\nregression_model = LinearRegression()\nmodel = regression_model.fit(features, target)\n\n# regression: predicts a number\nmodel.predict(features)[0]"
+  },
+  {
+    "objectID": "code/01_introduction.html#classification",
+    "href": "code/01_introduction.html#classification",
+    "title": "SML 301: Data Intelligence",
+    "section": "Classification",
+    "text": "Classification\nThe following code comes from the Python Cookbook\n\niris = datasets.load_iris()\nfeatures = iris.data[:100, :]\ntarget = iris.target[:100]\n\nscaler = StandardScaler()\nfeatures_standardized = scaler.fit_transform(features)\n\nlogistic_model = LogisticRegression(random_state = 301)\nmodel = logistic_model.fit(features_standardized, target)\n\n# classification: predict a label\nnew_observation = [[0.5, 0.5, 0.5, 0.5]]\nmodel.predict(new_observation)\n#model.predict_proba(new_observation)"
+  },
+  {
+    "objectID": "code/01_introduction.html#sample-statistics",
+    "href": "code/01_introduction.html#sample-statistics",
+    "title": "SML 301: Data Intelligence",
+    "section": "Sample Statistics,",
+    "text": "Sample Statistics,\nLet us try to summarize how long some SML 301 assignments take\n\nsurvey_data = pd.read_csv(\"https://raw.githubusercontent.com/dsollberger/sml301slides/refs/heads/main/data/SML301_durations.csv\")\nsurvey_data.head()\n\n\n# How long, in minutes, did the shortest precept assignment take?\nsurvey_data.shortest_precept.describe()\n\n\n# How long, in minutes, did the longest precept assignment take?\nsurvey_data.longest_precept.describe()\n\n\n# How long, in hours, did the midsemester project take?\nsurvey_data.midsemester_project.describe()"
   }
 ]
