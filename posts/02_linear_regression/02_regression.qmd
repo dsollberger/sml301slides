@@ -1,0 +1,528 @@
+---
+title: "2: Regression"
+author: "Derek Sollberger"
+date: "2025-09-08"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library("palmerpenguins")
+library("tidyverse") #tools for data wrangling and visualization
+
+# Princeton colors
+# orange on white: #e77500
+# orange on black: #f58025
+
+liquor_df <- data.frame(
+  year = 2014:2022,
+  LLV = c(129, 54, 103, 50, 15, 10, 18, 49,57))
+
+lin_fit <- lm(LLV ~ year, data = liquor_df)
+liquor_df <- liquor_df |>
+  mutate(predictions = predict(lin_fit,
+                               newdata = data.frame(year = liquor_df$year)),
+         residuals = predictions - LLV)
+
+residuals_diagram <- liquor_df |>
+  ggplot(aes(x = year, y = LLV)) +
+  geom_segment(aes(x = year, y = predictions, 
+                   xend = year, yend = LLV), 
+               color = "purple", linewidth = 3) +
+  geom_point(size = 4, color = "black") +
+  geom_smooth(formula = "y ~ x", method = "lm", se = FALSE,
+              color = "blue", linewidth = 2) +
+  geom_point(aes(x = year, y = predictions),
+             color = "red", size = 4) +
+  labs(title = "Linear Regression",
+       subtitle = "black: true values\nred: predictions\npurple: residuals",
+       caption = "SML 201",
+       x = "year", y = "judicial referrals") +
+  theme_minimal()
+```
+
+# Session 2: Regression
+
+## Start
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* **Goal**: Foray into regression
+
+* **Objective**: Implement various linear regression models
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: false
+residuals_diagram
+```
+:::
+
+::::
+
+# Palmer Penguins
+
+:::: {.columns}
+
+::: {.column width="45%"}
+This semester, Derek is trying out this idea where he will present the main idea at the of each session in the same data set: `palmerpenguins`.
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Palmer Penguins](lter_penguins.png)
+:::
+
+::::
+
+## Scatterplot
+
+Example: Can we predict the `bill_length` of a penguin whose `body_mass` is 5 kg?
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+penguins |>
+  ggplot(aes(x = body_mass_g, y = bill_length_mm)) +
+  geom_vline(xintercept = 5000,
+             color = "#e77500", 
+             linetype = "dashed",
+             linewidth = 2) +
+  geom_point() +
+  labs(title = "Palmer Penguins",
+       subtitle = "Can we predict the bill length of a penguin whose body mass is 5 kg?",
+       caption = "SML 301",
+       x = "body mass (g)",
+       y = "bill length (mm)") +
+  theme_minimal()
+```
+
+## Best-Fit Line
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+penguins |>
+  ggplot(aes(x = body_mass_g, y = bill_length_mm)) +
+  geom_vline(xintercept = 5000,
+             color = "black", 
+             linetype = "dashed",
+             linewidth = 2) +
+  geom_point() +
+  geom_smooth(formula = "y ~ x",
+              color = "#e77500", 
+              linewidth = 3,
+              method = "lm",
+              se = FALSE) +
+  labs(title = "Palmer Penguins",
+       subtitle = "Let us visualize a line of best fit",
+       caption = "SML 301",
+       x = "body mass (g)",
+       y = "bill length (mm)") +
+  theme_minimal()
+```
+
+```{r}
+lin_fit <- lm(bill_length_mm ~ body_mass_g, data = penguins)
+y_pred <- predict(lin_fit, newdata = data.frame(body_mass_g = 5000))
+```
+
+## Prediction
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+penguins |>
+  ggplot(aes(x = body_mass_g, y = bill_length_mm)) +
+  geom_vline(xintercept = 5000,
+             color = "black", 
+             linetype = "dashed",
+             linewidth = 2) +
+  geom_point() +
+  geom_smooth(formula = "y ~ x",
+              color = "black", 
+              linewidth = 3,
+              method = "lm",
+              se = FALSE) +
+  geom_hline(yintercept = 47.2,
+             color = "#e77500", 
+             linetype = "dashed",
+             linewidth = 2) +
+  labs(title = "Palmer Penguins",
+       subtitle = "We estimate that the penguin's bill length is 47.2 mm",
+       caption = "SML 301",
+       x = "body mass (g)",
+       y = "bill length (mm)") +
+  theme_minimal()
+```
+
+## Commentary
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* How reliable is the prediction?
+* How reliable is the [linear] model?
+* Can we deploy a different model?
+* Do we have all of the data, or just a sample?
+
+   * Does this prediction apply to all similar penguins?
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+penguins |>
+  ggplot(aes(x = body_mass_g, y = bill_length_mm)) +
+  geom_vline(xintercept = 5000,
+             color = "black", 
+             linetype = "dashed",
+             linewidth = 2) +
+  geom_point() +
+  geom_smooth(formula = "y ~ x",
+              color = "black", 
+              linewidth = 3,
+              method = "lm",
+              se = FALSE) +
+  geom_hline(yintercept = 47.2,
+             color = "#e77500", 
+             linetype = "dashed",
+             linewidth = 2) +
+  labs(title = "Palmer Penguins",
+       subtitle = "We estimate that the penguin's bill length is 47.2 mm",
+       caption = "SML 301",
+       x = "body mass (g)",
+       y = "bill length (mm)") +
+  theme_minimal()
+```
+:::
+
+::::
+
+::: {.callout-warning collapse="true"}
+## DCP1
+
+DCP1
+:::
+
+
+# Model Diagnostics
+
+Following discussion in the *ISLP* textbook, we proceed to perform some diagnostics on the linear regression process.
+
+::::: {.panel-tabset}
+
+## splash
+
+![model diagnostics](model_0.png)
+
+## residuals
+
+![residuals](model_1.png)
+
+The nearly horizontal LOESS (summary) line may indicate that this data is appropriate for this model.  There may be an outlier (in this point of view).
+
+## QQ
+
+![quantile-quantile plot](model_2.png)
+
+The QQ plot shows that the residuals are somewhat normally distributed (perhaps with less reliable data in the tails).
+
+## SL
+
+![scale-location](model_3.png)
+
+Since none of the standardized residuals are greater than 3 in magnitude, our data set does not have outliers (in this point of view)
+
+## Leverage
+
+![leverage](model_4.png)
+
+We seem to have no outliers (in this point of view) as data points have similar **leverage** on the linear regression model (i.e. removing one data point would drastically change the regression coefficients)
+
+:::::
+
+
+
+
+# Linear Model
+
+$$\hat{y} = a + bx$$
+
+* $\hat{y}$: predicted value
+* $a$: intercept
+* $b$: slope
+
+## Residuals
+
+A *residual* is the difference between a predicted value and its true value.
+
+```{r}
+#| echo: false
+residuals_diagram
+```
+
+## Method of Least Squares
+
+**Idea**: The *best-fit* line is where the sum-of-squared residuals is minimized.
+
+$$E(a,b) = \sum_{i=1}^{n} (y_{i} - a - bx_{i})^{2}$$
+
+**Claim**: $$a = \frac{ (\sum y_{i})(\sum x_{i}^{2}) - (\sum x_{i})(\sum x_{i}y_{i}) }{ n\sum x_{i}^{2} - (\sum x_{i})^{2} }, \quad b = \frac{ n\sum x_{i}y_{i} - (\sum x_{i})(\sum y_{i}) }{ n\sum x_{i}^{2} - (\sum x_{i})^{2} }$$
+
+::: {.callout-note collapse="true"}
+## (optional) Proof
+
+Search for a critical point by setting the partial derivatives (along with the Chain Rule) equal to zero.
+
+$$0 = \frac{\partial E}{\partial a} = -2\sum_{i = 1}^{n} (y_{i} - a - bx_{i}) = 2an + 2b\sum_{i = 1}^{n}x_{i} - 2\sum_{i = 1}^{n} y_{i}$$
+$$0 = \frac{\partial E}{\partial b} = -2\sum_{i = 1}^{n} (y_{i} - a - bx_{i})x_{i} = 2a\sum_{i = 1}^{n}x_{i} + 2b\sum_{i = 1}^{n}x_{i}^{2} - 2\sum_{i = 1}^{n} x_{i}y_{i}$$
+
+Create a matrix system of equations.
+
+$$\left[  \begin{array}{cc}
+  n & \sum_{i = 1}^{n}x_{i} \\
+  \sum_{i = 1}^{n}x_{i} & \sum_{i = 1}^{n}x_{i}^{2} \\
+  \end{array}\right]
+  \left[  \begin{array}{c}  a \\ b \end{array}\right]
+  =
+  \left[  \begin{array}{c}  \sum_{i = 1}^{n} y_{i} \\ \sum_{i = 1}^{n} x_{i}y_{i} \end{array}\right]
+  $$
+
+
+Employ a matrix inverse.
+
+$$\begin{array}{rcl}
+  \left[  \begin{array}{c}  a \\ b \end{array}\right] & = & 
+  \left[  \begin{array}{cc}
+  n & \sum_{i = 1}^{n}x_{i} \\
+  \sum_{i = 1}^{n}x_{i} & \sum_{i = 1}^{n}x_{i}^{2} \\
+  \end{array}\right]^{-1}\left[  \begin{array}{c}  \sum_{i = 1}^{n} y_{i} \\ \sum_{i = 1}^{n} x_{i}y_{i} \end{array}\right] \\
+  
+  ~ & ~ & ~ \\
+  
+  \left[  \begin{array}{c}  a \\ b \end{array}\right] & = & \frac{1}{n\sum x_{i}^{2} - (\sum x_{i})^{2}} \left[  \begin{array}{cc}
+  \sum_{i = 1}^{n}x_{i}^{2} & -\sum_{i = 1}^{n}x_{i} \\
+  -\sum_{i = 1}^{n}x_{i} & n \\
+  \end{array}\right]  \left[  \begin{array}{c}  \sum_{i = 1}^{n} y_{i} \\ \sum_{i = 1}^{n} x_{i}y_{i} \end{array}\right] \\
+  
+  ~ & ~ & ~ \\
+  
+  \left[  \begin{array}{c}  a \\ b \end{array}\right] & = & \frac{1}{n\sum x_{i}^{2} - (\sum x_{i})^{2}} 
+  \left[  \begin{array}{c}  (\sum y_{i})(\sum x_{i}^{2}) - (\sum x_{i})(\sum x_{i}y_{i}) \\  n\sum x_{i}y_{i} - (\sum x_{i})(\sum y_{i}) \end{array}\right] \\
+\end{array}$$
+
+:::
+
+
+# Train-Test Split
+
+Today's big idea is the training-testing split.
+
+![train-test split](train-test-split.png)
+
+* image source: [Michael Galarnyk](https://builtin.com/data-science/train-test-split)
+
+::: {.callout-tip}
+## Training and Testing Sets
+
+In a machine learning workflow, it is customary to partition the data into a **training set** and a **test set**.
+
+* we *build a model* on the training set
+* we *evaluate the model* on the test set
+
+One recommendation is to use a 70:30 ratio for the number of observations that go into the training set and the test set respectively.
+
+:::
+
+::: {.callout-note collapse="true"}
+## Train-Val-Test
+
+In the near future, when comparing results *between different types of models*, we want to prevent *leaking data* into the test set.  Thus, each model has a stage that uses a *validation set*.
+
+* we *build a model* on the training set
+* we *evaluate the model* on the validation set
+* we *evaluate the model type* on the test set
+
+One recommendation is to use a 70:15:15 partition for the number of observations that go into the training set, validation set, and the test set respectively.
+
+:::
+
+::: {.callout-warning collapse="true"}
+## DCP2
+
+DCP2
+:::
+
+# Metric
+
+To *evaluate* proposed models, we use the same **metric** on the test data for all of the models.
+
+::: {.callout-note}
+## MSE
+
+For regression tasks, a common *metric* is **MSE** (mean-squared error)
+
+$\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(\hat{y}_{i} - y_{i})^{2}$
+
+Since we are discussing errors (or residuals), the lowest value for MSE points toward the best model.
+
+:::
+
+
+# Hyperparameters
+
+Models are *fit* to the training data by finding the best parameter values (e.g. coefficients) through optimization.
+
+The shape of the models are affected by **hyperparameters**
+
+## Polynomial Regression
+
+$d = 2: \hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{1}^{2}$
+
+$d = 3: \hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{1}^{2} + \beta_{3}X_{1}^{3}$
+
+::: {.callout-note}
+## Degree is a hyperparameter
+
+For polynomial regression, the degree $d$ is a hyperparameter.
+
+* parameters: $\beta_{0}, \beta_{1}, \beta_{2}, ...$
+* hyperparametr: $d$
+
+:::
+
+# Multiple Linear Regression
+
+$$\hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \beta_{3}X_{3} + ...$$
+
+is likewise solved by [ordinary least squares](https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf)
+
+::: {.callout-warning collapse="true"}
+## DCP3
+
+DCP3
+:::
+
+# Penalization
+
+Later, we will discuss the notion of *variance* (in the test set error totals) for machine learning.  For now, we try out **penalization** methods to suppress some of the coefficients to try to reduce variance.
+
+## Ridge Regression
+
+## Ridge Regression
+
+$\hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \alpha\sum_{i = 1}^{2} \beta_{i}^{2}$
+
+where $\alpha > 0$ is the penalization coefficient.
+
+* ridge regression is also called **L2 penalization**
+
+## LASSO Regression
+
+$\hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \alpha\sum_{i = 1}^{2} |\beta_{i}|$
+
+where $\alpha > 0$ is the penalization coefficient.
+
+* LASSO regression (least absolute shrinkage and selection operator) is also called **L1 penalization**
+
+## Elastic Net
+
+For these penalized linear models, we proceed to **elastic net**, which is a linear combination of the previous ridge and LASSO ideas.
+
+$\hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \alpha[L\sum_{i = 1}^{2} \beta_{i}^{2}+ (1-L)\sum_{i = 1}^{2} |\beta_{i}|]$
+
+* $\alpha$: penalization coefficient
+* $L$: $L1$ ratio
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* due this Friday:
+
+    - Precept 2
+
+*  talk to some of your classmates and draft plans to form groups (toward the midterm and semester projects)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Palmer Penguins](lter_penguins.png)
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources
+
+* [OLS](https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf) description and proof by Professor Michael J Rosenfeld
+* [Train Test Split](https://builtin.com/data-science/train-test-split) by Michael Galanyk
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

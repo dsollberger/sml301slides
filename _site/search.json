@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "2: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "2: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1776,5 +1776,131 @@
     "title": "SML 301: Data Intelligence",
     "section": "Sample Statistics,",
     "text": "Sample Statistics,\nLet us try to summarize how long some SML 301 assignments take\n\nsurvey_data = pd.read_csv(\"https://raw.githubusercontent.com/dsollberger/sml301slides/refs/heads/main/data/SML301_durations.csv\")\nsurvey_data.head()\n\n\n# How long, in minutes, did the shortest precept assignment take?\nsurvey_data.shortest_precept.describe()\n\n\n# How long, in minutes, did the longest precept assignment take?\nsurvey_data.longest_precept.describe()\n\n\n# How long, in hours, did the midsemester project take?\nsurvey_data.midsemester_project.describe()"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html",
+    "href": "posts/02_linear_regression/02_regression.html",
+    "title": "2: Regression",
+    "section": "",
+    "text": "Goal: Foray into regression\nObjective: Implement various linear regression models"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#start",
+    "href": "posts/02_linear_regression/02_regression.html#start",
+    "title": "2: Regression",
+    "section": "",
+    "text": "Goal: Foray into regression\nObjective: Implement various linear regression models"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#scatterplot",
+    "href": "posts/02_linear_regression/02_regression.html#scatterplot",
+    "title": "2: Regression",
+    "section": "Scatterplot",
+    "text": "Scatterplot\nExample: Can we predict the bill_length of a penguin whose body_mass is 5 kg?"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#best-fit-line",
+    "href": "posts/02_linear_regression/02_regression.html#best-fit-line",
+    "title": "2: Regression",
+    "section": "Best-Fit Line",
+    "text": "Best-Fit Line\n\n\n\n\n\n\n\n\n\n\nlin_fit &lt;- lm(bill_length_mm ~ body_mass_g, data = penguins)\ny_pred &lt;- predict(lin_fit, newdata = data.frame(body_mass_g = 5000))"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#prediction",
+    "href": "posts/02_linear_regression/02_regression.html#prediction",
+    "title": "2: Regression",
+    "section": "Prediction",
+    "text": "Prediction"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#commentary",
+    "href": "posts/02_linear_regression/02_regression.html#commentary",
+    "title": "2: Regression",
+    "section": "Commentary",
+    "text": "Commentary\n\n\n\nHow reliable is the prediction?\nHow reliable is the [linear] model?\nCan we deploy a different model?\nDo we have all of the data, or just a sample?\n\nDoes this prediction apply to all similar penguins?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP1\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#residuals-1",
+    "href": "posts/02_linear_regression/02_regression.html#residuals-1",
+    "title": "2: Regression",
+    "section": "Residuals",
+    "text": "Residuals\nA residual is the difference between a predicted value and its true value."
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#method-of-least-squares",
+    "href": "posts/02_linear_regression/02_regression.html#method-of-least-squares",
+    "title": "2: Regression",
+    "section": "Method of Least Squares",
+    "text": "Method of Least Squares\nIdea: The best-fit line is where the sum-of-squared residuals is minimized.\n\\[E(a,b) = \\sum_{i=1}^{n} (y_{i} - a - bx_{i})^{2}\\]\nClaim: \\[a = \\frac{ (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }, \\quad b = \\frac{ n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }\\]\n\n\n\n\n\n\n(optional) Proof\n\n\n\n\n\nSearch for a critical point by setting the partial derivatives (along with the Chain Rule) equal to zero.\n\\[0 = \\frac{\\partial E}{\\partial a} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i}) = 2an + 2b\\sum_{i = 1}^{n}x_{i} - 2\\sum_{i = 1}^{n} y_{i}\\] \\[0 = \\frac{\\partial E}{\\partial b} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i})x_{i} = 2a\\sum_{i = 1}^{n}x_{i} + 2b\\sum_{i = 1}^{n}x_{i}^{2} - 2\\sum_{i = 1}^{n} x_{i}y_{i}\\]\nCreate a matrix system of equations.\n\\[\\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right]\n  =\n  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right]\n  \\]\nEmploy a matrix inverse.\n$$\n\\[\\begin{array}{rcl}\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = &\n  \\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]^{-1}\\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}} \\left[  \\begin{array}{cc}\n  \\sum_{i = 1}^{n}x_{i}^{2} & -\\sum_{i = 1}^{n}x_{i} \\\\\n  -\\sum_{i = 1}^{n}x_{i} & n \\\\\n  \\end{array}\\right]  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}}\n  \\left[  \\begin{array}{c}  (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) \\\\  n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) \\end{array}\\right] \\\\\n\\end{array}\\]\n$$"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#polynomial-regression",
+    "href": "posts/02_linear_regression/02_regression.html#polynomial-regression",
+    "title": "2: Regression",
+    "section": "Polynomial Regression",
+    "text": "Polynomial Regression\n\\(d = 2: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2}\\)\n\\(d = 3: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2} + \\beta_{3}X_{1}^{3}\\)\n\n\n\n\n\n\nDegree is a hyperparameter\n\n\n\nFor polynomial regression, the degree \\(d\\) is a hyperparameter.\n\nparameters: \\(\\beta_{0}, \\beta_{1}, \\beta_{2}, ...\\)\nhyperparametr: \\(d\\)"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#ridge-regression",
+    "href": "posts/02_linear_regression/02_regression.html#ridge-regression",
+    "title": "2: Regression",
+    "section": "Ridge Regression",
+    "text": "Ridge Regression"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#ridge-regression-1",
+    "href": "posts/02_linear_regression/02_regression.html#ridge-regression-1",
+    "title": "2: Regression",
+    "section": "Ridge Regression",
+    "text": "Ridge Regression\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha\\sum_{i = 1}^{2} \\beta_{i}^{2}\\)\nwhere \\(\\alpha &gt; 0\\) is the penalization coefficient.\n\nridge regression is also called L2 penalization"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#lasso-regression",
+    "href": "posts/02_linear_regression/02_regression.html#lasso-regression",
+    "title": "2: Regression",
+    "section": "LASSO Regression",
+    "text": "LASSO Regression\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha\\sum_{i = 1}^{2} |\\beta_{i}|\\)\nwhere \\(\\alpha &gt; 0\\) is the penalization coefficient.\n\nLASSO regression (least absolute shrinkage and selection operator) is also called L1 penalization"
+  },
+  {
+    "objectID": "posts/02_linear_regression/02_regression.html#elastic-net",
+    "href": "posts/02_linear_regression/02_regression.html#elastic-net",
+    "title": "2: Regression",
+    "section": "Elastic Net",
+    "text": "Elastic Net\nFor these penalized linear models, we proceed to elastic net, which is a linear combination of the previous ridge and LASSO ideas.\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha[L\\sum_{i = 1}^{2} \\beta_{i}^{2}+ (1-L)\\sum_{i = 1}^{2} |\\beta_{i}|]\\)\n\n\\(\\alpha\\): penalization coefficient\n\\(L\\): \\(L1\\) ratio"
+  },
+  {
+    "objectID": "code/02_linear_regression.html",
+    "href": "code/02_linear_regression.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "linear regression\nmodel diagnostics\ntrain-test split\npolynomial regression\nmultilinear regression\npenalization\n\nRemember to “Save Copy to Drive” to use your own cloud space.\n\n# install packages (if need be)\n# %pip install palmerpenguins\n\n\n# load libraries\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom palmerpenguins import load_penguins\nfrom scipy import stats\nfrom sklearn import linear_model\nfrom sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.model_selection import train_test_split, GridSearchCV\nfrom sklearn.preprocessing import PolynomialFeatures\n\n# Princeton colors\n# orange on white: #e77500\n# orange on black: #f58025\n\n# load data\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "code/02_linear_regression.html#session-2-linear-regression",
+    "href": "code/02_linear_regression.html#session-2-linear-regression",
+    "title": "SML 301",
+    "section": "",
+    "text": "linear regression\nmodel diagnostics\ntrain-test split\npolynomial regression\nmultilinear regression\npenalization\n\nRemember to “Save Copy to Drive” to use your own cloud space.\n\n# install packages (if need be)\n# %pip install palmerpenguins\n\n\n# load libraries\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nfrom palmerpenguins import load_penguins\nfrom scipy import stats\nfrom sklearn import linear_model\nfrom sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.model_selection import train_test_split, GridSearchCV\nfrom sklearn.preprocessing import PolynomialFeatures\n\n# Princeton colors\n# orange on white: #e77500\n# orange on black: #f58025\n\n# load data\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "code/02_linear_regression.html#scatterplot",
+    "href": "code/02_linear_regression.html#scatterplot",
+    "title": "SML 301",
+    "section": "Scatterplot",
+    "text": "Scatterplot\nA scatterplot shows two numerical variables, and we then add code to plot a best-fit line for linear regression.\nIn this first example, we try to predict a penguin’s bill length based on its body mass.\n\npenguins_subset = penguins[[\"bill_length_mm\", \"body_mass_g\"]] #subset with just the variables that we need\npenguins_subset = penguins_subset.dropna()                    #then remove missing data\nX = penguins_subset[\"body_mass_g\"]\ny = penguins_subset[\"bill_length_mm\"]\n\n\n# https://python-graph-gallery.com/scatterplot-with-regression-fit-in-matplotlib/\n# # Initialize layout\nfig, ax = plt.subplots(figsize=(7, 7))\n\n# Add scatterplot\nax.scatter(X, y, s=50, alpha=0.5, edgecolors=\"#000000\")\n\n# Add best-fit line\nb, a = np.polyfit(X, y, deg = 1)\nxseq = np.linspace(min(X), max(X), num = 301)\nax.plot(xseq, a + b*xseq, color = \"#e77500\", lw = 3)\n\n# Label plot\nax.set_title(\"Linear Regression\")\nax.set_xlabel(\"bill length (mm)\")\nax.set_ylabel(\"body mass (g)\")\n\nText(0, 0.5, 'body mass (g)')\n\n\n\n\n\n\n\n\n\n\npenguins_subset = penguins[[\"bill_length_mm\", \"body_mass_g\"]] #subset with just the variables that we need\npenguins_subset = penguins_subset.dropna()                    #then remove missing data\nX = penguins_subset[[\"body_mass_g\"]]                          #later: needs to be a 2D array\ny = penguins_subset[\"bill_length_mm\"]\n\n# linear regression modeling (via scikit-learn)\nmodel = LinearRegression().fit(X, y)\n\nLinear regression math model:\n\\(y = \\beta_{0} + \\beta_{1}X_{1}\\)\n\n# show model coefficients\nprint(\"beta_0:\", model.intercept_)\nprint(\"beta_1:\", model.coef_)\n\nbeta_0: 26.898872423598547\nbeta_1: [0.00405142]"
+  },
+  {
+    "objectID": "code/02_linear_regression.html#ridge-regression",
+    "href": "code/02_linear_regression.html#ridge-regression",
+    "title": "SML 301",
+    "section": "Ridge Regression",
+    "text": "Ridge Regression\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha\\sum_{i = 1}^{2} \\beta_{i}^{2}\\)\nwhere \\(\\alpha &gt; 0\\) is the penalization coefficient.\n\nridge regression is also called L2 penalization\n\n\nridge_grid = RidgeCV(alphas = [0.001, 0.01, 0.1, 1.0, 10.0, 100, 1000])\nmodel = ridge_grid.fit(X_train, y_train)\n\n# show model coefficients\nprint(\"alpha:\", model.alpha_)\nprint(\"beta_0:\", model.intercept_)\nprint(\"betas:\", model.coef_)\n\ny_pred = model.predict(X_test)\nmodel_MSE = mean_squared_error(y_test, y_pred)\nprint(f'test MSE: {model_MSE:.4f}')\n\nalpha: 100.0\nbeta_0: -3.244404996952511\nbetas: [0.0004543  0.22526271]\ntest MSE: 16.4630"
+  },
+  {
+    "objectID": "code/02_linear_regression.html#lasso-regression",
+    "href": "code/02_linear_regression.html#lasso-regression",
+    "title": "SML 301",
+    "section": "LASSO Regression",
+    "text": "LASSO Regression\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha\\sum_{i = 1}^{2} |\\beta_{i}|\\)\nwhere \\(\\alpha &gt; 0\\) is the penalization coefficient.\n\nLASSO regression (least absolute shrinkage and selection operator) is also called L1 penalization\n\n\nlasso_grid = LassoCV(alphas = [0.001, 0.01, 0.1, 1.0, 10.0, 100, 1000])\nmodel = lasso_grid.fit(X_train, y_train)\n\n# show model coefficients\nprint(\"alpha:\", model.alpha_)\nprint(\"beta_0:\", model.intercept_)\nprint(\"betas:\", model.coef_)\n\ny_pred = model.predict(X_test)\nmodel_MSE = mean_squared_error(y_test, y_pred)\nprint(f'test MSE: {model_MSE:.4f}')\n\nalpha: 0.1\nbeta_0: -3.225590182288883\nbetas: [0.00045654 0.22512234]\ntest MSE: 16.4627"
   }
 ]
