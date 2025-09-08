@@ -1,5 +1,5 @@
 ---
-title: "2: Regression"
+title: "3: Regression"
 author: "Derek Sollberger"
 date: "2025-09-08"
 format:
@@ -46,7 +46,7 @@ residuals_diagram <- liquor_df |>
   theme_minimal()
 ```
 
-# Session 2: Regression
+# Session 3: Regression
 
 ## Start
 
@@ -392,6 +392,27 @@ Since we are discussing errors (or residuals), the lowest value for MSE points t
 
 :::
 
+# Ethics Enclave: Music
+
+:::: {.columns}
+
+::: {.column width="45%"}
+"... she followed a link the fan had posted and was taken to what appeared to be her latest release. "But I didn't recognise it because I hadn't released a new album," Portman says.
+
+"I clicked through and discovered an album online everywhere - on Spotify and iTunes and all the online platforms.
+
+"It was called Orca, and it was music that was evidently AI-generated, but it had been cleverly trained, I think, on me."""	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Emily Portman](Emily_Portman.png)
+:::
+
+::::
 
 # Hyperparameters
 
