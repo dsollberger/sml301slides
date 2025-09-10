@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-09-10">
+
+<title>3: Convergence – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-3-convergence" id="toc-session-3-convergence" class="nav-link active" data-scroll-target="#session-3-convergence">Session 3: Convergence</a>
+  <ul class="collapse">
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start</a></li>
+  </ul></li>
+  <li><a href="#sgd" id="toc-sgd" class="nav-link" data-scroll-target="#sgd">SGD</a></li>
+  <li><a href="#little-perturbations" id="toc-little-perturbations" class="nav-link" data-scroll-target="#little-perturbations">Little Perturbations</a></li>
+  <li><a href="#literature" id="toc-literature" class="nav-link" data-scroll-target="#literature">Literature</a>
+  <ul class="collapse">
+  <li><a href="#activity-literature-introductions" id="toc-activity-literature-introductions" class="nav-link" data-scroll-target="#activity-literature-introductions">Activity: Literature Introductions</a></li>
+  </ul></li>
+  <li><a href="#stochastic" id="toc-stochastic" class="nav-link" data-scroll-target="#stochastic">Stochastic</a>
+  <ul class="collapse">
+  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences">Sequences</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables">Random Variables</a></li>
+  </ul></li>
+  <li><a href="#gradient" id="toc-gradient" class="nav-link" data-scroll-target="#gradient">Gradient</a></li>
+  <li><a href="#descent" id="toc-descent" class="nav-link" data-scroll-target="#descent">Descent</a></li>
+  <li><a href="#trade-off-speed-versus-complexity" id="toc-trade-off-speed-versus-complexity" class="nav-link" data-scroll-target="#trade-off-speed-versus-complexity">Trade-Off: Speed versus Complexity</a></li>
+  <li><a href="#preview-backpropagation" id="toc-preview-backpropagation" class="nav-link" data-scroll-target="#preview-backpropagation">Preview: Backpropagation</a></li>
+  <li><a href="#markov-chains" id="toc-markov-chains" class="nav-link" data-scroll-target="#markov-chains">Markov Chains</a>
+  <ul class="collapse">
+  <li><a href="#application-dinner-choices" id="toc-application-dinner-choices" class="nav-link" data-scroll-target="#application-dinner-choices">Application: Dinner Choices</a></li>
+  </ul></li>
+  <li><a href="#preview-softmax" id="toc-preview-softmax" class="nav-link" data-scroll-target="#preview-softmax">Preview: Softmax</a>
+  <ul class="collapse">
+  <li><a href="#hardmax" id="toc-hardmax" class="nav-link" data-scroll-target="#hardmax">Hardmax</a></li>
+  </ul></li>
+  <li><a href="#bias-variance-trade-off" id="toc-bias-variance-trade-off" class="nav-link" data-scroll-target="#bias-variance-trade-off">Bias-Variance Trade-off</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">3: Convergence</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 10, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-3-convergence" class="level1">
+<h1>Session 3: Convergence</h1>
+<section id="start" class="level2">
+<h2 class="anchored" data-anchor-id="start">Start</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p><strong>Goal</strong>: Preview major concepts</p></li>
+<li><p><strong>Objective</strong>: Explore some Python codes about root finding and stochastic processes</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="biasvariance.png" class="img-fluid figure-img"></p>
+<figcaption>bias-variance tradeoff</figcaption>
+</figure>
+</div>
+<p>image source: <a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Scott Fortmann-Roe</a></p>
+</div>
+</div>
+</section>
+</section>
+<section id="sgd" class="level1">
+<h1>SGD</h1>
+<p>Eventually we will discuss upon how neural network weights are found via stochastic gradient descent</p>
+<ul>
+<li>stochastic?</li>
+<li>gradient?</li>
+<li>descent?</li>
+</ul>
+</section>
+<section id="little-perturbations" class="level1">
+<h1>Little Perturbations</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">rounding</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">truncation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">consideration</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2 + 2 = 5</h3>
+<p>… for extremely large values of 2</p>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2_2_5.png" class="img-fluid figure-img"></p>
+<figcaption>tshirt</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="truncation-errors.png" class="img-fluid figure-img"></p>
+<figcaption>truncation error</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://byjus.com/maths/truncation-errors/">BYJUs</a></li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Numerical analysis: many computational algorithms have been designed to mitigate the possible propogation of rounding and truncation errors.</p>
+<ul>
+<li>example: <a href="https://zingale.github.io/comp_astro_tutorial/basics/floating-point/numerical_error.html">the quadratic formula</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dev Corner: Binary
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Research teams are still affected by these rounding and truncation errors</p>
+<ul>
+<li>different operating systems (Mac, Windows, Linux)</li>
+<li>different processor chips (Intel, AMD)</li>
+</ul>
+<p>Tip: data engineers can store computation results in their pure binary representations</p>
+</div>
+</div>
+</div>
+</section>
+<section id="literature" class="level1">
+<h1>Literature</h1>
+<p>We will spend some time discussing what makes for a great research paper. There are many suggestions available, and for brevity, we will focus on these common sections:</p>
+<ul>
+<li>abstract and introduction</li>
+<li>conclusion</li>
+<li>methods</li>
+<li>results</li>
+</ul>
+<section id="activity-literature-introductions" class="level2">
+<h2 class="anchored" data-anchor-id="activity-literature-introductions">Activity: Literature Introductions</h2>
+<p>We will look at the abstracts and introduction paragraphs for some of the <a href="https://github.com/daturkel/learning-papers?tab=readme-ov-file">most influential papers</a> in the history of machine learning:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Suggested Papers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="alexnet" class="level3">
+<h3 class="anchored" data-anchor-id="alexnet">AlexNet</h3>
+<ul>
+<li>ImageNet Classification with Deep Convolutional Neural Networks (2012)</li>
+</ul>
+</section>
+<section id="gans" class="level3">
+<h3 class="anchored" data-anchor-id="gans">GANs</h3>
+<ul>
+<li>General Adversarial Nets (2014), Goodfellow et al.</li>
+</ul>
+</section>
+<section id="tensorflow" class="level3">
+<h3 class="anchored" data-anchor-id="tensorflow">TensorFlow</h3>
+<ul>
+<li>TensorFlow: A system for large-scale machine learning (2016), Abadi et al.</li>
+</ul>
+</section>
+<section id="word2vec" class="level3">
+<h3 class="anchored" data-anchor-id="word2vec">Word2Vec</h3>
+<ul>
+<li>Efficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="stochastic" class="level1">
+<h1>Stochastic</h1>
+<ul>
+<li><strong>Stochastic</strong>: word of Greek origin, meaning to guess at</li>
+</ul>
+<section id="sequences" class="level2">
+<h2 class="anchored" data-anchor-id="sequences">Sequences</h2>
+<ul>
+<li>index: <span class="math inline">\(n \in \mathbb{N} = \{1, 2, 3, 4, 5, ...\}\)</span></li>
+<li>formulaic: f(n) = 2n - 1</li>
+</ul>
+<p><span class="math display">\[1, 3, 5, 7, 9, ...\]</span></p>
+<ul>
+<li>constructive:</li>
+</ul>
+<p><span class="math display">\[3, 3.1, 3.14, 3.141, 3.1415, 3.14159, ...\]</span></p>
+<ul>
+<li>shapes:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="triangular-numbers.png" class="img-fluid figure-img"></p>
+<figcaption>triangular numbers</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://byjus.com/maths/triangular-numbers/">BYJUs</a></li>
+</ul>
+</section>
+<section id="random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="random-variables">Random Variables</h2>
+<p>A <strong>random variable</strong> has no set value, but rather represents an element of chance. We can better understand a random variable through statistics like</p>
+<ul>
+<li>mean</li>
+<li>variance</li>
+<li>distribution</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stochastic Process
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <strong>stochastic process</strong> is a <em>sequence</em> of <em>random variables</em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gradient" class="level1">
+<h1>Gradient</h1>
+<p>For a multivariate function <span class="math inline">\(f(\vec{x})\)</span>, the <strong>gradient</strong> is a vector of partial derivatives</p>
+<p><span class="math display">\[\nabla f = \left[ \frac{\partial}{\partial x_{1}}, \frac{\partial}{\partial x_{2}}, \frac{\partial}{\partial x_{3}}, ..., \frac{\partial}{\partial x_{n}}  \right]\]</span></p>
+</section>
+<section id="descent" class="level1">
+<h1>Descent</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Scenario</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Bisection</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Newton’s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Cauchy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Find the roots of the function</p>
+<p><span class="math display">\[f(x) = x^{3} - 12x^{2} + 44x - 48\]</span></p>
+<p>In other words, find the solutions of the equation</p>
+<p><span class="math display">\[f(x) = x^{3} - 12x^{2} + 44x - 48 = 0\]</span></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bisection_method.png" class="img-fluid figure-img"></p>
+<figcaption>Bisection Method</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter19.03-Bisection-Method.html">Python Numerical Methods</a></li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<pre><code>def bisection_method(f, a, b, tol):
+  # tries to find a root of f between a and b (i.e. f(root) = 0)
+  # Inputs: real numbers a, b; tolerance
+  # Output: root
+
+  # check if root is in the interval (i.e. Intermediate Value Theorem)
+    if np.sign(f(a)) == np.sign(f(b)):
+        raise Exception("The endpoints do not contain a root")
+
+  # initialization
+    iter_num = 1
+
+    while (b - a) &gt; tol:
+      c = (a + b) / 2
+
+      print("iter_num: " + str(iter_num) + ", midpoint: " + str(c))
+
+      if f(c) * f(a) &lt; 0:
+          b = c
+      else:
+          a = c
+
+      iter_num += 1
+
+    print("Root:", c)
+</code></pre>
+<pre><code>f = lambda x: x**3 - 12*x**2  + 44*x - 48</code></pre>
+<p>Try calling the <code>bisection_method</code> with different initial values for a and b, such as</p>
+<ul>
+<li>[0, 3]</li>
+<li>[3, 7]</li>
+<li>[5, 10]</li>
+</ul>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Newtons_Method.png" class="img-fluid figure-img"></p>
+<figcaption>Newton’s Method</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://tutorial.math.lamar.edu/classes/calci/newtonsmethod.aspx">Paul’s Online Notes</a></li>
+</ul>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<pre><code>def Newton_Method(f, f_prime, x_0, tol, max_iter):
+  # tries to find a root of f between a and b (i.e. f(root) = 0)
+  # Inputs: function f, derivative function f_prime,
+  # initial guess x_0, tolerance tol, and maximum number of iterations
+  # Output: root
+
+  # initialization
+    iter_num = 1
+    x_n = x_0
+
+    while (abs(f(x_n)) &gt; tol) &amp; (iter_num &lt;= max_iter):
+      print("iter_num: " + str(iter_num) + ", guess: " + str(x_n))
+      f_x = f(x_n)
+      f_prime_x = f_prime(x_n)
+
+      x_n = x_n - f_x / f_prime_x
+      iter_num += 1
+
+    print("Root:", x_n)</code></pre>
+<pre><code>f_prime = lambda x: 3*x**2 - 24*x + 44</code></pre>
+<p>Try calling Newton_Method with a few different guesses for the initial value</p>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<p>An infinite sequence <span class="math inline">\(\{x_{i}\}_{i=1}^{\infty}\)</span> is <strong>Cauchy convergent</strong> if</p>
+<p><span class="math display">\[\forall \epsilon \exists N \text{ such that } \forall m,n &gt; N\]</span> <span class="math display">\[|x_{m} - x_{n}| &lt; \epsilon\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="trade-off-speed-versus-complexity" class="level1">
+<h1>Trade-Off: Speed versus Complexity</h1>
+<p>Newton’s Method</p>
+<p><span class="math display">\[x_{n} = x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})}\]</span></p>
+<ul>
+<li>converges faster</li>
+<li>needs computation of the derivative</li>
+<li>what if <span class="math inline">\(f' \approx 0\)</span>?</li>
+</ul>
+</section>
+<section id="preview-backpropagation" class="level1">
+<h1>Preview: Backpropagation</h1>
+<p>In this experiment, we will see if we can get some intuition about backpropagation in a relatively simple setting of linear regression</p>
+<p><span class="math display">\[\hat{y} = \beta_{0} + \beta_{1}x\]</span></p>
+<p>with loss function</p>
+<p><span class="math display">\[L = \sum(y - \hat{y})^{2} = \sum(y - \beta_{0} - \beta_{1}x)^{2}\]</span></p>
+<p>The <strong>gradient</strong> is a vector of partial derivatives</p>
+<p><span class="math display">\[\nabla L(\vec{\beta}) =
+\left[\begin{array}{c} \frac{\partial L}{\partial \beta_{0}} \\ \frac{\partial L}{\partial \beta_{1}}\end{array}\right]
+=
+\left[\begin{array}{c} 2\sum(y - \beta_{0} - \beta_{1}x)(-1) \\ 2\sum(y - \beta_{0} - \beta_{1}x)(-x)\end{array}\right]\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Setup</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Ex1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Ex2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="backprop_setup.png" class="img-fluid figure-img"></p>
+<figcaption>best fit line</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>Let us explore this gradient in a setup where</p>
+<p><span class="math display">\[x \in (-5, 5)\]</span> <span class="math display">\[Y ~ 25 + 20x + N(0,5^{2})\]</span></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="backprop_ex1.png" class="img-fluid figure-img"></p>
+<figcaption>wrong slope</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>With initial conditions <span class="math inline">\(\vec{\beta_{0}} = \left[\begin{array}{c} 25 \\ 40 \end{array}\right]\)</span></p>
+<p>the gradient is</p>
+<p><span class="math display">\[\nabla L(\vec{\beta}) =
+\left[\begin{array}{c} \frac{\partial L}{\partial \beta_{0}} \\ \frac{\partial L}{\partial \beta_{1}}\end{array}\right]
+\approx
+\left[\begin{array}{c} 819 \\ 36867 \end{array}\right]\]</span></p>
+<p>which indicates that more effort is needed to adjust the slope than the intercept!</p>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="backprop_ex2.png" class="img-fluid figure-img"></p>
+<figcaption>wrong slope</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>With initial conditions <span class="math inline">\(\vec{\beta_{0}} = \left[\begin{array}{c} 40 \\ 20 \end{array}\right]\)</span></p>
+<p>the gradient is</p>
+<p><span class="math display">\[\nabla L(\vec{\beta}) =
+\left[\begin{array}{c} \frac{\partial L}{\partial \beta_{0}} \\ \frac{\partial L}{\partial \beta_{1}}\end{array}\right]
+\approx
+\left[\begin{array}{c} 3819 \\ 2860 \end{array}\right]\]</span></p>
+<p>which indicates that more effort is needed to adjust the intercept than the slope!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="markov-chains" class="level1">
+<h1>Markov Chains</h1>
+<p>A <strong>Markov chain</strong> is a stochastic process whose state depends only on the immediate previous iteration.</p>
+<p><span class="math display">\[P_{ij} = P(X_{n} = j | X_{n-1} = i)\]</span></p>
+<section id="application-dinner-choices" class="level2">
+<h2 class="anchored" data-anchor-id="application-dinner-choices">Application: Dinner Choices</h2>
+<p>Suppose that we have a Princeton student whose behavior includes eating only three types of dinner:</p>
+<p><span class="math display">\[S = \{\text{ramen}, \text{pizza}, \text{sushi}\}\]</span></p>
+<p>with transition matrix</p>
+<p><span class="math display">\[P = \left(\begin{array}{ccc}
+0.2 &amp; 0.4 &amp; 0.4 \\
+0.3 &amp; 0.4 &amp; 0.3 \\
+0.2 &amp; 0.2 &amp; 0.6
+\end{array}\right)\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dinner_network_graph.png" class="img-fluid figure-img"></p>
+<figcaption>dinner choices network</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Network terminology
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>directed versus undirected graphs</li>
+<li>cyclic versus acyclic graphs</li>
+</ul>
+<p>Later studies focus on <strong>DAGs</strong>: directed, acyclic network graphs</p>
+</div>
+</div>
+</div>
+<p>Suppose that, on a Monday, the student’s preferences are</p>
+<p><span class="math display">\[x_0 = \left(\begin{array}{ccc} 0.5 &amp; 0.25 &amp; 0.25 \end{array}\right)\]</span></p>
+<ol type="a">
+<li>What is the probability that the student will eat ramen on Tuesday (i.e.&nbsp;the next day)?</li>
+<li>What is the probability that the student will eat pizza on Wednesday (i.e.&nbsp;two days later)?</li>
+<li>What is the long-term dinner-choice behavior of this student?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+calculations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>after one day</li>
+</ol>
+<p><span class="math display">\[x_{0}P = \left(\begin{array}{ccc} 0.225 &amp; 0.35 &amp; 0.425 \end{array}\right)\]</span></p>
+<p>The probability of eating ramen the next day is about 22.5 percent.</p>
+<ol start="2" type="a">
+<li>after two days</li>
+</ol>
+<p><span class="math display">\[x_{0}P^{2} = \left(\begin{array}{ccc} 0.235 &amp; 0.315 &amp; 0.45 \end{array}\right)\]</span> The probability of eating pizza two days later is about 31.5 percent.</p>
+<ol start="3" type="a">
+<li>after many days</li>
+</ol>
+<p><span class="math display">\[x_{0}P^{100} = \left(\begin{array}{ccc} 0.2307 &amp; 0.3077 &amp; 0.4615 \end{array}\right)\]</span></p>
+<p>The probability of the student being at the sushi place is about 46.15 percent</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="preview-softmax" class="level1">
+<h1>Preview: Softmax</h1>
+<p>In the previous example, we ended with an inference that is similar to what we will encounter with a <em>softmax</em>.</p>
+<p><span class="math display">\[x_{0}P^{100} = \left(\begin{array}{ccc} 0.2307 &amp; 0.3077 &amp; 0.4615 \end{array}\right)\]</span></p>
+<ol type="1">
+<li>the student’s first choice is sushi</li>
+<li>the student’s second choice is pizza</li>
+<li>the student’s third choice is ramen</li>
+</ol>
+<section id="hardmax" class="level2">
+<h2 class="anchored" data-anchor-id="hardmax">Hardmax</h2>
+<p>In contrast, a <strong>hardmax</strong> is one-hot encoded.</p>
+<p><span class="math display">\[\left(\begin{array}{ccc} 0 &amp; 0 &amp; 1 \end{array}\right)\]</span></p>
+<p>In this, we are certain that the student will be at the sushi place.</p>
+</section>
+</section>
+<section id="bias-variance-trade-off" class="level1">
+<h1>Bias-Variance Trade-off</h1>
+<p>Within a <em>hypothesis class</em> of similar modeling functions, we are concerned with the <strong>bias-variance tradeoff</strong> in model selection.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="biasvariance.png" class="img-fluid figure-img"></p>
+<figcaption>bias-variance tradeoff</figcaption>
+</figure>
+</div>
+<p>image source: <a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Scott Fortmann-Roe</a></p>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>due this Friday:</p>
+<ul>
+<li>Precept 2</li>
+</ul></li>
+<li><p>talk to some of your classmates and draft plans to form groups (toward the midterm and semester projects)</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>tip: talk about your career and research goals with your instructors</li>
+<li>(optional) If you have seen the Bisection and Newton’s Methods before, let me know which class(es) cover that material.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://flexiple.com/python/bisection-method-python">Bisection Method</a> by Harsh Pandey</li>
+<li><a href="https://flexiple.com/python/newton-raphson-method-python">Newton’s Method</a> by Harsh Pandey</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.4 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
+ [5] purrr_1.1.0     readr_2.1.5     tidyr_1.3.1     tibble_3.3.0   
+ [9] ggplot2_3.5.2   tidyverse_2.0.0 gt_1.0.0       
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.6       jsonlite_2.0.0     compiler_4.5.1     tidyselect_1.2.1  
+ [5] xml2_1.3.8         scales_1.4.0       yaml_2.3.10        fastmap_1.2.0     
+ [9] R6_2.6.1           generics_0.1.4     knitr_1.50         htmlwidgets_1.6.4 
+[13] pillar_1.11.0      RColorBrewer_1.1-3 tzdb_0.5.0         rlang_1.1.6       
+[17] stringi_1.8.7      xfun_0.52          timechange_0.3.0   cli_3.6.5         
+[21] withr_3.0.2        magrittr_2.0.3     digest_0.6.37      grid_4.5.1        
+[25] rstudioapi_0.17.1  hms_1.1.3          lifecycle_1.0.4    vctrs_0.6.5       
+[29] evaluate_1.0.4     glue_1.8.0         farver_2.1.2       rmarkdown_2.29    
+[33] tools_4.5.1        pkgconfig_2.0.3    htmltools_0.5.8.1 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

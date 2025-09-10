@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SML 301 – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SML 301</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-3-convergence" class="level2">
+<h2 class="anchored" data-anchor-id="session-3-convergence">Session 3: Convergence</h2>
+<ul>
+<li>sequences</li>
+<li>random variables</li>
+<li>convergence</li>
+<li>stochastic processes</li>
+<li>bias-variance</li>
+</ul>
+<p>Remember to “Save Copy to Drive” to use your own cloud space.</p>
+<div id="cell-2" class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> PolynomialFeatures</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sequences" class="level1">
+<h1>Sequences</h1>
+<div id="cell-4" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>this_seq <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>this_list <span class="op">=</span> <span class="bu">list</span>(this_seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="147">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [n<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> n <span class="kw">in</span> this_seq]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="random-variables" class="level1">
+<h1>Random Variables</h1>
+<div id="cell-8" class="cell" data-execution_count="148">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#normal distribution (via numpy)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># np.random.normal(mu, sigma, n)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="dv">5</span>, <span class="dv">2</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>obs <span class="op">=</span> np.random.normal(mu, sigma)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5.306528206689592</code></pre>
+</div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mu, sigma, n <span class="op">=</span> <span class="dv">29</span>, <span class="dv">1</span>, <span class="dv">2025</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dist_data <span class="op">=</span> np.random.normal(mu, sigma, n)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>count, bins, ignored <span class="op">=</span> plt.hist(dist_data, <span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(bins, <span class="dv">1</span><span class="op">/</span>(sigma <span class="op">*</span> np.sqrt(<span class="dv">2</span> <span class="op">*</span> np.pi)) <span class="op">*</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         np.exp( <span class="op">-</span> (bins <span class="op">-</span> mu)<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>) ),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>         linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_convergence_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exploration-convergence" class="level1">
+<h1>Exploration: Convergence</h1>
+<p>With these functions, we will explore how to solve equations of the form</p>
+<p><span class="math display">\[f(x) = 0\]</span></p>
+<p>using the Bisection and Newton Methods.</p>
+<div id="cell-11" class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bisection_method(f, a, b, tol):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tries to find a root of f between a and b (i.e. f(root) = 0)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Inputs: real numbers a, b; tolerance</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Output: root</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check if root is in the interval (i.e. Intermediate Value Theorem)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.sign(f(a)) <span class="op">==</span> np.sign(f(b)):</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"The endpoints do not contain a root"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># initialization</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    iter_num <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (b <span class="op">-</span> a) <span class="op">&gt;</span> tol:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>      c <span class="op">=</span> (a <span class="op">+</span> b) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"iter_num: "</span> <span class="op">+</span> <span class="bu">str</span>(iter_num) <span class="op">+</span> <span class="st">", midpoint: "</span> <span class="op">+</span> <span class="bu">str</span>(c))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> f(c) <span class="op">*</span> f(a) <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>          b <span class="op">=</span> c</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>:</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>          a <span class="op">=</span> c</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>      iter_num <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Root:"</span>, c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="151">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">12</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span>  <span class="op">+</span> <span class="dv">44</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">48</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#def f(x): </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    x**3 - 12*x**2  + 44*x - 48</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Try calling the <code>bisection_method</code> with different initial values for <code>a</code> and <code>b</code>, such as</p>
+<ul>
+<li>[0, 3]</li>
+<li>[3, 7]</li>
+<li>[5, 10]</li>
+</ul>
+<div id="cell-14" class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bisection_method(f, <span class="dv">5</span>, <span class="dv">8</span>, <span class="fl">1e-6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>iter_num: 1, midpoint: 6.5
+iter_num: 2, midpoint: 5.75
+iter_num: 3, midpoint: 6.125
+iter_num: 4, midpoint: 5.9375
+iter_num: 5, midpoint: 6.03125
+iter_num: 6, midpoint: 5.984375
+iter_num: 7, midpoint: 6.0078125
+iter_num: 8, midpoint: 5.99609375
+iter_num: 9, midpoint: 6.001953125
+iter_num: 10, midpoint: 5.9990234375
+iter_num: 11, midpoint: 6.00048828125
+iter_num: 12, midpoint: 5.999755859375
+iter_num: 13, midpoint: 6.0001220703125
+iter_num: 14, midpoint: 5.99993896484375
+iter_num: 15, midpoint: 6.000030517578125
+iter_num: 16, midpoint: 5.9999847412109375
+iter_num: 17, midpoint: 6.000007629394531
+iter_num: 18, midpoint: 5.999996185302734
+iter_num: 19, midpoint: 6.000001907348633
+iter_num: 20, midpoint: 5.999999046325684
+iter_num: 21, midpoint: 6.000000476837158
+iter_num: 22, midpoint: 5.999999761581421
+Root: 5.999999761581421</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f_prime <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">24</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">44</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Newton_Method(f, f_prime, x_0, tol, max_iter):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tries to find a root of f between a and b (i.e. f(root) = 0)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Inputs: function f, derivative function f_prime,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># initial guess x_0, tolerance tol, and maximum number of iterations</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Output: root</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># initialization</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    iter_num <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    x_n <span class="op">=</span> x_0</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="bu">abs</span>(f(x_n)) <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (iter_num <span class="op">&lt;=</span> max_iter):</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"iter_num: "</span> <span class="op">+</span> <span class="bu">str</span>(iter_num) <span class="op">+</span> <span class="st">", guess: "</span> <span class="op">+</span> <span class="bu">str</span>(x_n))</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>      f_x <span class="op">=</span> f(x_n)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      f_prime_x <span class="op">=</span> f_prime(x_n)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>      x_n <span class="op">=</span> x_n <span class="op">-</span> f_x <span class="op">/</span> f_prime_x</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      iter_num <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Root:"</span>, x_n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Try calling <code>Newton_Method</code> with a few different guesses for the initial value <span class="math inline">\(x_{0}\)</span></p>
+<div id="cell-18" class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Newton_Method(f, f_prime, <span class="dv">0</span>, <span class="fl">1e-6</span>, <span class="fl">1e2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>iter_num: 1, guess: 0
+iter_num: 2, guess: 1.0909090909090908
+iter_num: 3, guess: 1.6979064212449062
+iter_num: 4, guess: 1.9493481420466034
+iter_num: 5, guess: 1.9981830961138967
+iter_num: 6, guess: 1.9999975293821097
+Root: 1.9999999999954212</code></pre>
+</div>
+</div>
+</section>
+<section id="preview-backpropagation" class="level1">
+<h1>Preview: Backpropagation</h1>
+<p>In this experiment, we will see if we can get some intuition about backpropagation in a relatively simple setting of linear regression.</p>
+<div id="cell-20" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate some synthetic data with a linear relationship</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">20250910</span>) <span class="co">#tries to have same results for all users</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, num<span class="op">=</span><span class="dv">10</span>) <span class="co">#pick 100 evenly-spaced values for x between -5 and 5</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">25</span> <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>np.random.normal(size<span class="op">=</span><span class="dv">10</span>) <span class="co">#preset relationship plus Gaussian white noise</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize layout</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add scatterplot</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, edgecolors<span class="op">=</span><span class="st">"#000000"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add best-fit line</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>b, a <span class="op">=</span> np.polyfit(x, y, deg <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>xseq <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), num <span class="op">=</span> <span class="dv">301</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ax.plot(xseq, a <span class="op">+</span> b<span class="op">*</span>xseq, color <span class="op">=</span> <span class="st">"#e77500"</span>, lw <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Label plot</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Best-Fit Line: y = 20x + 25"</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Text(0, 0.5, 'y')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_convergence_files/figure-html/cell-15-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize layout</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add scatterplot</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, edgecolors<span class="op">=</span><span class="st">"#000000"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add different line</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>xseq <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), num <span class="op">=</span> <span class="dv">301</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax.plot(xseq, <span class="dv">25</span> <span class="op">+</span> <span class="dv">40</span><span class="op">*</span>xseq, color <span class="op">=</span> <span class="st">"#e77500"</span>, lw <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Label plot</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Experiment 1: Wrong Slope"</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Text(0, 0.5, 'y')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_convergence_files/figure-html/cell-16-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="175">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initial conditions</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>partial_beta_0 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="bu">sum</span>(y <span class="op">-</span> beta_0 <span class="op">-</span> beta_1<span class="op">*</span>x)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>partial_beta_1 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="bu">sum</span>((y <span class="op">-</span> beta_0 <span class="op">-</span> beta_1<span class="op">*</span>x)<span class="op">*</span>x)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([partial_beta_0, partial_beta_1])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[np.float64(818.6018066160735), np.float64(36867.22009049051)]</code></pre>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="159">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize layout</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add scatterplot</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, edgecolors<span class="op">=</span><span class="st">"#000000"</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add different line</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>xseq <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), num <span class="op">=</span> <span class="dv">301</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax.plot(xseq, <span class="dv">40</span> <span class="op">+</span> <span class="dv">20</span><span class="op">*</span>xseq, color <span class="op">=</span> <span class="st">"#e77500"</span>, lw <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Label plot</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Experiment 2: Wrong Intercept"</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Text(0, 0.5, 'y')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_convergence_files/figure-html/cell-18-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="176">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initial conditions</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>partial_beta_0 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="bu">sum</span>(y <span class="op">-</span> beta_0 <span class="op">-</span> beta_1<span class="op">*</span>x)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>partial_beta_1 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="bu">sum</span>((y <span class="op">-</span> beta_0 <span class="op">-</span> beta_1<span class="op">*</span>x)<span class="op">*</span>x)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([partial_beta_0, partial_beta_1])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[np.float64(3818.6018066160764), np.float64(2860.486083756498)]</code></pre>
+</div>
+</div>
+</section>
+<section id="stochastic-process-example" class="level1">
+<h1>Stochastic Process Example</h1>
+<p>Suppose that we have a Princeton student whose behavior includes eating only three types of dinner:</p>
+<p><span class="math display">\[S = \{\text{ramen}, \text{pizza}, \text{sushi}\}\]</span></p>
+<p>with transition matrix</p>
+<p><span class="math display">\[P = \left(\begin{array}{ccc}
+0.2 &amp; 0.4 &amp; 0.4 \\
+0.3 &amp; 0.4 &amp; 0.3 \\
+0.2 &amp; 0.2 &amp; 0.6
+\end{array}\right)\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAFpCAYAAACCmBLNAAAtY3RFWHRteGZpbGUAJTNDbXhmaWxlJTIwaG9zdCUzRCUyMmFwcC5kaWFncmFtcy5uZXQlMjIlMjBhZ2VudCUzRCUyMk1vemlsbGElMkY1LjAlMjAoV2luZG93cyUyME5UJTIwMTAuMCUzQiUyMFdpbjY0JTNCJTIweDY0JTNCJTIwcnYlM0ExMzQuMCklMjBHZWNrbyUyRjIwMTAwMTAxJTIwRmlyZWZveCUyRjEzNC4wJTIyJTIwdmVyc2lvbiUzRCUyMjI2LjAuMTAlMjIlMjBzY2FsZSUzRCUyMjElMjIlMjBib3JkZXIlM0QlMjIwJTIyJTNFJTBBJTIwJTIwJTNDZGlhZ3JhbSUyMG5hbWUlM0QlMjJQYWdlLTElMjIlMjBpZCUzRCUyMm5zSUhKMHoxeDgxZVZhNERhM0NQJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTNDbXhHcmFwaE1vZGVsJTIwZHglM0QlMjIxNDM0JTIyJTIwZHklM0QlMjI3ODElMjIlMjBncmlkJTNEJTIyMSUyMiUyMGdyaWRTaXplJTNEJTIyMTAlMjIlMjBndWlkZXMlM0QlMjIxJTIyJTIwdG9vbHRpcHMlM0QlMjIxJTIyJTIwY29ubmVjdCUzRCUyMjElMjIlMjBhcnJvd3MlM0QlMjIxJTIyJTIwZm9sZCUzRCUyMjElMjIlMjBwYWdlJTNEJTIyMSUyMiUyMHBhZ2VTY2FsZSUzRCUyMjElMjIlMjBwYWdlV2lkdGglM0QlMjI4NTAlMjIlMjBwYWdlSGVpZ2h0JTNEJTIyMTEwMCUyMiUyMG1hdGglM0QlMjIwJTIyJTIwc2hhZG93JTNEJTIyMCUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ3Jvb3QlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMjAlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIwJTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi03JTIyJTIwc3R5bGUlM0QlMjJlZGdlU3R5bGUlM0RvcnRob2dvbmFsRWRnZVN0eWxlJTNCcm91bmRlZCUzRDAlM0JvcnRob2dvbmFsTG9vcCUzRDElM0JqZXR0eVNpemUlM0RhdXRvJTNCaHRtbCUzRDElM0IlMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlMjBzb3VyY2UlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteFBvaW50JTIweCUzRCUyMjI0MCUyMiUyMHklM0QlMjIyNzAlMjIlMjBhcyUzRCUyMnRhcmdldFBvaW50JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhHZW9tZXRyeSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtOCUyMiUyMHN0eWxlJTNEJTIyZWRnZVN0eWxlJTNEb3J0aG9nb25hbEVkZ2VTdHlsZSUzQnJvdW5kZWQlM0QwJTNCb3J0aG9nb25hbExvb3AlM0QxJTNCamV0dHlTaXplJTNEYXV0byUzQmh0bWwlM0QxJTNCZW50cnlYJTNEMC41JTNCZW50cnlZJTNEMCUzQmVudHJ5RHglM0QwJTNCZW50cnlEeSUzRDAlM0IlMjIlMjBlZGdlJTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlMjBzb3VyY2UlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xJTIyJTIwdGFyZ2V0JTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMiUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjByZWxhdGl2ZSUzRCUyMjElMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xJTIyJTIwdmFsdWUlM0QlMjJyYW1lbiUyMiUyMHN0eWxlJTNEJTIyZWxsaXBzZSUzQndoaXRlU3BhY2UlM0R3cmFwJTNCaHRtbCUzRDElM0Jhc3BlY3QlM0RmaXhlZCUzQiUyMiUyMHZlcnRleCUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHglM0QlMjIyNTAlMjIlMjB5JTNEJTIyMjYwJTIyJTIwd2lkdGglM0QlMjI4MCUyMiUyMGhlaWdodCUzRCUyMjgwJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtNiUyMiUyMHN0eWxlJTNEJTIyZWRnZVN0eWxlJTNEb3J0aG9nb25hbEVkZ2VTdHlsZSUzQnJvdW5kZWQlM0QwJTNCb3J0aG9nb25hbExvb3AlM0QxJTNCamV0dHlTaXplJTNEYXV0byUzQmh0bWwlM0QxJTNCJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwc291cmNlJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMiUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjByZWxhdGl2ZSUzRCUyMjElMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjI2ODAlMjIlMjB5JTNEJTIyNDEwJTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTIlMjIlMjB2YWx1ZSUzRCUyMnBpenphJTIyJTIwc3R5bGUlM0QlMjJlbGxpcHNlJTNCd2hpdGVTcGFjZSUzRHdyYXAlM0JodG1sJTNEMSUzQmFzcGVjdCUzRGZpeGVkJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjU5MCUyMiUyMHklM0QlMjIzNTAlMjIlMjB3aWR0aCUzRCUyMjgwJTIyJTIwaGVpZ2h0JTNEJTIyODAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xMCUyMiUyMHN0eWxlJTNEJTIyZWRnZVN0eWxlJTNEb3J0aG9nb25hbEVkZ2VTdHlsZSUzQnJvdW5kZWQlM0QwJTNCb3J0aG9nb25hbExvb3AlM0QxJTNCamV0dHlTaXplJTNEYXV0byUzQmh0bWwlM0QxJTNCJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwc291cmNlJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMyUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjByZWxhdGl2ZSUzRCUyMjElMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjIzMzAlMjIlMjB5JTNEJTIyNjAwJTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14R2VvbWV0cnklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTMlMjIlMjB2YWx1ZSUzRCUyMnN1c2hpJTIyJTIwc3R5bGUlM0QlMjJlbGxpcHNlJTNCd2hpdGVTcGFjZSUzRHdyYXAlM0JodG1sJTNEMSUzQmFzcGVjdCUzRGZpeGVkJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjMwMCUyMiUyMHklM0QlMjI1MTAlMjIlMjB3aWR0aCUzRCUyMjgwJTIyJTIwaGVpZ2h0JTNEJTIyODAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi00JTIyJTIwc3R5bGUlM0QlMjJlZGdlU3R5bGUlM0RvcnRob2dvbmFsRWRnZVN0eWxlJTNCcm91bmRlZCUzRDAlM0JvcnRob2dvbmFsTG9vcCUzRDElM0JqZXR0eVNpemUlM0RhdXRvJTNCaHRtbCUzRDElM0JlbnRyeVglM0QwJTNCZW50cnlZJTNEMC41JTNCZW50cnlEeCUzRDAlM0JlbnRyeUR5JTNEMCUzQiUyMiUyMGVkZ2UlM0QlMjIxJTIyJTIwcGFyZW50JTNEJTIyMSUyMiUyMHNvdXJjZSUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTElMjIlMjB0YXJnZXQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0zJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteENlbGwlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteENlbGwlMjBpZCUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTEyJTIyJTIwc3R5bGUlM0QlMjJlZGdlU3R5bGUlM0RvcnRob2dvbmFsRWRnZVN0eWxlJTNCcm91bmRlZCUzRDAlM0JvcnRob2dvbmFsTG9vcCUzRDElM0JqZXR0eVNpemUlM0RhdXRvJTNCaHRtbCUzRDElM0JleGl0WCUzRDAlM0JleGl0WSUzRDAuNSUzQmV4aXREeCUzRDAlM0JleGl0RHklM0QwJTNCZW50cnlYJTNEMSUzQmVudHJ5WSUzRDAuNzUlM0JlbnRyeUR4JTNEMCUzQmVudHJ5RHklM0QwJTNCZW50cnlQZXJpbWV0ZXIlM0QwJTNCJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwc291cmNlJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMiUyMiUyMHRhcmdldCUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMTMlMjIlMjBzdHlsZSUzRCUyMmVkZ2VTdHlsZSUzRG9ydGhvZ29uYWxFZGdlU3R5bGUlM0Jyb3VuZGVkJTNEMCUzQm9ydGhvZ29uYWxMb29wJTNEMSUzQmpldHR5U2l6ZSUzRGF1dG8lM0JodG1sJTNEMSUzQmVudHJ5WCUzRDAuNjEzJTNCZW50cnlZJTNEMS4wMzglM0JlbnRyeUR4JTNEMCUzQmVudHJ5RHklM0QwJTNCZW50cnlQZXJpbWV0ZXIlM0QwJTNCJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwc291cmNlJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMyUyMiUyMHRhcmdldCUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIwcmVsYXRpdmUlM0QlMjIxJTIyJTIwYXMlM0QlMjJnZW9tZXRyeSUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQyUyRm14Q2VsbCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214Q2VsbCUyMGlkJTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMTElMjIlMjBzdHlsZSUzRCUyMmVkZ2VTdHlsZSUzRG9ydGhvZ29uYWxFZGdlU3R5bGUlM0Jyb3VuZGVkJTNEMCUzQm9ydGhvZ29uYWxMb29wJTNEMSUzQmpldHR5U2l6ZSUzRGF1dG8lM0JodG1sJTNEMSUzQmVudHJ5WCUzRDElM0JlbnRyeVklM0QwLjUlM0JlbnRyeUR4JTNEMCUzQmVudHJ5RHklM0QwJTNCJTIyJTIwZWRnZSUzRCUyMjElMjIlMjBwYXJlbnQlM0QlMjIxJTIyJTIwdGFyZ2V0JTNEJTIyUXBsWnJkYW10eXhYOGV0dmZ3blYtMyUyMiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214R2VvbWV0cnklMjByZWxhdGl2ZSUzRCUyMjElMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjI0MTAlMjIlMjB5JTNEJTIyNTQ4JTIyJTIwYXMlM0QlMjJ0YXJnZXRQb2ludCUyMiUyMCUyRiUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUzQ214UG9pbnQlMjB4JTNEJTIyNjU4JTIyJTIweSUzRCUyMjQyMCUyMiUyMGFzJTNEJTIyc291cmNlUG9pbnQlMjIlMjAlMkYlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NBcnJheSUyMGFzJTNEJTIycG9pbnRzJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjI2NTglMjIlMjB5JTNEJTIyNTUwJTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGQXJyYXklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteEdlb21ldHJ5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xNCUyMiUyMHN0eWxlJTNEJTIyZWRnZVN0eWxlJTNEb3J0aG9nb25hbEVkZ2VTdHlsZSUzQnJvdW5kZWQlM0QwJTNCb3J0aG9nb25hbExvb3AlM0QxJTNCamV0dHlTaXplJTNEYXV0byUzQmh0bWwlM0QxJTNCZW50cnlYJTNEMCUzQmVudHJ5WSUzRDAuNjI1JTNCZW50cnlEeCUzRDAlM0JlbnRyeUR5JTNEMCUzQmVudHJ5UGVyaW1ldGVyJTNEMCUzQiUyMiUyMGVkZ2UlM0QlMjIxJTIyJTIwcGFyZW50JTNEJTIyMSUyMiUyMHNvdXJjZSUzRCUyMlFwbFpyZGFtdHl4WDhldHZmd25WLTMlMjIlMjB0YXJnZXQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0yJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhHZW9tZXRyeSUyMHJlbGF0aXZlJTNEJTIyMSUyMiUyMGFzJTNEJTIyZ2VvbWV0cnklMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NBcnJheSUyMGFzJTNEJTIycG9pbnRzJTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhQb2ludCUyMHglM0QlMjIzNjAlMjIlMjB5JTNEJTIyNDAwJTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGQXJyYXklM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0MlMkZteEdlb21ldHJ5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xNSUyMiUyMHZhbHVlJTNEJTIyMC40JTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjIxMCUyMiUyMHklM0QlMjI0NDAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xNiUyMiUyMHZhbHVlJTNEJTIyMC4yJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjI5MCUyMiUyMHklM0QlMjI0MDAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xNyUyMiUyMHZhbHVlJTNEJTIyMC4yJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjE4MCUyMiUyMHklM0QlMjIyODAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xOCUyMiUyMHZhbHVlJTNEJTIyMC40JTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjQ1MCUyMiUyMHklM0QlMjIyNzAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0xOSUyMiUyMHZhbHVlJTNEJTIyMC4zJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjQ1MCUyMiUyMHklM0QlMjIzNDAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0yMCUyMiUyMHZhbHVlJTNEJTIyMC40JTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjY4MCUyMiUyMHklM0QlMjIzOTAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0yMSUyMiUyMHZhbHVlJTNEJTIyMC4yJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjQwMCUyMiUyMHklM0QlMjI0MDAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0yMiUyMiUyMHZhbHVlJTNEJTIyMC4zJTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjQ5MCUyMiUyMHklM0QlMjI1MjAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDbXhDZWxsJTIwaWQlM0QlMjJRcGxacmRhbXR5eFg4ZXR2ZnduVi0yMyUyMiUyMHZhbHVlJTNEJTIyMC42JTIyJTIwc3R5bGUlM0QlMjJ0ZXh0JTNCaHRtbCUzRDElM0JhbGlnbiUzRGNlbnRlciUzQnZlcnRpY2FsQWxpZ24lM0RtaWRkbGUlM0J3aGl0ZVNwYWNlJTNEd3JhcCUzQnJvdW5kZWQlM0QwJTNCJTIyJTIwdmVydGV4JTNEJTIyMSUyMiUyMHBhcmVudCUzRCUyMjElMjIlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlM0NteEdlb21ldHJ5JTIweCUzRCUyMjMzMCUyMiUyMHklM0QlMjI1OTAlMjIlMjB3aWR0aCUzRCUyMjYwJTIyJTIwaGVpZ2h0JTNEJTIyMzAlMjIlMjBhcyUzRCUyMmdlb21ldHJ5JTIyJTIwJTJGJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGbXhDZWxsJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDJTJGcm9vdCUzRSUwQSUyMCUyMCUyMCUyMCUzQyUyRm14R3JhcGhNb2RlbCUzRSUwQSUyMCUyMCUzQyUyRmRpYWdyYW0lM0UlMEElM0MlMkZteGZpbGUlM0UlMEELrbsRAAAgAElEQVR4Xu2dCWxWV3bHTwyEZIBgwozbxmbqCWA8EliD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" class="img-fluid figure-img"></p>
+<figcaption>dinner_network.drawio.png</figcaption>
+</figure>
+</div>
+<div id="cell-28" class="cell" data-execution_count="160">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> np.array([[<span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>],</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a> [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>],</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  [<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.6</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Suppose that, on a Monday, the student’s preferences are</p>
+<p><span class="math display">\[x_0 = \left(\begin{array}{ccc} 0.5 &amp; 0.25 &amp; 0.25 \end{array}\right)\]</span></p>
+<div id="cell-30" class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initial distribution</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x_0 <span class="op">=</span> np.array([<span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-31" class="cell" data-execution_count="162">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># one day</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x_0 <span class="op">@</span> P</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array([0.225, 0.35 , 0.425])</code></pre>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="163">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two days</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>x_0 <span class="op">@</span> P <span class="op">@</span> P</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array([0.235, 0.315, 0.45 ])</code></pre>
+</div>
+</div>
+<div id="cell-33" class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># three days</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>x_0 <span class="op">@</span> np.linalg.matrix_power(P, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array([0.2315, 0.31  , 0.4585])</code></pre>
+</div>
+</div>
+</section>
+<section id="bias-variance-trade-off" class="level1">
+<h1>Bias Variance Trade-Off</h1>
+<section id="code-adapted-from-demo-by-neri-van-otten" class="level2">
+<h2 class="anchored" data-anchor-id="code-adapted-from-demo-by-neri-van-otten">Code adapted from demo by Neri Van Otten</h2>
+<div id="cell-35" class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate some synthetic data with a non-linear relationship (namely, third-degree polynomial)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">20250910</span>) <span class="co">#tries to have same results for all users</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, num<span class="op">=</span><span class="dv">100</span>) <span class="co">#pick 100 evenly-spaced values for x between -5 and 5</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>) <span class="co">#cubic term plus Gaussian white noise</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">20250910</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x_train.shape)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x_test.shape)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_train.shape)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_test.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(80,)
+(20,)
+(80,)
+(20,)</code></pre>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit polynomial regression models with different degrees of polynomials</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>degrees <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>train_errors, test_errors <span class="op">=</span> [], []</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> degree <span class="kw">in</span> degrees:</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Transform the features to polynomial features</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    poly_features <span class="op">=</span> PolynomialFeatures(degree<span class="op">=</span>degree)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    x_poly_train <span class="op">=</span> poly_features.fit_transform(x_train.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    x_poly_test <span class="op">=</span> poly_features.transform(x_test.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fit the linear regression model to the polynomial features</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> LinearRegression()</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    model.fit(x_poly_train, y_train)</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Evaluate the model on the training and testing data</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    y_pred_train <span class="op">=</span> model.predict(x_poly_train)</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    y_pred_test <span class="op">=</span> model.predict(x_poly_test)</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    train_error <span class="op">=</span> mean_squared_error(y_train, y_pred_train)</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    test_error <span class="op">=</span> mean_squared_error(y_test, y_pred_test)</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    train_errors.append(train_error)</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>    test_errors.append(test_error)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="169">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the training and testing errors as a function of the degree of polynomial</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>plt.plot(degrees, train_errors, label<span class="op">=</span><span class="st">'Training error'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>plt.plot(degrees, test_errors, label<span class="op">=</span><span class="st">'Testing error'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Degree of polynomial'</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mean squared error'</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_convergence_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="170">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_errors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[274.72359150058253, 550.0154038939443, 1.010496227670337, 1.0240023201159079, 1.1973979745604848, 1.2075562718818642, 1.2203574296864237]</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

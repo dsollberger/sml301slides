@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1902,5 +1902,75 @@
     "title": "SML 301",
     "section": "LASSO Regression",
     "text": "LASSO Regression\n\\(\\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{2} + \\alpha\\sum_{i = 1}^{2} |\\beta_{i}|\\)\nwhere \\(\\alpha &gt; 0\\) is the penalization coefficient.\n\nLASSO regression (least absolute shrinkage and selection operator) is also called L1 penalization\n\n\nlasso_grid = LassoCV(alphas = [0.001, 0.01, 0.1, 1.0, 10.0, 100, 1000])\nmodel = lasso_grid.fit(X_train, y_train)\n\n# show model coefficients\nprint(\"alpha:\", model.alpha_)\nprint(\"beta_0:\", model.intercept_)\nprint(\"betas:\", model.coef_)\n\ny_pred = model.predict(X_test)\nmodel_MSE = mean_squared_error(y_test, y_pred)\nprint(f'test MSE: {model_MSE:.4f}')\n\nalpha: 0.1\nbeta_0: -3.225590182288883\nbetas: [0.00045654 0.22512234]\ntest MSE: 16.4627"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html",
+    "href": "posts/03_convergence/03_convergence.html",
+    "title": "3: Convergence",
+    "section": "",
+    "text": "Goal: Preview major concepts\nObjective: Explore some Python codes about root finding and stochastic processes\n\n\n\n\n\nbias-variance tradeoff\n\n\nimage source: Scott Fortmann-Roe"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#start",
+    "href": "posts/03_convergence/03_convergence.html#start",
+    "title": "3: Convergence",
+    "section": "",
+    "text": "Goal: Preview major concepts\nObjective: Explore some Python codes about root finding and stochastic processes\n\n\n\n\n\nbias-variance tradeoff\n\n\nimage source: Scott Fortmann-Roe"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#activity-literature-introductions",
+    "href": "posts/03_convergence/03_convergence.html#activity-literature-introductions",
+    "title": "3: Convergence",
+    "section": "Activity: Literature Introductions",
+    "text": "Activity: Literature Introductions\nWe will look at the abstracts and introduction paragraphs for some of the most influential papers in the history of machine learning:\n\n\n\n\n\n\nSuggested Papers\n\n\n\n\nAlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)\n\n\n\nGANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al.\n\n\n\nTensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al.\n\n\n\nWord2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean\n\n\n\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#sequences",
+    "href": "posts/03_convergence/03_convergence.html#sequences",
+    "title": "3: Convergence",
+    "section": "Sequences",
+    "text": "Sequences\n\nindex: \\(n \\in \\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}\\)\nformulaic: f(n) = 2n - 1\n\n\\[1, 3, 5, 7, 9, ...\\]\n\nconstructive:\n\n\\[3, 3.1, 3.14, 3.141, 3.1415, 3.14159, ...\\]\n\nshapes:\n\n\n\n\ntriangular numbers\n\n\n\nimage source: BYJUs"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#random-variables",
+    "href": "posts/03_convergence/03_convergence.html#random-variables",
+    "title": "3: Convergence",
+    "section": "Random Variables",
+    "text": "Random Variables\nA random variable has no set value, but rather represents an element of chance. We can better understand a random variable through statistics like\n\nmean\nvariance\ndistribution\n\n\n\n\n\n\n\nStochastic Process\n\n\n\n\n\nA stochastic process is a sequence of random variables"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#application-dinner-choices",
+    "href": "posts/03_convergence/03_convergence.html#application-dinner-choices",
+    "title": "3: Convergence",
+    "section": "Application: Dinner Choices",
+    "text": "Application: Dinner Choices\nSuppose that we have a Princeton student whose behavior includes eating only three types of dinner:\n\\[S = \\{\\text{ramen}, \\text{pizza}, \\text{sushi}\\}\\]\nwith transition matrix\n\\[P = \\left(\\begin{array}{ccc}\n0.2 & 0.4 & 0.4 \\\\\n0.3 & 0.4 & 0.3 \\\\\n0.2 & 0.2 & 0.6\n\\end{array}\\right)\\]\n\n\n\ndinner choices network\n\n\n\n\n\n\n\n\nNetwork terminology\n\n\n\n\n\n\ndirected versus undirected graphs\ncyclic versus acyclic graphs\n\nLater studies focus on DAGs: directed, acyclic network graphs\n\n\n\nSuppose that, on a Monday, the student’s preferences are\n\\[x_0 = \\left(\\begin{array}{ccc} 0.5 & 0.25 & 0.25 \\end{array}\\right)\\]\n\nWhat is the probability that the student will eat ramen on Tuesday (i.e. the next day)?\nWhat is the probability that the student will eat pizza on Wednesday (i.e. two days later)?\nWhat is the long-term dinner-choice behavior of this student?\n\n\n\n\n\n\n\ncalculations\n\n\n\n\n\n\nafter one day\n\n\\[x_{0}P = \\left(\\begin{array}{ccc} 0.225 & 0.35 & 0.425 \\end{array}\\right)\\]\nThe probability of eating ramen the next day is about 22.5 percent.\n\nafter two days\n\n\\[x_{0}P^{2} = \\left(\\begin{array}{ccc} 0.235 & 0.315 & 0.45 \\end{array}\\right)\\] The probability of eating pizza two days later is about 31.5 percent.\n\nafter many days\n\n\\[x_{0}P^{100} = \\left(\\begin{array}{ccc} 0.2307 & 0.3077 & 0.4615 \\end{array}\\right)\\]\nThe probability of the student being at the sushi place is about 46.15 percent"
+  },
+  {
+    "objectID": "posts/03_convergence/03_convergence.html#hardmax",
+    "href": "posts/03_convergence/03_convergence.html#hardmax",
+    "title": "3: Convergence",
+    "section": "Hardmax",
+    "text": "Hardmax\nIn contrast, a hardmax is one-hot encoded.\n\\[\\left(\\begin{array}{ccc} 0 & 0 & 1 \\end{array}\\right)\\]\nIn this, we are certain that the student will be at the sushi place."
+  },
+  {
+    "objectID": "code/03_convergence.html",
+    "href": "code/03_convergence.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "sequences\nrandom variables\nconvergence\nstochastic processes\nbias-variance\n\nRemember to “Save Copy to Drive” to use your own cloud space.\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import PolynomialFeatures"
+  },
+  {
+    "objectID": "code/03_convergence.html#session-3-convergence",
+    "href": "code/03_convergence.html#session-3-convergence",
+    "title": "SML 301",
+    "section": "",
+    "text": "sequences\nrandom variables\nconvergence\nstochastic processes\nbias-variance\n\nRemember to “Save Copy to Drive” to use your own cloud space.\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import PolynomialFeatures"
+  },
+  {
+    "objectID": "code/03_convergence.html#code-adapted-from-demo-by-neri-van-otten",
+    "href": "code/03_convergence.html#code-adapted-from-demo-by-neri-van-otten",
+    "title": "SML 301",
+    "section": "Code adapted from demo by Neri Van Otten",
+    "text": "Code adapted from demo by Neri Van Otten\n\n# Generate some synthetic data with a non-linear relationship (namely, third-degree polynomial)\nnp.random.seed(20250910) #tries to have same results for all users\nx = np.linspace(-5, 5, num=100) #pick 100 evenly-spaced values for x between -5 and 5\ny = x**3 + 2*x**2 + 3*x + 4 + np.random.normal(size=100) #cubic term plus Gaussian white noise\n\n\n# Split the data into training and testing sets\nx_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=20250910)\n\n\nprint(x_train.shape)\nprint(x_test.shape)\nprint(y_train.shape)\nprint(y_test.shape)\n\n(80,)\n(20,)\n(80,)\n(20,)\n\n\n\n# Fit polynomial regression models with different degrees of polynomials\ndegrees = [1, 2, 3, 4, 5, 6, 7]\ntrain_errors, test_errors = [], []\nfor degree in degrees:\n    # Transform the features to polynomial features\n    poly_features = PolynomialFeatures(degree=degree)\n    x_poly_train = poly_features.fit_transform(x_train.reshape(-1, 1))\n    x_poly_test = poly_features.transform(x_test.reshape(-1, 1))\n\n    # Fit the linear regression model to the polynomial features\n    model = LinearRegression()\n    model.fit(x_poly_train, y_train)\n\n    # Evaluate the model on the training and testing data\n    y_pred_train = model.predict(x_poly_train)\n    y_pred_test = model.predict(x_poly_test)\n    train_error = mean_squared_error(y_train, y_pred_train)\n    test_error = mean_squared_error(y_test, y_pred_test)\n    train_errors.append(train_error)\n    test_errors.append(test_error)\n\n\n# Plot the training and testing errors as a function of the degree of polynomial\nplt.plot(degrees, train_errors, label='Training error')\nplt.plot(degrees, test_errors, label='Testing error')\nplt.legend()\nplt.xlabel('Degree of polynomial')\nplt.ylabel('Mean squared error')\nplt.show()\n\n\n\n\n\n\n\n\n\nprint(test_errors)\n\n[274.72359150058253, 550.0154038939443, 1.010496227670337, 1.0240023201159079, 1.1973979745604848, 1.2075562718818642, 1.2203574296864237]"
   }
 ]
