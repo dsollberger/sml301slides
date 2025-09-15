@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Derek Sollberger">
-<meta name="dcterms.date" content="2025-02-05">
+<meta name="dcterms.date" content="2025-09-15">
 
 <title>4: Classification – SML 301 Slides</title>
 <style>
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,25 +176,30 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start">Start</a></li>
   </ul></li>
+  <li><a href="#binary-prediction" id="toc-binary-prediction" class="nav-link" data-scroll-target="#binary-prediction">Binary Prediction</a>
+  <ul class="collapse">
+  <li><a href="#baseline-models" id="toc-baseline-models" class="nav-link" data-scroll-target="#baseline-models">Baseline Models</a></li>
+  </ul></li>
   <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#palmer-penguins-example" id="toc-palmer-penguins-example" class="nav-link" data-scroll-target="#palmer-penguins-example">Palmer Penguins Example</a>
-  <ul class="collapse">
-  <li><a href="#generalized-linear-models" id="toc-generalized-linear-models" class="nav-link" data-scroll-target="#generalized-linear-models">Generalized Linear Models</a></li>
-  </ul></li>
+  <li><a href="#one-predictor-variable" id="toc-one-predictor-variable" class="nav-link" data-scroll-target="#one-predictor-variable">One Predictor Variable</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  <li><a href="#two-predictor-variables" id="toc-two-predictor-variables" class="nav-link" data-scroll-target="#two-predictor-variables">Two Predictor Variables</a></li>
   </ul></li>
   <li><a href="#activity-literature-conclusions" id="toc-activity-literature-conclusions" class="nav-link" data-scroll-target="#activity-literature-conclusions">Activity: Literature Conclusions</a>
   <ul class="collapse">
-  <li><a href="#adaboost" id="toc-adaboost" class="nav-link" data-scroll-target="#adaboost">Adaboost</a></li>
   <li><a href="#alexnet" id="toc-alexnet" class="nav-link" data-scroll-target="#alexnet">AlexNet</a></li>
-  <li><a href="#dropout" id="toc-dropout" class="nav-link" data-scroll-target="#dropout">DropOut</a></li>
   <li><a href="#gans" id="toc-gans" class="nav-link" data-scroll-target="#gans">GANs</a></li>
   <li><a href="#tensorflow" id="toc-tensorflow" class="nav-link" data-scroll-target="#tensorflow">TensorFlow</a></li>
   <li><a href="#word2vec" id="toc-word2vec" class="nav-link" data-scroll-target="#word2vec">Word2Vec</a></li>
   </ul></li>
-  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes">Naive Bayes</a>
+  <li><a href="#multiclass-prediction" id="toc-multiclass-prediction" class="nav-link" data-scroll-target="#multiclass-prediction">Multiclass Prediction</a>
   <ul class="collapse">
   <li><a href="#data-palmer-penguins" id="toc-data-palmer-penguins" class="nav-link" data-scroll-target="#data-palmer-penguins">Data: Palmer Penguins</a></li>
+  <li><a href="#baseline-models-1" id="toc-baseline-models-1" class="nav-link" data-scroll-target="#baseline-models-1">Baseline models</a></li>
+  </ul></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes">Naive Bayes</a>
+  <ul class="collapse">
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#one-categorical-predictor" id="toc-one-categorical-predictor" class="nav-link" data-scroll-target="#one-categorical-predictor">One Categorical Predictor</a>
   <ul class="collapse">
@@ -205,7 +210,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#prior-probability-distributions" id="toc-prior-probability-distributions" class="nav-link" data-scroll-target="#prior-probability-distributions">Prior Probability Distributions</a></li>
   </ul></li>
-  <li><a href="#two-predictor-variables" id="toc-two-predictor-variables" class="nav-link" data-scroll-target="#two-predictor-variables">Two Predictor Variables</a></li>
+  <li><a href="#two-predictor-variables-1" id="toc-two-predictor-variables-1" class="nav-link" data-scroll-target="#two-predictor-variables-1">Two Predictor Variables</a></li>
   </ul></li>
   <li><a href="#bayes-and-logistic-regression" id="toc-bayes-and-logistic-regression" class="nav-link" data-scroll-target="#bayes-and-logistic-regression">Bayes and Logistic Regression</a>
   <ul class="collapse">
@@ -217,6 +222,7 @@ window.Quarto = {
   <li><a href="#advantages-of-discriminative-classifiers" id="toc-advantages-of-discriminative-classifiers" class="nav-link" data-scroll-target="#advantages-of-discriminative-classifiers">Advantages of discriminative classifiers</a></li>
   <li><a href="#advantages-of-generative-classifiers" id="toc-advantages-of-generative-classifiers" class="nav-link" data-scroll-target="#advantages-of-generative-classifiers">Advantages of generative classifiers</a></li>
   </ul></li>
+  <li><a href="#ethics-history-government-data" id="toc-ethics-history-government-data" class="nav-link" data-scroll-target="#ethics-history-government-data">Ethics History: Government Data</a></li>
   <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
   <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
   </ul>
@@ -244,7 +250,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2025</p>
+      <p class="date">September 15, 2025</p>
     </div>
   </div>
   
@@ -272,17 +278,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="logistic-regression" class="level1">
-<h1>Logistic Regression</h1>
-<p>Classification of <span class="math inline">\(y \in \{0,1\}\)</span></p>
-<p><span class="math display">\[p(y|x,\theta) = \text{Ber}(y | \sigma(w^{T}x + b))\]</span></p>
-<ul>
-<li>logit <span class="math inline">\(a\)</span>: <span class="math inline">\(w^{T}x + b\)</span></li>
-<li>sigmoid:</li>
-</ul>
-<p><span class="math display">\[\sigma(a) = \frac{1}{1 + e^{-a}} = p(y = 1 | x,\theta)\]</span></p>
-<section id="palmer-penguins-example" class="level2">
-<h2 class="anchored" data-anchor-id="palmer-penguins-example">Palmer Penguins Example</h2>
+<section id="binary-prediction" class="level1">
+<h1>Binary Prediction</h1>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -319,18 +316,145 @@ R Code
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
-<section id="generalized-linear-models" class="level3">
-<h3 class="anchored" data-anchor-id="generalized-linear-models">Generalized Linear Models</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>logistic_model <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">glm</span>(chinstrap_bool <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> bill_length_mm,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> penguin_class_df,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">family =</span> binomial) <span class="co">#makes logistic regression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="baseline-models" class="level2">
+<h2 class="anchored" data-anchor-id="baseline-models">Baseline Models</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Random Guessing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a binary classifier (two groups), we envision <strong>random guessing</strong> as analogous to a flip of a fair coin, so we say that the accuracy of a random guessing is 50 percent.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Majority Classifier
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A quick way to create a baseline for a classification metric is to envision the proportion for the most frequently observed group in the target class.</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> chinstrap_bool   n   percent
+              0 265 0.7957958
+              1  68 0.2042042</code></pre>
+</div>
+</div>
+<p><span class="math display">\[\text{baseline accuracy: } \frac{265}{265 + 68} \approx 0.7958\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="logistic-regression" class="level1">
+<h1>Logistic Regression</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Binary</strong> classification of <span class="math inline">\(y \in \{0,1\}\)</span></p>
+<p><span class="math display">\[p(y|x,\theta) = \text{Ber}(y | \sigma(w^{T}x + b))\]</span></p>
+<ul>
+<li>logit <span class="math inline">\(a\)</span>: <span class="math inline">\(w^{T}x + b\)</span></li>
+<li>sigmoid:</li>
+</ul>
+<p><span class="math display">\[\sigma(a) = \frac{1}{1 + e^{-a}} = p(y = 1 | x,\theta)\]</span></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logistic_regression_idea.png" class="img-fluid figure-img"></p>
+<figcaption>logistic regression curve</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.spiceworks.com/tech/artificial-intelligence/articles/what-is-logistic-regression/">Vijay Kanade</a></li>
+</ul>
+</div>
+</div>
+<section id="one-predictor-variable" class="level2">
+<h2 class="anchored" data-anchor-id="one-predictor-variable">One Predictor Variable</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="04_classification_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_classification_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="confusion-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="confusion_matrix.png" class="img-fluid figure-img"></p>
+<figcaption>confusion matrix</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://plat.ai/blog/confusion-matrix-in-machine-learning/">Lory Seraydarian</a></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> chinstrap_bool   0   1 Total
+              0 128 137   265
+              1  20  48    68
+          Total 148 185   333</code></pre>
+</div>
+</div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">accuracy</a>: 0.5285</li>
+<li><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">precision</a>: 0.2595</li>
+<li><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">recall</a>: 0.7059</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>accuracy</li>
+</ul>
+<p><span class="math display">\[\text{accuracy} = \frac{TP}{TP + FN  + FP + TN}\]</span></p>
+<ul>
+<li>positive predictive value</li>
+</ul>
+<p><span class="math display">\[\text{precision} = \frac{TP}{TP + FP}\]</span></p>
+<ul>
+<li>true positive rate</li>
+</ul>
+<p><span class="math display">\[\text{recall} = \frac{TP}{TP + FN}\]</span></p>
+</div>
+</div>
+</section>
+<section id="two-predictor-variables" class="level2">
+<h2 class="anchored" data-anchor-id="two-predictor-variables">Two Predictor Variables</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04_classification_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -340,41 +464,38 @@ R Code
 R code
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stats.stackexchange.com/questions/6206/how-to-plot-decision-boundary-in-r-for-logistic-regression-model</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">1</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">2</span>]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>beta_2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">3</span>]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>boundary_slope <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">1.0</span> <span class="sc">*</span> beta_1 <span class="sc">/</span> beta_2</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>boundary_intercept <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">1.0</span> <span class="sc">*</span> beta_0 <span class="sc">/</span> beta_2</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>penguin_pred_df <span class="ot">&lt;-</span> penguin_class_df <span class="sc">|&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species_pred =</span> <span class="fu">ifelse</span>(</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    bill_length_mm <span class="sc">&gt;</span> boundary_intercept <span class="sc">+</span> boundary_slope <span class="sc">*</span> flipper_length_mm,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>,<span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(species_pred, as.factor))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>penguin_pred_df <span class="sc">|&gt;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> bill_length_mm, </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> species_pred)) <span class="sc">+</span> </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> boundary_intercept,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">slope =</span> boundary_slope,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> adelie_color,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"&lt;span style = 'color:#fb7504'&gt;Decision Boundary&lt;/span&gt;"</span>,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"where logit a = 0"</span>,</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"SML 301"</span>) <span class="sc">+</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray70"</span>, chinstrap_color)) <span class="sc">+</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_markdown</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">24</span>),</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://stats.stackexchange.com/questions/6206/how-to-plot-decision-boundary-in-r-for-logistic-regression-model</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">1</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">2</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>beta_2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(logistic_model)[<span class="dv">3</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>boundary_slope <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">1.0</span> <span class="sc">*</span> beta_1 <span class="sc">/</span> beta_2</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>boundary_intercept <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">1.0</span> <span class="sc">*</span> beta_0 <span class="sc">/</span> beta_2</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>penguin_pred_df <span class="ot">&lt;-</span> penguin_class_df <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species_pred =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    bill_length_mm <span class="sc">&gt;</span> boundary_intercept <span class="sc">+</span> boundary_slope <span class="sc">*</span> flipper_length_mm,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>,<span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(species_pred, as.factor))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>penguin_pred_df <span class="sc">|&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> bill_length_mm, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> species_pred)) <span class="sc">+</span> </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> boundary_intercept,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">slope =</span> boundary_slope,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> adelie_color,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"&lt;span style = 'color:#fb7504'&gt;Decision Boundary&lt;/span&gt;"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"where logit a = 0"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"SML 301"</span>) <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray70"</span>, chinstrap_color)) <span class="sc">+</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_markdown</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">24</span>),</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguin_pred_df <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(chinstrap_bool, species_pred) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">"row"</span>, <span class="st">"col"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> chinstrap_bool   0  1 Total
               0 258  7   265
@@ -389,26 +510,13 @@ R code
 </ul>
 </section>
 </section>
-</section>
 <section id="activity-literature-conclusions" class="level1">
 <h1>Activity: Literature Conclusions</h1>
 <p>We will look at the concluding paragraphs for some of the most influential papers in the history of machine learning:</p>
-<section id="adaboost" class="level2">
-<h2 class="anchored" data-anchor-id="adaboost">Adaboost</h2>
-<ul>
-<li>A Decision-Theoretic Generalization of on-Line Learning and an Application to Boosting (1997—published as abstract in 1995), Freund and Schapire</li>
-</ul>
-</section>
 <section id="alexnet" class="level2">
 <h2 class="anchored" data-anchor-id="alexnet">AlexNet</h2>
 <ul>
 <li>ImageNet Classification with Deep Convolutional Neural Networks (2012)</li>
-</ul>
-</section>
-<section id="dropout" class="level2">
-<h2 class="anchored" data-anchor-id="dropout">DropOut</h2>
-<ul>
-<li>Dropout: A Simple Way to Prevent Neural Networks from Overfitting (2014), Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov</li>
 </ul>
 </section>
 <section id="gans" class="level2">
@@ -428,10 +536,23 @@ R code
 <ul>
 <li>Efficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean</li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 </section>
 </section>
-<section id="naive-bayes" class="level1">
-<h1>Naive Bayes</h1>
+<section id="multiclass-prediction" class="level1">
+<h1>Multiclass Prediction</h1>
 <section id="data-palmer-penguins" class="level2">
 <h2 class="anchored" data-anchor-id="data-palmer-penguins">Data: Palmer Penguins</h2>
 <p>There exist multiple penguin species throughout Antarctica, including the <em>Adelie</em>, <em>Chinstrap</em>, and <em>Gentoo</em>. When encountering one of these penguins on an Antarctic trip, we might <em>classify</em> its species</p>
@@ -480,6 +601,29 @@ R code
 </div>
 </div>
 </section>
+<section id="baseline-models-1" class="level2">
+<h2 class="anchored" data-anchor-id="baseline-models-1">Baseline models</h2>
+<ul>
+<li>random guessing: 0.3333</li>
+<li>majority classifier: 0.4419</li>
+</ul>
+</section>
+</section>
+<section id="naive-bayes" class="level1">
+<h1>Naive Bayes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Multiclass
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Naive Bayes is a <strong>multiclass</strong> classification tool.</p>
+</div>
+</div>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>Here, we have <em>three</em> categories, whereas logistic regression is limited to classifying <em>binary</em> response variables. As an alternative, <strong>naive Bayes classification</strong></p>
@@ -497,7 +641,7 @@ R code
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="04_classification_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_classification_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -571,7 +715,7 @@ f(x_{1} &amp; = &amp; \displaystyle\sum_{\text{all } y'} f(y')L(y'|x_{1}) \\
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="04_classification_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_classification_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -637,7 +781,7 @@ image code
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="04_classification_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_classification_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -686,15 +830,28 @@ image code
 \end{array}\]</span></p>
 <p>Though a 50mm-long bill is relatively less common among <span style="color:#067476">Gentoo</span> than among <span style="color:#c65ccc">Chinstrap</span>, it follows that our naive Bayes classification, based on our prior information and penguin’s bill length alone, is that this penguin is a <span style="color:#067476">Gentoo</span> – it has the highest posterior probability.</p>
 <p>We’ve now made two naive Bayes classifications of our penguin’s species, one based solely on the fact that our penguin has below-average weight and the other based solely on its 50mm-long bill (in addition to our prior information). And these classifications <strong>disagree</strong>: we classified the penguin as Adelie in the former analysis and Gentoo in the latter. This discrepancy indicates that there’s <em>room for improvement</em> in our naive Bayes classification method.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 </section>
 </section>
-<section id="two-predictor-variables" class="level2">
-<h2 class="anchored" data-anchor-id="two-predictor-variables">Two Predictor Variables</h2>
+<section id="two-predictor-variables-1" class="level2">
+<h2 class="anchored" data-anchor-id="two-predictor-variables-1">Two Predictor Variables</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="04_classification_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="04_classification_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -811,23 +968,23 @@ image code
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="srtuosknap" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#srtuosknap table {
+<div id="fejzlpfwdx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fejzlpfwdx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#srtuosknap thead, #srtuosknap tbody, #srtuosknap tfoot, #srtuosknap tr, #srtuosknap td, #srtuosknap th {
+#fejzlpfwdx thead, #fejzlpfwdx tbody, #fejzlpfwdx tfoot, #fejzlpfwdx tr, #fejzlpfwdx td, #fejzlpfwdx th {
   border-style: none;
 }
 
-#srtuosknap p {
+#fejzlpfwdx p {
   margin: 0;
   padding: 0;
 }
 
-#srtuosknap .gt_table {
+#fejzlpfwdx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -853,12 +1010,12 @@ image code
   border-left-color: #D3D3D3;
 }
 
-#srtuosknap .gt_caption {
+#fejzlpfwdx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#srtuosknap .gt_title {
+#fejzlpfwdx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -870,7 +1027,7 @@ image code
   border-bottom-width: 0;
 }
 
-#srtuosknap .gt_subtitle {
+#fejzlpfwdx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -882,7 +1039,7 @@ image code
   border-top-width: 0;
 }
 
-#srtuosknap .gt_heading {
+#fejzlpfwdx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -894,13 +1051,13 @@ image code
   border-right-color: #D3D3D3;
 }
 
-#srtuosknap .gt_bottom_border {
+#fejzlpfwdx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#srtuosknap .gt_col_headings {
+#fejzlpfwdx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -915,7 +1072,7 @@ image code
   border-right-color: #D3D3D3;
 }
 
-#srtuosknap .gt_col_heading {
+#fejzlpfwdx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -935,7 +1092,7 @@ image code
   overflow-x: hidden;
 }
 
-#srtuosknap .gt_column_spanner_outer {
+#fejzlpfwdx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -947,15 +1104,15 @@ image code
   padding-right: 4px;
 }
 
-#srtuosknap .gt_column_spanner_outer:first-child {
+#fejzlpfwdx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#srtuosknap .gt_column_spanner_outer:last-child {
+#fejzlpfwdx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#srtuosknap .gt_column_spanner {
+#fejzlpfwdx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -967,11 +1124,11 @@ image code
   width: 100%;
 }
 
-#srtuosknap .gt_spanner_row {
+#fejzlpfwdx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#srtuosknap .gt_group_heading {
+#fejzlpfwdx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -997,7 +1154,7 @@ image code
   text-align: left;
 }
 
-#srtuosknap .gt_empty_group_heading {
+#fejzlpfwdx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1012,15 +1169,15 @@ image code
   vertical-align: middle;
 }
 
-#srtuosknap .gt_from_md > :first-child {
+#fejzlpfwdx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#srtuosknap .gt_from_md > :last-child {
+#fejzlpfwdx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#srtuosknap .gt_row {
+#fejzlpfwdx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1039,7 +1196,7 @@ image code
   overflow-x: hidden;
 }
 
-#srtuosknap .gt_stub {
+#fejzlpfwdx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1052,7 +1209,7 @@ image code
   padding-right: 5px;
 }
 
-#srtuosknap .gt_stub_row_group {
+#fejzlpfwdx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1066,15 +1223,15 @@ image code
   vertical-align: top;
 }
 
-#srtuosknap .gt_row_group_first td {
+#fejzlpfwdx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#srtuosknap .gt_row_group_first th {
+#fejzlpfwdx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#srtuosknap .gt_summary_row {
+#fejzlpfwdx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1084,16 +1241,16 @@ image code
   padding-right: 5px;
 }
 
-#srtuosknap .gt_first_summary_row {
+#fejzlpfwdx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#srtuosknap .gt_first_summary_row.thick {
+#fejzlpfwdx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#srtuosknap .gt_last_summary_row {
+#fejzlpfwdx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1103,7 +1260,7 @@ image code
   border-bottom-color: #D3D3D3;
 }
 
-#srtuosknap .gt_grand_summary_row {
+#fejzlpfwdx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1113,7 +1270,7 @@ image code
   padding-right: 5px;
 }
 
-#srtuosknap .gt_first_grand_summary_row {
+#fejzlpfwdx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1123,7 +1280,7 @@ image code
   border-top-color: #D3D3D3;
 }
 
-#srtuosknap .gt_last_grand_summary_row_top {
+#fejzlpfwdx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1133,11 +1290,11 @@ image code
   border-bottom-color: #D3D3D3;
 }
 
-#srtuosknap .gt_striped {
+#fejzlpfwdx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#srtuosknap .gt_table_body {
+#fejzlpfwdx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1146,7 +1303,7 @@ image code
   border-bottom-color: #D3D3D3;
 }
 
-#srtuosknap .gt_footnotes {
+#fejzlpfwdx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1160,7 +1317,7 @@ image code
   border-right-color: #D3D3D3;
 }
 
-#srtuosknap .gt_footnote {
+#fejzlpfwdx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1169,7 +1326,7 @@ image code
   padding-right: 5px;
 }
 
-#srtuosknap .gt_sourcenotes {
+#fejzlpfwdx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1183,7 +1340,7 @@ image code
   border-right-color: #D3D3D3;
 }
 
-#srtuosknap .gt_sourcenote {
+#fejzlpfwdx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1191,82 +1348,82 @@ image code
   padding-right: 5px;
 }
 
-#srtuosknap .gt_left {
+#fejzlpfwdx .gt_left {
   text-align: left;
 }
 
-#srtuosknap .gt_center {
+#fejzlpfwdx .gt_center {
   text-align: center;
 }
 
-#srtuosknap .gt_right {
+#fejzlpfwdx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#srtuosknap .gt_font_normal {
+#fejzlpfwdx .gt_font_normal {
   font-weight: normal;
 }
 
-#srtuosknap .gt_font_bold {
+#fejzlpfwdx .gt_font_bold {
   font-weight: bold;
 }
 
-#srtuosknap .gt_font_italic {
+#fejzlpfwdx .gt_font_italic {
   font-style: italic;
 }
 
-#srtuosknap .gt_super {
+#fejzlpfwdx .gt_super {
   font-size: 65%;
 }
 
-#srtuosknap .gt_footnote_marks {
+#fejzlpfwdx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#srtuosknap .gt_asterisk {
+#fejzlpfwdx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#srtuosknap .gt_indent_1 {
+#fejzlpfwdx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#srtuosknap .gt_indent_2 {
+#fejzlpfwdx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#srtuosknap .gt_indent_3 {
+#fejzlpfwdx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#srtuosknap .gt_indent_4 {
+#fejzlpfwdx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#srtuosknap .gt_indent_5 {
+#fejzlpfwdx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#srtuosknap .katex-display {
+#fejzlpfwdx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#srtuosknap div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fejzlpfwdx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_heading">
+<tr class="gt_heading header">
 <th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Types of Classification Techniques<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
 </tr>
-<tr class="odd gt_col_headings">
+<tr class="gt_col_headings even">
 <th id="discriminative_classifiers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Discriminative Classifiers</th>
 <th id="generative_classifiers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Generative Classifiers</th>
 </tr>
@@ -1297,7 +1454,7 @@ image code
 <td class="gt_row gt_center" headers="generative_classifiers" style="background-color: #E0FFFF">Generative Adversarial Networks</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
-<tr class="even">
+<tr class="odd">
 <td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Source: https://www.analyticsvidhya.com/blog/2021/07/deep-understanding-of-discriminative-and-generative-models-in-machine-learning/</td>
 </tr>
 </tfoot>
@@ -1309,29 +1466,46 @@ image code
 </div>
 </section>
 </section>
+<section id="ethics-history-government-data" class="level1">
+<h1>Ethics History: Government Data</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>“Governments and other institutions began collecting data on death, crime, and suicide in fits and starts. Most of them held this data closely; many even considered them secrets of state. Quetelet sought to obtain these numbers and then to publish them. He drew upon a broad European network of scientists to coax numbers from administrators and then published scores in his own journal. In the age of the internet, journal publication may seem ridiculously slow—but it was a radical transformation in the public availability and circulation of data.”</p>
+<p>Wiggins, Chris; Jones, Matthew L.. How Data Happened: A History from the Age of Reason to the Age of Algorithms (p.&nbsp;25). W. W. Norton &amp; Company. Kindle Edition.</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="How_Data_Happened.png" class="img-fluid figure-img"></p>
+<figcaption>How Data Happened</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="quo-vadimus" class="level1">
 <h1>Quo Vadimus?</h1>
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
-<li><p>due this Friday (5 PM):</p>
+<li><p>due this Friday:</p>
 <ul>
-<li>Precept 2</li>
+<li>Precept 3</li>
+<li>Pick Group Partners (Canvas survey)</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:45%;">
-<ul>
-<li>Advice: You will be asked to pick teammates for project groups next week, so take some time to talk with your classmates</li>
-</ul>
+
 </div>
 </div>
 </section>
 <section id="footnotes" class="level1">
 <h1>Footnotes</h1>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1340,18 +1514,20 @@ image code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><a href="https://medium.com/towards-data-science/building-a-logistic-regression-in-python-step-by-step-becd4d56c9c8">Logistic Regression in Python</a> by Susan Li</p></li>
-<li><p><a href="https://medium.com/@shuv.sdr/na%C3%AFve-bayes-classification-in-python-f869c2e0dbf1">Naive Bayes in Python</a> by Shuvrajyoti Debroy</p></li>
-<li><p><a href="https://machinelearningmastery.com/naive-bayes-classifier-scratch-python/">Naive Bayes (from scratch)</a> by Jason Brownlee</p></li>
+<li><a href="https://medium.com/towards-data-science/building-a-logistic-regression-in-python-step-by-step-becd4d56c9c8">Logistic Regression in Python</a> by Susan Li</li>
+<li><a href="https://medium.com/@shuv.sdr/na%C3%AFve-bayes-classification-in-python-f869c2e0dbf1">Naive Bayes in Python</a> by Shuvrajyoti Debroy</li>
+<li><a href="https://machinelearningmastery.com/naive-bayes-classifier-scratch-python/">Naive Bayes (from scratch)</a> by Jason Brownlee</li>
+<li><a href="https://plat.ai/blog/confusion-matrix-in-machine-learning/">What is a Confusion Matrix</a> by Lory Seraydarian</li>
+<li><a href="https://www.spiceworks.com/tech/artificial-intelligence/articles/what-is-logistic-regression/">What Is Logistic Regression?</a> by Vijay Kanade</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1360,17 +1536,17 @@ Session Info
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
 Platform: x86_64-w64-mingw32/x64
 Running under: Windows 10 x64 (build 19045)
 
 Matrix products: default
-
+  LAPACK version 3.12.1
 
 locale:
 [1] LC_COLLATE=English_United States.utf8 
@@ -1386,46 +1562,47 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] palmerpenguins_0.1.1 tidyr_1.3.1          janitor_2.2.0       
-[4] gt_0.11.1            ggtext_0.1.2         ggplot2_3.5.1       
+[1] palmerpenguins_0.1.1 tidyr_1.3.1          janitor_2.2.1       
+[4] gt_1.0.0             ggtext_0.1.2         ggplot2_3.5.2       
 [7] dplyr_1.1.4          bayesrules_0.0.2    
 
 loaded via a namespace (and not attached):
-  [1] gridExtra_2.3        inline_0.3.19        rlang_1.1.5         
-  [4] magrittr_2.0.3       snakecase_0.11.1     matrixStats_1.4.1   
-  [7] e1071_1.7-16         compiler_4.4.2       loo_2.8.0           
- [10] vctrs_0.6.5          reshape2_1.4.4       stringr_1.5.1       
- [13] pkgconfig_2.0.3      fastmap_1.2.0        backports_1.5.0     
- [16] labeling_0.4.3       utf8_1.2.4           threejs_0.3.3       
- [19] promises_1.3.0       rmarkdown_2.29       markdown_1.13       
- [22] nloptr_2.1.1         purrr_1.0.2          xfun_0.50           
- [25] jsonlite_1.8.9       later_1.3.2          parallel_4.4.2      
- [28] R6_2.5.1             dygraphs_1.1.1.6     stringi_1.8.4       
- [31] StanHeaders_2.32.10  boot_1.3-31          lubridate_1.9.3     
- [34] Rcpp_1.0.12          rstan_2.32.6         knitr_1.49          
- [37] zoo_1.8-12           base64enc_0.1-3      bayesplot_1.11.1    
- [40] httpuv_1.6.15        Matrix_1.7-1         splines_4.4.2       
- [43] igraph_2.1.4         timechange_0.3.0     tidyselect_1.2.1    
- [46] rstudioapi_0.17.1    abind_1.4-8          yaml_2.3.10         
- [49] codetools_0.2-20     miniUI_0.1.1.1       curl_5.2.3          
- [52] pkgbuild_1.4.6       lattice_0.22-6       tibble_3.2.1        
- [55] plyr_1.8.9           shiny_1.9.1          withr_3.0.2         
- [58] groupdata2_2.0.3     posterior_1.6.0      evaluate_1.0.3      
- [61] survival_3.7-0       proxy_0.4-27         RcppParallel_5.1.9  
- [64] xts_0.14.0           xml2_1.3.6           pillar_1.10.1       
- [67] tensorA_0.36.2.1     checkmate_2.3.2      DT_0.33             
- [70] stats4_4.4.2         shinyjs_2.1.0        distributional_0.5.0
- [73] generics_0.1.3       commonmark_1.9.2     rstantools_2.4.0    
- [76] munsell_0.5.1        scales_1.3.0         minqa_1.2.8         
- [79] gtools_3.9.5         xtable_1.8-4         class_7.3-22        
- [82] glue_1.8.0           tools_4.4.2          shinystan_2.6.0     
- [85] lme4_1.1-35.5        colourpicker_1.3.0   grid_4.4.2          
- [88] QuickJSR_1.4.0       crosstalk_1.2.1      colorspace_2.1-1    
- [91] nlme_3.1-166         cli_3.6.3            V8_6.0.0            
- [94] gtable_0.3.6         sass_0.4.9           digest_0.6.37       
- [97] farver_2.1.2         htmlwidgets_1.6.4    htmltools_0.5.8.1   
-[100] lifecycle_1.0.4      mime_0.12            rstanarm_2.32.1     
-[103] gridtext_0.1.5       shinythemes_1.2.0    MASS_7.3-61         </code></pre>
+  [1] Rdpack_2.6.4         gridExtra_2.3        inline_0.3.21       
+  [4] rlang_1.1.6          magrittr_2.0.3       snakecase_0.11.1    
+  [7] matrixStats_1.5.0    e1071_1.7-16         compiler_4.5.1      
+ [10] loo_2.8.0            vctrs_0.6.5          reshape2_1.4.4      
+ [13] stringr_1.5.1        pkgconfig_2.0.3      fastmap_1.2.0       
+ [16] backports_1.5.0      labeling_0.4.3       utf8_1.2.6          
+ [19] threejs_0.3.4        promises_1.3.3       rmarkdown_2.29      
+ [22] markdown_2.0         nloptr_2.2.1         purrr_1.1.0         
+ [25] xfun_0.52            litedown_0.7         jsonlite_2.0.0      
+ [28] later_1.4.2          parallel_4.5.1       R6_2.6.1            
+ [31] dygraphs_1.1.1.6     stringi_1.8.7        RColorBrewer_1.1-3  
+ [34] StanHeaders_2.32.10  boot_1.3-31          lubridate_1.9.4     
+ [37] Rcpp_1.1.0           rstan_2.32.7         knitr_1.50          
+ [40] zoo_1.8-14           base64enc_0.1-3      bayesplot_1.14.0    
+ [43] httpuv_1.6.16        Matrix_1.7-3         splines_4.5.1       
+ [46] igraph_2.1.4         timechange_0.3.0     tidyselect_1.2.1    
+ [49] rstudioapi_0.17.1    abind_1.4-8          yaml_2.3.10         
+ [52] codetools_0.2-20     miniUI_0.1.2         curl_6.4.0          
+ [55] pkgbuild_1.4.8       lattice_0.22-7       tibble_3.3.0        
+ [58] plyr_1.8.9           shiny_1.11.1         withr_3.0.2         
+ [61] groupdata2_2.0.5     posterior_1.6.1      evaluate_1.0.4      
+ [64] survival_3.8-3       proxy_0.4-27         RcppParallel_5.1.10 
+ [67] xml2_1.3.8           xts_0.14.1           pillar_1.11.0       
+ [70] tensorA_0.36.2.1     checkmate_2.3.2      DT_0.34.0           
+ [73] stats4_4.5.1         reformulas_0.4.1     shinyjs_2.1.0       
+ [76] distributional_0.5.0 generics_0.1.4       commonmark_2.0.0    
+ [79] rstantools_2.4.0     scales_1.4.0         minqa_1.2.8         
+ [82] gtools_3.9.5         xtable_1.8-4         class_7.3-23        
+ [85] glue_1.8.0           tools_4.5.1          shinystan_2.6.0     
+ [88] lme4_1.1-37          colourpicker_1.3.0   grid_4.5.1          
+ [91] rbibutils_2.3        QuickJSR_1.8.0       crosstalk_1.2.2     
+ [94] nlme_3.1-168         cli_3.6.5            V8_6.0.5            
+ [97] gtable_0.3.6         sass_0.4.10          digest_0.6.37       
+[100] htmlwidgets_1.6.4    farver_2.1.2         htmltools_0.5.8.1   
+[103] lifecycle_1.0.4      mime_0.13            rstanarm_2.32.1     
+[106] gridtext_0.1.5       shinythemes_1.2.0    MASS_7.3-65         </code></pre>
 </div>
 </div>
 </div>
@@ -1533,8 +1710,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1645,7 +1820,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
