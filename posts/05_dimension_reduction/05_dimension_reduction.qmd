@@ -1,0 +1,618 @@
+---
+title: "5: Dimension Reduction"
+author: "Derek Sollberger"
+date: "2025-09-17"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library("ggbiplot")
+library("GGally")
+library("ggtext")
+library("palmerpenguins")
+library("patchwork")
+library("tidymodels")
+library("tidyverse")
+
+penguins_df <- penguins |>
+  na.omit()
+
+penguins_split <- initial_split(penguins_df)
+train_data <- training(penguins_split)
+test_data <- testing(penguins_split)
+
+adelie_color = "#fb7504"
+chinstrap_color = "#c65ccc"
+gentoo_color = "#067476"
+```
+
+# Session 5: Dimension Reduction
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Introduce dimension reduction
+- Explore PCA and LDA
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+penguins_df |>
+  ggpairs(aes(alpha = 0.5,
+              color = species),
+          columns = 3:6)
+```
+:::
+
+::::
+
+
+# Principal Components
+
+## Correlation
+
+```{r}
+#| echo: false
+gentoo_df <- penguins_df |> 
+  filter(species == "Gentoo") |>
+  select(bill_length_mm, bill_depth_mm)
+
+r <- cor(gentoo_df$bill_length_mm, gentoo_df$bill_depth_mm)
+
+gentoo_df |>
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() +
+  labs(title = "Gentoo Penguins",
+       subtitle = paste0("correlation: r = ", round(r,4)),
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+## Finding Vectors
+
+### PCA Vectors
+
+```{r}
+#| echo: false
+gentoo_pca <- prcomp(gentoo_df,
+                     center = TRUE, scale = TRUE)
+gentoo_pca
+```
+
+### Center
+
+```{r}
+#| echo: false
+gentoo_pca$center
+```
+
+### Scale
+
+```{r}
+#| echo: false
+gentoo_pca$scale
+```
+
+## New Basis
+
+```{r}
+#| echo: false
+#| warning: false
+gentoo_df <- penguins_df |> 
+  filter(species == "Gentoo") |>
+  select(bill_length_mm, bill_depth_mm)
+
+r <- cor(gentoo_df$bill_length_mm, gentoo_df$bill_depth_mm)
+
+gentoo_df |>
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() +
+  geom_segment(aes(x = 47.56807, y = 14.99664, 
+                   xend = 47.56807 + 1.96*3.106116*0.7071068,
+                   yend = 14.99664 + 1.96*0.985998*0.7071068),
+               color = "blue",
+               linewidth = 4) +
+  geom_segment(aes(x = 47.56807, y = 14.99664, 
+                   xend = 47.56807 + 1.96*3.106116*0.7071068,
+                   yend = 14.99664 - 1.96*0.985998*0.7071068),
+               color = "red",
+               linewidth = 3) +
+  labs(title = "Principal Components",
+       subtitle = "Two principal components",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+## PCA Pairs Plot
+
+```{r}
+psych::pairs.panels(gentoo_pca$x)
+```
+
+## PCA Bi Plot
+
+```{r}
+ggbiplot::ggbiplot(gentoo_pca,
+                   obs.scale = 1,
+                   var.scale = 1,
+                   varname.color = "blue") +
+  labs(title = "First two principal components",
+       subtitle = "correlation: r = 0",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+::: {.callout-warning}
+## DCP1
+:::
+
+
+# Principal Component Dimensionality Reduction
+
+```{r}
+#| echo: false
+penguin_pca <- prcomp(train_data |>
+                        select(bill_depth_mm,
+                               bill_length_mm, 
+                               flipper_length_mm,
+                               body_mass_g),
+                      center = TRUE, scale = TRUE)
+```
+
+## Correlations
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+penguins_df |>
+  ggpairs(aes(alpha = 0.5,
+              color = species),
+          columns = 3:6)
+```
+
+## Finding Vectors
+
+### PCA Vectors
+
+```{r}
+#| echo: false
+penguin_pca
+```
+
+### Center
+
+```{r}
+#| echo: false
+penguin_pca$center
+```
+
+### Scale
+
+```{r}
+#| echo: false
+penguin_pca$scale
+```
+
+## PCA Pairs Plot
+
+```{r}
+psych::pairs.panels(penguin_pca$x)
+```
+
+## PCA Bi Plot
+
+```{r}
+ggbiplot::ggbiplot(penguin_pca,
+                   ellipse = TRUE, ellipse.prob = 0.95,
+                   groups = train_data$species,
+                   obs.scale = 1,
+                   var.scale = 1,
+                   varname.color = "blue") +
+  labs(title = "First two principal components",
+       subtitle = "captures 87.4 percent of the variance",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+
+# PCA Regression
+
+## Regression Task
+
+* response variable: `body_mass_g`
+* explanatory variables: `bill_depth_mm`, `bill_length_mm`, `flipper_length_mm`
+
+```{r}
+#| echo: false
+
+reg_model <- lm(body_mass_g ~ bill_depth_mm + bill_length_mm + flipper_length_mm,
+                data = train_data)
+y_actual <- test_data$body_mass_g
+y_pred <- predict(reg_model, test_data)
+print(paste0("MSE: ", mean((y_actual - y_pred)^2)))
+```
+## Dimensionality Reduction
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+penguins_df |>
+  ggpairs(aes(alpha = 0.5,
+              color = species),
+          columns = 3:5)
+```
+
+## PCA Model
+
+$$\hat{y} = \beta_{0} + \beta_{1}P_{1} + \beta_{2}P_{2}$$
+
+* $P_{1}$: principal component 1
+* $P_{2}$: principal component 2
+
+```{r}
+#| echo: false
+penguin_pca <- prcomp(train_data |>
+                        select(bill_depth_mm,
+                               bill_length_mm, 
+                               flipper_length_mm),
+                      center = TRUE, scale = TRUE)
+
+ggbiplot::ggbiplot(penguin_pca,
+                   ellipse = TRUE, ellipse.prob = 0.95,
+                   groups = train_data$species,
+                   obs.scale = 1,
+                   var.scale = 1,
+                   varname.color = "blue") +
+  labs(title = "First two principal components",
+       subtitle = "captures 91.6 percent of the variance",
+       caption = "SML 301") +
+  theme_minimal()
+```
+
+
+```{r}
+#| echo: false
+pcr_model <- pls::pcr(body_mass_g ~
+                        bill_depth_mm +
+                        bill_length_mm +
+                        flipper_length_mm,
+                data = train_data,
+                scale = TRUE,
+                validation = "CV")
+y_pred <- predict(pcr_model, test_data, ncomp = 2)
+print(paste0("MSE: ", mean((y_actual - y_pred)^2)))
+```
+
+
+# Activity: Literature Results
+
+We will look at the results paragraphs for some of the most influential papers in the history of machine learning:
+
+
+## AlexNet
+
+* ImageNet Classification with Deep Convolutional Neural Networks (2012)
+
+## GANs
+
+* General Adversarial Nets (2014), Goodfellow et al.
+
+## TensorFlow
+
+* TensorFlow: A system for large-scale machine learning (2016), Abadi et al.
+
+## Word2Vec
+
+* Efficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean
+
+::: {.callout-warning}
+## DCP2
+:::
+
+# PCA Classification
+
+## Task
+
+```{r}
+#| echo: false
+penguin_2_class <- penguins |>
+  filter(species %in% c("Chinstrap", "Gentoo")) |>
+  na.omit()
+
+penguin_2_class |>
+ggplot(aes(x = flipper_length_mm, y = bill_length_mm, 
+           color = species)) + 
+  geom_point(size = 3) + 
+  labs(title = "Two Predictor Variables",
+       subtitle = "50mm-long bill and 195mm-long flipper",
+       caption = "SML 301") +
+  scale_color_manual(values = c(chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+```
+
+
+```{r}
+#| echo: false
+train_set <- penguin_2_class |>
+  select(flipper_length_mm, bill_length_mm)
+
+pca_results <- prcomp(train_set, center = TRUE, scale. = TRUE)
+```
+
+## Classifier
+
+```{r}
+#| echo: false
+del_x <- pca_results$rotation[1,1]
+del_y <- pca_results$rotation[2,1]
+pca_slope <- del_y / del_x
+
+xbar <- mean(train_set$flipper_length_mm, na.rm = TRUE)
+ybar <- mean(train_set$bill_length_mm, na.rm = TRUE)
+pca_intercept <- ybar - pca_slope * xbar
+
+pca_plot_1 <- penguin_2_class |>
+ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) + 
+  geom_point(size = 3) + 
+  geom_abline(slope = pca_slope, intercept = pca_intercept,
+              color = adelie_color, linewidth = 3) +
+  labs(title = "Principal Component Analysis",
+       subtitle = "<span style = 'color:#fb7504'>first principal component</span>",
+       caption = "SML 301") +
+  # scale_color_manual(values = c(chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 14),
+        plot.subtitle = element_markdown(size = 12))
+
+pca_plot_1
+```
+
+* PC1 captures variance of the *entire* data set
+
+## Along PC1
+
+```{r}
+#| echo: false
+train_mat <- as.matrix(train_set)
+proj_mat  <- as.matrix(pca_results$rotation[,1])
+projection_data <- train_mat %*% proj_mat
+projection_df <- cbind(penguin_2_class, projection_data)
+
+pca_plot_2 <- projection_df |>
+  ggplot(aes(x = projection_data)) +
+  geom_density(aes(fill = species),
+               alpha = 0.5) + 
+  labs(title = "Classification via <br><span style = 'color:#fb7504'>Principal Component Analysis</span>",
+       subtitle = "",
+       caption = "SML 301",
+       x = "(PC1) first principal component",
+       y = "") +
+  scale_fill_manual(values = c(chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(axis.title.y  = element_blank(),
+        axis.text.y   = element_blank(),
+        axis.ticks.y  = element_blank(),
+        plot.title    = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+
+pca_plot_2
+```
+
+
+# Toward LDA
+
+## Covariance Revisited
+
+* Naive Bayes ignored covariance (assumed conditional independence)
+* discriminant analyses (generative approach): fit multivariate Gaussians
+* want: dimensionality reduction
+
+**Fisher's linear discriminant analysis** (FLDA) is a hybrid of discriminative and generative techniques, but limited to
+
+$$K \leq C - 1 \text{ dimensions}$$
+
+* $C$: number of classes in response variable
+* $D$: number of dimensions in projected space
+
+## FLDA Ideas
+
+* $S_{B}, S_{W}$: scatter matrices (estimate covariance)
+* $W$: projection matrix from $D$ to $K$ dimensions
+
+Objective: maximize
+
+$$J(W) = \displaystyle\frac{|W^{T}S_{B}W|}{|W^{T}S_{W}W|}$$
+
+* eigenvalue scenario instead of gradient descent
+
+
+# LDA
+
+> Linear Discriminant Analysis takes the group structure into account
+
+```{r}
+#| echo: false
+lda_model <- MASS::lda(bill_length_mm ~ flipper_length_mm, 
+                       data = train_set)
+```
+
+```{r}
+#| echo: false
+del_x <- 1
+del_y <- lda_model$scaling[1,1]
+lda_slope <- del_y / del_x
+
+xbar <- mean(train_set$flipper_length_mm, na.rm = TRUE)
+ybar <- mean(train_set$bill_length_mm, na.rm = TRUE)
+lda_intercept <- ybar - lda_slope * xbar
+
+lda_plot_1 <- penguin_2_class |>
+ggplot(aes(x = flipper_length_mm, y = bill_length_mm, 
+           color = species)) + 
+  geom_point(size = 3) + 
+  geom_abline(slope = lda_slope, intercept = lda_intercept,
+              color = adelie_color, linewidth = 3) +
+  labs(title = "Linear Discriminant Analysis",
+       subtitle = "<span style = 'color:#fb7504'>first linear discriminant</span>",
+       caption = "SML 301") +
+  scale_color_manual(values = c(chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(plot.title = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+
+lda_plot_1
+```
+
+## Projection
+
+```{r}
+#| echo: false
+train_mat <- as.matrix(train_set)
+proj_mat  <- as.matrix(c(1, lda_model$scaling[1,1]))
+projection_data <- train_mat %*% proj_mat
+projection_df <- cbind(penguin_2_class, projection_data)
+
+lda_plot_2 <- projection_df |>
+  ggplot(aes(x = projection_data)) +
+  geom_density(aes(fill = species),
+               alpha = 0.5) + 
+  labs(title = "Classification via <br><span style = 'color:#fb7504'>Linear Discriminant Analysis</span>",
+       subtitle = "",
+       caption = "SML 301",
+       x = "(LDA1) first linear discriminant",
+       y = "") +
+  scale_fill_manual(values = c(chinstrap_color, gentoo_color)) +
+  theme_minimal() +
+  theme(axis.title.y  = element_blank(),
+        axis.text.y   = element_blank(),
+        axis.ticks.y  = element_blank(),
+        plot.title    = element_markdown(face = "bold", size = 24),
+        plot.subtitle = element_markdown(size = 16))
+
+lda_plot_2
+```
+
+## Comparison
+
+```{r}
+#| echo: false
+#patchwork
+(pca_plot_1 + lda_plot_1) / (pca_plot_2 + lda_plot_2)
+```
+
+::: {.callout-warning}
+## DCP3
+:::
+
+# Ethics Enclave
+
+::: {.callout-tip collapse="true"}
+## Against Deepfakes
+
+"There are three basic approaches for protecting ourselves against misinformation and disinformation
+
+* "The first is technology.  Tech companies might be able to use machine learning to detect online misinformation and disinformation."
+* "A second approach is governmental regulation.  Some countries have already passed laws against creating or spreading fake news ..."
+* "A third and most powerful approach is education.  If we do a good job of educating people in media literacy and critical thinking ..."
+
+Carl T Bergstrom and Jevin D West
+
+:::
+
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday:
+
+    - Precept 3
+    - Pick Group Partners (survey)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+
+I met Josh Starmer!
+
+![Dr Josh Starmer](Josh_Starmer_Princeton.png)
+
+September 16, 2025
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [PCA in R](https://www.r-bloggers.com/2021/05/principal-component-analysis-pca-in-r/) by finnstats
+* [PCR in R](https://www.r-bloggers.com/2016/07/performing-principal-components-regression-pcr-in-r/) by Michy Alice
+
+![sarcasm](python_rizz.png)
+
+* [image source](https://www.reddit.com/r/csMajors/comments/1h53a03/i_made_a_brainrot_version_of_python/)
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -2011,50 +2011,281 @@
   {
     "objectID": "code/04_classification.html",
     "href": "code/04_classification.html",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "",
-    "text": "#%pip install palmerpenguins #https://github.com/mcnakhaee/palmerpenguins\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nfrom palmerpenguins import load_penguins\nfrom sklearn import metrics\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import classification_report\nfrom sklearn.metrics import confusion_matrix\nfrom sklearn.metrics import roc_auc_score\nfrom sklearn.metrics import roc_curve\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.naive_bayes import GaussianNB\npenguins = load_penguins()\ntype(penguins)\npenguins['chinstrap_bool'] = np.where(penguins['species'] == 'Chinstrap', 1, 0)\npenguins.head()\n# remember to remove missing values before a machine learning algorithm\npenguins_subset = penguins[['chinstrap_bool', 'flipper_length_mm', 'bill_length_mm']].dropna()\npenguins_subset.head()"
+    "text": "logistic regression\nNaive Bayes\nconfusion matrices\n\n\n#%pip install palmerpenguins #https://github.com/mcnakhaee/palmerpenguins\n\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nfrom palmerpenguins import load_penguins\nfrom sklearn import metrics\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import classification_report\nfrom sklearn.metrics import confusion_matrix\nfrom sklearn.metrics import roc_auc_score\nfrom sklearn.metrics import roc_curve\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.naive_bayes import GaussianNB\n\n\npenguins = load_penguins()\ntype(penguins)"
   },
   {
     "objectID": "code/04_classification.html#one-predictor-variable",
     "href": "code/04_classification.html#one-predictor-variable",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "One predictor variable",
     "text": "One predictor variable\n\nX = penguins_subset[['flipper_length_mm']] #explanatory variable\ny = penguins_subset['chinstrap_bool'] #response variable (Boolean)\n\n\n#main code for logistic regression\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nlogreg = LogisticRegression()\nlogreg.fit(X_train, y_train)\n\n\n# make predictions\ny_pred = logreg.predict(X_test)"
   },
   {
     "objectID": "code/04_classification.html#confusion-matrix",
     "href": "code/04_classification.html#confusion-matrix",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "Confusion Matrix",
     "text": "Confusion Matrix\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nprint(confusion_mat)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
   },
   {
     "objectID": "code/04_classification.html#preview-roc-curves",
     "href": "code/04_classification.html#preview-roc-curves",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "Preview: ROC Curves",
     "text": "Preview: ROC Curves\nROC curves (receiver operating characteristic) are very popular for helping judge the quality of a classification computation.\n\nlogit_roc_auc = roc_auc_score(y_test, logreg.predict(X_test))\nfpr, tpr, thresholds = roc_curve(y_test, logreg.predict_proba(X_test)[:,1])\nplt.figure()\nplt.plot(fpr, tpr, label='Logistic Regression (area = %0.2f)' % logit_roc_auc)\nplt.plot([0, 1], [0, 1],'r--')\nplt.xlim([0.0, 1.0])\nplt.ylim([0.0, 1.05])\nplt.xlabel('False Positive Rate')\nplt.ylabel('True Positive Rate')\nplt.title('Receiver operating characteristic')\nplt.legend(loc=\"lower right\")\nplt.savefig('Log_ROC')\nplt.show()"
   },
   {
     "objectID": "code/04_classification.html#two-predictor-variables",
     "href": "code/04_classification.html#two-predictor-variables",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "Two predictor variables",
     "text": "Two predictor variables\n\nX = penguins_subset[['flipper_length_mm', 'bill_length_mm']] #explanatory variables\ny = penguins_subset['chinstrap_bool'] #response variable (Boolean)\n\n\n#main code for logistic regression\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nlogreg = LogisticRegression()\nlogreg.fit(X_train, y_train)\n\n\n# make predictions\ny_pred = logreg.predict(X_test)\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nprint(confusion_mat)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))\n\n\nlogit_roc_auc = roc_auc_score(y_test, logreg.predict(X_test))\nfpr, tpr, thresholds = roc_curve(y_test, logreg.predict_proba(X_test)[:,1])\nplt.figure()\nplt.plot(fpr, tpr, label='Logistic Regression (area = %0.2f)' % logit_roc_auc)\nplt.plot([0, 1], [0, 1],'r--')\nplt.xlim([0.0, 1.0])\nplt.ylim([0.0, 1.05])\nplt.xlabel('False Positive Rate')\nplt.ylabel('True Positive Rate')\nplt.title('Receiver operating characteristic')\nplt.legend(loc=\"lower right\")\nplt.savefig('Log_ROC')\nplt.show()"
   },
   {
     "objectID": "code/04_classification.html#one-categorical-predictor",
     "href": "code/04_classification.html#one-categorical-predictor",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "One categorical predictor",
     "text": "One categorical predictor\n\nmean_weight = penguins['body_mass_g'].mean()\npenguins['above_average_weight'] = np.where(penguins['body_mass_g'] &gt; mean_weight, 1, 0)\npenguins_subset = penguins[['species', 'above_average_weight']].dropna()\npenguins_subset.head()\nX = penguins_subset[['above_average_weight']] #explanatory variable\ny = penguins_subset['species'] #response variable (Boolean)\n\n\n# main code for Naive Bayes\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nNB_model = GaussianNB()\nNB_model.fit(X_train, y_train)\ny_pred = NB_model.predict(X_test)\n\n\n# make one prediction\nprint(NB_model.predict([[0]])) #here, \"0\" for \"below-average weight\"\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nsns.heatmap(confusion_mat, annot=True, fmt='d', cmap='Blues', cbar=False)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
   },
   {
     "objectID": "code/04_classification.html#two-predictor-variables-1",
     "href": "code/04_classification.html#two-predictor-variables-1",
-    "title": "Data Cleaning",
+    "title": "SML 301",
     "section": "Two predictor variables",
     "text": "Two predictor variables\n\npenguins_subset = penguins[['species', 'bill_length_mm', 'flipper_length_mm']].dropna()\npenguins_subset.head()\nX = penguins_subset[['bill_length_mm', 'flipper_length_mm']] #explanatory variables\ny = penguins_subset['species'] #response variable (Boolean)\n\n\n# main code for Naive Bayes\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=301)\nNB_model = GaussianNB()\nNB_model.fit(X_train, y_train)\ny_pred = NB_model.predict(X_test)\n\n\n# make one prediction\nprint(NB_model.predict([[50, 195]]))\n\n\nconfusion_mat = confusion_matrix(y_test, y_pred)\nsns.heatmap(confusion_mat, annot=True, fmt='d', cmap='Blues', cbar=False)\n\n\n# metrics from a confusion matrix\nprint(classification_report(y_test, y_pred))"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html",
+    "title": "5: Dimension Reduction",
+    "section": "",
+    "text": "Introduce dimension reduction\nExplore PCA and LDA"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#learning-objectives",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#learning-objectives",
+    "title": "5: Dimension Reduction",
+    "section": "",
+    "text": "Introduce dimension reduction\nExplore PCA and LDA"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#correlation",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#correlation",
+    "title": "5: Dimension Reduction",
+    "section": "Correlation",
+    "text": "Correlation"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors",
+    "title": "5: Dimension Reduction",
+    "section": "Finding Vectors",
+    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=2):\n[1] 1.2860884 0.5881978\n\nRotation (n x k) = (2 x 2):\n                     PC1        PC2\nbill_length_mm 0.7071068  0.7071068\nbill_depth_mm  0.7071068 -0.7071068\n\n\n\n\nCenter\n\n\nbill_length_mm  bill_depth_mm \n      47.56807       14.99664 \n\n\n\n\nScale\n\n\nbill_length_mm  bill_depth_mm \n      3.106116       0.985998"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#new-basis",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#new-basis",
+    "title": "5: Dimension Reduction",
+    "section": "New Basis",
+    "text": "New Basis"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot",
+    "title": "5: Dimension Reduction",
+    "section": "PCA Pairs Plot",
+    "text": "PCA Pairs Plot\n\npsych::pairs.panels(gentoo_pca$x)"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-bi-plot",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-bi-plot",
+    "title": "5: Dimension Reduction",
+    "section": "PCA Bi Plot",
+    "text": "PCA Bi Plot\n\nggbiplot::ggbiplot(gentoo_pca,\n                   obs.scale = 1,\n                   var.scale = 1,\n                   varname.color = \"blue\") +\n  labs(title = \"First two principal components\",\n       subtitle = \"correlation: r = 0\",\n       caption = \"SML 301\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#correlations",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#correlations",
+    "title": "5: Dimension Reduction",
+    "section": "Correlations",
+    "text": "Correlations"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors-1",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors-1",
+    "title": "5: Dimension Reduction",
+    "section": "Finding Vectors",
+    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=4):\n[1] 1.6826865 0.8474021 0.5804124 0.3370418\n\nRotation (n x k) = (4 x 4):\n                         PC1         PC2        PC3        PC4\nbill_depth_mm     -0.4095117 -0.80825505  0.3999776  0.1379922\nbill_length_mm     0.4642354 -0.58111842 -0.6575242 -0.1202033\nflipper_length_mm  0.5656175 -0.01845604  0.2734688  0.7777860\nbody_mass_g        0.5448509 -0.09319082  0.5769703 -0.6012971\n\n\n\n\nCenter\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         17.11968          44.15663         201.95984        4282.53012 \n\n\n\n\nScale\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         1.955837          5.490509         14.596950        832.983745"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot-1",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot-1",
+    "title": "5: Dimension Reduction",
+    "section": "PCA Pairs Plot",
+    "text": "PCA Pairs Plot\n\npsych::pairs.panels(penguin_pca$x)"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-bi-plot-1",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-bi-plot-1",
+    "title": "5: Dimension Reduction",
+    "section": "PCA Bi Plot",
+    "text": "PCA Bi Plot\n\nggbiplot::ggbiplot(penguin_pca,\n                   ellipse = TRUE, ellipse.prob = 0.95,\n                   groups = train_data$species,\n                   obs.scale = 1,\n                   var.scale = 1,\n                   varname.color = \"blue\") +\n  labs(title = \"First two principal components\",\n       subtitle = \"captures 87.4 percent of the variance\",\n       caption = \"SML 301\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#regression-task",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#regression-task",
+    "title": "5: Dimension Reduction",
+    "section": "Regression Task",
+    "text": "Regression Task\n\nresponse variable: body_mass_g\nexplanatory variables: bill_depth_mm, bill_length_mm, flipper_length_mm\n\n\n\n[1] \"MSE: 135639.950195904\""
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#dimensionality-reduction",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#dimensionality-reduction",
+    "title": "5: Dimension Reduction",
+    "section": "Dimensionality Reduction",
+    "text": "Dimensionality Reduction"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-model",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-model",
+    "title": "5: Dimension Reduction",
+    "section": "PCA Model",
+    "text": "PCA Model\n\\[\\hat{y} = \\beta_{0} + \\beta_{1}P_{1} + \\beta_{2}P_{2}\\]\n\n\\(P_{1}\\): principal component 1\n\\(P_{2}\\): principal component 2\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"MSE: 256471.448353553\""
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#alexnet",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#alexnet",
+    "title": "5: Dimension Reduction",
+    "section": "AlexNet",
+    "text": "AlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#gans",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#gans",
+    "title": "5: Dimension Reduction",
+    "section": "GANs",
+    "text": "GANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al."
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#tensorflow",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#tensorflow",
+    "title": "5: Dimension Reduction",
+    "section": "TensorFlow",
+    "text": "TensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al."
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#word2vec",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#word2vec",
+    "title": "5: Dimension Reduction",
+    "section": "Word2Vec",
+    "text": "Word2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean\n\n\n\n\n\n\n\nDCP2"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#task",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#task",
+    "title": "5: Dimension Reduction",
+    "section": "Task",
+    "text": "Task"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#classifier",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#classifier",
+    "title": "5: Dimension Reduction",
+    "section": "Classifier",
+    "text": "Classifier\n\n\n\n\n\n\n\n\n\n\nPC1 captures variance of the entire data set"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#along-pc1",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#along-pc1",
+    "title": "5: Dimension Reduction",
+    "section": "Along PC1",
+    "text": "Along PC1"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#covariance-revisited",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#covariance-revisited",
+    "title": "5: Dimension Reduction",
+    "section": "Covariance Revisited",
+    "text": "Covariance Revisited\n\nNaive Bayes ignored covariance (assumed conditional independence)\ndiscriminant analyses (generative approach): fit multivariate Gaussians\nwant: dimensionality reduction\n\nFisher’s linear discriminant analysis (FLDA) is a hybrid of discriminative and generative techniques, but limited to\n\\[K \\leq C - 1 \\text{ dimensions}\\]\n\n\\(C\\): number of classes in response variable\n\\(D\\): number of dimensions in projected space"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#flda-ideas",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#flda-ideas",
+    "title": "5: Dimension Reduction",
+    "section": "FLDA Ideas",
+    "text": "FLDA Ideas\n\n\\(S_{B}, S_{W}\\): scatter matrices (estimate covariance)\n\\(W\\): projection matrix from \\(D\\) to \\(K\\) dimensions\n\nObjective: maximize\n\\[J(W) = \\displaystyle\\frac{|W^{T}S_{B}W|}{|W^{T}S_{W}W|}\\]\n\neigenvalue scenario instead of gradient descent"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#projection",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#projection",
+    "title": "5: Dimension Reduction",
+    "section": "Projection",
+    "text": "Projection"
+  },
+  {
+    "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#comparison",
+    "href": "posts/05_dimension_reduction/05_dimension_reduction.html#comparison",
+    "title": "5: Dimension Reduction",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP3"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html",
+    "href": "code/05_dimension_reduction.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "Gaussian Discrimant\nLinear Discriminant Analysis\nQuadratic Discriminant Analysis\n\n\n#%pip install ISLP\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nfrom ISLP import load_data, confusion_table\nfrom sklearn.discriminant_analysis import (LinearDiscriminantAnalysis as LDA,\n                                           QuadraticDiscriminantAnalysis as QDA)\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import (accuracy_score,\n                             confusion_matrix)\nfrom sklearn.preprocessing import OneHotEncoder"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html#session-5-dimension-reduction",
+    "href": "code/05_dimension_reduction.html#session-5-dimension-reduction",
+    "title": "SML 301",
+    "section": "",
+    "text": "Gaussian Discrimant\nLinear Discriminant Analysis\nQuadratic Discriminant Analysis\n\n\n#%pip install ISLP\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nfrom ISLP import load_data, confusion_table\nfrom sklearn.discriminant_analysis import (LinearDiscriminantAnalysis as LDA,\n                                           QuadraticDiscriminantAnalysis as QDA)\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import (accuracy_score,\n                             confusion_matrix)\nfrom sklearn.preprocessing import OneHotEncoder"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html#linear-discriminant-analysis",
+    "href": "code/05_dimension_reduction.html#linear-discriminant-analysis",
+    "title": "SML 301",
+    "section": "Linear Discriminant Analysis",
+    "text": "Linear Discriminant Analysis\n\nmus_est, sigmas_est = estimate_mvns(X, Y)\nfit_and_plot(LDA(), \"LDA\", mus_est, sigmas_est)\n\n&lt;positron-console-cell-4&gt;:66: UserWarning: The following kwargs were not used by contour: 'lw'\n\n\n\n\n\n\n\n\n\n\nfit_and_plot(QDA(), \"QDA\", mus_est, sigmas_est)\n\n&lt;positron-console-cell-5&gt;:66: UserWarning: The following kwargs were not used by contour: 'lw'"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html#logistic-regression",
+    "href": "code/05_dimension_reduction.html#logistic-regression",
+    "title": "SML 301",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\n\nlog_reg_model = LogisticRegression()\nlog_reg_model.fit(X_train, y_train)\ny_pred = log_reg_model.predict(X_test)\nprint(confusion_matrix(y_test, y_pred))\nprint(\"Accuracy: \", accuracy_score(y_test, y_pred))\n\n[[ 20  91]\n [ 25 116]]\nAccuracy:  0.5396825396825397"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html#linear-discriminant-analysis-1",
+    "href": "code/05_dimension_reduction.html#linear-discriminant-analysis-1",
+    "title": "SML 301",
+    "section": "Linear Discriminant Analysis",
+    "text": "Linear Discriminant Analysis\n\nLDA_model = LDA(store_covariance=True)\nLDA_model.fit(X_train, y_train)\ny_pred = LDA_model.predict(X_test)\nprint(confusion_matrix(y_test, y_pred))\nprint(\"Accuracy: \", accuracy_score(y_test, y_pred))\n\n[[ 20  91]\n [ 25 116]]\nAccuracy:  0.5396825396825397"
+  },
+  {
+    "objectID": "code/05_dimension_reduction.html#quadratic-discriminant-analysis",
+    "href": "code/05_dimension_reduction.html#quadratic-discriminant-analysis",
+    "title": "SML 301",
+    "section": "Quadratic Discriminant Analysis",
+    "text": "Quadratic Discriminant Analysis\n\nQDA_model = QDA(store_covariance=True)\nQDA_model.fit(X_train, y_train)\ny_pred = QDA_model.predict(X_test)\nprint(confusion_matrix(y_test, y_pred))\nprint(\"Accuracy: \", accuracy_score(y_test, y_pred))\n\n[[ 25  86]\n [ 27 114]]\nAccuracy:  0.5515873015873016"
+  },
+  {
+    "objectID": "code/04_classification.html#session-4-classification",
+    "href": "code/04_classification.html#session-4-classification",
+    "title": "SML 301",
+    "section": "",
+    "text": "logistic regression\nNaive Bayes\nconfusion matrices\n\n\n#%pip install palmerpenguins #https://github.com/mcnakhaee/palmerpenguins\n\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nfrom palmerpenguins import load_penguins\nfrom sklearn import metrics\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import classification_report\nfrom sklearn.metrics import confusion_matrix\nfrom sklearn.metrics import roc_auc_score\nfrom sklearn.metrics import roc_curve\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.naive_bayes import GaussianNB\n\n\npenguins = load_penguins()\ntype(penguins)"
+  },
+  {
+    "objectID": "code/04_classification.html#data-cleaning",
+    "href": "code/04_classification.html#data-cleaning",
+    "title": "SML 301",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\n\npenguins['chinstrap_bool'] = np.where(penguins['species'] == 'Chinstrap', 1, 0)\npenguins.head()\n\n\n# remember to remove missing values before a machine learning algorithm\npenguins_subset = penguins[['chinstrap_bool', 'flipper_length_mm', 'bill_length_mm']].dropna()\npenguins_subset.head()"
   }
 ]
