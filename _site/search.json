@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -2287,5 +2287,82 @@
     "title": "SML 301",
     "section": "Data Cleaning",
     "text": "Data Cleaning\n\npenguins['chinstrap_bool'] = np.where(penguins['species'] == 'Chinstrap', 1, 0)\npenguins.head()\n\n\n# remember to remove missing values before a machine learning algorithm\npenguins_subset = penguins[['chinstrap_bool', 'flipper_length_mm', 'bill_length_mm']].dropna()\npenguins_subset.head()"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#alexnet",
+    "href": "posts/06_decision_trees/06_decision_trees.html#alexnet",
+    "title": "6: Decision Trees",
+    "section": "AlexNet",
+    "text": "AlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)"
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#gans",
+    "href": "posts/06_decision_trees/06_decision_trees.html#gans",
+    "title": "6: Decision Trees",
+    "section": "GANs",
+    "text": "GANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al."
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#tensorflow",
+    "href": "posts/06_decision_trees/06_decision_trees.html#tensorflow",
+    "title": "6: Decision Trees",
+    "section": "TensorFlow",
+    "text": "TensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al."
+  },
+  {
+    "objectID": "posts/06_decision_trees/06_decision_trees.html#word2vec",
+    "href": "posts/06_decision_trees/06_decision_trees.html#word2vec",
+    "title": "6: Decision Trees",
+    "section": "Word2Vec",
+    "text": "Word2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean\n\n\n\n\n\n\n\nDCP 2"
+  },
+  {
+    "objectID": "code/06_decision_trees.html",
+    "href": "code/06_decision_trees.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "decision tree classifiers\ndecision tree boundaries\npreprocessing: one-hot encoding, standard scalar\n\n\n# install packages (if need be)\n#%pip install palmerpenguins\n\nWe will explore the palmerpenguins data set (https://allisonhorst.github.io/palmerpenguins/)\n\n\n\nimage.png\n\n\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport sklearn.tree as tree\n\nfrom matplotlib.pyplot import subplots\nfrom palmerpenguins import load_penguins\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import (DecisionTreeClassifier as DTC,\n                          DecisionTreeRegressor as DTR,\n                          plot_tree)\nfrom sklearn.metrics import accuracy_score\nfrom sklearn.preprocessing import LabelBinarizer, LabelEncoder, MinMaxScaler, OneHotEncoder, StandardScaler\n\npenguins = load_penguins()"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#session-6-decision-trees",
+    "href": "code/06_decision_trees.html#session-6-decision-trees",
+    "title": "SML 301",
+    "section": "",
+    "text": "decision tree classifiers\ndecision tree boundaries\npreprocessing: one-hot encoding, standard scalar\n\n\n# install packages (if need be)\n#%pip install palmerpenguins\n\nWe will explore the palmerpenguins data set (https://allisonhorst.github.io/palmerpenguins/)\n\n\n\nimage.png\n\n\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport sklearn.tree as tree\n\nfrom matplotlib.pyplot import subplots\nfrom palmerpenguins import load_penguins\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import (DecisionTreeClassifier as DTC,\n                          DecisionTreeRegressor as DTR,\n                          plot_tree)\nfrom sklearn.metrics import accuracy_score\nfrom sklearn.preprocessing import LabelBinarizer, LabelEncoder, MinMaxScaler, OneHotEncoder, StandardScaler\n\npenguins = load_penguins()"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#example-3-all-numerical-predictors-more-depth",
+    "href": "code/06_decision_trees.html#example-3-all-numerical-predictors-more-depth",
+    "title": "SML 301",
+    "section": "Example 3: all numerical predictors, more depth",
+    "text": "Example 3: all numerical predictors, more depth\n\ndf = penguins[['species', 'bill_length_mm', 'bill_depth_mm', 'body_mass_g', 'flipper_length_mm']] #load in needed columns\ndf = df.dropna() #then remove missing data\nX = df[['bill_length_mm', 'bill_depth_mm', 'body_mass_g', 'flipper_length_mm']] #explanatory variables\ny = df['species'] #target variable\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 301)\n\n\ntree_maker = DTC(criterion='entropy', max_depth = 5, random_state = 301)\ntree_model = tree_maker.fit(X_train, y_train)\naccuracy_train = tree_model.score(X_train, y_train)\naccuracy_test  = tree_model.score(X_test, y_test)\nprint(f'train accuracy: {accuracy_train:.4f}')\nprint(f'test accuracy : {accuracy_test:.4f}')\n\ntrain accuracy: 0.9958\ntest accuracy : 0.9903\n\n\n\nax = subplots(figsize=(12,12))[1]\ntree.plot_tree(tree_model, filled = True, class_names = tree_model.classes_, feature_names = X.columns, fontsize= 10)\nplt.show()"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#label-encoding",
+    "href": "code/06_decision_trees.html#label-encoding",
+    "title": "SML 301",
+    "section": "Label Encoding",
+    "text": "Label Encoding\n\n# https://stackoverflow.com/questions/24458645/label-encoding-across-multiple-columns-in-scikit-learn\nX_cat_label = pd.DataFrame({col: X_cat[col].astype('category').cat.codes for col in X_cat}, index=X_cat.index)\nprint(X_cat.head())\nprint(X_cat_label.head())\n\n# caution: if you actually have ordinal data (e.g. Likert Scale), replace the column with a dictionary of values instead\n\n      island     sex\n0  Torgersen    male\n1  Torgersen  female\n2  Torgersen  female\n4  Torgersen  female\n5  Torgersen    male\n   island  sex\n0       2    1\n1       2    0\n2       2    0\n4       2    0\n5       2    1"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#one-hot-encoding",
+    "href": "code/06_decision_trees.html#one-hot-encoding",
+    "title": "SML 301",
+    "section": "One-Hot Encoding",
+    "text": "One-Hot Encoding\n\nX_cat_csr = OneHotEncoder().fit_transform(X_cat)\nX_cat_hot = pd.DataFrame.sparse.from_spmatrix(X_cat_csr)\nX_cat_hot.columns = OneHotEncoder().fit(X_cat).get_feature_names_out()\nprint(X_cat.head())\nprint(X_cat_hot.head())\n\n      island     sex\n0  Torgersen    male\n1  Torgersen  female\n2  Torgersen  female\n4  Torgersen  female\n5  Torgersen    male\n   island_Biscoe  island_Dream  island_Torgersen  sex_female  sex_male\n0              0             0               1.0           0       1.0\n1              0             0               1.0         1.0         0\n2              0             0               1.0         1.0         0\n3              0             0               1.0         1.0         0\n4              0             0               1.0           0       1.0"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#minmax-scalar",
+    "href": "code/06_decision_trees.html#minmax-scalar",
+    "title": "SML 301",
+    "section": "MinMax Scalar",
+    "text": "MinMax Scalar\n\nX_num_MM = MinMaxScaler().fit_transform(X_num)\nX_num_MM = pd.DataFrame(X_num_MM, columns = X_num.columns)\nprint(X_num.head())\nprint(X_num_MM.head())\n\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g  year\n0            39.1           18.7              181.0       3750.0  2007\n1            39.5           17.4              186.0       3800.0  2007\n2            40.3           18.0              195.0       3250.0  2007\n4            36.7           19.3              193.0       3450.0  2007\n5            39.3           20.6              190.0       3650.0  2007\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g  year\n0        0.254545       0.666667           0.152542     0.291667   0.0\n1        0.269091       0.511905           0.237288     0.305556   0.0\n2        0.298182       0.583333           0.389831     0.152778   0.0\n3        0.167273       0.738095           0.355932     0.208333   0.0\n4        0.261818       0.892857           0.305085     0.263889   0.0"
+  },
+  {
+    "objectID": "code/06_decision_trees.html#standard-scalar",
+    "href": "code/06_decision_trees.html#standard-scalar",
+    "title": "SML 301",
+    "section": "Standard Scalar",
+    "text": "Standard Scalar\n\nX_num_std = StandardScaler().fit_transform(X_num)\nX_num_std = pd.DataFrame(X_num_std, columns = X_num.columns)\nprint(X_num.head())\nprint(X_num_std.head())\n\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g  year\n0            39.1           18.7              181.0       3750.0  2007\n1            39.5           17.4              186.0       3800.0  2007\n2            40.3           18.0              195.0       3250.0  2007\n4            36.7           19.3              193.0       3450.0  2007\n5            39.3           20.6              190.0       3650.0  2007\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g      year\n0       -0.896042       0.780732          -1.426752    -0.568475 -1.283742\n1       -0.822788       0.119584          -1.069474    -0.506286 -1.283742\n2       -0.676280       0.424729          -0.426373    -1.190361 -1.283742\n3       -1.335566       1.085877          -0.569284    -0.941606 -1.283742\n4       -0.859415       1.747026          -0.783651    -0.692852 -1.283742"
   }
 ]
