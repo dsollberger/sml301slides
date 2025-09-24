@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -655,14 +655,14 @@
     "href": "posts/07_random_forests/07_random_forests.html",
     "title": "7: Random Forests",
     "section": "",
-    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting"
+    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting\n\n\n\n\n\n\n\n\nrandom forest\n\n\n\nimage credit: Abhishek Jain"
   },
   {
     "objectID": "posts/07_random_forests/07_random_forests.html#learning-objectives",
     "href": "posts/07_random_forests/07_random_forests.html#learning-objectives",
     "title": "7: Random Forests",
     "section": "",
-    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting"
+    "text": "Deploy many decision trees\nExplore ensemble learning:\n\nbagging\nboosting\n\n\n\n\n\n\n\n\nrandom forest\n\n\n\nimage credit: Abhishek Jain"
   },
   {
     "objectID": "posts/07_random_forests/07_random_forests.html#bootstrapping",
@@ -2364,5 +2364,33 @@
     "title": "SML 301",
     "section": "Standard Scalar",
     "text": "Standard Scalar\n\nX_num_std = StandardScaler().fit_transform(X_num)\nX_num_std = pd.DataFrame(X_num_std, columns = X_num.columns)\nprint(X_num.head())\nprint(X_num_std.head())\n\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g  year\n0            39.1           18.7              181.0       3750.0  2007\n1            39.5           17.4              186.0       3800.0  2007\n2            40.3           18.0              195.0       3250.0  2007\n4            36.7           19.3              193.0       3450.0  2007\n5            39.3           20.6              190.0       3650.0  2007\n   bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g      year\n0       -0.896042       0.780732          -1.426752    -0.568475 -1.283742\n1       -0.822788       0.119584          -1.069474    -0.506286 -1.283742\n2       -0.676280       0.424729          -0.426373    -1.190361 -1.283742\n3       -1.335566       1.085877          -0.569284    -0.941606 -1.283742\n4       -0.859415       1.747026          -0.783651    -0.692852 -1.283742"
+  },
+  {
+    "objectID": "posts/07_random_forests/07_random_forests.html#experiment",
+    "href": "posts/07_random_forests/07_random_forests.html#experiment",
+    "title": "7: Random Forests",
+    "section": "Experiment:",
+    "text": "Experiment:\n\\[f(x) = x^{3} - x^{2} - 2x\\]\n\nsample: 100 data points \\((x_{i}, f(x_{i}))\\) in \\([-5, 5]\\)\ntraining set: 70 data points\ntest set: 30 data points\n\n\n\n\ndiscrete approximation\n\n\n\nimage source: Future Learn\n\n\n\n\n\n\n\nOverfitting\n\n\n\nWhen we are improving (by metric) in modeling over the training data and yet are performing worse with the test data, we are probably overfitting the data.\nThat is, the machine learning is memorizing the training data, but is not generalizing well to new data.\n\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "code/07_random_forests.html",
+    "href": "code/07_random_forests.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "bias-variance trade-off\nbagging\nboosting\n\n\n# install packages (if need be)\n#%pip install ISLP\n#%pip install palmerpenguins\n\n\n# load libraries\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport random\nimport sklearn.tree as tree\n\nfrom ISLP import load_data , confusion_table\nfrom matplotlib.pyplot import subplots\nfrom palmerpenguins import load_penguins\nfrom sklearn.ensemble import (RandomForestRegressor as RF,\n                              GradientBoostingRegressor as GBR)\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import (DecisionTreeClassifier as DTC, DecisionTreeRegressor as DTR, plot_tree)\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\n\n# load data\npenguins = load_penguins()\nwage_raw = load_data(\"Wage\")\n\ndef f(x): \n    (x+1)*x*(x-2)"
+  },
+  {
+    "objectID": "code/07_random_forests.html#session-7-random-forests",
+    "href": "code/07_random_forests.html#session-7-random-forests",
+    "title": "SML 301",
+    "section": "",
+    "text": "bias-variance trade-off\nbagging\nboosting\n\n\n# install packages (if need be)\n#%pip install ISLP\n#%pip install palmerpenguins\n\n\n# load libraries\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport pandas as pd\nimport random\nimport sklearn.tree as tree\n\nfrom ISLP import load_data , confusion_table\nfrom matplotlib.pyplot import subplots\nfrom palmerpenguins import load_penguins\nfrom sklearn.ensemble import (RandomForestRegressor as RF,\n                              GradientBoostingRegressor as GBR)\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import (DecisionTreeClassifier as DTC, DecisionTreeRegressor as DTR, plot_tree)\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\n\n# load data\npenguins = load_penguins()\nwage_raw = load_data(\"Wage\")\n\ndef f(x): \n    (x+1)*x*(x-2)"
+  },
+  {
+    "objectID": "code/07_random_forests.html#classification",
+    "href": "code/07_random_forests.html#classification",
+    "title": "SML 301",
+    "section": "Classification",
+    "text": "Classification\n\nresponse variable: health\nexplanatory varibles: all except logwage\n\n\nX = wage_df.drop(['health', 'logwage'], axis = 1)\ny = wage_df['health']\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30, random_state = 301)\n\n\nwage_tree = DTC(criterion='entropy', max_depth = 3, random_state = 301).fit(X_train, y_train)\nax = subplots(figsize=(12,12))[1]\nplot_tree(wage_tree, feature_names = X_train.columns, ax = ax)\nplt.show()"
   }
 ]

@@ -1,0 +1,402 @@
+---
+title: "7: Random Forests"
+author: "Derek Sollberger"
+date: "2025-09-24"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library("palmerpenguins")
+library("tidyverse")
+
+penguins_df <- penguins |>
+  mutate(pid = 1:nrow(penguins), .before = species)
+```
+
+# Session 7: Random Forests
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Deploy many decision trees
+- Explore ensemble learning:
+
+    - bagging
+    - boosting
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![random forest](random_forest.png)
+
+* image credit: [Abhishek Jain](https://medium.com/@abhishekjainindore24/everything-about-random-forest-90c106d63989)
+:::
+
+::::
+
+# Universal Approximation
+
+::: {.callout-tip}
+## Ideal Model
+
+If we can produce a function that truly represents the data, then perfect predictions would come from the function evaluation.
+:::
+
+## Experiment:
+
+$$f(x) = x^{3} - x^{2} - 2x$$
+
+* sample: 100 data points $(x_{i}, f(x_{i}))$ in $[-5, 5]$
+* training set: 70 data points
+* test set: 30 data points
+
+![discrete approximation](step_approx.png)
+
+* image source: [Future Learn](https://www.futurelearn.com/info/courses/an-introduction-to-machine-learning-in-quantitative-finance/0/steps/297285)
+
+::: {.callout-warning}
+## Overfitting
+
+When we are improving (by metric) in modeling over the training data and yet are performing worse with the test data, we are probably **overfitting** the data.
+
+That is, the machine learning is memorizing the training data, but is not generalizing well to new data.
+
+:::
+
+::: {.callout-warning}
+# DCP1
+:::
+
+# Random Forests
+
+::: {.callout-note}
+## Random Forests
+
+In order to mitigate overfitting, we can deploy a **random forest** consisting of many decision trees.
+
+* pruning trees (i.e. limit max depth)
+* subsets of explanatory variables
+:::
+
+
+
+
+
+# Bagging
+
+![bagging](bagging.png)
+
+* image source: [Roshmita Dey](https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1)
+
+## Bootstrapping
+
+**Bootstrapping** is performed by *resampling with replacement* on the data.
+
+```{r}
+#| echo: false
+set.seed(301)
+penguins_resampled <- penguins_df |>
+  sample_frac(1.0, replace = TRUE)
+```
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+head(penguins_df, 10)
+```
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+head(penguins_resampled, 10)
+```
+:::
+
+::::
+
+> **Bagging** is using the notion of **b**ootstrapping to **agg**regate the data.
+
+## Bags
+
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+## In-Bag
+```{r}
+#| echo: false
+print(sort(unique(penguins_resampled$pid)))
+```
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+## Out-of-Bag
+```{r}
+#| echo: false
+out_bag_df <- penguins_df |>
+  anti_join(penguins_resampled, by = "pid")
+print(sort(unique(out_bag_df$pid)))
+```
+:::
+
+::::
+
+* In general, about 1/3 of the data falls into the *out-of-bag* category
+* For each resampling, we can create a decision tree with the *in-bag* sample
+* We can use the out-of-bag data as a testing set
+
+    * **out-of-bag error** (OOB error)
+
+::: {.callout-note}
+## Ensemble Reconstruction
+
+* For classification tasks, after making a random forest (say, 1000 trees), class labels are assigned by the majority of predictions.
+* For regression tasks, we can average the prediction results from the trees
+
+:::
+
+
+
+
+::: {.callout-tip collapse="true"}
+## Variable Importance
+
+Since we have created many trees---each choice order determined by entropy---we can create a list of *variable importance* by reporting which explanatory variables appeared in a higher proportion of trees.  This could aid in variable selection and interpretability.
+
+:::
+
+::: {.callout-warning}
+# DCP2
+
+![word cloud](wordcloud.png)
+:::
+
+# Boosting
+
+![boosting](boosting.png)
+
+* image source: [Roshmita Dey](https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1)
+
+::: {.callout-note}
+## Boosting
+
+For tree models, **boosting** resamples underrepresented data and applies larger weights to aim toward stratified sampling.
+:::
+
+## Stratified Samples
+
+> For **stratified sampling**, subsets maintain proportions of categorical data.
+
+For example, 88 percent of people are right-handed. We assume population proportions
+
+$$p = 0.88, \quad 1 - p = 0.12$$
+
+If we employ a training-testing split, each should also have approximately 12 percent representation for left-handed people.
+
+## Rescaling
+
+> If a sample data set exhibits different proportions, we can perform **inverse probability weighting** to try to correct for bias in the sample.
+
+For example, if our tree model predicts 70 percent right-handed people, then we can apply some weights
+
+* on right-handed: weight = $\frac{0.88}{0.70} \approx 1.2571$
+* on left-handed: weight = $\frac{0.12}{0.30} = 0.4$
+
+# AdaBoost (1996)
+
+::::: {.panel-tabset}
+
+## Intro
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* developed at Bell Labs, NJ
+* presented in 1996
+* strategy for allocation between choices
+* [paper](https://link.springer.com/chapter/10.1007/3-540-59119-2_166)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Freund and Schapire (1996)](AdaBoost_intro.png)
+:::
+
+::::
+
+## Conclusion
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* algorithm in pseudocode
+* uses "Weak Learners"
+* applies to piecewise linear functions (such as decision trees)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Freund and Schapire (1996)](AdaBoost_conclusion.png)
+:::
+
+::::
+
+## Methods
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* each "weak learner" is, later, a "stump" (a decision tree of depth one)
+* errors from each stump is used in the calculation for the weight of the next stump
+* one variable at a time
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Freund and Schapire (1996)](AdaBoost_methods.png)
+:::
+
+::::
+
+## Results
+
+:::: {.columns}
+
+::: {.column width="45%"}
+Not only does this process small errors after the creation of many trees (on the training data), the theorems allow us to estimate the *generalization error* (on the test data)
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Freund and Schapire (1996)](AdaBoost_results.png)
+:::
+
+::::
+
+:::::
+
+# Ethics Enclave: QA
+
+![data quality assurance](data-quality-assurance.png)
+
+* image source: [6sigma](https://www.6sigma.us/six-sigma-in-focus/data-quality-assurance/)
+
+::: {.callout-warning}
+# DCP3
+
+:::
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday:
+
+    - Precept 4
+    - Literature Report
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+Midsemester Project
+
+* due Oct 3:
+
+  * Precept 5
+  
+* due Oct 10:
+
+  * report
+  * poster
+  * video
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [Bagging vs Boosting](https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1) by Roshmita Dey
+* [XGBoost](https://xgboost.readthedocs.io/en/stable/tutorials/model.html)
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Derek Sollberger">
-<meta name="dcterms.date" content="2025-02-17">
+<meta name="dcterms.date" content="2025-09-24">
 
 <title>7: Random Forests – SML 301 Slides</title>
 <style>
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,28 +176,23 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
   </ul></li>
+  <li><a href="#universal-approximation" id="toc-universal-approximation" class="nav-link" data-scroll-target="#universal-approximation">Universal Approximation</a>
+  <ul class="collapse">
+  <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment:</a></li>
+  </ul></li>
+  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests">Random Forests</a></li>
   <li><a href="#bagging" id="toc-bagging" class="nav-link" data-scroll-target="#bagging">Bagging</a>
   <ul class="collapse">
   <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link" data-scroll-target="#bootstrapping">Bootstrapping</a></li>
   <li><a href="#bags" id="toc-bags" class="nav-link" data-scroll-target="#bags">Bags</a></li>
-  <li><a href="#classfication-tasks" id="toc-classfication-tasks" class="nav-link" data-scroll-target="#classfication-tasks">Classfication Tasks</a></li>
-  </ul></li>
-  <li><a href="#activity-literature-methods" id="toc-activity-literature-methods" class="nav-link" data-scroll-target="#activity-literature-methods">Activity: Literature Methods</a>
-  <ul class="collapse">
-  <li><a href="#adaboost" id="toc-adaboost" class="nav-link" data-scroll-target="#adaboost">Adaboost</a></li>
-  <li><a href="#alexnet" id="toc-alexnet" class="nav-link" data-scroll-target="#alexnet">AlexNet</a></li>
-  <li><a href="#dropout" id="toc-dropout" class="nav-link" data-scroll-target="#dropout">DropOut</a></li>
-  <li><a href="#gans" id="toc-gans" class="nav-link" data-scroll-target="#gans">GANs</a></li>
-  <li><a href="#tensorflow" id="toc-tensorflow" class="nav-link" data-scroll-target="#tensorflow">TensorFlow</a></li>
-  <li><a href="#word2vec" id="toc-word2vec" class="nav-link" data-scroll-target="#word2vec">Word2Vec</a></li>
   </ul></li>
   <li><a href="#boosting" id="toc-boosting" class="nav-link" data-scroll-target="#boosting">Boosting</a>
   <ul class="collapse">
   <li><a href="#stratified-samples" id="toc-stratified-samples" class="nav-link" data-scroll-target="#stratified-samples">Stratified Samples</a></li>
   <li><a href="#rescaling" id="toc-rescaling" class="nav-link" data-scroll-target="#rescaling">Rescaling</a></li>
-  <li><a href="#boosting-1" id="toc-boosting-1" class="nav-link" data-scroll-target="#boosting-1">Boosting</a></li>
   </ul></li>
-  <li><a href="#comparing-methods" id="toc-comparing-methods" class="nav-link" data-scroll-target="#comparing-methods">Comparing Methods</a></li>
+  <li><a href="#adaboost-1996" id="toc-adaboost-1996" class="nav-link" data-scroll-target="#adaboost-1996">AdaBoost (1996)</a></li>
+  <li><a href="#ethics-enclave-qa" id="toc-ethics-enclave-qa" class="nav-link" data-scroll-target="#ethics-enclave-qa">Ethics Enclave: QA</a></li>
   <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
   <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
   </ul>
@@ -225,7 +220,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 17, 2025</p>
+      <p class="date">September 24, 2025</p>
     </div>
   </div>
   
@@ -254,13 +249,111 @@ window.Quarto = {
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="random_forest.png" class="img-fluid figure-img"></p>
+<figcaption>random forest</figcaption>
+</figure>
+</div>
+<ul>
+<li>image credit: <a href="https://medium.com/@abhishekjainindore24/everything-about-random-forest-90c106d63989">Abhishek Jain</a></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="universal-approximation" class="level1">
+<h1>Universal Approximation</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ideal Model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we can produce a function that truly represents the data, then perfect predictions would come from the function evaluation.</p>
+</div>
+</div>
+<section id="experiment" class="level2">
+<h2 class="anchored" data-anchor-id="experiment">Experiment:</h2>
+<p><span class="math display">\[f(x) = x^{3} - x^{2} - 2x\]</span></p>
+<ul>
+<li>sample: 100 data points <span class="math inline">\((x_{i}, f(x_{i}))\)</span> in <span class="math inline">\([-5, 5]\)</span></li>
+<li>training set: 70 data points</li>
+<li>test set: 30 data points</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="step_approx.png" class="img-fluid figure-img"></p>
+<figcaption>discrete approximation</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.futurelearn.com/info/courses/an-introduction-to-machine-learning-in-quantitative-finance/0/steps/297285">Future Learn</a></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Overfitting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When we are improving (by metric) in modeling over the training data and yet are performing worse with the test data, we are probably <strong>overfitting</strong> the data.</p>
+<p>That is, the machine learning is memorizing the training data, but is not generalizing well to new data.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 
 </div>
 </div>
 </section>
 </section>
+<section id="random-forests" class="level1">
+<h1>Random Forests</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Random Forests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to mitigate overfitting, we can deploy a <strong>random forest</strong> consisting of many decision trees.</p>
+<ul>
+<li>pruning trees (i.e.&nbsp;limit max depth)</li>
+<li>subsets of explanatory variables</li>
+</ul>
+</div>
+</div>
+</section>
 <section id="bagging" class="level1">
 <h1>Bagging</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bagging.png" class="img-fluid figure-img"></p>
+<figcaption>bagging</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1">Roshmita Dey</a></li>
+</ul>
 <section id="bootstrapping" class="level2">
 <h2 class="anchored" data-anchor-id="bootstrapping">Bootstrapping</h2>
 <p><strong>Bootstrapping</strong> is performed by <em>resampling with replacement</em> on the data.</p>
@@ -363,11 +456,24 @@ window.Quarto = {
 <li><strong>out-of-bag error</strong> (OOB error)</li>
 </ul></li>
 </ul>
-<section id="classfication-tasks" class="level2">
-<h2 class="anchored" data-anchor-id="classfication-tasks">Classfication Tasks</h2>
-<p>For classification tasks, after making a random forest (say, 1000 trees), class labels are assigned by the majority of predictions.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ensemble Reconstruction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>For classification tasks, after making a random forest (say, 1000 trees), class labels are assigned by the majority of predictions.</li>
+<li>For regression tasks, we can average the prediction results from the trees</li>
+</ul>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -376,56 +482,55 @@ Variable Importance
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Since we have created many trees—each choice order determined by entropy—we can create a list of <em>variable importance</em> by reporting which explanatory variables appeared in a higher proportion of trees. This could aid in variable selection and interpretability.</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="activity-literature-methods" class="level1">
-<h1>Activity: Literature Methods</h1>
-<p>We will look at the concluding paragraphs for some of the most influential papers in the history of machine learning:</p>
-<section id="adaboost" class="level2">
-<h2 class="anchored" data-anchor-id="adaboost">Adaboost</h2>
-<ul>
-<li>A Decision-Theoretic Generalization of on-Line Learning and an Application to Boosting (1997—published as abstract in 1995), Freund and Schapire</li>
-</ul>
-</section>
-<section id="alexnet" class="level2">
-<h2 class="anchored" data-anchor-id="alexnet">AlexNet</h2>
-<ul>
-<li>ImageNet Classification with Deep Convolutional Neural Networks (2012)</li>
-</ul>
-</section>
-<section id="dropout" class="level2">
-<h2 class="anchored" data-anchor-id="dropout">DropOut</h2>
-<ul>
-<li>Dropout: A Simple Way to Prevent Neural Networks from Overfitting (2014), Srivastava, Hinton, Krizhevsky, Sutskever, and Salakhutdinov</li>
-</ul>
-</section>
-<section id="gans" class="level2">
-<h2 class="anchored" data-anchor-id="gans">GANs</h2>
-<ul>
-<li>General Adversarial Nets (2014), Goodfellow et al.</li>
-</ul>
-</section>
-<section id="tensorflow" class="level2">
-<h2 class="anchored" data-anchor-id="tensorflow">TensorFlow</h2>
-<ul>
-<li>TensorFlow: A system for large-scale machine learning (2016), Abadi et al.</li>
-</ul>
-</section>
-<section id="word2vec" class="level2">
-<h2 class="anchored" data-anchor-id="word2vec">Word2Vec</h2>
-<ul>
-<li>Efficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean</li>
-</ul>
-</section>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="wordcloud.png" class="img-fluid figure-img"></p>
+<figcaption>word cloud</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="boosting" class="level1">
 <h1>Boosting</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="boosting.png" class="img-fluid figure-img"></p>
+<figcaption>boosting</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1">Roshmita Dey</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Boosting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For tree models, <strong>boosting</strong> resamples underrepresented data and applies larger weights to aim toward stratified sampling.</p>
+</div>
+</div>
 <section id="stratified-samples" class="level2">
 <h2 class="anchored" data-anchor-id="stratified-samples">Stratified Samples</h2>
 <blockquote class="blockquote">
@@ -446,29 +551,123 @@ Variable Importance
 <li>on left-handed: weight = <span class="math inline">\(\frac{0.12}{0.30} = 0.4\)</span></li>
 </ul>
 </section>
-<section id="boosting-1" class="level2">
-<h2 class="anchored" data-anchor-id="boosting-1">Boosting</h2>
-<p>For tree models, <strong>boosting</strong> resamples underrepresented data and applies larger weights to aim toward stratified sampling.</p>
 </section>
-</section>
-<section id="comparing-methods" class="level1">
-<h1>Comparing Methods</h1>
+<section id="adaboost-1996" class="level1">
+<h1>AdaBoost (1996)</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Intro</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Conclusion</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Results</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>developed at Bell Labs, NJ</li>
+<li>presented in 1996</li>
+<li>strategy for allocation between choices</li>
+<li><a href="https://link.springer.com/chapter/10.1007/3-540-59119-2_166">paper</a></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="bagging_boosting.png" class="img-fluid figure-img"></p>
-<figcaption>bagging vs boosting</figcaption>
+<p><img src="AdaBoost_intro.png" class="img-fluid figure-img"></p>
+<figcaption>Freund and Schapire (1996)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>algorithm in pseudocode</li>
+<li>uses “Weak Learners”</li>
+<li>applies to piecewise linear functions (such as decision trees)</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AdaBoost_conclusion.png" class="img-fluid figure-img"></p>
+<figcaption>Freund and Schapire (1996)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>each “weak learner” is, later, a “stump” (a decision tree of depth one)</li>
+<li>errors from each stump is used in the calculation for the weight of the next stump</li>
+<li>one variable at a time</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AdaBoost_methods.png" class="img-fluid figure-img"></p>
+<figcaption>Freund and Schapire (1996)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Not only does this process small errors after the creation of many trees (on the training data), the theorems allow us to estimate the <em>generalization error</em> (on the test data)</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AdaBoost_results.png" class="img-fluid figure-img"></p>
+<figcaption>Freund and Schapire (1996)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ethics-enclave-qa" class="level1">
+<h1>Ethics Enclave: QA</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data-quality-assurance.png" class="img-fluid figure-img"></p>
+<figcaption>data quality assurance</figcaption>
 </figure>
 </div>
 <ul>
-<li>image credit: Roshmita Dey</li>
+<li>image source: <a href="https://www.6sigma.us/six-sigma-in-focus/data-quality-assurance/">6sigma</a></li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 </section>
 <section id="quo-vadimus" class="level1">
 <h1>Quo Vadimus?</h1>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li><p>due this Friday (5 PM):</p>
+<li><p>due this Friday:</p>
 <ul>
 <li>Precept 4</li>
 <li>Literature Report</li>
@@ -477,14 +676,26 @@ Variable Importance
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:50%;">
-
+<p>Midsemester Project</p>
+<ul>
+<li><p>due Oct 3:</p>
+<ul>
+<li>Precept 5</li>
+</ul></li>
+<li><p>due Oct 10:</p>
+<ul>
+<li>report</li>
+<li>poster</li>
+<li>video</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </section>
 <section id="footnotes" class="level1">
 <h1>Footnotes</h1>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -493,16 +704,17 @@ Variable Importance
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><a href="https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1">Bagging vs Boosting</a> by Roshmita Dey</li>
+<li><a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html">XGBoost</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -511,17 +723,17 @@ Session Info
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
 Platform: x86_64-w64-mingw32/x64
 Running under: Windows 10 x64 (build 19045)
 
 Matrix products: default
-
+  LAPACK version 3.12.1
 
 locale:
 [1] LC_COLLATE=English_United States.utf8 
@@ -537,21 +749,21 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] lubridate_1.9.3      forcats_1.0.0        stringr_1.5.1       
- [4] dplyr_1.1.4          purrr_1.0.4          readr_2.1.5         
- [7] tidyr_1.3.1          tibble_3.2.1         ggplot2_3.5.1       
+ [1] lubridate_1.9.4      forcats_1.0.0        stringr_1.5.1       
+ [4] dplyr_1.1.4          purrr_1.1.0          readr_2.1.5         
+ [7] tidyr_1.3.1          tibble_3.3.0         ggplot2_4.0.0       
 [10] tidyverse_2.0.0      palmerpenguins_0.1.1
 
 loaded via a namespace (and not attached):
- [1] gtable_0.3.6      jsonlite_1.8.9    compiler_4.4.2    tidyselect_1.2.1 
- [5] scales_1.3.0      yaml_2.3.10       fastmap_1.2.0     R6_2.5.1         
- [9] generics_0.1.3    knitr_1.49        htmlwidgets_1.6.4 munsell_0.5.1    
-[13] pillar_1.10.1     tzdb_0.4.0        rlang_1.1.5       utf8_1.2.4       
-[17] stringi_1.8.4     xfun_0.50         timechange_0.3.0  cli_3.6.3        
-[21] withr_3.0.2       magrittr_2.0.3    digest_0.6.37     grid_4.4.2       
-[25] rstudioapi_0.17.1 hms_1.1.3         lifecycle_1.0.4   vctrs_0.6.5      
-[29] evaluate_1.0.3    glue_1.8.0        colorspace_2.1-1  rmarkdown_2.29   
-[33] tools_4.4.2       pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
+ [1] gtable_0.3.6       jsonlite_2.0.0     compiler_4.5.1     tidyselect_1.2.1  
+ [5] scales_1.4.0       yaml_2.3.10        fastmap_1.2.0      R6_2.6.1          
+ [9] generics_0.1.4     knitr_1.50         htmlwidgets_1.6.4  pillar_1.11.0     
+[13] RColorBrewer_1.1-3 tzdb_0.5.0         rlang_1.1.6        utf8_1.2.6        
+[17] stringi_1.8.7      xfun_0.52          S7_0.2.0           timechange_0.3.0  
+[21] cli_3.6.5          withr_3.0.2        magrittr_2.0.3     digest_0.6.37     
+[25] grid_4.5.1         rstudioapi_0.17.1  hms_1.1.3          lifecycle_1.0.4   
+[29] vctrs_0.6.5        evaluate_1.0.4     glue_1.8.0         farver_2.1.2      
+[33] rmarkdown_2.29     tools_4.5.1        pkgconfig_2.0.3    htmltools_0.5.8.1 </code></pre>
 </div>
 </div>
 </div>
@@ -659,8 +871,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -771,7 +981,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
