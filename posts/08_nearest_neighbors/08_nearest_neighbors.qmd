@@ -1,0 +1,317 @@
+---
+title: "8: Nearest Neighbors"
+author: "Derek Sollberger"
+date: "2025-09-29"
+format:
+  html:
+    toc: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# library("palmerpenguins")
+# library("tidyverse")
+
+
+```
+
+# Session 8: Nearest Neighbors
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- (unsupervised) clustering
+- (supervised) KNN
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![clustering](Clustering_Data.png)
+
+* image source: [Grammarly](https://www.grammarly.com/blog/ai/what-is-clustering/)
+:::
+
+::::
+
+# Clustering
+
+::: {.callout-note}
+# Clustering
+
+**Clustering** is a technique in *unsupervised learning* that seeks to find structure in unlabeled data.
+
+:::
+
+![clustering](Clustering_Data.png)
+
+* image source: [Grammarly](https://www.grammarly.com/blog/ai/what-is-clustering/)
+
+## Centers
+
+![clustering centers](clustering_centers.png)
+
+* image source: [Paul van der Laken](https://paulvanderlaken.com/2018/12/12/visualizing-the-inner-workings-of-the-k-means-clustering-algorithm/)
+
+## Metric
+
+![within sum of squares](WSS.png)
+
+* image source: [Manik Soni](https://medium.com/swlh/how-to-choose-the-right-number-of-clusters-in-the-k-means-algorithm-9160c57ec760)
+
+::: {.callout-note}
+## SSE Ratio
+
+Ideally, the "best" clustering arrangement yields a "small" sum-of-squared errors ratio:
+
+$$\text{SSE Ratio} = \frac{\text{total within sum of squares}}{\text{overall sum of squares}}$$
+* but the number of clusters itself should be "small" to aid *interpretability*
+
+:::
+
+::: {.callout-warning}
+## How do we find the optimal clustering?
+:::
+
+## Lloyd's Algorithm
+
+1. pick centers, determine clusters
+2. use cluster means as new centers
+3. (repeat until no change in membership)
+
+![Lloyd's Algorithm](LloydsMethod.png)
+
+* image source: [Wikipedia](https://en.wikipedia.org/wiki/Lloyd%27s_algorithm)
+
+::: {.callout-warning}
+## speed versus complexity tradeoff
+
+:::
+
+::: {.callout-warning}
+# DCP1
+:::
+
+# Parameter Selection
+
+How do we choose an optimal amount of clusters?
+
+## Scree Plot
+
+![elbow method](clustering_elbow_method.png)
+
+* image source: [Sophie Su](https://sophiesu.net/ch3-1-clustering-machine-learning-with-tensorflow-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/)
+
+::: {.callout-tip}
+## Scree plots are also used with PCA
+
+:::
+
+## Silhouette Analysis
+
+![silhouette analysis](sihouette_analysis.png)
+
+* image source: [Mukesh Chaudhary](https://medium.com/@cmukesh8688/silhouette-analysis-in-k-means-clustering-cefa9a7ad111)
+
+# Modern Approaches
+
+::::: {.panel-tabset}
+
+## batches
+
+To handle big data jobs, we deploy **batch processing** in the data engineering.
+
+![batch processing](batch_processing.png)
+
+* image source: [Ayar Labs](https://ayarlabs.com/glossary/batch-inference/)
+
+## DBSCAN
+
+"[Density-Based Spatial Clustering of Applications with Noise](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html). Finds core samples of high density and expands clusters from them. Good for data which contains clusters of similar density."
+
+![DBSCAN](DBSCAN_example.png)
+
+* image source: [Chris Wernst](https://github.com/chriswernst/dbscan-python)
+
+## hierarchical
+
+![hierarchical data](spotify-hierarchical-data-diagram.png)
+
+* image source: [Bayes Rules!](https://www.bayesrulesbook.com/chapter-16)
+
+:::::
+
+::: {.callout-warning}
+# DCP2
+:::
+
+# KNN
+
+## Nearest Neighbors
+
+![KNN example](KNN_example.png)
+
+* image source: [JC Chouinard](https://www.jcchouinard.com/k-nearest-neighbors/dist)
+
+* credited to Evelyn Fix and Joseph L Hodges
+
+## Distances
+
+Mathematically, a **natural norm** satisfies the following conditions between any two points
+
+1. reflexive: $d(x,y) \geq 0$
+2. symmetric: $d(x,y) = d(y,x)$
+3. triangle inequality:
+
+$$d(x,y) \leq d(x,z) + d(z,y)$$
+
+![types of distances](distances_variety.png)
+
+* image source: [eforebrahim](https://www.reddit.com/r/learnmachinelearning/comments/v13zuw/different_types_of_distances_used_in_ml/)
+
+::: {.callout-note}
+# Minkowski Norm
+
+The nearest neighbors algorithms in scikit-learn by default use the Minkowski norm with $p=2$ (i.e. Euclidean norm).
+
+$$d(x,y) = \left[\sum_{i=1}^{n} (x_{i} - y_{i})^{p}\right]^{1/p}$$
+
+* $p=1$: Manhattan norm (think: grid of city streets)
+
+$$d(x,y) = \sum_{i=1}^{n} |x_{i} - y_{i}|$$
+
+* $p=2$: Euclidean norm (from elementary geometry)
+
+$$d(x,y) = \sqrt{\sum_{i=1}^{n} (x_{i} - y_{i})^{2}}$$
+
+* $p \rightarrow \infty$: Chebychev norm
+
+$$d(x,y) = \text{max}_{i} |x_{i} - y_{i}|$$
+
+:::
+
+::: {.callout-warning}
+# DCP3
+:::
+
+
+# KNN Imputation
+
+Rather than using summary statistics (e.g. mean or median) across the entire data sample, ML analysts recommend using KNN to impute some missing values.
+
+![KNN imputation](KNN_imputation.png)
+
+* image source: [Adrienne Kline](https://towardsdatascience.com/implementation-and-limitations-of-imputation-methods-b6576bf31a6c/)
+
+
+# Curse of Dimensionality
+
+::: {.callout-warning}
+## Curse of Dimensionality
+
+Distance-based algorithms tend to lose usefulness with high-dimensional data due to the **curse of dimensionality**
+
+* coined by Richard Bellman
+:::
+
+![curse of dimensionality](KNN_curse_of_dimensionality.png)
+
+* image source: [Gokcenaz Akyol](https://medium.com/@gokcenazakyol/what-is-curse-of-dimensionality-machine-learning-2-739131962faf)
+
+::: {.callout-tip}
+## On Dimensionality
+
+To perhaps counter the curse of dimensionality
+
+* dimension reduction (e.g. PCA, LDA)
+* regularization (e.g. Ridge, LASSO)
+* parsimony (i.e. using fewer neighbors)
+:::
+
+# Approximate KNN
+
+Approximate KNN partitions the vector space so that searches takes place only over smaller batches.
+
+![approximate KNN](KNN_ANN.png)
+
+* image source: [Jeremy Jordan](https://www.jeremyjordan.me/scaling-nearest-neighbors-search-with-approximate-methods/)
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday:
+
+    - Precept 5
+    - CuriosityMid (survey)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+Midsemester Project
+
+* due Oct 10:
+
+  * report
+  * poster
+  * video
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [clustering with scikit-learn](https://programminghistorian.org/en/lessons/clustering-with-scikit-learn-in-python) by the Programming Historian
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
