@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/13_recurrence/13_recurrence.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",
       "/posts/08_nearest_neighbors/08_nearest_neighbors.html",
       "/posts/07_random_forests/07_random_forests.html",
@@ -16,6 +17,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/13_recurrence/13_recurrence.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",
       "/posts/08_nearest_neighbors/08_nearest_neighbors.html",
       "/posts/07_random_forests/07_random_forests.html",

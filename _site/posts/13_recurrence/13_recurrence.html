@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2025-10-22">
+
+<title>13: Recurrence – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#session-13-recurrence" id="toc-session-13-recurrence" class="nav-link active" data-scroll-target="#session-13-recurrence">Session 13: Recurrence</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  </ul></li>
+  <li><a href="#more-neural-network-concepts" id="toc-more-neural-network-concepts" class="nav-link" data-scroll-target="#more-neural-network-concepts">More Neural Network Concepts</a>
+  <ul class="collapse">
+  <li><a href="#cross-entropy" id="toc-cross-entropy" class="nav-link" data-scroll-target="#cross-entropy">Cross Entropy</a></li>
+  <li><a href="#math-example" id="toc-math-example" class="nav-link" data-scroll-target="#math-example">Math Example</a></li>
+  <li><a href="#hidden-layer" id="toc-hidden-layer" class="nav-link" data-scroll-target="#hidden-layer">Hidden Layer</a></li>
+  <li><a href="#hidden-layer-size" id="toc-hidden-layer-size" class="nav-link" data-scroll-target="#hidden-layer-size">Hidden Layer Size</a></li>
+  </ul></li>
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning">Deep Learning</a></li>
+  <li><a href="#recurrent-neural-networks" id="toc-recurrent-neural-networks" class="nav-link" data-scroll-target="#recurrent-neural-networks">Recurrent Neural Networks</a>
+  <ul class="collapse">
+  <li><a href="#example-crosswalk" id="toc-example-crosswalk" class="nav-link" data-scroll-target="#example-crosswalk">Example: Crosswalk</a></li>
+  <li><a href="#unfolding" id="toc-unfolding" class="nav-link" data-scroll-target="#unfolding">Unfolding</a>
+  <ul class="collapse">
+  <li><a href="#warning" id="toc-warning" class="nav-link" data-scroll-target="#warning">Warning</a></li>
+  <li><a href="#lights" id="toc-lights" class="nav-link" data-scroll-target="#lights">lights</a></li>
+  <li><a href="#activated" id="toc-activated" class="nav-link" data-scroll-target="#activated">activated</a></li>
+  <li><a href="#vehicles" id="toc-vehicles" class="nav-link" data-scroll-target="#vehicles">Vehicles</a></li>
+  <li><a href="#may" id="toc-may" class="nav-link" data-scroll-target="#may">may</a></li>
+  <li><a href="#not" id="toc-not" class="nav-link" data-scroll-target="#not">not</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#vanishing-gradients" id="toc-vanishing-gradients" class="nav-link" data-scroll-target="#vanishing-gradients">Vanishing Gradients</a>
+  <ul class="collapse">
+  <li><a href="#chain-rule" id="toc-chain-rule" class="nav-link" data-scroll-target="#chain-rule">Chain Rule</a></li>
+  <li><a href="#gradient-propagation" id="toc-gradient-propagation" class="nav-link" data-scroll-target="#gradient-propagation">Gradient Propagation</a></li>
+  </ul></li>
+  <li><a href="#preview-word-prediction" id="toc-preview-word-prediction" class="nav-link" data-scroll-target="#preview-word-prediction">Preview: Word Prediction</a></li>
+  <li><a href="#main-example-first-names" id="toc-main-example-first-names" class="nav-link" data-scroll-target="#main-example-first-names">Main Example: First Names</a></li>
+  <li><a href="#ai-frameworks" id="toc-ai-frameworks" class="nav-link" data-scroll-target="#ai-frameworks">AI Frameworks</a></li>
+  <li><a href="#lstms" id="toc-lstms" class="nav-link" data-scroll-target="#lstms">LSTMs</a></li>
+  <li><a href="#grus" id="toc-grus" class="nav-link" data-scroll-target="#grus">GRUs</a></li>
+  <li><a href="#data-ethics-traveler-biomarkers" id="toc-data-ethics-traveler-biomarkers" class="nav-link" data-scroll-target="#data-ethics-traveler-biomarkers">Data Ethics: Traveler Biomarkers</a></li>
+  <li><a href="#semester-projects" id="toc-semester-projects" class="nav-link" data-scroll-target="#semester-projects">Semester Projects</a></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">13: Recurrence</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="session-13-recurrence" class="level1">
+<h1>Session 13: Recurrence</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>RNN</li>
+<li>LSTM</li>
+<li>GRU</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="crosswalk.png" class="img-fluid figure-img"></p>
+<figcaption>Washington Ave crosswalk</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="more-neural-network-concepts" class="level1">
+<h1>More Neural Network Concepts</h1>
+<section id="cross-entropy" class="level2">
+<h2 class="anchored" data-anchor-id="cross-entropy">Cross Entropy</h2>
+<p>Recall, a step size in back propagation is</p>
+<p><span class="math display">\[\text{step size} = \text{derivative} \cdot \text{learning rate}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross Entropy Loss
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When classifying among <span class="math inline">\(C\)</span> classes, for an array of predictions (after computing a softmax) <span class="math inline">\(\vec{s}\)</span> and its associated vector of true observations <span class="math inline">\(\vec{y}\)</span>, the <strong>cross entropy loss</strong> is calculated as</p>
+<p><span class="math display">\[L(\vec{s}, \vec{y}) = -\sum_{i=1}^{C} y_{i}\log s_{i}\]</span></p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cross_entropy_graph.png" class="img-fluid figure-img"></p>
+<figcaption>cross entropy loss</figcaption>
+</figure>
+</div>
+<ul>
+<li>logarithm of softmax</li>
+<li>larger derivative values for larger misclassification values</li>
+<li>larger step sizes for larger misclassification values</li>
+<li>image source: <a href="https://ml-cheatsheet.readthedocs.io/en/latest/index.html">Machine Learning Glossary</a></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cross Entropy Inference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As a logarithm (a monotonic transformation) of softmax and similar to the sum-of-squared residuals (SSR), we are likewise seeking lower values of errors.</p>
+<ul>
+<li>smaller cross entropy <span class="math inline">\(\rightarrow\)</span> better network</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="math-example" class="level2">
+<h2 class="anchored" data-anchor-id="math-example">Math Example</h2>
+<p>We start with a sequence of natural numbers</p>
+<p><span class="math display">\[\{8, 9, 10, ..., 100\}\]</span> and we will use a neural network to try to classify the numbers as prime numbers or composite numbers. In this simple example, the inputs are indicator variables</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>div2</code>: number is divisible by 2</li>
+<li><code>div3</code>: number is divisible by 3</li>
+<li><code>div5</code>: number is divisible by 5</li>
+<li><code>div7</code>: number is divisible by 7<br>
+</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>and our network looks like</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+input_1[div2]
+input_2[div3]
+input_3[div5]
+input_4[div7]
+output_1[composite]
+output_2[prime]
+
+input_1 --&gt; output_1
+input_1 --&gt; output_2
+input_2 --&gt; output_1
+input_2 --&gt; output_2
+input_3 --&gt; output_1
+input_3 --&gt; output_2
+input_4 --&gt; output_1
+input_4 --&gt; output_2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>What do you think will happen to the <em>weights</em> and bias values upon training the network?</p>
+</blockquote>
+<p>After running the code for 100 epochs, the network calculations so far look like</p>
+<p><span class="math display">\[Wx + b\]</span></p>
+<p><span class="math display">\[\left[\begin{array}{rrrr}
+  0.92 &amp; 0.34 &amp; 0.79 &amp; 0.68 \\
+  -0.40 &amp; -0.45 &amp; 0.80 &amp; -0.36 \\
+\end{array}\right]
+\left[\begin{array}{c}
+  x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \\
+\end{array}\right]
++
+\left[\begin{array}{c}
+  0.92 \\ 0.42 \\
+\end{array}\right]\]</span></p>
+</section>
+<section id="hidden-layer" class="level2">
+<h2 class="anchored" data-anchor-id="hidden-layer">Hidden Layer</h2>
+<p>To try to capture abstract notions with a neural network, we can employ a <strong>hidden layer</strong> between the input and output layers.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Python code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NN1H(pl.LightningModule):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Neural Network object</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># assumes one hidden layer (and default learning rate: 0.01)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># inheirited class from LightningModule (for faster computations)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_layer_size, hidden_layer_size,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 output_layer_size, learning_rate <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.input_layer_size <span class="op">=</span> input_layer_size <span class="co">#input layer size (number of explanatory variables)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.hidden_layer_size <span class="op">=</span> hidden_layer_size</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate <span class="cf">if</span> learning_rate <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> <span class="fl">0.01</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.output_layer_size <span class="op">=</span> output_layer_size <span class="co">#output layer size: 3 (number of penguin species)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(input_layer_size, hidden_layer_size)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(hidden_layer_size, output_layer_size)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs <span class="op">=</span> []</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> F.relu(<span class="va">self</span>.fc1(x))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.fc2(x)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> training_step(<span class="va">self</span>, batch, batch_idx): <span class="co"># what happen in each train step</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> batch</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>(x)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> F.cross_entropy(output, y)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># self.log('train_loss', loss, on_epoch=True) # use this for logging (e.g. using TensorBoard)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'loss'</span>:loss}</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_step(<span class="va">self</span>, batch, batch_idx): <span class="co"># what happen in each test step</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> batch</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>(x)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> F.cross_entropy(output, y)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs.append(loss)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'loss'</span>:loss}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> on_test_epoch_end(<span class="va">self</span>):</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        epoch_average <span class="op">=</span> torch.stack(<span class="va">self</span>.test_step_outputs).mean()</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.log(<span class="st">"test_epoch_average"</span>, epoch_average)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs.clear()  <span class="co"># free memory</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> configure_optimizers(<span class="va">self</span>):</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        optimizer <span class="op">=</span> torch.optim.SGD(<span class="va">self</span>.parameters(), lr <span class="op">=</span> lr)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> optimizer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Once again, let us deploy the <code>palmerpenguins</code>:</p>
+<ul>
+<li><span class="math inline">\(x_{1}\)</span>: bill length (mm)</li>
+<li><span class="math inline">\(x_{2}\)</span>: bill depth (mm)</li>
+<li><span class="math inline">\(x_{3}\)</span>: flipper length (mm)</li>
+<li><span class="math inline">\(x_{4}\)</span>: body mass (g)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_2_3.png" class="img-fluid figure-img"></p>
+<figcaption>neural network</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\text{min-max normalization} \rightarrow Wx + b \rightarrow \text{ReLU} \rightarrow Wx + b \rightarrow \text{cross entropy}\]</span></p>
+<p>After 100 epochs, our weights and bias values are</p>
+<p><span class="math display">\[\begin{array}{c}
+\text{min-max normalization} \\
+\downarrow \\
+\left[\begin{array}{rrrr}
+  0.04 &amp; -1.19 &amp; 0.96 &amp; 0.91 \\
+  -1.59 &amp; 0.65 &amp; 0.02 &amp; 0.16 \\
+\end{array}\right]
+\left[\begin{array}{c}
+  x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \\
+\end{array}\right]
++
+\left[\begin{array}{r}
+  0.55 \\ 0.62 \\
+\end{array}\right] \\
+\downarrow \\
+\text{ReLU} \\
+\downarrow \\
+\left[\begin{array}{rr}
+  -1.00 &amp; 1.17 \\
+  -1.07 &amp; -1.21 \\
+  1.08 &amp; -0.74 \\
+\end{array}\right]
+\left[\begin{array}{c}
+  x_{1} \\ x_{2} \\
+\end{array}\right]
++
+\left[\begin{array}{r}
+  -0.29 \\ 1.28 \\ -1.38 \\
+\end{array}\right] \\
+\downarrow \\
+\text{cross entropy}
+\end{array}\]</span></p>
+</section>
+<section id="hidden-layer-size" class="level2">
+<h2 class="anchored" data-anchor-id="hidden-layer-size">Hidden Layer Size</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How do we decide on a hidden layer size?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Industry professionals and writers suggest powers of two:</p>
+<p><span class="math display">\[d_{\text{model}} = 2, 4, 8, 16, ...\]</span></p>
+<p>and choose a model with a low cross-entropy result (i.e.&nbsp;when increasing the hidden layer size barely reduces the cross-entropy amount).</p>
+<ul>
+<li>MNIST paper: <span class="math inline">\(d_{\text{model}} = 16\)</span></li>
+<li>Attention paper: <span class="math inline">\(d_{\text{model}} = 1024\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">16</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_2_3.png" class="img-fluid figure-img"></p>
+<figcaption>h = 2</figcaption>
+</figure>
+</div>
+<ul>
+<li>cross-entropy: 0.0800</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_4_3.png" class="img-fluid figure-img"></p>
+<figcaption>h = 4</figcaption>
+</figure>
+</div>
+<ul>
+<li>cross-entropy: 0.0509</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_8_3.png" class="img-fluid figure-img"></p>
+<figcaption>h = 8</figcaption>
+</figure>
+</div>
+<ul>
+<li>cross-entropy: 0.0599</li>
+</ul>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_16_3.png" class="img-fluid figure-img"></p>
+<figcaption>h = 16</figcaption>
+</figure>
+</div>
+<ul>
+<li>cross-entropy: 0.0280</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="deep-learning" class="level1">
+<h1>Deep Learning</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Deep Learning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In our studies of artificial learning, <strong>deep learning</strong> is using multiple hidden layers.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Python Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NN2H(pl.LightningModule):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Neural Network object</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># assumes two hidden layers (and default learning rate: 0.01)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># inheirited class from LightningModule (for faster computations)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_layer_size, h1, h2,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                 output_layer_size, learning_rate <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.input_layer_size <span class="op">=</span> input_layer_size <span class="co">#input layer size (number of explanatory variables)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.h1 <span class="op">=</span> h1</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.h2 <span class="op">=</span> h2</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate <span class="cf">if</span> learning_rate <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> <span class="fl">0.01</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.output_layer_size <span class="op">=</span> output_layer_size <span class="co">#output layer size: 3 (number of penguin species)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(input_layer_size, h1)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(h1, h2)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc3 <span class="op">=</span> nn.Linear(h2, output_layer_size)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs <span class="op">=</span> []</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> F.relu(<span class="va">self</span>.fc1(x))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> F.relu(<span class="va">self</span>.fc2(x))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.fc3(x)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> training_step(<span class="va">self</span>, batch, batch_idx): <span class="co"># what happen in each train step</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> batch</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>(x)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> F.cross_entropy(output, y)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># self.log('train_loss', loss, on_epoch=True) # use this for logging (e.g. using TensorBoard)</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'loss'</span>:loss}</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_step(<span class="va">self</span>, batch, batch_idx): <span class="co"># what happen in each test step</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> batch</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>(x)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> F.cross_entropy(output, y)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs.append(loss)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'loss'</span>:loss}</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> on_test_epoch_end(<span class="va">self</span>):</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        epoch_average <span class="op">=</span> torch.stack(<span class="va">self</span>.test_step_outputs).mean()</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.log(<span class="st">"test_epoch_average"</span>, epoch_average)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.test_step_outputs.clear()  <span class="co"># free memory</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> configure_optimizers(<span class="va">self</span>):</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        optimizer <span class="op">=</span> torch.optim.SGD(<span class="va">self</span>.parameters(), lr <span class="op">=</span> lr)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> optimizer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NN_4_2_4_3.png" class="img-fluid figure-img"></p>
+<figcaption>deep learning</figcaption>
+</figure>
+</div>
+</section>
+<section id="recurrent-neural-networks" class="level1">
+<h1>Recurrent Neural Networks</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recurrent Neural Networks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to move toward retaining some <em>memory</em> in our inputs to artificial intelligence models, we will here briefly discuss <strong>recurrent neural networks</strong>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+input1[input]
+
+neuron1[neuron]
+
+output1[output]
+
+input1 --&gt; neuron1
+neuron1 --&gt; output1
+neuron1 --&gt; neuron1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>As we <em>unfold</em> the network, we use the same weights and bias values between the layers.</p>
+</div>
+</div>
+<section id="example-crosswalk" class="level2">
+<h2 class="anchored" data-anchor-id="example-crosswalk">Example: Crosswalk</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="crosswalk_meme.png" class="img-fluid figure-img"></p>
+<figcaption>Washington Ave crosswalk</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.nytimes.com/2020/09/17/us/princeton-racism-federal-investigation.html">NYT</a></li>
+</ul>
+<p>We start with a sequence that has</p>
+<blockquote class="blockquote">
+<p>Warning lights activated. Vehicles may not stop. Cross with caution. Warning lights activated. Vehicles may not stop. Cross with caution. Warning lights activated. Vehicles may not stop. Cross with caution.</p>
+</blockquote>
+<p>repeated over and over, and we hope that</p>
+<ul>
+<li>input “Warning” leads to a prediction of “lights”</li>
+<li>input “lights” leads to a prediction of “activated”</li>
+<li>input “activated” leads to a prediction of “Vehicles”</li>
+<li>input “Vehicles” leads to a prediction of “may”</li>
+<li>input “may” leads to a prediction of “stop”</li>
+<li>input “stop” leads to a prediction of “Cross”</li>
+<li>input “Cross” leads to a prediction of “with”</li>
+<li>input “with” leads to a prediction of “caution”</li>
+<li>input “caution” leads to a prediction of “Warning”</li>
+</ul>
+</section>
+<section id="unfolding" class="level2">
+<h2 class="anchored" data-anchor-id="unfolding">Unfolding</h2>
+<section id="warning" class="level3">
+<h3 class="anchored" data-anchor-id="warning">Warning</h3>
+<ul>
+<li>Does input “Warning” lead to a prediction of “lights”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+
+neuron1[ReLU]
+
+output1[lights]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="lights" class="level3">
+<h3 class="anchored" data-anchor-id="lights">lights</h3>
+<ul>
+<li>Does input “lights” leads to a prediction of “activated”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+input2[lights]
+
+neuron1[ReLU]
+neuron2[ReLU]
+
+output1[NA]
+output2[activated]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+input2 -- 0.20x + 0.86 --&gt; neuron2
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+neuron2 -- 0.91x - 0.25 --&gt; output2
+
+neuron1 -- -0.85x + 0.81 --&gt; neuron2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="activated" class="level3">
+<h3 class="anchored" data-anchor-id="activated">activated</h3>
+<ul>
+<li>Does input “activated” leads to a prediction of “Vehicles”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+input2[lights]
+input3[activated]
+
+neuron1[ReLU]
+neuron2[ReLU]
+neuron3[ReLU]
+
+output1[NA]
+output2[NA]
+output3[Vehicles]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+input2 -- 0.20x + 0.86 --&gt; neuron2
+input3 -- 0.20x + 0.86 --&gt; neuron3
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+neuron2 -- 0.91x - 0.25 --&gt; output2
+neuron3 -- 0.91x - 0.25 --&gt; output3
+
+neuron1 -- -0.85x + 0.81 --&gt; neuron2
+neuron2 -- -0.85x + 0.81 --&gt; neuron3
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="vehicles" class="level3">
+<h3 class="anchored" data-anchor-id="vehicles">Vehicles</h3>
+<ul>
+<li>Does input “Vehicles” leads to a prediction of “may”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+input2[lights]
+input3[activated]
+input4[Vehicles]
+
+neuron1[ReLU]
+neuron2[ReLU]
+neuron3[ReLU]
+neuron4[ReLU]
+
+output1[NA]
+output2[NA]
+output3[NA]
+output4[may]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+input2 -- 0.20x + 0.86 --&gt; neuron2
+input3 -- 0.20x + 0.86 --&gt; neuron3
+input4 -- 0.20x + 0.86 --&gt; neuron4
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+neuron2 -- 0.91x - 0.25 --&gt; output2
+neuron3 -- 0.91x - 0.25 --&gt; output3
+neuron4 -- 0.91x - 0.25 --&gt; output4
+
+neuron1 -- -0.85x + 0.81 --&gt; neuron2
+neuron2 -- -0.85x + 0.81 --&gt; neuron3
+neuron3 -- -0.85x + 0.81 --&gt; neuron4
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="may" class="level3">
+<h3 class="anchored" data-anchor-id="may">may</h3>
+<ul>
+<li>Does input “may” leads to a prediction of “not”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+input2[lights]
+input3[activated]
+input4[Vehicles]
+input5[may]
+
+neuron1[ReLU]
+neuron2[ReLU]
+neuron3[ReLU]
+neuron4[ReLU]
+neuron5[ReLU]
+
+output1[NA]
+output2[NA]
+output3[NA]
+output4[NA]
+output5[not]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+input2 -- 0.20x + 0.86 --&gt; neuron2
+input3 -- 0.20x + 0.86 --&gt; neuron3
+input4 -- 0.20x + 0.86 --&gt; neuron4
+input5 -- 0.20x + 0.86 --&gt; neuron5
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+neuron2 -- 0.91x - 0.25 --&gt; output2
+neuron3 -- 0.91x - 0.25 --&gt; output3
+neuron4 -- 0.91x - 0.25 --&gt; output4
+neuron5 -- 0.91x - 0.25 --&gt; output5
+
+neuron1 -- -0.85x + 0.81 --&gt; neuron2
+neuron2 -- -0.85x + 0.81 --&gt; neuron3
+neuron3 -- -0.85x + 0.81 --&gt; neuron4
+neuron4 -- -0.85x + 0.81 --&gt; neuron5
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="not" class="level3">
+<h3 class="anchored" data-anchor-id="not">not</h3>
+<ul>
+<li>Does input “not” leads to a prediction of “stop”?</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+input1[Warning]
+input2[lights]
+input3[activate]
+input4[Vehicles]
+input5[may]
+input6[not]
+
+neuron1[ReLU]
+neuron2[ReLU]
+neuron3[ReLU]
+neuron4[ReLU]
+neuron5[ReLU]
+neuron6[ReLU]
+
+output1[NA]
+output2[NA]
+output3[NA]
+output4[NA]
+output5[NA]
+output6[stop]
+
+input1 -- 0.20x + 0.86 --&gt; neuron1
+input2 -- 0.20x + 0.86 --&gt; neuron2
+input3 -- 0.20x + 0.86 --&gt; neuron3
+input4 -- 0.20x + 0.86 --&gt; neuron4
+input5 -- 0.20x + 0.86 --&gt; neuron5
+input6 -- 0.20x + 0.86 --&gt; neuron6
+
+neuron1 -- 0.91x - 0.25 --&gt; output1
+neuron2 -- 0.91x - 0.25 --&gt; output2
+neuron3 -- 0.91x - 0.25 --&gt; output3
+neuron4 -- 0.91x - 0.25 --&gt; output4
+neuron5 -- 0.91x - 0.25 --&gt; output5
+neuron6 -- 0.91x - 0.25 --&gt; output6
+
+neuron1 -- -0.85x + 0.81 --&gt; neuron2
+neuron2 -- -0.85x + 0.81 --&gt; neuron3
+neuron3 -- -0.85x + 0.81 --&gt; neuron4
+neuron4 -- -0.85x + 0.81 --&gt; neuron5
+neuron5 -- -0.85x + 0.81 --&gt; neuron6
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="vanishing-gradients" class="level1">
+<h1>Vanishing Gradients</h1>
+<p>In our recurrent neural network with</p>
+<ul>
+<li>input layer size: 1</li>
+<li>hidden layer size: 1</li>
+<li>output layer size: 1</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+input1[input]
+
+neuron1[neuron]
+
+output1[output]
+
+input1 -- w_i,h + b_i,h --&gt; neuron1
+neuron1 -- w_h,0 + b_h,0 --&gt; output1
+neuron1 -- w_h,h + b_h,h --&gt; neuron1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>we have functions</p>
+<ul>
+<li><span class="math inline">\(L_{i,h} = w_{i,h}x + b_{i,h}\)</span></li>
+<li><span class="math inline">\(L_{h,o} = w_{h,o}x + b_{h,o}\)</span></li>
+<li><span class="math inline">\(L_{h,h} = w_{h,h}x + b_{h,h}\)</span></li>
+</ul>
+<p>and ReLU activation function</p>
+<p><span class="math display">\[\text{ReLU}(x) = \text{max}(x,0)\]</span> whose derivative is</p>
+<p><span class="math display">\[\frac{d\text{ReLU}}{dx} = \begin{cases} 1, &amp; x \geq 0 \\ 0, &amp; x &lt; 0 \end{cases}\]</span></p>
+<section id="chain-rule" class="level2">
+<h2 class="anchored" data-anchor-id="chain-rule">Chain Rule</h2>
+<p>Toward back propagation, the derivative based on output <span class="math inline">\(k\)</span> given inputs <span class="math inline">\(\{1, 2, ..., k\}\)</span> is</p>
+<p><span class="math display">\[\begin{array}{rcl}
+\frac{\partial\text{SSR}}{\partial x_{k}} &amp; = &amp; \displaystyle\sum_{a = 1}^{k}
+\frac{\partial\text{SSR}}{\partial L_{h,o}}
+\left(\displaystyle\prod_{b=1}^{a-1}
+\frac{\partial L_{h,o}}{\partial\text{ReLU}}\cdot
+\frac{\partial\text{ReLU}}{\partial L_{h,h}}\cdot
+\frac{\partial L_{h,h}}{L_{i,h}}
+\right)
+\frac{\partial L_{i,h}}{\partial x_{k}} \\
+~ &amp; = &amp; \displaystyle\sum_{a = 1}^{k}
+w_{i,h}
+\left(\displaystyle\prod_{b=1}^{a-1}
+w_{h,h}\right)
+w_{h,0} \\
+\end{array}\]</span></p>
+</section>
+<section id="gradient-propagation" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-propagation">Gradient Propagation</h2>
+<p>For today’s example, the derivative is</p>
+<p><span class="math display">\[\frac{\partial\text{SSR}}{\partial x_{k}} = \sum_{a = 1}^{k}
+(0.20)
+\left(\prod_{b=1}^{a-1}
+(-0.85)
+\right)
+(0.91)\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Math Review</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">exp</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">ratio</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Let us quickly recall some math</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="exponential_functions.png" class="img-fluid figure-img"></p>
+<figcaption>exponential functions</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://users.math.utoronto.ca/preparing-for-calculus/4_functions/we_5_exp_log.html">University of Toronto</a></li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ratio_test.png" class="img-fluid figure-img"></p>
+<figcaption>ratio test</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.youtube.com/watch?v=qBFPSm0-41g">Dan the Tutor</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gradient Propagation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>we have <strong>vanishing gradients</strong> if <span class="math inline">\(|w_{h,h}| &lt; 1\)</span></li>
+<li>we have <strong>exploding gradients</strong> if <span class="math inline">\(|w_{h,h}| &gt; 1\)</span></li>
+</ul>
+<p>In the above hypothetical example, since <span class="math display">\[|w_{h,h}| = |-0.85| &lt; 1\]</span> our model may be limited (forgetful) due to vanishing gradients.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="preview-word-prediction" class="level1">
+<h1>Preview: Word Prediction</h1>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+input1[eggs]
+input2[bread]
+stem1[pairs]
+stem2[well]
+stem3[with]
+output1[bacon]
+output2[butter]
+
+input1 --&gt; stem1
+input2 --&gt; stem1
+stem1 --&gt; stem2
+stem2 --&gt; stem3
+stem3 --&gt; output1
+stem3 --&gt; output2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>“eggs pairs well with bacon”</p></li>
+<li><p>“bread pairs well with butter”</p></li>
+<li><p>but how to represent words as numbers?</p>
+<ul>
+<li>later: sessions about NLP (natural language programming)</li>
+</ul></li>
+</ul>
+</section>
+<section id="main-example-first-names" class="level1">
+<h1>Main Example: First Names</h1>
+<p>We will be exploring the <a href="https://docs.pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html">Pytorch RNN tutorial</a> by Sean Robertson.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">languages</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">sample</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li>over 20,000 first names</li>
+<li>associated with 18 languages</li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li>Arabic</li>
+<li>Chinese</li>
+<li>Czech</li>
+<li>Dutch</li>
+<li>English</li>
+<li>French</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<ul>
+<li>German</li>
+<li>Greek</li>
+<li>Irish</li>
+<li>Italian</li>
+<li>Japanese</li>
+<li>Korean</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<ul>
+<li>Polish</li>
+<li>Portuguese</li>
+<li>Russian</li>
+<li>Scottish</li>
+<li>Spanish</li>
+<li>Vietnamese</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>For example, the Polish names are</p>
+<p>Adamczak Adamczyk Andrysiak Auttenberg Bartosz Bernard Bobienski Bosko Broż Brzezicki Budny Bukoski Bukowski Chlebek Chmiel Czajka Czajkowski Dubanowski Dubicki Dunajski Dziedzic Fabian Filipek Filipowski Gajos Gniewek Gomolka Gomulka Gorecki Górka Górski Grzeskiewicz Gwozdek Jagoda Janda Janowski Jaskolski Jaskulski Jedynak Jelen Jez Jordan Kaczka Kaluza Kamiński Kasprzak Kava Kedzierski Kijek Klimek Kosmatka Kowalczyk Kowalski Koziol Kozlow Kozlowski Krakowski Król Kumiega Lawniczak Lis Majewski Malinowski Maly Marek Marszałek Maslanka Mencher Miazga Michel Mikolajczak Mozdzierz Niemczyk Niemec Nosek Nowak Pakulski Pasternack Pasternak Paszek Piatek Piontek Pokorny Poplawski Róg Rudaski Rudawski Rusnak Rutkowski Sadowski Salomon Serafin Sienkiewicz Sierzant Sitko Skala Slaski Ślązak Ślusarczyk Ślusarski Smolák Sniegowski Sobol Sokal Sokolof Sokoloff Sokolofsky Sokolowski Sokolsky Sówka Stanek Starek Stawski Stolarz Szczepanski Szewc Szwarc Szweda Szwedko Walentowicz Warszawski Wawrzaszek Wiater Winograd Winogrodzki Wojda Wojewódka Wojewódzki Wronski Wyrick Wyrzyk Zabek Zawisza Zdunowski Zdunowski Zielinski Ziemniak Zientek Żuraw</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="ai-frameworks" class="level1">
+<h1>AI Frameworks</h1>
+<div class="columns">
+<div class="column" style="width:30%;">
+<section id="keras" class="level3">
+<h3 class="anchored" data-anchor-id="keras">Keras</h3>
+<ul>
+<li>Francois Chollet</li>
+<li>March 2015</li>
+<li>Greek for “horn”</li>
+<li>supports TensorFlow, JAX, PyTorch</li>
+</ul>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<section id="pytorch" class="level3">
+<h3 class="anchored" data-anchor-id="pytorch">PyTorch</h3>
+<ul>
+<li>Meta AI</li>
+<li>Sept 2016</li>
+<li>tensors intrinsic data type</li>
+<li>automatic differentiation</li>
+</ul>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:20%;">
+<section id="pytorch-lightning" class="level3">
+<h3 class="anchored" data-anchor-id="pytorch-lightning">Pytorch Lightning</h3>
+<ul>
+<li>William Falcon</li>
+<li>May 2019</li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="lstms" class="level1">
+<h1>LSTMs</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Intro</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Conclusion</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Methods</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Results</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Hochreiter and Schmidhuber, 1997</li>
+<li>addressing vanishing/exploding gradients</li>
+<li>novel architecture</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LSTM_paper.png" class="img-fluid figure-img"></p>
+<figcaption>Hochreiter, 1997</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<ul>
+<li>CEC: constant error carrousel</li>
+<li>cuts off memory leakage</li>
+<li>protection against irrelevant inputs</li>
+</ul>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Each <em>module</em> of a <strong>Long Short Term Memory</strong> (LSTM) network has</p>
+<ul>
+<li>3 inputs: data input, long-term memory (aka <strong>forget gate</strong>), short-term memory (aka <strong>output gate</strong>)</li>
+</ul>
+<p>and outputs new values for the forget gate and the output gate</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LSTM_chain.png" class="img-fluid figure-img"></p>
+<figcaption>LSTM network</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Chris Olah</a></li>
+</ul>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<p>applied LSTMs on</p>
+<ul>
+<li>sequences of words</li>
+<li>sequences of numbers</li>
+<li>noisy sequences</li>
+<li>math function values</li>
+<li>temporal sequences</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="grus" class="level1">
+<h1>GRUs</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+GRU
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each <em>module</em> of a <strong>Gated Recurrent Unit</strong> (GRU) network has</p>
+<ul>
+<li><em>2</em> inputs: data input, long-term memory (aka <strong>forget gate</strong>)</li>
+</ul>
+<p>and outputs a new value for the forget gate along with the data prediction. Hence, the GRU architecture is simpler than an LSTM, but can produce similar results.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GRU_diagram.png" class="img-fluid figure-img"></p>
+<figcaption>GRU diagram</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.oreilly.com/library/view/advanced-deep-learning/9781789956177/8ad9dc41-3237-483e-8f6b-7e5f653dc693.xhtml">O’Reilly</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GRU_conceptual.png" class="img-fluid figure-img"></p>
+<figcaption>GRU concepts</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://medium.com/@harshedabdulla/understanding-gated-recurrent-units-grus-in-deep-learning-4404599dcefb">Harshed Abdulla</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Long-term memory
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both LSTM and GRU architectures allow for processing of sequences of data while avoiding the vanishing gradient problem.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="RNN_LSTM_GRU.png" class="img-fluid figure-img"></p>
+<figcaption>recap</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="data-ethics-traveler-biomarkers" class="level1">
+<h1>Data Ethics: Traveler Biomarkers</h1>
+<p>Europe’s Schengen Area is unrolling tech to collect biomarker information about incoming travelers.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Fingerprints</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Face Scan</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">roll out</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="traveler_fingerprints.png" class="img-fluid figure-img"></p>
+<figcaption>fingerprints</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.cbsnews.com/news/americans-travel-europe-fingerprints-scan-entry-exit-system/">Getty Images</a></li>
+</ul>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="traveler_face_scan.png" class="img-fluid figure-img"></p>
+<figcaption>face scan</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.cbsnews.com/news/americans-travel-europe-fingerprints-scan-entry-exit-system/">Getty Images</a></li>
+</ul>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>started Oct 12, 2025<br>
+</p></li>
+<li><p>six-month roll out</p>
+<ul>
+<li>start: Croatia, Spain</li>
+</ul></li>
+<li><p>data storage: 3 years</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="travelers_Europe.png" class="img-fluid figure-img"></p>
+<figcaption>Entry/Exit System</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.cbsnews.com/news/americans-travel-europe-fingerprints-scan-entry-exit-system/">CBS News</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DCP 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="semester-projects" class="level1">
+<h1>Semester Projects</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Overview</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-4" role="tab" aria-controls="tabset-6-4" aria-selected="false">3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-5" role="tab" aria-controls="tabset-6-5" aria-selected="false">4</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>For SML 301, students will complete a substantial machine learning project</p>
+<ul>
+<li>exploration of large data set</li>
+<li>neural network tuning</li>
+<li>machine learning modeling</li>
+<li>video presentation</li>
+<li>research poster/slides</li>
+</ul>
+<p>You (and your group) may select one of the following project ideas</p>
+<ul>
+<li>or you may propose your own project</li>
+</ul>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<section id="trail-microcard-collection" class="level3">
+<h3 class="anchored" data-anchor-id="trail-microcard-collection">TRAIL Microcard Collection</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>“Imaged from microcard, these technical reports describe research performed for U.S. government agencies from the 1930s to the 1960s. The reports were provided by the Technical Report Archive and Image Library (<a href="https://digital.library.unt.edu/explore/collections/TRAMC/">TRAIL</a>).”</li>
+<li>semi-supervised learning (clustering with some labels)</li>
+<li>classification task: trying to organize scanned images to help a government organization</li>
+<li>scope: convolutional neural networks, maybe OCR, maybe NLP</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="collection_TRAMC.png" class="img-fluid figure-img"></p>
+<figcaption>TRAIL Microcards</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<section id="meso-american-migration-project" class="level3">
+<h3 class="anchored" data-anchor-id="meso-american-migration-project">Meso-American Migration Project</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>“The <a href="https://mmp.research.brown.edu/mmp">MMP’s</a> main focus is to gather social as well as economic information on Mexican and Central American migration to the United States. It is a unique source of data that enables researchers to track patterns and processes of migration, immigrant integration, and the consequences of migration for households and communities in places of origin.”</li>
+<li>creative wrangling of target and input variabes</li>
+<li>scope: applying artificial intelligence methods to a social science data set</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="MMP_Map.png" class="img-fluid figure-img"></p>
+<figcaption>Meso-American Migration Project</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
+<section id="yelp-open-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="yelp-open-dataset">Yelp Open Dataset</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>“The <a href="https://business.yelp.com/data/resources/open-dataset/">Yelp Open Dataset</a> is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience.”</p>
+<ul>
+<li>working with about 9 GB of data</li>
+<li>predicting consumer ratings</li>
+<li>scope: neural networks and several machine learning methods</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Yelp_Dataset_Map.png" class="img-fluid figure-img"></p>
+<figcaption>Yelp Open Dataset</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-6-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-5-tab">
+<section id="nyc-taxi" class="level3">
+<h3 class="anchored" data-anchor-id="nyc-taxi">NYC Taxi</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p>“datasets were collected and provided to the NYC Taxi and Limousine Commission (<a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">TLC</a>) by technology providers authorized under the Taxicab &amp; Livery Passenger Enhancement Programs (TPEP/LPEP)”</p></li>
+<li><p>working with parquet files and temporal data</p></li>
+<li><p>scope: neural networks and several machine learning methods</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="NYC_taxi.png" class="img-fluid figure-img"></p>
+<figcaption>NYC TLC</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standardized
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Derek will fine-tune and standardize the project instructions so that each path has roughly the same difficulty and amount of work</p>
+</div>
+</div>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p>due this Friday (October 24):</p>
+<ul>
+<li>Poster Feedback (2 hours)</li>
+<li>Precept 6 (1 hour)</li>
+<li>Project Proposal (survey)</li>
+<li>On Lit Reviews (survey)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Prompt 3 (or Ed Discussion):</li>
+</ul>
+<p>Have there been confusing concepts in our SML 301 course? Let Derek know!</p>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>derivation of the <a href="https://shivammehta25.github.io/posts/deriving-categorical-cross-entropy-and-softmax/">derivative of cross entropy</a> by Shivam Mehta</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.4      forcats_1.0.0        stringr_1.5.1       
+ [4] dplyr_1.1.4          purrr_1.1.0          readr_2.1.5         
+ [7] tidyr_1.3.1          tibble_3.3.0         ggplot2_4.0.0       
+[10] tidyverse_2.0.0      patchwork_1.3.1      palmerpenguins_0.1.1
+
+loaded via a namespace (and not attached):
+ [1] Matrix_1.7-3       gtable_0.3.6       jsonlite_2.0.0     compiler_4.5.1    
+ [5] Rcpp_1.1.0         tidyselect_1.2.1   png_0.1-8          scales_1.4.0      
+ [9] yaml_2.3.10        fastmap_1.2.0      lattice_0.22-7     reticulate_1.43.0 
+[13] R6_2.6.1           generics_0.1.4     knitr_1.50         htmlwidgets_1.6.4 
+[17] pillar_1.11.0      RColorBrewer_1.1-3 tzdb_0.5.0         rlang_1.1.6       
+[21] stringi_1.8.7      xfun_0.52          S7_0.2.0           timechange_0.3.0  
+[25] cli_3.6.5          withr_3.0.2        magrittr_2.0.3     digest_0.6.37     
+[29] grid_4.5.1         rstudioapi_0.17.1  hms_1.1.3          lifecycle_1.0.4   
+[33] vctrs_0.6.5        evaluate_1.0.4     glue_1.8.0         farver_2.1.2      
+[37] rmarkdown_2.29     tools_4.5.1        pkgconfig_2.0.3    htmltools_0.5.8.1 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
