@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/15_image_processing/15_image_processing.html",
       "/posts/14_gans/14_GAN.html",
       "/posts/13_recurrence/13_recurrence.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",
@@ -18,6 +19,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/15_image_processing/15_image_processing.html",
       "/posts/14_gans/14_GAN.html",
       "/posts/13_recurrence/13_recurrence.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",
