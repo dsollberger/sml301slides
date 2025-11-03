@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -3050,5 +3050,68 @@
     "title": "15: Image Processing",
     "section": "Image Augmentation",
     "text": "Image Augmentation\n\nrotation\ntranslation\nreflections\netc.\n\n\n\n\nimage augmentation\n\n\n\nimage source: Arun Gandhi"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html",
+    "title": "16: Topic Modeling",
+    "section": "",
+    "text": "Review convolutions\nDiscuss Bots++\nIntroduce topic modeling\n\n\n\n\n\n\n\ntopic modeling\n\n\n\nimage source: Maarten Grootendorst"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#learning-objectives",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#learning-objectives",
+    "title": "16: Topic Modeling",
+    "section": "",
+    "text": "Review convolutions\nDiscuss Bots++\nIntroduce topic modeling\n\n\n\n\n\n\n\ntopic modeling\n\n\n\nimage source: Maarten Grootendorst"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#math",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#math",
+    "title": "16: Topic Modeling",
+    "section": "Math",
+    "text": "Math\n\ndiscrete convolution\n\n\\[(f * g)[n] = \\displaystyle\\sum_{m = -\\infty}^{\\infty} f[m]g[n-m]\\]\n\ncontinuous convolution\n\n\\[(f * g)(t) = \\displaystyle\\int_{-\\infty}^{\\infty} f(\\tau)g(t-\\tau) \\, d\\tau\\]"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#spatial-convolution",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#spatial-convolution",
+    "title": "16: Topic Modeling",
+    "section": "Spatial Convolution",
+    "text": "Spatial Convolution\n\n\n\nspatial convolution\n\n\n\nimage source: spatial-lang.org"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#max-pool",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#max-pool",
+    "title": "16: Topic Modeling",
+    "section": "Max Pool",
+    "text": "Max Pool\n\n\n\nmax pool\n\n\n\nimage source: Dhanush Kumar"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#edge-detection",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#edge-detection",
+    "title": "16: Topic Modeling",
+    "section": "Edge Detection",
+    "text": "Edge Detection\n\nfirst derivative\n\n\\[f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}\\]\n\nsecond derivative\n\n\\[\\begin{array}{rcl}\n  f''(x) & \\approx & \\frac{\\frac{f(x + h) - f(x)}{h} - \\frac{f(x) - f(x-h)}{h}}{h} \\\\\n  ~ & = & \\frac{f(x + h) - 2f(x) + f(x - h)}{h^{2}} \\\\\n\\end{array}\\]\n\n\n\nedge detection\n\n\n\nimage source: Jaemin Jeong, et al\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#transformers",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#transformers",
+    "title": "16: Topic Modeling",
+    "section": "Transformers",
+    "text": "Transformers\n\nEncoder-only: BERT\n\n\nbidirectional encoder representations from transformers\n\n\nDecoder-only: GPT\n\n\ngenerative pre-trained transformer"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#encoders-vs-decoders",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#encoders-vs-decoders",
+    "title": "16: Topic Modeling",
+    "section": "Encoders vs Decoders",
+    "text": "Encoders vs Decoders\n\n\n\nBERT vs GPT\n\n\n\nimage source: Ronak Verma"
+  },
+  {
+    "objectID": "posts/16_topic_modeling/16_topic_modeling.html#applications",
+    "href": "posts/16_topic_modeling/16_topic_modeling.html#applications",
+    "title": "16: Topic Modeling",
+    "section": "Applications",
+    "text": "Applications\n\nBERT\n\ntext classification\ndata labeling\nrecommender\nsentiment analysis\n\nGPT\n\ncontent generation\nconversational chatbots\n\n\n\n\n\n\n\n\nDCP2"
   }
 ]

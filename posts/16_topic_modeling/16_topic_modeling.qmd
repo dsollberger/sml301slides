@@ -1,0 +1,384 @@
+---
+title: "16: Topic Modeling"
+author: "Derek Sollberger"
+date: "2025-11-03"
+format:
+  html:
+    toc: true
+---
+
+
+# Session 16: Topic Modeling
+
+## Learning objectives:
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Review convolutions
+- Discuss Bots++
+- Introduce topic modeling
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![topic modeling](datamapplot.png)
+
+* image source: [Maarten Grootendorst](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models)
+
+:::
+
+::::
+
+# Review: Convolutions
+
+## Math
+
+> discrete convolution
+
+$$(f * g)[n] = \displaystyle\sum_{m = -\infty}^{\infty} f[m]g[n-m]$$
+
+> continuous convolution
+
+$$(f * g)(t) = \displaystyle\int_{-\infty}^{\infty} f(\tau)g(t-\tau) \, d\tau$$
+
+## Spatial Convolution
+
+![spatial convolution](convolution_animation.gif)
+
+* image source: [spatial-lang.org](https://spatial-lang.org/conv)
+
+## Max Pool
+
+![max pool](cnn_max_pool.png)
+
+* image source: [Dhanush Kumar](https://medium.com/@danushidk507/max-pooling-ef545993b6e4)
+
+## Edge Detection
+
+> first derivative
+
+$$f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
+
+> second derivative
+
+$$\begin{array}{rcl}
+  f''(x) & \approx & \frac{\frac{f(x + h) - f(x)}{h} - \frac{f(x) - f(x-h)}{h}}{h} \\
+  ~ & = & \frac{f(x + h) - 2f(x) + f(x - h)}{h^{2}} \\
+\end{array}$$
+
+![edge detection](Edge-detection-filters-in-edge-detection-layers.png)
+
+* image source: [Jaemin Jeong, et al](https://www.researchgate.net/publication/348490048_Filter_combination_learning_for_CNN_model_compression)
+
+::: {.callout-warning}
+## DCP1
+:::
+
+# BERT
+
+## Transformers
+
+* Encoder-only: BERT
+
+> bidirectional encoder representations from transformers
+
+* Decoder-only: GPT
+
+> generative pre-trained transformer
+
+## Encoders vs Decoders
+
+![BERT vs GPT](BERT_vs_GPT.png)
+
+* image source: [Ronak Verma](https://www.linkedin.com/pulse/bert-vs-gpt-which-better-llm-model-ronak-verma-xeixc/)
+
+## Applications
+
+* BERT
+
+    * text classification
+    * data labeling
+    * recommender
+    * sentiment analysis
+    
+* GPT
+
+    * content generation
+    * conversational chatbots
+
+::: {.callout-warning}
+## DCP2
+:::
+
+# BERTopic
+
+![BERTopic modularity](BERTopic_modularity.png)
+
+* image source: [Maarten Grootenhorst](https://maartengr.github.io/BERTopic/algorithm/algorithm.html#visual-overview)
+
+# Bots++
+
+:::: {.columns}
+
+::: {.column width="40%"}
+> Bots++ is an AI-powered chatbot designed to enhance student engagement and streamline communication in Canvas courses. By integrating Bots++ into your course site, students can ask questions about course content and receive accurate, instructor-curated responses in real time. This tool helps reduce repetitive inquiries, supports students in navigating course materials, and fosters a more interactive learning environment.
+
+---[Canvas at Yale](https://help.canvas.yale.edu/a/1909054-ed-discussions-adding-an-ai-chatbot-with-bots)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+![Ed Discussion example](Bots_pp_example.png)
+
+* image source: Princeton McGraw Center
+:::
+
+::::
+
+::: {.callout-warning}
+## DCP3
+:::
+
+# Derek's AI Projects
+
+::::: {.panel-tabset}
+
+## project 1
+
+### Longitudinal Sentiment Analysis
+
+![Hamilton, et al](Hamilton_topics.png)
+
+## project 2
+
+### Abstract Topic Modeling
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![BERTopic](BERT_topic.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+organize topics from abstracts from
+
+* Journal of Data Science Education
+* Journal of Biology Education
+
+Image credit: [Ashwin Rachha](https://medium.com/@ashwin_rachha/topic-modeling-with-quantized-large-language-models-llms-a-comprehensive-guide-9331c6936073)
+
+:::
+
+::::
+
+## project 3
+
+### Home Economics
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![receipt bookkeeping](receipts.png)
+
+* image source: [Recycle This Pittsburgh](https://recyclethispgh.com/item/paper-receipts/)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+* scan grocery receipts
+* OCR
+* AI text decoding
+* code expense report
+
+:::
+
+::::
+
+## project 4
+
+### Foreign Language Tutor
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![proficiency levels](German_language_levels.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="40%"}
+LLM prompting. "I am at the A2 level in German.  Help me advance to B1."
+
+* organize vocabulary words
+* create lesson plans
+* make quizzes
+
+Image credit: [Smarter German](https://smartergerman.com/blog/german-language-levels/)
+:::
+
+::::
+
+## project 5
+
+### Color Sensitivity
+
+:::: {.columns}
+
+::: {.column width="45%"}
+#### Setup
+
+- We hope to build a CNN to classify pictures in terms of susceptibility to color blindness
+- Trained model on Ishihara data set
+- Run model on novel images from the Princeton Art Museum
+
+![301](ishihara_example_301.png)
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+#### Future Directions
+
+* better data
+
+    * increase data set by factor of 10
+    * recenter, resize, rotations, shears
+
+* model architecture
+
+    * more hidden layers
+    * 3D convolutions
+    * vary filter sizes
+    
+* hyperparameter search
+
+* validate results
+
+* regression model
+
+    * goal: image's susceptibility to color vision deficiency
+:::
+
+::::
+
+:::::
+
+::: {.callout-warning}
+## DCP3
+:::
+
+::: {.callout-tip collapse="true"}
+# Job Searches
+
+If you are applying for jobs/internships, I (Derek) am willing to volunteer as a job reference.
+
+Examples:
+
+* SML 201 (Fall 2024)
+
+    * undergrad student internship in Germany
+    
+        * bioinformatics
+    
+* SML 301 (Spring 2025)
+
+    * alum ML engineer at NYC AI think-tank
+    
+        * medical AI
+
+:::
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* due this Friday (Nov 7):
+
+    - Precept 8 (1 hour)
+    - Literature review:
+        - Multipass: LR (1 of 2) (20 minutes)
+        - Multipass: LR (2 of 2) (20 minutes)
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="50%"}
+
+Our SML 301 lecture session for **Monday, November 24** will be remote (Zoom).
+
+* guest speaker from AI industry
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
