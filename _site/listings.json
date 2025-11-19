@@ -2,8 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/20_prompt_engineering/20_prompt_engineering.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
+      "/posts/20_prompt_engineering/20_prompt_engineering.html",
       "/posts/16_topic_modeling/16_topic_modeling.html",
       "/posts/15_image_processing/15_image_processing.html",
       "/posts/14_gans/14_GAN.html",
@@ -22,8 +22,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/20_prompt_engineering/20_prompt_engineering.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
+      "/posts/20_prompt_engineering/20_prompt_engineering.html",
       "/posts/16_topic_modeling/16_topic_modeling.html",
       "/posts/15_image_processing/15_image_processing.html",
       "/posts/14_gans/14_GAN.html",
