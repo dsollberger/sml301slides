@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -3190,5 +3190,82 @@
     "title": "20: Prompt Engineering",
     "section": "Complexity",
     "text": "Complexity\n\npersona\ninstruction\ncontext\nformat\naudience\ntone\ndata\n\nfrom Hands-On Large Language Models by Jay Alammar and Maarten Grottendorst"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html",
+    "title": "21: RAG",
+    "section": "",
+    "text": "few-shot prompting\nchain-of-thought\nintro retrieval augmented generation\n\n\n\n\n\n\n\nRAG applications\n\n\n\nimage source: SoluLab"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#learning-objectives",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#learning-objectives",
+    "title": "21: RAG",
+    "section": "",
+    "text": "few-shot prompting\nchain-of-thought\nintro retrieval augmented generation\n\n\n\n\n\n\n\nRAG applications\n\n\n\nimage source: SoluLab"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#tokenization",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#tokenization",
+    "title": "21: RAG",
+    "section": "Tokenization",
+    "text": "Tokenization\n\n\n\ntokenization\n\n\n\napp: TikTokenizer"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#cost-comparison",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#cost-comparison",
+    "title": "21: RAG",
+    "section": "Cost Comparison",
+    "text": "Cost Comparison\n\n\n\ncomparing the major LLMs\n\n\n\nimage source: Merlin Tech, August 28, 2023"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#economies-of-scale",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#economies-of-scale",
+    "title": "21: RAG",
+    "section": "Economies of Scale",
+    "text": "Economies of Scale\n\n\n\ntoken cost over time\n\n\n\nimage source: Marginal Revolution, August 25, 2024"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#prompt-complexity-versus-cost",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#prompt-complexity-versus-cost",
+    "title": "21: RAG",
+    "section": "Prompt Complexity versus Cost",
+    "text": "Prompt Complexity versus Cost\n\n\n\nfine tuning and costs\n\n\n\nimage source: Mary Schwaber\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#in-context-learning",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#in-context-learning",
+    "title": "21: RAG",
+    "section": "In-Context Learning",
+    "text": "In-Context Learning\n\n\n\nin-context learning\n\n\n\nimage source: PromptHub"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#chain-prompting",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#chain-prompting",
+    "title": "21: RAG",
+    "section": "Chain Prompting",
+    "text": "Chain Prompting\n\n\n\nchain prompting\n\n\n\nimage source: Gadesha and Kavlakoglu"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#chain-of-thought",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#chain-of-thought",
+    "title": "21: RAG",
+    "section": "Chain of Thought",
+    "text": "Chain of Thought\n\n\n\nchain of thought\n\n\n\nimage source: Wei et al"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#tree-of-thought",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#tree-of-thought",
+    "title": "21: RAG",
+    "section": "Tree of Thought",
+    "text": "Tree of Thought\n\n\n\ntree of thought\n\n\n\nimage source: Technische Hochschule Augsburg\n\n\n\n\n\n\n\nDCP2"
+  },
+  {
+    "objectID": "posts/21_rag/21_retrieval_augmented_generation.html#example-film-review",
+    "href": "posts/21_rag/21_retrieval_augmented_generation.html#example-film-review",
+    "title": "21: RAG",
+    "section": "Example: Film Review",
+    "text": "Example: Film Review\nWe will look at an example from Chapter 8 of *Hands-On Large Language Models by Jay Alammar and Maarten Grootenhorst\n\n\n\n\n\nInterstellar\n\n\n\nimage source: Posterazzi\n\n\n\n\n\nInterstellar is a 2014 epic science fiction film co-written, directed, and produced by Christopher Nolan. It stars Matthew McConaughey, Anne Hathaway, Jessica Chastain, Bill Irwin, Ellen Burstyn, Matt Damon, and Michael Caine. Set in a dystopian future where humanity is struggling to survive, the film follows a group of astronauts who travel through a wormhole near Saturn in search of a new home for mankind. Brothers Christopher and Jonathan Nolan wrote the screenplay, which had its origins in a script Jonathan developed in 2007. Caltech theoretical physicist and 2017 Nobel laureate in Physics[4] Kip Thorne was an executive producer, acted as a scientific consultant, and wrote a tie-in book, The Science of Interstellar. Cinematographer Hoyte van Hoytema shot it on 35 mm movie film in the Panavision anamorphic format and IMAX 70 mm. Principal photography began in late 2013 and took place in Alberta, Iceland, and Los Angeles. Interstellar uses extensive practical and miniature effects and the company Double Negative created additional digital effects. Interstellar premiered on October 26, 2014, in Los Angeles. In the United States, it was first released on film stock, expanding to venues using digital projectors. The film had a worldwide gross over $677 million (and $773 million with subsequent re-releases), making it the tenth-highest grossing film of 2014. It received acclaim for its performances, direction, screenplay, musical score, visual effects, ambition, themes, and emotional weight. It has also received praise from many astronomers for its scientific accuracy and portrayal of theoretical astrophysics. Since its premiere, Interstellar gained a cult following,[5] and now is regarded by many sci-fi experts as one of the best science-fiction films of all time. Interstellar was nominated for five awards at the 87th Academy Awards, winning Best Visual Effects, and received numerous other accolades\n\n— Wikipedia\n\n\nExperiment:\n\ntreat each sentence as a separate document as part of a corpus\nbuild search database with faiss\nrerank with BM25 search algorithm"
   }
 ]
