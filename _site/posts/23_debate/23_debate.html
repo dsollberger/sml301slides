@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2024-12-01">
+
+<title>23: Debate – SML 301 Slides</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2f6844b3748638c5738d4cf93630e566.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#teaching-controversial-topics" id="toc-teaching-controversial-topics" class="nav-link active" data-scroll-target="#teaching-controversial-topics">23: Teaching Controversial Topics</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  </ul></li>
+  <li><a href="#scene" id="toc-scene" class="nav-link" data-scroll-target="#scene">Scene</a></li>
+  <li><a href="#prompt-engineering" id="toc-prompt-engineering" class="nav-link" data-scroll-target="#prompt-engineering">Prompt Engineering</a></li>
+  <li><a href="#roles" id="toc-roles" class="nav-link" data-scroll-target="#roles">Roles</a></li>
+  <li><a href="#rag" id="toc-rag" class="nav-link" data-scroll-target="#rag">RAG</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">23: Debate</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="teaching-controversial-topics" class="level1">
+<h1>23: Teaching Controversial Topics</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>view results of prompt engineering</li>
+<li>discuss governmental regulation in AI</li>
+<li>participate in agile ethics</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ai_ethics_flyer.png" class="img-fluid figure-img"></p>
+<figcaption>AI in Ethics</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://aiethics.princeton.edu/events/">Princeton Dialogue on AI and Ethics</a></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="scene" class="level1">
+<h1>Scene</h1>
+<p>I am in a teaching group called <code>Teaching Controversial Topics</code>, and with them I want to draft a case study from the realm of artificial intelligence. For this teaching group, I am hoping to produce</p>
+<ul>
+<li>20-minute classroom activity for the SML 301 students</li>
+<li>a blog post for me</li>
+</ul>
+<p>Dr Sarah-Jane Leslie suggested that I look into either “privacy/copyright issues around training data for LLMs” or “the role of government regulation in AI development”. Especially drawn to the latter, idea I have then been picturing a classroom debate about government regulation in AI. I think that this would appeal to my audience of mostly engineering majors. Over the summer in the AI4ALL summer camp, Dr Steven Kelts led a great ethics debate with the students, and I am hoping to emulate that by partitioning the SML 301 students into 4 roles such as</p>
+<ol type="1">
+<li>congressional staffers</li>
+<li>business lobbyists</li>
+<li>data privacy NGO</li>
+<li>legal advisors</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disclosure on AI Use
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Despite thinking about this project for the past 4 months (inspired by the BIOME25 conference), I admit that I am assembling these materials merely a couple of weeks before my proposed launch date. I hardly have experience in debate, much less in setting up one. Thus, one can imagine that I too would want AI assistance to complete this task.</p>
+<p>My students and I have recently covered materials about AI—particularly prompt engineering and retrieval augmented generation—so I am indeed inclined to try to justify AI usage here as careful examination of LLM results.</p>
+</div>
+</div>
+</section>
+<section id="prompt-engineering" class="level1">
+<h1>Prompt Engineering</h1>
+<p>My students, perhaps as a reflection of the learning environment that I create, are a quiet group of people. In fact, I set up an anonymous Slido poll each week to receive questions rather than having the students raise their hands. With that in mind, asking them to vocalize a debate will be quite a shift in expectations.</p>
+<p>To mitigate that aberrant request, I want to give each student a one-page <strong>character sheet</strong> to on-board them into the roles (stated above). I hope that each character sheet provides several possible talking points to encourage and guide the debate.</p>
+<p>Even after I read some materials (below in the “RAG” section), I find that I myself am not a writer of debates. Thus, I shall employ <strong>prompt engineering</strong> to create the bullet-point lists of talking points. The idea of debate roles lends itself well for the prompt engineering tool.</p>
+<p>Following materials found in Chapter 6 of <a href="https://github.com/HandsOnLLM/Hands-On-Large-Language-Models">Hands-On Large Language Models</a> (by Jay Alammar and Maarten Grootendorst), we can construct an LLM prompt with parts like …</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Persona
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>[We will provide this below]</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instruction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Provide possible debate points and <em>support a stance</em>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Context
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The list should <em>express several key points</em> that can help a debate team and quickly state important information for the scene.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Format
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a bullet-point overview that summarizes the <em>debate stance</em> and also provide a concise paragraph that initiates the debate.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Audience
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are at a USA government meeting with a subcommitee of Congress. We are hoping to inform our Congress members about the issues about <em>governmental regulation in artificial intelligence</em>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tone
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The tone should be informative and professional.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://en.wikipedia.org/wiki/Regulation_of_AI_in_the_United_States">https://en.wikipedia.org/wiki/Regulation_of_AI_in_the_United_States</a></p>
+</div>
+</div>
+<p>Continuing with the materials found in Chapter 6 of <a href="https://github.com/HandsOnLLM/Hands-On-Large-Language-Models">Hands-On Large Language Models</a>, I used the <a href="https://huggingface.co/microsoft/Phi-3-mini-4k-instruct">Phi-3-mini-4k-instruct</a> LLM (made by Microsoft) and its tokenizer to process these prompts.</p>
+</section>
+<section id="roles" class="level1">
+<h1>Roles</h1>
+<p>We are now ready to see the participants! Here I apply the prompt engineering (structured above) with each of the 4 personas. We hope to have the AI create the rest of the character sheets</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">staffer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">lobbyist</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">NGO</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">legal</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+persona
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are a Congressional staffer and college graduate. You have been asked to provide a historical perspective of the issue.</p>
+</div>
+</div>
+<section id="character-sheet" class="level3">
+<h3 class="anchored" data-anchor-id="character-sheet">character sheet</h3>
+<p>The United States has been actively engaging in the regulation of artificial intelligence (AI) to ensure the technology’s development aligns with national interests, public safety, and ethical standards. The regulatory landscape for AI in the U.S. has evolved through various executive orders, legislative proposals, and state-level initiatives, reflecting a complex interplay between innovation, security, and societal impact.</p>
+<p><strong>Executive Orders and Federal Actions:</strong></p>
+<ul>
+<li><strong>2016-2019:</strong> The National Science and Technology Council’s report on “Preparing for the Future of Artificial Intelligence” laid the groundwork for a balanced approach to AI development, emphasizing the importance of ethical considerations and the potential risks associated with AI technologies.</li>
+<li><strong>2019:</strong> The White House Office of Science and Technology Policy (OSTP) issued a draft guidance on the regulation of AI applications, proposing a framework that includes ethical principles and risk assessment methodologies to ensure AI technologies are developed responsibly.</li>
+<li><strong>2020:</strong> The National Security Commission on Artificial Intelligence (NSCAI) was established to provide strategic recommendations for AI development in national security contexts, highlighting the importance of AI in maintaining U.S. technological leadership.</li>
+<li><strong>2021:</strong> The Biden administration’s Executive Order on “Preventing Weaponization of AI” aimed to mitigate the risks of AI being used for harmful purposes, emphasizing the need for international cooperation and responsible AI development.</li>
+<li><strong>2022:</strong> The National Artificial Intelligence Initiative Office (NAIIO) was created to coordinate federal efforts in AI research and development, focusing on advancing AI technologies that benefit the public and national security.</li>
+<li><strong>2023:</strong> The Office of Science and Technology Policy (OSTP) released the “AI Risk Management Framework (RMF)” to guide federal agencies in assessing and managing the risks associated with AI applications.</li>
+<li><strong>2023:</strong> The National Artificial Intelligence Research and Development Strategic Plan outlined a comprehensive approach to A</li>
+</ul>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+persona
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are a business lobbyist who seeks to discourage further government regulation in artificial intelligence. You seek to build upon anti-regulation sentiment.</p>
+</div>
+</div>
+<section id="character-sheet-1" class="level3">
+<h3 class="anchored" data-anchor-id="character-sheet-1">character sheet</h3>
+<ul>
+<li><p>The United States government has been actively engaged in shaping the future of artificial intelligence (AI) through a series of legislative and regulatory efforts aimed at fostering innovation while addressing the potential risks associated with AI technologies. These efforts reflect a balanced approach to AI governance, recognizing the transformative potential of AI across various sectors while also acknowledging the need for safeguards to protect public interests and ensure ethical AI development.</p></li>
+<li><p>In the early stages of AI regulation, the National Science and Technology Council (NSTC) in 2018 laid the groundwork for a national AI strategy, emphasizing the importance of research and development in AI technologies. This was followed by the National Artificial Intelligence Research and Development Strategic Plan in 2019, which outlined a vision for the U.S. to lead in AI innovation and application. The Department of Defense (DoD) also played a pivotal role in AI regulation by establishing the National Security Commission on Artificial Intelligence (NSCAI) in 2019, tasked with ensuring the U.S. maintains a competitive edge in AI for national security purposes.</p></li>
+<li><p>The Food and Drug Administration (FDA) has been instrumental in addressing the intersection of AI and healthcare, particularly in the regulation of AI applications in medical devices. This includes the development of frameworks to ensure the safety and efficacy of AI-driven diagnostic tools and treatments.</p></li>
+<li><p>The Office of Science and Technology Policy (OSTP) has been at the forefront of AI governance, issuing guidelines for the responsible development and deployment of AI technologies. These guidelines emphasize the importance of transparency, accountability, and ethical considerations in AI systems.</p></li>
+<li><p>In response to the evolving AI landscape, the National Artificial Intelligence Initiative Office (NAIIO) was established to coordinate federal AI efforts, focusing on research, development, and the responsible use of AI technologies.</p></li>
+<li><p>The National AI Initiative (NAII) and the National Artificial Intelligence Research and Development Strategic Plan have been key in setting strategic priorities for AI research and</p></li>
+</ul>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+persona
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are a volunteer at a non-governmental organization (NGO) that raises awareness about data privacy and the corpuses that are used in the training of large language models.</p>
+</div>
+</div>
+<section id="character-sheet-2" class="level3">
+<h3 class="anchored" data-anchor-id="character-sheet-2">character sheet</h3>
+<ol type="1">
+<li><p><strong>Regulatory Framework</strong>: The U.S. government’s approach to AI regulation has been a mix of federal and state-level initiatives. The National Artificial Intelligence Initiative Office (NAIIO) and the National Artificial Intelligence Research Resource (NAIRR) are federal efforts aimed at advancing AI research and development. However, the Trump administration’s Executive Order #14179 and the proposed “TAKE IT DOWN Act” reflect a deregulatory stance, emphasizing innovation over risk mitigation. This contrasts with the Biden administration’s Executive Order, which seeks to establish a comprehensive AI regulatory framework. The debate should consider the balance between fostering innovation and ensuring public safety and ethical standards.</p></li>
+<li><p><strong>AI in Healthcare</strong>: The Food and Drug Administration (FDA) has a role in regulating AI applications in healthcare, such as the approval process for AI-driven medical devices. The FDA’s involvement ensures that AI applications in healthcare meet safety and efficacy standards, protecting patients from potential harm. This regulatory oversight is crucial in maintaining public trust in AI technologies, especially in sensitive areas like healthcare.</p></li>
+<li><p><strong>AI and Privacy</strong>: The Biden administration’s AI Bill of Rights emphasizes the importance of privacy and data security in AI applications. This includes the requirement for AI systems to be transparent about their use of personal data and the implementation of watermarking to inform users about AI-generated content. These measures are essential in protecting individuals’ privacy rights and ensuring that AI technologies are used ethically and responsibly.</p></li>
+<li><p><strong>State and Local Government Interventions</strong>: The New York City Bias Audit Law and California’s Safe and Secure Innovation for Frontier Artificial Intelligence Models Act represent state and local efforts to address AI-related risks and biases. These initiatives highlight the importance of local governance in complementing federal efforts to regulate AI. The debate should consider the effectiveness of these local measures in mitigating AI risks and promoting ethical AI development</p></li>
+</ol>
+</section>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+persona
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are a paralegal at a law firm that has been tasked with explaining the legal subtleties in the current American laws about artificial intelligence.</p>
+</div>
+</div>
+<section id="character-sheet-3" class="level3">
+<h3 class="anchored" data-anchor-id="character-sheet-3">character sheet</h3>
+<p><strong>Pro-Regulation Stance:</strong></p>
+<ol type="1">
+<li><p><strong>Safety and Ethical Concerns:</strong> The rapid advancement of AI technologies, particularly in areas like facial recognition and deepfakes, raises significant safety and ethical concerns. The potential for AI to perpetuate and amplify existing biases, discriminate against marginalized groups, and infringe on privacy rights necessitates a regulatory framework to ensure these technologies are developed and deployed responsibly.</p></li>
+<li><p><strong>Need for Oversight:</strong> The National Security Commission on Artificial Intelligence’s report highlights the importance of establishing a federal agency to oversee AI development, ensuring it aligns with national security and ethical standards. This oversight is crucial to prevent the misuse of AI in ways that could harm individuals or national security.</p></li>
+<li><p><strong>Public Safety and Trust:</strong> The Executive Order on AI emphasizes the need for AI to advance equity and civil rights, addressing concerns about job quality and labor disruptions. By mandating transparency and accountability in AI systems, the government can foster public trust and ensure AI technologies contribute positively to society.</p></li>
+<li><p><strong>International Leadership:</strong> The Biden administration’s Executive Order and the proposed AI Action Plan demonstrate a commitment to securing U.S. global AI dominance through responsible innovation. This approach not only positions the U.S. as a leader in AI but also ensures that AI advancements are aligned with democratic values and human rights.</p></li>
+</ol>
+<p><strong>Anti-Regulation Stance:</strong></p>
+<ol type="1">
+<li><p><strong>Innovation and Competitiveness:</strong> Critics argue that stringent regulations could stifle innovation and hinder the U.S.’s competitive edge in the global AI market. The tech industry often views regulations as barriers to growth, potentially slowing down the development of beneficial AI applications.</p></li>
+<li><p><strong>State and Local Initiatives:</strong> The diverse approaches taken by states, such as New York’s Bias Audit Law and Utah’s AI Policy Act, demonstrate a</p></li>
+</ol>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="rag" class="level1">
+<h1>RAG</h1>
+<p>So far, I have found neat resources that include</p>
+<ul>
+<li><a href="https://legaljournal.princeton.edu/regulating-artificial-intelligence-antitrust-and-anti-discrimination-policy/">a brief in the Princeton Legal Journal</a> (Feb 2025)</li>
+<li><a href="https://www.congress.gov/crs-product/R48555">Congress report</a> (June 2025)</li>
+<li><a href="https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-united-states">article</a> by “Energy Legal Services Provider” White &amp; Case (Sept 2025)</li>
+<li><a href="https://www.ncsl.org/technology-and-communication/artificial-intelligence-2025-legislation">state legislation tracker</a> by the NCSL (National Conference of State Legislatures, updated July 2025)</li>
+<li><a href="https://cyber.fsi.stanford.edu/content/regulating-under-uncertainty-governance-options-generative-ai">journal report</a> from the Stanford Cyber Policy Center (updated Sept 2025)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TODO
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Take on a <strong>retrieval-augmented generation</strong> (RAG) mindset by either having each persona ask for more debate points from the specialized literature (i.e.&nbsp;more specialized than just the Wikipedia article) or simply augment the data first and then perform the prompt engineering again.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.5.1    fastmap_1.2.0     cli_3.6.5        
+ [5] tools_4.5.1       htmltools_0.5.8.1 rstudioapi_0.17.1 yaml_2.3.10      
+ [9] rmarkdown_2.29    knitr_1.50        jsonlite_2.0.0    xfun_0.52        
+[13] digest_0.6.37     rlang_1.1.6       evaluate_1.0.4   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
