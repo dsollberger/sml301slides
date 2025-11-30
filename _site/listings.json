@@ -2,7 +2,6 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/23_debate/23_debate_draft.html",
       "/posts/23_marimo/23_marimo.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
       "/posts/20_prompt_engineering/20_prompt_engineering.html",
@@ -18,14 +17,12 @@
       "/posts/04_classification/04_classification.html",
       "/posts/03_convergence/03_convergence.html",
       "/posts/02_linear_regression/02_regression.html",
-      "/posts/01_introduction/01_introduction.html",
-      "/posts/23_debate/23_debate.html"
+      "/posts/01_introduction/01_introduction.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/23_debate/23_debate_draft.html",
       "/posts/23_marimo/23_marimo.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
       "/posts/20_prompt_engineering/20_prompt_engineering.html",
@@ -41,8 +38,7 @@
       "/posts/04_classification/04_classification.html",
       "/posts/03_convergence/03_convergence.html",
       "/posts/02_linear_regression/02_regression.html",
-      "/posts/01_introduction/01_introduction.html",
-      "/posts/23_debate/23_debate.html"
+      "/posts/01_introduction/01_introduction.html"
     ]
   }
 ]
