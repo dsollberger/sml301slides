@@ -1,0 +1,446 @@
+---
+title: "23: Debate"
+author: "Derek Sollberger"
+date: "2024-12-01"
+format:
+  html:
+    toc: true
+---
+
+
+# 23: Teaching Controversial Topics
+
+## Learning Objectives
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- view results of prompt engineering
+- discuss governmental regulation in AI
+- participate in agile ethics
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![AI in Ethics](ai_ethics_flyer.png)
+
+* image source: [Princeton Dialogue on AI and Ethics](https://aiethics.princeton.edu/events/)
+:::
+
+::::
+
+# Scene
+
+I am in a teaching group called `Teaching Controversial Topics`, and with them I want to draft a case study from the realm of artificial intelligence. For this teaching group, I am hoping to produce
+
+* 20-minute classroom activity for the SML 301 students
+* a blog post for me
+
+Dr Sarah-Jane Leslie suggested that I look into either "privacy/copyright issues around training data for LLMs" or "the role of government regulation in AI development".  Especially drawn to the latter, idea I have then been picturing a classroom debate about government regulation in AI.  I think that this would appeal to my audience of mostly engineering majors. Over the summer in the AI4ALL summer camp, Dr Steven Kelts led a great ethics debate with the students, and I am hoping to emulate that by partitioning the SML 301 students into 4 roles such as
+
+1. congressional staffers
+2. business lobbyists
+3. data privacy NGO
+4. legal advisors
+
+::: {.callout-warning}
+## Disclosure on AI Use
+
+Despite thinking about this project for the past 4 months (inspired by the BIOME25 conference), I admit that I am assembling these materials merely a couple of weeks before my proposed launch date.  I hardly have experience in debate, much less in setting up one.  Thus, one can imagine that I too would want AI assistance to complete this task.
+
+My students and I have recently covered materials about AI---particularly prompt engineering and retrieval augmented generation---so I am indeed inclined to try to justify AI usage here as careful examination of LLM results.
+:::
+
+
+# Prompt Engineering
+
+My students, perhaps as a reflection of the learning environment that I create, are a quiet group of people.  In fact, I set up an anonymous Slido poll each week to receive questions rather than having the students raise their hands.  With that in mind, asking them to vocalize a debate will be quite a shift in expectations.  
+
+To mitigate that aberrant request, I want to give each student a one-page **character sheet** to on-board them into the roles (stated above). I hope that each character sheet provides several possible talking points to encourage and guide the debate.
+
+Even after I read some materials (below in the "RAG" section), I find that I myself am not a writer of debates.  Thus, I shall employ **prompt engineering** to create the bullet-point lists of talking points.  The idea of debate roles lends itself well for the prompt engineering tool.
+
+Following materials found in Chapter 6 of [Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models) (by Jay Alammar and Maarten Grootendorst), we can construct an LLM prompt with parts like ...
+
+::: {.callout-tip}
+## Persona
+
+[We will provide this below]
+:::
+
+::: {.callout-note}
+## Instruction
+
+Provide possible debate points and *support a stance*.
+:::
+
+::: {.callout-tip}
+## Context
+
+The list should *express several key points* that can help a debate team and quickly state important information for the scene.
+:::
+
+::: {.callout-note}
+## Format
+
+Create a bullet-point overview that summarizes the *debate stance* and also provide a concise paragraph that initiates the debate.
+:::
+
+::: {.callout-tip}
+## Audience
+
+We are at a USA government meeting with a subcommitee of Congress.  We are hoping to inform our Congress members about the issues about *governmental regulation in artificial intelligence*.
+:::
+
+::: {.callout-note}
+## Tone
+
+The tone should be informative and professional.
+:::
+
+::: {.callout-tip}
+## Data
+
+[https://en.wikipedia.org/wiki/Regulation_of_AI_in_the_United_States](https://en.wikipedia.org/wiki/Regulation_of_AI_in_the_United_States)
+:::
+
+Continuing with the materials found in Chapter 6 of [Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models), I used the [Phi-3-mini-4k-instruct](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct) LLM (made by Microsoft) and its tokenizer to process these prompts.
+
+
+# Roles (draft)
+
+We are now ready to see the participants! Here I apply the prompt engineering (structured above) with each of the 4 personas. We hope to have the AI create the rest of the character sheets
+
+::::: {.panel-tabset}
+
+## staffer
+
+::: {.callout-note}
+### persona
+
+You are a Congressional staffer and college graduate. You have been asked to provide a historical perspective of the issue.
+:::
+
+### character sheet
+
+ The United States has been actively engaging in the regulation of artificial intelligence (AI) to ensure the technology's development aligns with national interests, public safety, and ethical standards. The regulatory landscape for AI in the U.S. has evolved through various executive orders, legislative proposals, and state-level initiatives, reflecting a complex interplay between innovation, security, and societal impact.
+
+**Executive Orders and Federal Actions:**
+
+- **2016-2019:** The National Science and Technology Council's report on "Preparing for the Future of Artificial Intelligence" laid the groundwork for a balanced approach to AI development, emphasizing the importance of ethical considerations and the potential risks associated with AI technologies.
+- **2019:** The White House Office of Science and Technology Policy (OSTP) issued a draft guidance on the regulation of AI applications, proposing a framework that includes ethical principles and risk assessment methodologies to ensure AI technologies are developed responsibly.
+- **2020:** The National Security Commission on Artificial Intelligence (NSCAI) was established to provide strategic recommendations for AI development in national security contexts, highlighting the importance of AI in maintaining U.S. technological leadership.
+- **2021:** The Biden administration's Executive Order on "Preventing Weaponization of AI" aimed to mitigate the risks of AI being used for harmful purposes, emphasizing the need for international cooperation and responsible AI development.
+- **2022:** The National Artificial Intelligence Initiative Office (NAIIO) was created to coordinate federal efforts in AI research and development, focusing on advancing AI technologies that benefit the public and national security.
+- **2023:** The Office of Science and Technology Policy (OSTP) released the "AI Risk Management Framework (RMF)" to guide federal agencies in assessing and managing the risks associated with AI applications.
+- **2023:** The National Artificial Intelligence Research and Development Strategic Plan outlined a comprehensive approach to A
+
+## lobbyist
+
+::: {.callout-note}
+### persona
+
+You are a business lobbyist who seeks to discourage further government regulation in artificial intelligence.  You seek to build upon anti-regulation sentiment.
+:::
+
+### character sheet
+
+* The United States government has been actively engaged in shaping the future of artificial intelligence (AI) through a series of legislative and regulatory efforts aimed at fostering innovation while addressing the potential risks associated with AI technologies. These efforts reflect a balanced approach to AI governance, recognizing the transformative potential of AI across various sectors while also acknowledging the need for safeguards to protect public interests and ensure ethical AI development.
+
+* In the early stages of AI regulation, the National Science and Technology Council (NSTC) in 2018 laid the groundwork for a national AI strategy, emphasizing the importance of research and development in AI technologies. This was followed by the National Artificial Intelligence Research and Development Strategic Plan in 2019, which outlined a vision for the U.S. to lead in AI innovation and application. The Department of Defense (DoD) also played a pivotal role in AI regulation by establishing the National Security Commission on Artificial Intelligence (NSCAI) in 2019, tasked with ensuring the U.S. maintains a competitive edge in AI for national security purposes.
+
+* The Food and Drug Administration (FDA) has been instrumental in addressing the intersection of AI and healthcare, particularly in the regulation of AI applications in medical devices. This includes the development of frameworks to ensure the safety and efficacy of AI-driven diagnostic tools and treatments.
+
+* The Office of Science and Technology Policy (OSTP) has been at the forefront of AI governance, issuing guidelines for the responsible development and deployment of AI technologies. These guidelines emphasize the importance of transparency, accountability, and ethical considerations in AI systems.
+
+* In response to the evolving AI landscape, the National Artificial Intelligence Initiative Office (NAIIO) was established to coordinate federal AI efforts, focusing on research, development, and the responsible use of AI technologies.
+
+* The National AI Initiative (NAII) and the National Artificial Intelligence Research and Development Strategic Plan have been key in setting strategic priorities for AI research and
+
+## NGO
+
+::: {.callout-note}
+### persona
+
+You are a volunteer at a non-governmental organization (NGO) that raises awareness about data privacy and the corpuses that are used in the training of large language models.
+:::
+
+### character sheet
+
+1. **Regulatory Framework**: The U.S. government's approach to AI regulation has been a mix of federal and state-level initiatives. The National Artificial Intelligence Initiative Office (NAIIO) and the National Artificial Intelligence Research Resource (NAIRR) are federal efforts aimed at advancing AI research and development. However, the Trump administration's Executive Order #14179 and the proposed "TAKE IT DOWN Act" reflect a deregulatory stance, emphasizing innovation over risk mitigation. This contrasts with the Biden administration's Executive Order, which seeks to establish a comprehensive AI regulatory framework. The debate should consider the balance between fostering innovation and ensuring public safety and ethical standards.
+
+2. **AI in Healthcare**: The Food and Drug Administration (FDA) has a role in regulating AI applications in healthcare, such as the approval process for AI-driven medical devices. The FDA's involvement ensures that AI applications in healthcare meet safety and efficacy standards, protecting patients from potential harm. This regulatory oversight is crucial in maintaining public trust in AI technologies, especially in sensitive areas like healthcare.
+
+3. **AI and Privacy**: The Biden administration's AI Bill of Rights emphasizes the importance of privacy and data security in AI applications. This includes the requirement for AI systems to be transparent about their use of personal data and the implementation of watermarking to inform users about AI-generated content. These measures are essential in protecting individuals' privacy rights and ensuring that AI technologies are used ethically and responsibly.
+
+4. **State and Local Government Interventions**: The New York City Bias Audit Law and California's Safe and Secure Innovation for Frontier Artificial Intelligence Models Act represent state and local efforts to address AI-related risks and biases. These initiatives highlight the importance of local governance in complementing federal efforts to regulate AI. The debate should consider the effectiveness of these local measures in mitigating AI risks and promoting ethical AI development
+
+## legal
+
+::: {.callout-note}
+### persona
+
+You are a paralegal at a law firm that has been tasked with explaining the legal subtleties in the current American laws about artificial intelligence.
+:::
+
+### character sheet
+
+**Pro-Regulation Stance:**
+
+1. **Safety and Ethical Concerns:** The rapid advancement of AI technologies, particularly in areas like facial recognition and deepfakes, raises significant safety and ethical concerns. The potential for AI to perpetuate and amplify existing biases, discriminate against marginalized groups, and infringe on privacy rights necessitates a regulatory framework to ensure these technologies are developed and deployed responsibly.
+
+2. **Need for Oversight:** The National Security Commission on Artificial Intelligence's report highlights the importance of establishing a federal agency to oversee AI development, ensuring it aligns with national security and ethical standards. This oversight is crucial to prevent the misuse of AI in ways that could harm individuals or national security.
+
+3. **Public Safety and Trust:** The Executive Order on AI emphasizes the need for AI to advance equity and civil rights, addressing concerns about job quality and labor disruptions. By mandating transparency and accountability in AI systems, the government can foster public trust and ensure AI technologies contribute positively to society.
+
+4. **International Leadership:** The Biden administration's Executive Order and the proposed AI Action Plan demonstrate a commitment to securing U.S. global AI dominance through responsible innovation. This approach not only positions the U.S. as a leader in AI but also ensures that AI advancements are aligned with democratic values and human rights.
+
+**Anti-Regulation Stance:**
+
+1. **Innovation and Competitiveness:** Critics argue that stringent regulations could stifle innovation and hinder the U.S.'s competitive edge in the global AI market. The tech industry often views regulations as barriers to growth, potentially slowing down the development of beneficial AI applications.
+
+2. **State and Local Initiatives:** The diverse approaches taken by states, such as New York's Bias Audit Law and Utah's AI Policy Act, demonstrate a
+
+:::::
+
+
+# RAG
+
+So far, I have found neat resources that include
+
+* [a brief in the Princeton Legal Journal](https://legaljournal.princeton.edu/regulating-artificial-intelligence-antitrust-and-anti-discrimination-policy/) (Feb 2025)
+* [Congress report](https://www.congress.gov/crs-product/R48555) (June 2025)
+* [article](https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-united-states) by "Energy Legal Services Provider" White & Case (Sept 2025)
+* [state legislation tracker](https://www.ncsl.org/technology-and-communication/artificial-intelligence-2025-legislation) by the NCSL (National Conference of State Legislatures, updated July 2025)
+* [journal report](https://cyber.fsi.stanford.edu/content/regulating-under-uncertainty-governance-options-generative-ai) from the Stanford Cyber Policy Center (updated Sept 2025)
+
+::: {.callout-note collapse="true"}
+## Revisions
+
+Take on a **retrieval-augmented generation** (RAG) mindset by either having each persona ask for more debate points from the specialized literature (i.e. more specialized than just the Wikipedia article) or simply augment the data first and then perform the prompt engineering again.
+:::
+
+# Roles (for activity)
+
+Upon consultation with Dr Steven Kelts, I took his advice and clarified the objective for each role.  The AI LLM created the rest of the character sheets via prompt engineering (outlined above) along with more data (i.e. more text articles) and the objectives
+
+::::: {.panel-tabset}
+
+## staffer
+
+::: {.callout-note}
+### persona
+
+You are a Congressional staffer and college graduate. You have been asked to provide a historical perspective of the issue.
+:::
+
+::: {.callout-tip}
+### objective
+
+Your goal is to maintain civility in the discussion and hope to keep the discussion on topic to expedite the process (in hopes of proceeding to drafting legislation).
+:::
+
+### character sheet
+
+#### State-Level Legislation
+- **All 50 States, Puerto Rico, the Virgin Islands, and Washington, D.C.** have introduced AI-related legislation in the 2025 legislative session.
+- **Thirty-eight states** have adopted or enacted around 100 measures related to AI.
+
+#### Examples of AI-Related Legislation
+1. **Arkansas**:
+   - Clarifies the ownership of AI-generated content, including content generated by AI models trained with data or input from employers.
+   - Specifies that generated content should not infringe on existing copyright or intellectual property rights.
+
+2. **Montana**:
+   - Introduces the "Right to Compute" law, focusing on critical infrastructure controlled by AI systems.
+   - Requires the development of a risk management policy based on specified standards, including the AI risk management framework from the National Institute of Standards and Technology (NIST).
+   - Protects the government's ability to restrict the use of computational resources for lawful purposes unless necessary for a compelling government interest.
+
+3. **New Jersey**:
+   - Adopts a resolution urging generative AI companies to commit to protecting employee whistleblowers.
+
+4. **New York**:
+   - Requires state agencies to publish detailed information about their automated decision-making tools on public websites.
+   - Amends the civil service law to strengthen worker protections, ensuring AI systems do not affect existing rights under collective bargaining agreements or result in displacement or loss of positions.
+   
+
+## lobbyist
+
+::: {.callout-note}
+### persona
+
+You are a business lobbyist who seeks to discourage further government regulation in artificial intelligence.  
+:::
+
+::: {.callout-tip}
+### objective
+
+You seek to build upon anti-regulation sentiment and be persuasive to a wider media audience (beyond the Congressional staff)
+:::
+
+### character sheet
+
+#### California AI Acts as a Reference
+- **Senate Bill 942 (California AI Transparency Act):**
+  - Provides for penalties of $5,000 per violation per day.
+  - Enforceable through civil action by the California Attorney General, city attorneys, or county counsel.
+
+- **Assembly Bill 3030 (Health Care Services: AI Act):**
+  - Enforceable by the Medical Board of California and Osteopathic Medical Board of California.
+  - Non-compliance can lead to civil penalties, suspension or revocation of a medical license, and administrative fines.
+
+- **Assembly Bill 2655 (Defending Democracy from Deepfake Deception Act):**
+  - Enforced by the California Attorney General, district attorneys, or city attorneys.
+  - Allows for injunctive relief to compel the removal of materially deceptive content.
+
+#### Enforcement Mechanisms
+- **Civil Penalties:**
+  - Penalties for violations, as seen in SB 942, can be a significant deterrent.
+
+- **Suspension or Revocation of Licenses:**
+  - For healthcare-related AI applications (AB 3030), this mechanism ensures that non-compliant entities cannot operate, protecting public health.
+
+- **Administrative Fines:**
+  - These fines can serve as both a punitive measure and a financial deterrent against non-compliance.
+
+#### Proactive Regulatory Options
+- **Risk Management Policies:**
+  - Mandating the development of risk management policies for critical infrastructure controlled by AI systems, as seen in Montana's "Right to Compute" law.
+
+- **Transparency and Disclosure:**
+  - Requiring state agencies to publish detailed information about their automated decision-making tools, enhancing accountability and public trust.
+
+- **Protecting Worker Rights:**
+  - Amending laws to ensure AI systems do not affect existing workers' rights, preserving employment and labor standards.
+
+- **Focusing on Specific AI Technologies:**
+  - Creating targeted regulations for specific AI technologies, such as facial recognition or autonomous vehicles, addressing unique challenges and risks associated with each.
+
+#### Recommendations for Colorado
+- **Adopt a Multifaceted Approach:**
+  - Colorado should consider a combination of civil penalties, licensing actions, and administrative fines to ensure compliance and deter violations.
+
+- **Enhance Transparency:**
+  - Implement mandatory disclosures for AI systems used by public and private entities, focusing on the impact on individuals and communities.
+
+## NGO
+
+::: {.callout-note}
+### persona
+
+You are a volunteer at a non-governmental organization (NGO) that raises awareness about data privacy and the corpuses that are used in the training of large language models.
+:::
+
+::: {.callout-tip}
+### objective
+
+You seek to educate the wider public about controversies about artificial intelligence and inspire sympathy for those affected.
+:::
+
+### character sheet
+
+#### 1. Precautionary Principle
+Implementing regulations based on the precautionary principle might be a starting point. This principle suggests that in the absence of scientific consensus, the burden of proof falls on those advocating for an action that may harm the public or the environment. In the context of AI, this could mean strict regulations on the deployment of generative AI until its risks are fully understood.
+
+#### 2. Risk-Based Regulation
+Adopting a risk-based regulatory approach would involve identifying and assessing the risks associated with generative AI and applying regulations proportionally. This could include specific licensing requirements for developers, mandatory impact assessments, and the establishment of AI ethics committees.
+
+#### 3. Self-Regulation and Industry Standards
+Encouraging or mandating self-regulation within the AI industry could be another option. This would involve the development of industry standards and best practices for the responsible use of generative AI. While self-regulation can be effective, it often requires a strong culture of ethics and accountability within the industry.
+
+#### 4. International Cooperation
+Given the global nature of AI development and its potential impacts, international cooperation and harmonization of regulations could be crucial. This might involve global standards for transparency, accountability, and ethical use of generative AI, facilitated by international organizations or agreements.
+
+#### 5. Adaptive Regulation
+Adopting an adaptive regulatory approach that evolves with the technology could allow for more flexibility and responsiveness to new developments in generative AI. This could involve regular reviews of regulations and the establishment of mechanisms for rapid response to emerging risks.
+
+#### 6. Public Engagement and Transparency
+Engaging the public in discussions about the development and regulation of generative AI can help ensure that the technology aligns with societal values and expectations. Transparency about the capabilities and risks of generative AI, as well as the regulatory processes, can build public trust and facilitate informed decision-making.
+
+### Challenges and Considerations
+
+- **Rapid Technological Advancement**: The pace of AI development, particularly in generative AI, poses a significant challenge to regulators. Regulations may quickly become outdated if they are not adaptable.
+- **Global Impact**: Generative AI has the potential to impact societies worldwide, making international cooperation essential. However, differences in regulatory philosophies and priorities can complicate this process.
+- **Balancing Innovation and Protection**: Regulators must balance the need to protect individuals and society from potential harms with the desire to foster innovation and economic growth.
+- **Ethical and Societal Implications**: Generative AI raises complex ethical and societal questions, including issues related to privacy, consent
+
+
+## legal
+
+::: {.callout-note}
+### persona
+
+You are a paralegal at a law firm that has been tasked with explaining the legal subtleties in the current American laws about artificial intelligence.
+:::
+
+::: {.callout-tip}
+### objective
+
+You seek to maintain consistency in legislation based on precedent while acknowledging state versus federal decisions.
+:::
+
+### character sheet
+
+However, I can offer guidance on how to stay informed about AI legislation developments. Here are some steps you can take to monitor AI-related legislation:
+
+1. **Legislative Tracking Services**: Utilize government websites and legislative tracking services such as Congress.gov (for the U.S.), the Legislative Tracker (for the UK), or similar platforms in your country to follow bills related to AI. These platforms allow you to search for legislation by topic, keyword, or bill number.
+
+2. **Government Agencies and Committees**: Monitor the websites of relevant government agencies and committees that focus on technology, AI, and digital policy. In the U.S., for example, the Senate Committee on Commerce, Science, and Transportation, the House Committee on Science, Space, and Technology, and the House Energy and Commerce Committee have subcommittees that deal with technology and AI.
+
+3. **Legislative Analysts and Research Groups**: Follow legislative analysts and research groups that specialize in technology and policy. Their reports and analyses often include updates on relevant legislation and regulatory proposals.
+
+4. **News Outlets and Think Tanks**: Follow reputable news outlets, think tanks, and policy research organizations that focus on technology and AI. These sources often publish analyses and commentaries on proposed and enacted legislation.
+
+5. **Social Media and Professional Networks**: Follow experts, policymakers, and organizations in the AI field on social media platforms like Twitter, LinkedIn, and Facebook. Many professionals share updates, insights, and analysis on AI-related legislative developments.
+
+6. **Subscribe to Newsletters**: Consider subscribing to newsletters from organizations focused on technology policy, AI governance, and digital rights. These newsletters often provide summaries and analyses of recent legislative developments.
+
+7. **Participate in Forums and Discussions**: Engage in forums, webinars, and discussions on AI policy and regulation. These platforms can offer insights and updates from a community of professionals and enthusiasts.
+
+
+:::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

@@ -1,0 +1,223 @@
+---
+title: "23: Marimo"
+author: "Derek Sollberger"
+date: "2025-12-01"
+format:
+  html:
+    toc: true
+---
+
+
+# 23: Marimo
+
+## Learning Objectives
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- explore Marimo
+- data ethics debate
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![marimo moss](marimo_moss.png)
+
+* image source: [Highland Moss](https://highlandmoss.com/portfolio-item/marimo-moss-care-guide/)
+
+:::
+
+::::
+
+# Setup
+
+## Windows
+
+For those of us who use Windows, we might want to ensure that the `Python` program is accessible to command-line and other interfaces.  During installation, ensure that "Add Python to environment variables" is set.
+
+![Python installation settings](Python_path_setting.png)
+
+::: {.callout-warning collapse="true"}
+## Python Environments
+
+Actually, the above is naive advice on my part.  Python programmers know that keeping separate *environments* is wiser since Python programming is rife with the possibility of having incompatible packages.  As we will soon see, advice for small programs is to use **virtual environments**
+:::
+
+
+## Virtual Environments
+
+Especially when trying out new software, Python programmers recommend using **virtual environments** that are quarantined from the rest of a computer so that installing packages there do not disturb other projects.
+
+* open a command-line interface (CLI)
+* navigate to the folder where you want to build a virtual environment
+* install a virtual environment with
+
+```
+python -m venv vir_env
+```
+
+(where `vir_env` is a label that you can customize)
+
+* activate and enter the virtual environment with
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Mac
+
+```
+source vir_env/bin/activate
+```
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Windows
+
+```
+vir_env\Scripts\activate.bat
+```
+:::
+
+::::
+
+
+# Marimo
+
+## Installation
+
+We can now install `marimo` (say, within a virtual environment) with
+
+```
+pip install marimo
+```
+
+## Tutorials
+
+We can peruse the features of `marimo` through their tutorials
+
+* `marimo tutorial intro`
+* `marimo tutorial dataflow`
+* `marimo tutorial ui`
+* `marimo tutorial markdown`
+* `marimo tutorial plots`
+* `marimo tutorial sql`
+* `marimo tutorial layout`
+* `marimo tutorial fileformat`
+* `marimo tutorial markdown-format`
+* `marimo tutorial for-jupyter-users`
+
+## Coup de Grace
+
+One of the best applications of `marimo` (for our SML 301 course) is [this demonstration](https://github.com/marimo-team/marimo?tab=readme-ov-file#learn-more) of an embedding of the MNIST data set:
+
+![MNIST](embedding.gif)
+
+::: {.callout-warning}
+## DCP1
+:::
+
+
+# Data Ethics
+
+## Governmental Regulation of AI
+
+Students were handed *character sheets* (persona, objective, talking points) and their persona roles could be
+
+* Congressional staffer
+* Business Lobbyist
+* Data Privacy NGO
+* Paralegal
+
+::: {.callout-warning}
+## DCP2
+:::
+
+![personas](data_ethics_debate_sheets.png)
+
+::: {.callout-warning}
+## DCP3
+:::
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+* due this Friday (Dec 5):
+
+    - surveys:
+        - **CLO Assessment (after)** (10 minutes)
+        - **CuriosityPost** (5 minutes)
+        - **Literature Review Survey (post)** (10 minutes)
+
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="40%"}
+
+::: {.callout-tip}
+## Semester Project due December 16
+
+* Project Code
+* Project Presentation
+* Project Report
+:::
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+* [LLM strategies](https://towardsdatascience.com/decoding-strategies-in-large-language-models-9733a8f70539/)
+* [Prompting Guide](https://www.promptingguide.ai/techniques)
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::
