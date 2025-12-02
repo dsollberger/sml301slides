@@ -1,0 +1,512 @@
+---
+title: "24: Gradio"
+author: "Derek Sollberger"
+date: "2025-12-03"
+format:
+  html:
+    toc: true
+---
+
+
+# 24: Gradio
+
+## Learning Objectives
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- explore Gradio
+- outline semester project
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![gradio](gradio_icon.png)
+
+:::
+
+::::
+
+# Setup
+
+## Installation
+
+We can now install `gradio` (say, within a virtual environment) with
+
+```
+pip install gradio
+```
+
+# Tutorials
+
+## HuggingFace
+
+[HuggingFace Gradio Tutorials](https://huggingface.co/learn/llm-course/en/chapter9/1)
+
+## Fast.ai
+
+[Image Segmentation app](https://forums.fast.ai/t/lesson-2-gradio-app-for-image-segmentation/113696)
+
+
+# Example: AudioBot
+
+Here we look at an example Gradio app from [AssemblyAI](https://www.assemblyai.com/blog/getting-started-with-huggingfaces-gradio)
+
+![AudioBot](audio_bot_1.png)
+
+* input: users can upload or record an audio file
+* output: AI analyses of the audio file
+
+## Outputs
+
+::::: {.panel-tabset}
+
+### transcript
+
+![AudioBot](audio_bot_2.png)
+
+### speakers
+
+![AudioBot](audio_bot_3.png)
+
+### attention
+
+![AudioBot](audio_bot_4.png)
+
+### summary
+
+![AudioBot](audio_bot_5.png)
+
+![AudioBot](audio_bot_6.png)
+
+:::::
+
+::::: {.panel-tabset}
+
+### topics
+
+![AudioBot](audio_bot_7.png)
+
+### sentiment
+
+![AudioBot](audio_bot_8.png)
+
+### entities
+
+![AudioBot](audio_bot_9.png)
+
+### content
+
+![AudioBot](audio_bot_10.png)
+
+:::::
+
+::: {.callout-warning}
+## DCP1
+:::
+
+# Data Ethics: Avoiding Fakes
+
+The following are the section headings from Chapter 10 of *Calling Bull___* by Carl T Bergstrom and Jevin D West
+
+1. Question the source of information
+2. Beware of unfair comparisons
+3. If it seems to be too good or too bad to be true ...
+4. Think in orders of magnitude
+5. Avoid confirmation bias
+6. Consider multiple hypotheses
+
+::: {.callout-warning}
+## DCP2
+:::
+
+# Case Study: Color Sensitivity
+
+* Derek Sollberger, Princeton University
+* Hayley Orndorf, BioMADE
+
+## Introduction
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- We hope to build a CNN to classify pictures in terms of susceptibility to color blindness
+- Trained model on Ishihara data set
+- Ran model on novel images from the Princeton Art Museum
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![301](ishihara_example_301.png)
+:::
+
+::::
+
+### Data Description
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- [Kaggle data set](https://www.kaggle.com/datasets/dupeljan/ishihara-blind-test-cards) by Dupeljan
+- synethetic set of 1400 Ishihara blind test cards
+- digits 0 to 9
+- Google fonts
+- for exploring dichromacy:
+
+    1. protanopia
+    2. deuteranopia
+    3. tritanopia
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+![color vision deficiency](color_vision_deficiency.png)
+
+* image source: [Male, et al., 2022](https://pmc.ncbi.nlm.nih.gov/articles/PMC9498227/)
+:::
+
+::::
+
+### Literature Search
+
+::::: {.panel-tabset}
+
+#### cGANs
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Conditional Adversarial Networks	
+- Phillip Isola, et al.
+- "... learn the mapping from
+input image to output image, but also learn a loss function to train this mapping"
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Isola et al., 2018](Isola_cGANs.png)
+:::
+
+::::
+
+#### NIR
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- The Potential of Diffusion-Based Near-Infrared Image Colorization 	
+- Borsetelmann, et al., 2024
+- "... utilizing diffusion models for the colorization of NIR images"
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Borsetelmann, et al., 2024](Borsetelmann_NIR.png)
+:::
+
+::::
+
+#### LineGAN
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- LineGAN: An image colourisation method combined with a line art network	
+- Dahua Lv, Yuanyuan Pu, Rencan Nie
+- "LineGAN learns the corresponding colour mapping from datasets, improving the accuracy of image colourisation"
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![Lv, et al., 2022](Lv_LineGAN.png)
+:::
+
+::::
+
+:::::
+
+
+## Methods
+
+### Exploratory Data Analysis
+
+:::: {.columns}
+
+::: {.column width="45%"}
+* 1400 images
+* 531x531 pixels
+
+    * 3 channels (RGB)
+
+* 45 Google fonts
+* partition:
+
+    * training: 70%
+    * testing: 30%
+    
+* strata:
+
+    * type 1: 25%
+    * type 2: 25%
+    * type 3: 50%
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+* `script.ipynb`
+* `ishihara_train_test/`
+
+    * `training_data/`
+    
+        * `type_1/`
+        * `type_2/`
+        * `type_3/`
+    
+    * `testing_data/`
+    
+        * `type_1/`
+        * `type_2/`
+        * `type_3/`
+:::
+
+::::
+
+::: {.callout-note collapse="true"}
+### Tabular Data?
+
+If you are working with tabular data (such as a CSV file), your EDA is more conventional, and you should provide explorations such as bar graphs, histograms, and/or scatterplots along with counts and/or correlations.
+:::
+
+* baseline models
+
+    * random guessing (33%)
+    * majority classifier (50%)
+
+### CNN
+
+![convolutional neural network](CNN_architecture.png)
+
+* 30,000 parameters!
+* image source: [NN-SVG](https://alexlenail.me/NN-SVG/index.html)
+
+::: {.callout-warning}
+## DCP3
+:::
+
+## Discussion
+
+### Hyperparameters
+
+::::: {.panel-tabset}
+
+#### Deep Learning
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* input: 3x32x32
+
+* 2 convolution layers
+
+    * each with max-pool
+    
+* dense layers of 400, 64, 32
+
+* output: 3 class labels	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+We increased the hidden layer sizes and the number of hidden layers in hopes of reducing the classification error.
+:::
+
+::::
+
+#### Learning Rate
+
+* We chose a learning rate of 0.05 based on work done on the CIFAR-10 data set.
+
+* TODO: elaborate on larger or smaller learning rate
+
+#### Momentum
+
+* We chose a momentum of 0.9 based on the PyTorch Lightning documentation for the SGD optimizer
+
+* TODO: elaborate on larger or smaller momentum
+
+:::::
+
+
+### Results
+
+![sample of predictions](results_collage.png)
+
+* classification test error: 50%
+
+    * beat random guessing (33%)
+    * did not outperform majority classifier (50%)
+
+### Future Directions
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* better data
+
+    * increase data set by factor of 10
+    * recenter, resize, rotations, shears
+
+* model architecture
+
+    * more hidden layers
+    * vary filter sizes
+    * 3D convolution filters
+    
+* hyperparameter search
+
+* validate results
+
+* regression model
+
+    * goal: image's susceptibility to color vision deficiency	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="30%"}
+![3D convolutions](3d_convolution.png)
+
+* image source: [DeepLearning AI](https://www.youtube.com/watch?v=KTB_OFoAQcc)
+:::
+
+::::
+
+
+
+
+
+
+
+## Conclusion
+
+TODO: summarize discussion and results
+
+### Citations
+
+* Borstelmann, A., Haucke, T., & Steinhage, V. (2024). "The Potential of Diffusion-Based Near-Infrared Image Colorization. Sensors", 24(5), 1565. https://doi.org/10.3390/s24051565 
+
+* Dupeljian (2021). *Ishihara blind test cards*. Retrieved February 2025 from [https://www.kaggle.com/datasets/dupeljan/ishihara-blind-test-cards/data](https://www.kaggle.com/datasets/dupeljan/ishihara-blind-test-cards/data).
+
+* Isola, Phillip, et al. ‘Image-to-Image Translation with Conditional Adversarial Networks’. CoRR, vol. abs/1611.07004, 2016.
+
+* LeNail, (2019). NN-SVG: Publication-Ready Neural Network Architecture Schematics. Journal of Open Source Software, 4(33), 747, https://doi.org/10.21105/joss.00747
+
+* Lv, Dahua et al. “LineGAN: An image colourisation method combined with a line art network.” IET Computer Vision vol. 16,5, pages 403-417. 08 Mar. 2022, doi:10.1049/cvi2.12096
+
+* Male, Shiva Ram et al. “Color vision devices for color vision deficiency patients: A systematic review and meta-analysis.” Health science reports vol. 5,5 e842. 22 Sep. 2022, doi:10.1002/hsr2.842
+
+
+
+
+
+
+
+
+# Quo Vadimus?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+* due this Friday (Dec 5):
+
+    - surveys:
+        - **CLO Assessment (after)** (10 minutes)
+        - **CuriosityPost** (5 minutes)
+        - **Literature Review Survey (post)** (10 minutes)
+
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="40%"}
+
+::: {.callout-tip}
+## Semester Project due December 16
+
+* Project Code
+* Project Presentation
+* Project Report
+:::
+
+:::
+
+::::
+
+
+# Footnotes
+
+::: {.callout-note collapse="true"}
+
+## (optional) Additional Resources and References
+
+:::
+
+::: {.callout-note collapse="true"}
+## Session Info
+
+```{r}
+sessionInfo()
+```
+:::
+
+
+:::: {.columns}
+
+::: {.column width="45%"}
+	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+::::: {.panel-tabset}
+
+
+
+:::::

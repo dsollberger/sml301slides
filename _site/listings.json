@@ -2,6 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/24_gradio/24_gradio.html",
+      "/posts/23_debate/23_debate.html",
       "/posts/23_marimo/23_marimo.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
       "/posts/20_prompt_engineering/20_prompt_engineering.html",
@@ -23,6 +25,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/24_gradio/24_gradio.html",
+      "/posts/23_debate/23_debate.html",
       "/posts/23_marimo/23_marimo.html",
       "/posts/21_rag/21_retrieval_augmented_generation.html",
       "/posts/20_prompt_engineering/20_prompt_engineering.html",

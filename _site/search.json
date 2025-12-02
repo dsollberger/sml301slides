@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "23: Marimo\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "24: Gradio\n\n\n\n\n\n\n\n\n\n\n\nDec 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n23: Debate\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n23: Marimo\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Spring 2025)",
     "section": "",
-    "text": "23: Marimo\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
+    "text": "24: Gradio\n\n\n\n\n\n\n\n\n\n\n\nDec 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n23: Debate\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n23: Marimo\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n21: RAG\n\n\n\n\n\n\n\n\n\n\n\nNov 19, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n20: Prompt Engineering\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: Topic Modeling\n\n\n\n\n\n\n\n\n\n\n\nNov 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Image Processing\n\n\n\n\n\n\n\n\n\n\n\nOct 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Generating Images\n\n\n\n\n\n\n\n\n\n\n\nOct 27, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\n\n\n\nOct 22, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\n\n\n\nSep 30, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Regression\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2025\n\n\nDerek Sollberger\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -3393,5 +3393,75 @@
     "title": "23: Marimo",
     "section": "Governmental Regulation of AI",
     "text": "Governmental Regulation of AI\nStudents were handed character sheets (persona, objective, talking points) and their persona roles could be\n\nCongressional staffer\nBusiness Lobbyist\nData Privacy NGO\nParalegal\n\n\n\n\n\n\n\nDCP2\n\n\n\n\n\n\n\n\n\npersonas\n\n\n\n\n\n\n\n\nDCP3"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html",
+    "href": "posts/24_gradio/24_gradio.html",
+    "title": "24: Gradio",
+    "section": "",
+    "text": "explore Gradio\noutline semester project\n\n\n\n\n\n\n\ngradio"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#learning-objectives",
+    "href": "posts/24_gradio/24_gradio.html#learning-objectives",
+    "title": "24: Gradio",
+    "section": "",
+    "text": "explore Gradio\noutline semester project\n\n\n\n\n\n\n\ngradio"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#installation",
+    "href": "posts/24_gradio/24_gradio.html#installation",
+    "title": "24: Gradio",
+    "section": "Installation",
+    "text": "Installation\nWe can now install gradio (say, within a virtual environment) with\npip install gradio"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#huggingface",
+    "href": "posts/24_gradio/24_gradio.html#huggingface",
+    "title": "24: Gradio",
+    "section": "HuggingFace",
+    "text": "HuggingFace\nHuggingFace Gradio Tutorials"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#fast.ai",
+    "href": "posts/24_gradio/24_gradio.html#fast.ai",
+    "title": "24: Gradio",
+    "section": "Fast.ai",
+    "text": "Fast.ai\nImage Segmentation app"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#outputs",
+    "href": "posts/24_gradio/24_gradio.html#outputs",
+    "title": "24: Gradio",
+    "section": "Outputs",
+    "text": "Outputs\n\ntranscriptspeakersattentionsummary\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\ntopicssentimententitiescontent\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\nAudioBot\n\n\n\n\n\n\n\n\n\n\n\nDCP1"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#introduction",
+    "href": "posts/24_gradio/24_gradio.html#introduction",
+    "title": "24: Gradio",
+    "section": "Introduction",
+    "text": "Introduction\n\n\n\nWe hope to build a CNN to classify pictures in terms of susceptibility to color blindness\nTrained model on Ishihara data set\nRan model on novel images from the Princeton Art Museum\n\n\n\n\n\n\n\n301\n\n\n\n\n\nData Description\n\n\n\nKaggle data set by Dupeljan\nsynethetic set of 1400 Ishihara blind test cards\ndigits 0 to 9\nGoogle fonts\nfor exploring dichromacy:\n\nprotanopia\ndeuteranopia\ntritanopia\n\n\n\n\n\n\n\n\ncolor vision deficiency\n\n\n\nimage source: Male, et al., 2022\n\n\n\n\n\nLiterature Search\n\ncGANsNIRLineGAN\n\n\n\n\n\nConditional Adversarial Networks\n\nPhillip Isola, et al.\n“… learn the mapping from input image to output image, but also learn a loss function to train this mapping”\n\n\n\n\n\n\n\nIsola et al., 2018\n\n\n\n\n\n\n\n\n\nThe Potential of Diffusion-Based Near-Infrared Image Colorization\n\nBorsetelmann, et al., 2024\n“… utilizing diffusion models for the colorization of NIR images”\n\n\n\n\n\n\n\nBorsetelmann, et al., 2024\n\n\n\n\n\n\n\n\n\nLineGAN: An image colourisation method combined with a line art network\n\nDahua Lv, Yuanyuan Pu, Rencan Nie\n“LineGAN learns the corresponding colour mapping from datasets, improving the accuracy of image colourisation”\n\n\n\n\n\n\n\nLv, et al., 2022"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#methods",
+    "href": "posts/24_gradio/24_gradio.html#methods",
+    "title": "24: Gradio",
+    "section": "Methods",
+    "text": "Methods\n\nExploratory Data Analysis\n\n\n\n1400 images\n531x531 pixels\n\n3 channels (RGB)\n\n45 Google fonts\npartition:\n\ntraining: 70%\ntesting: 30%\n\nstrata:\n\ntype 1: 25%\ntype 2: 25%\ntype 3: 50%\n\n\n\n\n\n\nscript.ipynb\nishihara_train_test/\n\ntraining_data/\n\ntype_1/\ntype_2/\ntype_3/\n\ntesting_data/\n\ntype_1/\ntype_2/\ntype_3/\n\n\n\n\n\n\n\n\n\n\n\nTabular Data?\n\n\n\n\n\nIf you are working with tabular data (such as a CSV file), your EDA is more conventional, and you should provide explorations such as bar graphs, histograms, and/or scatterplots along with counts and/or correlations.\n\n\n\n\nbaseline models\n\nrandom guessing (33%)\nmajority classifier (50%)\n\n\n\n\nCNN\n\n\n\nconvolutional neural network\n\n\n\n30,000 parameters!\nimage source: NN-SVG\n\n\n\n\n\n\n\nDCP3"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#discussion",
+    "href": "posts/24_gradio/24_gradio.html#discussion",
+    "title": "24: Gradio",
+    "section": "Discussion",
+    "text": "Discussion\n\nHyperparameters\n\nDeep LearningLearning RateMomentum\n\n\n\n\n\ninput: 3x32x32\n2 convolution layers\n\neach with max-pool\n\ndense layers of 400, 64, 32\noutput: 3 class labels\n\n\n\n\n\nWe increased the hidden layer sizes and the number of hidden layers in hopes of reducing the classification error.\n\n\n\n\n\nWe chose a learning rate of 0.05 based on work done on the CIFAR-10 data set.\nTODO: elaborate on larger or smaller learning rate\n\n\n\n\nWe chose a momentum of 0.9 based on the PyTorch Lightning documentation for the SGD optimizer\nTODO: elaborate on larger or smaller momentum\n\n\n\n\n\n\nResults\n\n\n\nsample of predictions\n\n\n\nclassification test error: 50%\n\nbeat random guessing (33%)\ndid not outperform majority classifier (50%)\n\n\n\n\nFuture Directions\n\n\n\nbetter data\n\nincrease data set by factor of 10\nrecenter, resize, rotations, shears\n\nmodel architecture\n\nmore hidden layers\nvary filter sizes\n3D convolution filters\n\nhyperparameter search\nvalidate results\nregression model\n\ngoal: image’s susceptibility to color vision deficiency\n\n\n\n\n\n\n\n\n\n3D convolutions\n\n\n\nimage source: DeepLearning AI"
+  },
+  {
+    "objectID": "posts/24_gradio/24_gradio.html#conclusion",
+    "href": "posts/24_gradio/24_gradio.html#conclusion",
+    "title": "24: Gradio",
+    "section": "Conclusion",
+    "text": "Conclusion\nTODO: summarize discussion and results\n\nCitations\n\nBorstelmann, A., Haucke, T., & Steinhage, V. (2024). “The Potential of Diffusion-Based Near-Infrared Image Colorization. Sensors”, 24(5), 1565. https://doi.org/10.3390/s24051565\nDupeljian (2021). Ishihara blind test cards. Retrieved February 2025 from https://www.kaggle.com/datasets/dupeljan/ishihara-blind-test-cards/data.\nIsola, Phillip, et al. ‘Image-to-Image Translation with Conditional Adversarial Networks’. CoRR, vol. abs/1611.07004, 2016.\nLeNail, (2019). NN-SVG: Publication-Ready Neural Network Architecture Schematics. Journal of Open Source Software, 4(33), 747, https://doi.org/10.21105/joss.00747\nLv, Dahua et al. “LineGAN: An image colourisation method combined with a line art network.” IET Computer Vision vol. 16,5, pages 403-417. 08 Mar. 2022, doi:10.1049/cvi2.12096\nMale, Shiva Ram et al. “Color vision devices for color vision deficiency patients: A systematic review and meta-analysis.” Health science reports vol. 5,5 e842. 22 Sep. 2022, doi:10.1002/hsr2.842"
   }
 ]
