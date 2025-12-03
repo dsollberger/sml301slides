@@ -123,6 +123,147 @@ The following are the section headings from Chapter 10 of *Calling Bull___* by C
 ## DCP2
 :::
 
+
+# Multipass
+
+
+
+::::: {.panel-tabset}
+
+## overview
+
+This semester, Derek tried out a series of "Multipass" assigments to aid in the literature process
+
+## 1
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+* Copy-and-paste the content of the paper into a word cloud generator (such as [www.wordclouds.com](www.wordclouds.com)). Copy-and-paste the word cloud (or upload the image) back here.	
+
+* Based on your word cloud, what do you think the research paper is about?
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Bag of Words
+
+![bag of words](bag_of_words.png)
+
+* image source: [Vamshi Prakash](https://medium.com/@vamshiprakash001/an-introduction-to-bag-of-words-bow-c32a65293ccc)
+:::
+
+::::
+
+## 2
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+* Summarize the abstract, introduction, and conclusion of the paper (with about 3 sentences here).
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Topic Modeling
+
+![topic modeling](topic_modeling.png)
+
+* image source: [Joyce Xu](https://medium.com/nanonets/topic-modeling-with-lsa-psla-lda-and-lda2vec-555ff65b0b05)
+:::
+
+::::
+
+## 3
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+* Ask an AI chatbot (e.g. ChatGPT, Claude) to give you an overview of the paper's topic. Also, please indicate which chatbot you used.
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Large Language Models
+
+![foundation models](llm.png)
+
+* image source: [Sumit Singh](https://www.labellerr.com/blog/an-introduction-to-large-language-models-llms/)
+:::
+
+::::
+
+## 4
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+* Prompt the chatbot to also polish your writing above (from Questions 2 and 3).  Place the chatbot's response here.
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Retrieval Augmented Generation
+
+![RAG](rag.png)
+
+* image source: [Minerva CQ](https://www.minervacq.com/post/make-customer-service-reps-smarter-with-rag-retrieval-augmented-generation)
+:::
+
+::::
+
+## 5
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+* Finally, combine the results from the above tasks into one paragraph.  Please have the majority of the work as your own work.
+
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+### Human in the Loop
+
+![Human in the Loop](human_loop.png)
+
+* image source: [Stanford HAI](https://hai.stanford.edu/news/humans-loop-design-interactive-ai-systems)
+:::
+
+::::
+
+:::::
+
+
+
+::: {.callout-warning}
+## DCP3
+:::
+
 # Case Study: Color Sensitivity
 
 * Derek Sollberger, Princeton University
@@ -310,9 +451,7 @@ If you are working with tabular data (such as a CSV file), your EDA is more conv
 * 30,000 parameters!
 * image source: [NN-SVG](https://alexlenail.me/NN-SVG/index.html)
 
-::: {.callout-warning}
-## DCP3
-:::
+
 
 ## Discussion
 
@@ -432,10 +571,19 @@ TODO: summarize discussion and results
 * Male, Shiva Ram et al. “Color vision devices for color vision deficiency patients: A systematic review and meta-analysis.” Health science reports vol. 5,5 e842. 22 Sep. 2022, doi:10.1002/hsr2.842
 
 
+# Coda
 
+::: {.callout-tip collapse="true"}
+## Course Learning Outcomes
 
+By the end of this course, students will be able to:
 
-
+* Understand the main **concepts** of machine learning in supervised learning, unsupervised learning, and artificial intelligence
+* Deploy and experiment with various machine learning **algorithms**
+* Critique results and performance of machine learning **computations**
+* Refine artificial intelligence code and discuss **parameter selection**
+* Understand the **ethical** and societal implications of artificial intelligence, including issues such as algorithmic bias, data privacy, and the impact of automation
+:::
 
 
 # Quo Vadimus?
