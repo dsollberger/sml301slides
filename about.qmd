@@ -7,4 +7,4 @@ about:
 
 ---
 
-SML 301 Spring 2025
+SML 301 Fall 2026
