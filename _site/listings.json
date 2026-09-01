@@ -2,46 +2,12 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/24_gradio/24_gradio.html",
-      "/posts/23_debate/23_debate.html",
-      "/posts/23_marimo/23_marimo.html",
-      "/posts/21_rag/21_retrieval_augmented_generation.html",
-      "/posts/20_prompt_engineering/20_prompt_engineering.html",
-      "/posts/16_topic_modeling/16_topic_modeling.html",
-      "/posts/15_image_processing/15_image_processing.html",
-      "/posts/14_gans/14_GAN.html",
-      "/posts/13_recurrence/13_recurrence.html",
-      "/posts/09_kernel_trick/09_kernel_trick.html",
-      "/posts/08_nearest_neighbors/08_nearest_neighbors.html",
-      "/posts/07_random_forests/07_random_forests.html",
-      "/posts/06_decision_trees/06_decision_trees.html",
-      "/posts/05_dimension_reduction/05_dimension_reduction.html",
-      "/posts/04_classification/04_classification.html",
-      "/posts/03_convergence/03_convergence.html",
-      "/posts/02_linear_regression/02_regression.html",
       "/posts/01_introduction/01_introduction.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/24_gradio/24_gradio.html",
-      "/posts/23_debate/23_debate.html",
-      "/posts/23_marimo/23_marimo.html",
-      "/posts/21_rag/21_retrieval_augmented_generation.html",
-      "/posts/20_prompt_engineering/20_prompt_engineering.html",
-      "/posts/16_topic_modeling/16_topic_modeling.html",
-      "/posts/15_image_processing/15_image_processing.html",
-      "/posts/14_gans/14_GAN.html",
-      "/posts/13_recurrence/13_recurrence.html",
-      "/posts/09_kernel_trick/09_kernel_trick.html",
-      "/posts/08_nearest_neighbors/08_nearest_neighbors.html",
-      "/posts/07_random_forests/07_random_forests.html",
-      "/posts/06_decision_trees/06_decision_trees.html",
-      "/posts/05_dimension_reduction/05_dimension_reduction.html",
-      "/posts/04_classification/04_classification.html",
-      "/posts/03_convergence/03_convergence.html",
-      "/posts/02_linear_regression/02_regression.html",
       "/posts/01_introduction/01_introduction.html"
     ]
   }

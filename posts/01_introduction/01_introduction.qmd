@@ -1,7 +1,7 @@
 ---
 title: "1: Introductions"
 author: "Derek Sollberger"
-date: "2025-09-03"
+date: "2026-09-02"
 format:
   html:
     toc: true
@@ -45,7 +45,7 @@ image source: [Sankalp Salve](https://medium.com/@xsankalp13/advanced-topics-in-
 
 ## Data Intelligence: Modern Data Science Methods 
 
-* Fall 2025
+* Fall 2026
 * Monday, Wednesday, 1040 AM to 12 noon
 * Lecturer: Derek Sollberger
 
@@ -95,10 +95,10 @@ This course provides the training for students to be independent in modern data 
 
     
 ::: {.callout-tip collapse="true"}
-## Derek's Example
+## Derek's Example2
 
-1. (unusual goal) I am learning some of the Polish language before traveling to Warsaw next July.
-2. This semester, I will learn more about RAGs (retrieval augmented generation) and their applications.
+1. (unusual goal) I hope to attend more Princeton sports games
+2. This semester, I will learn more about GeoAI (artificial intelligence for geospatial calculations)
 3. Sushi!
 :::
 
@@ -147,6 +147,10 @@ DCP 1
 * *Co-Intelligence* Ethan Mollick
 * *How Data Happened* Wiggins, Jones
 * *Weapons of Math* Destruction Cathy O’Neil
+
+### Ethics
+
+![](Crit_Collective_2026.png)
 
 ### all
 
@@ -245,9 +249,61 @@ In accordance with the honor code, you must cite all sources of external informa
 
 :::
 
+::: {.callout-note}
+
+## Generative AI Usage by Students
+
+My general guidance for students in SML 301 is that it is permitted to use artificial intelligence tools such as ChatGPT or Claude large-language models (LLMs) to coach on broad concepts. Students may not have software answer homework or project tasks directly. Students may not upload data sets, exercise questions, data visualization, or model results into LLMs.
+
+Permitted discourse includes
+
+* “How do I make a bar chart in Python and Matplotlib?”
+* “Can you help me understand the concept of collinearity?”
+* “For exam preparation, create some multiple-choice questions about machine learning”
+
+Prohibited discourse includes:
+
+* “Use this data set and give me summary statistics of the columns”
+* “Summarize this graph and give me advice on how to improve it”
+* “From the model results, how do we describe the goodness of fit?”
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Generative AI Usage from Instructors
+
+Here I want to disclose how the teaching staff may use artificial intelligence tools over the semester.
+
+* Responses for ‘During Class Prompts’ will be summarized through an AI technique called Topic Modeling
+* Gradescope submissions are collected and grouped by similar responses and handwriting to speed up grading of common answers.
+* Instructors use open-source foundation models offline to ensure student work will not be disseminated to the wider internet nor used to train future foundation models.
+* Project data scenarios may be explored through literature searches to see how other researchers approached the data.
+
+:::
+
+
+
+
+
+
+
+
 # Topics
 
-![lecture session topics](4.png)
+::::: {.panel-tabset}
+
+## first half
+
+![lecture session topics](lecture_schedule_1.png)
+
+## second half
+
+![lecture session topics](lecture_schedule_2.png)
+
+:::::
+
+
 
 # Supervised Learning
 
@@ -351,6 +407,8 @@ DCP 2
 
 # Learning Environment
 
+::: {.callout-tip collapse="true"}
+
 ## Cooperative Classroom
 
 Learning in a cooperative environment should be stimulating, demanding, and fair.  Because this approach to learning is different from the competitive classroom structure that many other courses used to be based on, it is important for us to be clear about mutual expectations.  Below are my expectations for students in this class.  This set of expectations is intended to maximize debate and exchange of ideas in an atmosphere of mutual respect while preserving individual ownership of ideas and written words.  If you feel you do not understand or cannot agree to these expectations, you should discuss this with your instructor and classmates.
@@ -375,28 +433,30 @@ by Jo Handelsman, Sarah Miller, and Christine Pfund
 
 ::::
 
+:::
+
+::: {.callout-tip collapse="true"}
+
 ## Pep Talk
 
 Learning R can be difficult at first---it is like learning a new language, just like Spanish, French, or
 Chinese. Hadley Wickham---the chief data scientist at RStudio and the author of some amazing R packages you will be using like `ggplot2`---made this wise observation:
 
-::: {.callout-tip collapse="true"}
-
-## Wisdom from Hadley Wickham
-
-It's easy when you start out programming to get really frustrated and think, “Oh it's me, I'm really stupid,” or, “I'm not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later.
-
-:::
+> It's easy when you start out programming to get really frustrated and think, “Oh it's me, I'm really stupid,” or, “I'm not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It's just a natural part of programming. So, it happens to everyone and gets less and less over time. Don't blame yourself. Just take a break, do something fun, and then come back and try again later.
 
 If you are finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, ask questions ... e-mail [Derek], etc.  I promise you can do this.
 
 ---Andrew Heiss, Georgia State University   
 
+:::
+
+::: {.callout-tip collapse="true"}
+
 ## Inclusion Statement
 
 I value all students regardless of their background, country of origin, race, religion, ethnicity, gender, sexual orientation, disability status, etc. and am committed to providing a climate of excellence and inclusiveness within all aspects of the course. If there are aspects of your culture or identity that you would like to share with me as they relate to your success in this class, I am happy to meet to discuss. Likewise, if you have any concerns in this area or facing any special issues or challenges, you are encouraged to discuss the matter with me (set up a meeting by e-mail) with an assurance of full confidentiality (only exception being mandatory reporting of academic integrity code violations or sexual harassment).
 
-
+:::
 
 
 
@@ -499,23 +559,63 @@ Sharing an overview of the types of students that might be taking this course.
 ::::
 
 
-# Ethics Enclave: Tea
+# Ethics Enclave: Boom or Doom
 
 ::::: {.panel-tabset}
 
-## app
+## meme
 
-![Tea app](tea_app.png)
+![two guys on a bus](two_guys_on_a_bus.png)
 
-"Share experiences and seek advice within a secure, anonymous platform. Tea is built on trust; screenshots are blocked and all members are verified as women
+* image source: [Know Your Meme](https://knowyourmeme.com/photos/2252775-two-guys-on-a-bus)
 
-"[Tea](https://www.teaforwomen.com/) is more than an app; it’s a sisterhood. Together, we’re redefining modern dating. Plus, we give back—10% of profits are donated to the National Domestic Violence Hotline"
+## boomer
 
-## news
+:::: {.columns}
 
-![Tea news](tea_news.png)
+::: {.column width="45%"}
+> The accelerationist fantasy has a particularly libertarian bent: it sees unfettered markets as the means to generate unlimited energy and solutions to social problems.  And it sees AI as a central part of this equation.
 
-[NPR article](https://www.npr.org/2025/08/02/nx-s1-5483886/tea-app-breach-hacked-whisper-networks)
+--- *The AI Con*, page 147
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+![boomer](boom.png)
+:::
+
+::::
+
+
+
+## doomer
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![doomer](doom.png)	
+:::
+
+::: {.column width="10%"}
+	
+:::
+
+::: {.column width="45%"}
+> AI Doomerism is the belief that, at some point, we will build an AI system powerful enough that it results in a mass extinction event.
+
+--- *The AI Con*, page 139
+:::
+
+::::
+
+## between
+
+> Doomerism/Boosterism serves to obscure, rather than illuminate, what's at stake when it comes to the current AI boom.
+
+--- *The AI Con*, page 139
 
 :::::
 
@@ -560,107 +660,34 @@ DCP 3
 
 For SML 301, students will complete a substantial machine learning project
 
-- exploration of large data set
-- neural network tuning
+- exploration of an image data set
+- fine tuning a pre-trained model
+- neural network hyperparameter tuning
 - machine learning modeling
 - video presentation
 - research poster/slides
 
-You (and your group) may select one of the following project ideas
+You (and your group) may select one of the [Roboflow computer vision datasets](https://public.roboflow.com/) (that was not used during class or precepts)
 
 * or you may propose your own project (please do so before Fall Break)
 
-## 1
+## CNN
 
-### TRAIL Microcard Collection
+![CNN](CNN_Ionos.png)
 
-:::: {.columns}
+* image source: [IONOS](https://www.ionos.com/digitalguide/websites/web-development/convolutional-neural-networks/)
 
-::: {.column width="45%"}
-"Imaged from microcard, these technical reports describe research performed for U.S. government agencies from the 1930s to the 1960s. The reports were provided by the Technical Report Archive and Image Library ([TRAIL](https://digital.library.unt.edu/explore/collections/TRAMC/)). "
+## Fine Tuning
 
-* University Librarian Zachary Painter
+![fine tuning](fine_tuning.png)
 
-:::
+* image source: [Labeller](https://www.labellerr.com/blog/beginners-guide-using-foundation-models-in-ml-projects/)
 
-::: {.column width="10%"}
-	
-:::
+## RoboFlow
 
-::: {.column width="45%"}
-![TRAIL Microcards](collection_TRAMC.png)
-:::
+![Roboflow vision data sets](Roboflow_categories.png)
 
-::::
-
-## 2
-
-### Meso-American Migration Project
-
-:::: {.columns}
-
-::: {.column width="45%"}
-"The [MMP's](https://mmp.research.brown.edu/mmp) main focus is to gather social as well as economic information on Mexican and Central American migration to the United States. It is a unique source of data that enables researchers to track patterns and processes of migration, immigrant integration, and the consequences of migration for households and communities in places of origin."
-
-* Sociology Professor Filiz Garip
-
-:::
-
-::: {.column width="10%"}
-	
-:::
-
-::: {.column width="45%"}
-![Meso-American Migration Project](MMP_Map.png)
-:::
-
-::::
-
-## 3
-
-### Yelp Open Dataset
-
-:::: {.columns}
-
-::: {.column width="45%"}
-"The [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/) is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience."
-
-* DataX Post-Doc Omar Hagrass
-
-:::
-
-::: {.column width="10%"}
-	
-:::
-
-::: {.column width="45%"}
-![Yelp Open Dataset](Yelp_Dataset_Map.png)
-:::
-
-::::
-
-## 4
-
-### NYC Taxi
-
-:::: {.columns}
-
-::: {.column width="45%"}
-"datasets were collected and provided to the NYC Taxi and Limousine Commission ([TLC](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)) by technology providers authorized under the Taxicab & Livery Passenger Enhancement Programs (TPEP/LPEP)"
-
-* DataX Post-Doc Guiseppe Ferro
-
-:::
-
-::: {.column width="10%"}
-	
-:::
-
-::: {.column width="45%"}
-![NYC TLC](NYC_taxi.png)
-:::
-
-::::
+![UC Merced Land Use data set](UC_Merced_Land_Use.png)
 
 :::::
 
@@ -684,6 +711,13 @@ You (and your group) may select one of the following project ideas
 
 ![broaching topics 1, 4, 9, 10](LinkedIn_Engineering2025.png)
 
+## Resilience
+
+![resilience](LinkedIn_Colleges_Long_Term_Success.png)
+
+* source: [LinkedIn](https://news.linkedin.com/2026/linkedin-top-colleges-2026-the-50-best-colleges-for-long-term-career-success-in-the-us)
+* image source: [Yovany Jerez](https://www.linkedin.com/feed/update/urn:li:activity:7499220170649784320/)
+
 :::::
 
 
@@ -692,14 +726,16 @@ You (and your group) may select one of the following project ideas
 :::: {.columns}
 
 ::: {.column width="45%"}
-* Please read the weekly announcement in Canvas
-* due this Friday:
+* No precept sections for SML 301 this week
+
+    * Precepts will start on Sept 9 and 10
+    
+* due next Friday (Sept 11):
 
     - Precept 1
     - CLO Assessment (survey)
-    - CuriosityPre (survey)
 
-* If you are not enrolled in this course, please sign in
+* If you are not yet enrolled in this course, please sign in
 
 :::
 
@@ -708,7 +744,10 @@ You (and your group) may select one of the following project ideas
 :::
 
 ::: {.column width="45%"}
-![](math-zach-galifianakis.gif)  
+![](price_list_meme.png)
+
+* image source: [Leonard Thiele](https://www.linkedin.com/feed/update/urn:li:activity:7497661533796085761/)
+
 :::
 
 ::::
