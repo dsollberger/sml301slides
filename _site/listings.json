@@ -2,12 +2,14 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/02_linear_regression/02_regression.html",
       "/posts/01_introduction/01_introduction.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/02_linear_regression/02_regression.html",
       "/posts/01_introduction/01_introduction.html"
     ]
   }

@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "3: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "SML 301 (Spring 2025)",
+    "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "3: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -284,7 +284,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "SML 301 Spring 2025"
+    "text": "SML 301 Fall 2026"
   },
   {
     "objectID": "posts/02_convergence/02_convergence.html",
@@ -1817,7 +1817,7 @@
     "href": "posts/02_linear_regression/02_regression.html#commentary",
     "title": "3: Regression",
     "section": "Commentary",
-    "text": "Commentary\n\n\n\nHow reliable is the prediction?\nHow reliable is the [linear] model?\nCan we deploy a different model?\nDo we have all of the data, or just a sample?\n\nDoes this prediction apply to all similar penguins?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP1\n\n\n\n\n\nDCP1"
+    "text": "Commentary\n\n\n\nHow reliable is the prediction?\nHow reliable is the [linear] model?\nCan we deploy a different model?\nDo we have all of the data, or just a sample?\n\nDoes this prediction apply to all similar penguins?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarningDCP1\n\n\n\n\n\nDCP1"
   },
   {
     "objectID": "posts/02_linear_regression/02_regression.html#residuals-1",
@@ -1831,14 +1831,14 @@
     "href": "posts/02_linear_regression/02_regression.html#method-of-least-squares",
     "title": "3: Regression",
     "section": "Method of Least Squares",
-    "text": "Method of Least Squares\nIdea: The best-fit line is where the sum-of-squared residuals is minimized.\n\\[E(a,b) = \\sum_{i=1}^{n} (y_{i} - a - bx_{i})^{2}\\]\nClaim: \\[a = \\frac{ (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }, \\quad b = \\frac{ n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }\\]\n\n\n\n\n\n\n(optional) Proof\n\n\n\n\n\nSearch for a critical point by setting the partial derivatives (along with the Chain Rule) equal to zero.\n\\[0 = \\frac{\\partial E}{\\partial a} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i}) = 2an + 2b\\sum_{i = 1}^{n}x_{i} - 2\\sum_{i = 1}^{n} y_{i}\\] \\[0 = \\frac{\\partial E}{\\partial b} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i})x_{i} = 2a\\sum_{i = 1}^{n}x_{i} + 2b\\sum_{i = 1}^{n}x_{i}^{2} - 2\\sum_{i = 1}^{n} x_{i}y_{i}\\]\nCreate a matrix system of equations.\n\\[\\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right]\n  =\n  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right]\n  \\]\nEmploy a matrix inverse.\n$$\n\\[\\begin{array}{rcl}\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = &\n  \\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]^{-1}\\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}} \\left[  \\begin{array}{cc}\n  \\sum_{i = 1}^{n}x_{i}^{2} & -\\sum_{i = 1}^{n}x_{i} \\\\\n  -\\sum_{i = 1}^{n}x_{i} & n \\\\\n  \\end{array}\\right]  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}}\n  \\left[  \\begin{array}{c}  (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) \\\\  n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) \\end{array}\\right] \\\\\n\\end{array}\\]\n$$"
+    "text": "Method of Least Squares\nIdea: The best-fit line is where the sum-of-squared residuals is minimized.\n\\[E(a,b) = \\sum_{i=1}^{n} (y_{i} - a - bx_{i})^{2}\\]\nClaim: \\[a = \\frac{ (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }, \\quad b = \\frac{ n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) }{ n\\sum x_{i}^{2} - (\\sum x_{i})^{2} }\\]\n\n\n\n\n\n\nNote(optional) Proof\n\n\n\n\n\nSearch for a critical point by setting the partial derivatives (along with the Chain Rule) equal to zero.\n\\[0 = \\frac{\\partial E}{\\partial a} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i}) = 2an + 2b\\sum_{i = 1}^{n}x_{i} - 2\\sum_{i = 1}^{n} y_{i}\\] \\[0 = \\frac{\\partial E}{\\partial b} = -2\\sum_{i = 1}^{n} (y_{i} - a - bx_{i})x_{i} = 2a\\sum_{i = 1}^{n}x_{i} + 2b\\sum_{i = 1}^{n}x_{i}^{2} - 2\\sum_{i = 1}^{n} x_{i}y_{i}\\]\nCreate a matrix system of equations.\n\\[\\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right]\n  =\n  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right]\n  \\]\nEmploy a matrix inverse.\n$$\n\\[\\begin{array}{rcl}\n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = &\n  \\left[  \\begin{array}{cc}\n  n & \\sum_{i = 1}^{n}x_{i} \\\\\n  \\sum_{i = 1}^{n}x_{i} & \\sum_{i = 1}^{n}x_{i}^{2} \\\\\n  \\end{array}\\right]^{-1}\\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}} \\left[  \\begin{array}{cc}\n  \\sum_{i = 1}^{n}x_{i}^{2} & -\\sum_{i = 1}^{n}x_{i} \\\\\n  -\\sum_{i = 1}^{n}x_{i} & n \\\\\n  \\end{array}\\right]  \\left[  \\begin{array}{c}  \\sum_{i = 1}^{n} y_{i} \\\\ \\sum_{i = 1}^{n} x_{i}y_{i} \\end{array}\\right] \\\\\n  \n  ~ & ~ & ~ \\\\\n  \n  \\left[  \\begin{array}{c}  a \\\\ b \\end{array}\\right] & = & \\frac{1}{n\\sum x_{i}^{2} - (\\sum x_{i})^{2}}\n  \\left[  \\begin{array}{c}  (\\sum y_{i})(\\sum x_{i}^{2}) - (\\sum x_{i})(\\sum x_{i}y_{i}) \\\\  n\\sum x_{i}y_{i} - (\\sum x_{i})(\\sum y_{i}) \\end{array}\\right] \\\\\n\\end{array}\\]\n$$"
   },
   {
     "objectID": "posts/02_linear_regression/02_regression.html#polynomial-regression",
     "href": "posts/02_linear_regression/02_regression.html#polynomial-regression",
     "title": "3: Regression",
     "section": "Polynomial Regression",
-    "text": "Polynomial Regression\n\\(d = 2: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2}\\)\n\\(d = 3: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2} + \\beta_{3}X_{1}^{3}\\)\n\n\n\n\n\n\nDegree is a hyperparameter\n\n\n\nFor polynomial regression, the degree \\(d\\) is a hyperparameter.\n\nparameters: \\(\\beta_{0}, \\beta_{1}, \\beta_{2}, ...\\)\nhyperparametr: \\(d\\)"
+    "text": "Polynomial Regression\n\\(d = 2: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2}\\)\n\\(d = 3: \\hat{y} = \\beta_{0} + \\beta_{1}X_{1} + \\beta_{2}X_{1}^{2} + \\beta_{3}X_{1}^{3}\\)\n\n\n\n\n\n\nNoteDegree is a hyperparameter\n\n\n\nFor polynomial regression, the degree \\(d\\) is a hyperparameter.\n\nparameters: \\(\\beta_{0}, \\beta_{1}, \\beta_{2}, ...\\)\nhyperparametr: \\(d\\)"
   },
   {
     "objectID": "posts/02_linear_regression/02_regression.html#ridge-regression",
