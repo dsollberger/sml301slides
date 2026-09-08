@@ -1,5 +1,5 @@
 ---
-title: "3: Regression"
+title: "2: Regression"
 author: "Derek Sollberger"
 date: "2026-09-09"
 format:
@@ -46,7 +46,7 @@ residuals_diagram <- liquor_df |>
   theme_minimal()
 ```
 
-# Session 3: Regression
+# Session 2: Regression
 
 ## Start
 
@@ -392,24 +392,30 @@ Since we are discussing errors (or residuals), the lowest value for MSE points t
 
 :::
 
-# Ethics Enclave: Music
+# Ethics Enclave: On Prediction
 
 :::: {.columns}
 
-::: {.column width="45%"}
-"... she followed a link the fan had posted and was taken to what appeared to be her latest release. "But I didn't recognise it because I hadn't released a new album," Portman says.
-
-"I clicked through and discovered an album online everywhere - on Spotify and iTunes and all the online platforms.
-
-"It was called Orca, and it was music that was evidently AI-generated, but it had been cleverly trained, I think, on me."""	
+::: {.column width="30%"}
+![AI Snake Oil](AI_Snake_Oil.png)
 :::
 
 ::: {.column width="10%"}
 	
 :::
 
-::: {.column width="45%"}
-![Emily Portman](Emily_Portman.png)
+::: {.column width="60%"}
+> Broadly speaking, machine learning is more suited to predicting things about individuals whereas simulation is more suited for predicting collective or global outcomes
+
+--- *AI Snake Oil*, page 65
+
+> ... life outcomes are hard to predict, we are using a combination of these three criteria: real-world utility, moral legitimacy, and irreducible error, that is, error that won't go away with more data and better computational errors.
+
+--- *AI Snake Oil*, page 69
+
+> What if we can't make accurate predictions because there aren't enough people on Earth to learn all the patterns that exist? 
+
+--- Matt Salganik
 :::
 
 ::::
@@ -501,7 +507,7 @@ $\hat{y} = \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \alpha[L\sum_{i = 1}^{2
 :::
 
 ::: {.column width="45%"}
-![Palmer Penguins](lter_penguins.png)
+![Emily Portman](Emily_Portman.png)
 :::
 
 ::::
