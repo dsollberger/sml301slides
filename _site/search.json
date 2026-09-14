@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -1922,7 +1922,7 @@
     "href": "posts/03_convergence/03_convergence.html#activity-literature-introductions",
     "title": "3: Convergence",
     "section": "Activity: Literature Introductions",
-    "text": "Activity: Literature Introductions\nWe will look at the abstracts and introduction paragraphs for some of the most influential papers in the history of machine learning:\n\n\n\n\n\n\nSuggested Papers\n\n\n\n\nAlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)\n\n\n\nGANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al.\n\n\n\nTensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al.\n\n\n\nWord2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean\n\n\n\n\n\n\n\n\n\n\nDCP1"
+    "text": "Activity: Literature Introductions\nWe will look at the abstracts and introduction paragraphs for some of the most influential papers in the history of machine learning:\n\n\n\n\n\n\nTipSuggested Papers\n\n\n\n\nAlexNet\n\nImageNet Classification with Deep Convolutional Neural Networks (2012)\n\n\n\nGANs\n\nGeneral Adversarial Nets (2014), Goodfellow et al.\n\n\n\nGPT\n\nImproving Language Understanding by Generative Pre-Training (2018) aka GPT, Radford, Narasimhan, Salimans, and Sutskever\n\n\n\nTensorFlow\n\nTensorFlow: A system for large-scale machine learning (2016), Abadi et al.\n\n\n\nXGBoost\n\nXGBoost: A Scalable Tree Boosting System (2016), Chen and Guestrin\n\n\n\nWord2Vec\n\nEfficient Estimation of Word Representations in Vector Space (2013), Mikolov, Chen, Corrado, and Dean\n\n\n\n\n\n\n\n\n\n\nWarningDCP1"
   },
   {
     "objectID": "posts/03_convergence/03_convergence.html#sequences",
@@ -1936,14 +1936,14 @@
     "href": "posts/03_convergence/03_convergence.html#random-variables",
     "title": "3: Convergence",
     "section": "Random Variables",
-    "text": "Random Variables\nA random variable has no set value, but rather represents an element of chance. We can better understand a random variable through statistics like\n\nmean\nvariance\ndistribution\n\n\n\n\n\n\n\nStochastic Process\n\n\n\n\n\nA stochastic process is a sequence of random variables"
+    "text": "Random Variables\nA random variable has no set value, but rather represents an element of chance. We can better understand a random variable through statistics like\n\nmean\nvariance\ndistribution\n\n\n\n\n\n\n\nTipStochastic Process\n\n\n\n\n\nA stochastic process is a sequence of random variables"
   },
   {
     "objectID": "posts/03_convergence/03_convergence.html#application-dinner-choices",
     "href": "posts/03_convergence/03_convergence.html#application-dinner-choices",
     "title": "3: Convergence",
     "section": "Application: Dinner Choices",
-    "text": "Application: Dinner Choices\nSuppose that we have a Princeton student whose behavior includes eating only three types of dinner:\n\\[S = \\{\\text{ramen}, \\text{pizza}, \\text{sushi}\\}\\]\nwith transition matrix\n\\[P = \\left(\\begin{array}{ccc}\n0.2 & 0.4 & 0.4 \\\\\n0.3 & 0.4 & 0.3 \\\\\n0.2 & 0.2 & 0.6\n\\end{array}\\right)\\]\n\n\n\ndinner choices network\n\n\n\n\n\n\n\n\nNetwork terminology\n\n\n\n\n\n\ndirected versus undirected graphs\ncyclic versus acyclic graphs\n\nLater studies focus on DAGs: directed, acyclic network graphs\n\n\n\nSuppose that, on a Monday, the student’s preferences are\n\\[x_0 = \\left(\\begin{array}{ccc} 0.5 & 0.25 & 0.25 \\end{array}\\right)\\]\n\nWhat is the probability that the student will eat ramen on Tuesday (i.e. the next day)?\nWhat is the probability that the student will eat pizza on Wednesday (i.e. two days later)?\nWhat is the long-term dinner-choice behavior of this student?\n\n\n\n\n\n\n\ncalculations\n\n\n\n\n\n\nafter one day\n\n\\[x_{0}P = \\left(\\begin{array}{ccc} 0.225 & 0.35 & 0.425 \\end{array}\\right)\\]\nThe probability of eating ramen the next day is about 22.5 percent.\n\nafter two days\n\n\\[x_{0}P^{2} = \\left(\\begin{array}{ccc} 0.235 & 0.315 & 0.45 \\end{array}\\right)\\] The probability of eating pizza two days later is about 31.5 percent.\n\nafter many days\n\n\\[x_{0}P^{100} = \\left(\\begin{array}{ccc} 0.2307 & 0.3077 & 0.4615 \\end{array}\\right)\\]\nThe probability of the student being at the sushi place is about 46.15 percent"
+    "text": "Application: Dinner Choices\nSuppose that we have a Princeton student whose behavior includes eating only three types of dinner:\n\\[S = \\{\\text{ramen}, \\text{pizza}, \\text{sushi}\\}\\]\nwith transition matrix\n\\[P = \\left(\\begin{array}{ccc}\n0.2 & 0.4 & 0.4 \\\\\n0.3 & 0.4 & 0.3 \\\\\n0.2 & 0.2 & 0.6\n\\end{array}\\right)\\]\n\n\n\ndinner choices network\n\n\n\n\n\n\n\n\nNoteNetwork terminology\n\n\n\n\n\n\ndirected versus undirected graphs\ncyclic versus acyclic graphs\n\nLater studies focus on DAGs: directed, acyclic network graphs\n\n\n\nSuppose that, on a Monday, the student’s preferences are\n\\[x_0 = \\left(\\begin{array}{ccc} 0.5 & 0.25 & 0.25 \\end{array}\\right)\\]\n\nWhat is the probability that the student will eat ramen on Tuesday (i.e. the next day)?\nWhat is the probability that the student will eat pizza on Wednesday (i.e. two days later)?\nWhat is the long-term dinner-choice behavior of this student?\n\n\n\n\n\n\n\nNotecalculations\n\n\n\n\n\n\nafter one day\n\n\\[x_{0}P = \\left(\\begin{array}{ccc} 0.225 & 0.35 & 0.425 \\end{array}\\right)\\]\nThe probability of eating ramen the next day is about 22.5 percent.\n\nafter two days\n\n\\[x_{0}P^{2} = \\left(\\begin{array}{ccc} 0.235 & 0.315 & 0.45 \\end{array}\\right)\\] The probability of eating pizza two days later is about 31.5 percent.\n\nafter many days\n\n\\[x_{0}P^{100} = \\left(\\begin{array}{ccc} 0.2307 & 0.3077 & 0.4615 \\end{array}\\right)\\]\nThe probability of the student being at the sushi place is about 46.15 percent"
   },
   {
     "objectID": "posts/03_convergence/03_convergence.html#hardmax",
