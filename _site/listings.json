@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/05_dimension_reduction/05_dimension_reduction.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_convergence/03_convergence.html",
       "/posts/02_linear_regression/02_regression.html",
@@ -11,6 +12,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/05_dimension_reduction/05_dimension_reduction.html",
       "/posts/04_classification/04_classification.html",
       "/posts/03_convergence/03_convergence.html",
       "/posts/02_linear_regression/02_regression.html",

@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -2104,7 +2104,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-bi-plot",
     "title": "5: Dimension Reduction",
     "section": "PCA Bi Plot",
-    "text": "PCA Bi Plot\n\nggbiplot::ggbiplot(gentoo_pca,\n                   obs.scale = 1,\n                   var.scale = 1,\n                   varname.color = \"blue\") +\n  labs(title = \"First two principal components\",\n       subtitle = \"correlation: r = 0\",\n       caption = \"SML 301\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP1"
+    "text": "PCA Bi Plot\n\nggbiplot::ggbiplot(gentoo_pca,\n                   obs.scale = 1,\n                   var.scale = 1,\n                   varname.color = \"blue\") +\n  labs(title = \"First two principal components\",\n       subtitle = \"correlation: r = 0\",\n       caption = \"SML 301\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarningDCP1"
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#correlations",
@@ -2118,7 +2118,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors-1",
     "title": "5: Dimension Reduction",
     "section": "Finding Vectors",
-    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=4):\n[1] 1.6826865 0.8474021 0.5804124 0.3370418\n\nRotation (n x k) = (4 x 4):\n                         PC1         PC2        PC3        PC4\nbill_depth_mm     -0.4095117 -0.80825505  0.3999776  0.1379922\nbill_length_mm     0.4642354 -0.58111842 -0.6575242 -0.1202033\nflipper_length_mm  0.5656175 -0.01845604  0.2734688  0.7777860\nbody_mass_g        0.5448509 -0.09319082  0.5769703 -0.6012971\n\n\n\n\nCenter\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         17.11968          44.15663         201.95984        4282.53012 \n\n\n\n\nScale\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         1.955837          5.490509         14.596950        832.983745"
+    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=4):\n[1] 1.6568227 0.8858257 0.6066087 0.3198082\n\nRotation (n x k) = (4 x 4):\n                         PC1          PC2        PC3        PC4\nbill_depth_mm     -0.3991556  0.792525054  0.4252228 -0.1782258\nbill_length_mm     0.4521942  0.604426707 -0.6376192  0.1537219\nflipper_length_mm  0.5786905 -0.002517908  0.2185928 -0.7857023\nbody_mass_g        0.5489194  0.081031197  0.6040235  0.5720813\n\n\n\n\nCenter\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         17.10120          44.00161         201.05221        4199.49799 \n\n\n\n\nScale\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         1.955255          5.549731         14.137334        814.654246"
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot-1",
@@ -2139,7 +2139,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#regression-task",
     "title": "5: Dimension Reduction",
     "section": "Regression Task",
-    "text": "Regression Task\n\nresponse variable: body_mass_g\nexplanatory variables: bill_depth_mm, bill_length_mm, flipper_length_mm\n\n\n\n[1] \"MSE: 135639.950195904\""
+    "text": "Regression Task\n\nresponse variable: body_mass_g\nexplanatory variables: bill_depth_mm, bill_length_mm, flipper_length_mm\n\n\n\n[1] \"MSE: 151953.35682345\""
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#dimensionality-reduction",
@@ -2153,7 +2153,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-model",
     "title": "5: Dimension Reduction",
     "section": "PCA Model",
-    "text": "PCA Model\n\\[\\hat{y} = \\beta_{0} + \\beta_{1}P_{1} + \\beta_{2}P_{2}\\]\n\n\\(P_{1}\\): principal component 1\n\\(P_{2}\\): principal component 2\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"MSE: 256471.448353553\""
+    "text": "PCA Model\n\\[\\hat{y} = \\beta_{0} + \\beta_{1}P_{1} + \\beta_{2}P_{2}\\]\n\n\\(P_{1}\\): principal component 1\n\\(P_{2}\\): principal component 2\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"MSE: 199701.812674137\""
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#alexnet",
@@ -2230,7 +2230,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#comparison",
     "title": "5: Dimension Reduction",
     "section": "Comparison",
-    "text": "Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDCP3"
+    "text": "Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarningDCP3\n\n\n\n(then go to Python code)"
   },
   {
     "objectID": "code/05_dimension_reduction.html",
