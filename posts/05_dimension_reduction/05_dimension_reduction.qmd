@@ -40,7 +40,7 @@ gentoo_color = "#067476"
 
 ::: {.column width="45%"}
 - Introduce dimension reduction
-- Explore PCA and LDA
+- Explore PCA, LDA, and PLS
 :::
 
 ::: {.column width="10%"}
@@ -543,9 +543,26 @@ lda_plot_2
 
 ::: {.callout-warning}
 ## DCP3
-
-(then go to Python code)
 :::
+
+
+# PLS
+
+* Similar to PCA
+
+  - especially when the number of predictors exceeds the number of observations
+
+* Partial least squares developed by Herman and Svante Wold 
+
+  - "projection to latent space"
+  
+* Useful for highly collinear data
+* Builds vector basis to maximize correlation between predictors and responses
+* Can predict multiple response variables simultaneously
+
+  - especially when responses are correlated
+
+
 
 
 # Quo Vadimus?
@@ -583,6 +600,8 @@ lda_plot_2
 
 * [PCA in R](https://www.r-bloggers.com/2021/05/principal-component-analysis-pca-in-r/) by finnstats
 * [PCR in R](https://www.r-bloggers.com/2016/07/performing-principal-components-regression-pcr-in-r/) by Michy Alice
+* [PLS application primer](https://support.minitab.com/en-us/minitab/help-and-how-to/statistical-modeling/regression/supporting-topics/partial-least-squares-regression/what-is-partial-least-squares-regression/) by MiniTab
+* [PLS theory primer](https://personal.utdallas.edu/~herve/Abdi-PLS-pretty.pdf) by Herve Abdi
 
 ![sarcasm](python_rizz.png)
 

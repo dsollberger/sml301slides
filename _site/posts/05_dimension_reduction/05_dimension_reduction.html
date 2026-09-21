@@ -233,6 +233,7 @@ window.Quarto = {
   <li><a href="#projection" id="toc-projection" class="nav-link" data-scroll-target="#projection">Projection</a></li>
   <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
   </ul></li>
+  <li><a href="#pls" id="toc-pls" class="nav-link" data-scroll-target="#pls">PLS</a></li>
   <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
   <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
   </ul>
@@ -280,7 +281,7 @@ window.Quarto = {
 <div class="column" style="width:45%;">
 <ul>
 <li>Introduce dimension reduction</li>
-<li>Explore PCA and LDA</li>
+<li>Explore PCA, LDA, and PLS</li>
 </ul>
 </div><div class="column" style="width:10%;">
 
@@ -427,14 +428,14 @@ bill_depth_mm  0.7071068 -0.7071068</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Standard deviations (1, .., p=4):
-[1] 1.6568227 0.8858257 0.6066087 0.3198082
+[1] 1.6521911 0.8970946 0.5942363 0.3352150
 
 Rotation (n x k) = (4 x 4):
                          PC1          PC2        PC3        PC4
-bill_depth_mm     -0.3991556  0.792525054  0.4252228 -0.1782258
-bill_length_mm     0.4521942  0.604426707 -0.6376192  0.1537219
-flipper_length_mm  0.5786905 -0.002517908  0.2185928 -0.7857023
-body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
+bill_depth_mm      0.3945882 -0.790194994  0.4454062 -0.1466469
+bill_length_mm    -0.4508658 -0.609392671 -0.6394466  0.1283298
+flipper_length_mm -0.5772797 -0.001676042  0.2528105 -0.7764227
+body_mass_g       -0.5547687 -0.065035640  0.5734179  0.5993279</code></pre>
 </div>
 </div>
 </section>
@@ -443,7 +444,7 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g 
-         17.10120          44.00161         201.05221        4199.49799 </code></pre>
+         17.14257          44.04618         200.97189        4197.48996 </code></pre>
 </div>
 </div>
 </section>
@@ -452,7 +453,7 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g 
-         1.955255          5.549731         14.137334        814.654246 </code></pre>
+         1.937229          5.567387         14.127131        803.430287 </code></pre>
 </div>
 </div>
 </section>
@@ -503,7 +504,7 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "MSE: 151953.35682345"</code></pre>
+<pre><code>[1] "MSE: 158326.144647264"</code></pre>
 </div>
 </div>
 </section>
@@ -537,7 +538,7 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "MSE: 199701.812674137"</code></pre>
+<pre><code>[1] "MSE: 252861.426286193"</code></pre>
 </div>
 </div>
 </section>
@@ -724,7 +725,7 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -734,10 +735,29 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>(then go to Python code)</p>
+
 </div>
 </div>
 </section>
+</section>
+<section id="pls" class="level1">
+<h1>PLS</h1>
+<ul>
+<li><p>Similar to PCA</p>
+<ul>
+<li>especially when the number of predictors exceeds the number of observations</li>
+</ul></li>
+<li><p>Partial least squares developed by Herman and Svante Wold</p>
+<ul>
+<li>“projection to latent space”</li>
+</ul></li>
+<li><p>Useful for highly collinear data</p></li>
+<li><p>Builds vector basis to maximize correlation between predictors and responses</p></li>
+<li><p>Can predict multiple response variables simultaneously</p>
+<ul>
+<li>especially when responses are correlated</li>
+</ul></li>
+</ul>
 </section>
 <section id="quo-vadimus" class="level1">
 <h1>Quo Vadimus?</h1>
@@ -783,6 +803,8 @@ body_mass_g        0.5489194  0.081031197  0.6040235  0.5720813</code></pre>
 <ul>
 <li><a href="https://www.r-bloggers.com/2021/05/principal-component-analysis-pca-in-r/">PCA in R</a> by finnstats</li>
 <li><a href="https://www.r-bloggers.com/2016/07/performing-principal-components-regression-pcr-in-r/">PCR in R</a> by Michy Alice</li>
+<li><a href="https://support.minitab.com/en-us/minitab/help-and-how-to/statistical-modeling/regression/supporting-topics/partial-least-squares-regression/what-is-partial-least-squares-regression/">PLS application primer</a> by MiniTab</li>
+<li><a href="https://personal.utdallas.edu/~herve/Abdi-PLS-pretty.pdf">PLS theory primer</a> by Herve Abdi</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
