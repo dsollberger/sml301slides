@@ -2118,7 +2118,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#finding-vectors-1",
     "title": "5: Dimension Reduction",
     "section": "Finding Vectors",
-    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=4):\n[1] 1.6521911 0.8970946 0.5942363 0.3352150\n\nRotation (n x k) = (4 x 4):\n                         PC1          PC2        PC3        PC4\nbill_depth_mm      0.3945882 -0.790194994  0.4454062 -0.1466469\nbill_length_mm    -0.4508658 -0.609392671 -0.6394466  0.1283298\nflipper_length_mm -0.5772797 -0.001676042  0.2528105 -0.7764227\nbody_mass_g       -0.5547687 -0.065035640  0.5734179  0.5993279\n\n\n\n\nCenter\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         17.14257          44.04618         200.97189        4197.48996 \n\n\n\n\nScale\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         1.937229          5.567387         14.127131        803.430287"
+    "text": "Finding Vectors\n\nPCA Vectors\n\n\nStandard deviations (1, .., p=4):\n[1] 1.6661991 0.8641296 0.6007913 0.3407498\n\nRotation (n x k) = (4 x 4):\n                         PC1        PC2        PC3        PC4\nbill_depth_mm     -0.3976086 0.82393753 -0.3793941 -0.1381826\nbill_length_mm     0.4662939 0.55910036  0.6653178  0.1653147\nflipper_length_mm  0.5717186 0.03572466 -0.2356456 -0.7850686\nbody_mass_g        0.5455412 0.08519083 -0.5982336  0.5807271\n\n\n\n\nCenter\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         17.18715          43.76426         200.65462        4196.48594 \n\n\n\n\nScale\n\n\n    bill_depth_mm    bill_length_mm flipper_length_mm       body_mass_g \n         1.961586          5.445164         13.913079        802.993518"
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-pairs-plot-1",
@@ -2139,7 +2139,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#regression-task",
     "title": "5: Dimension Reduction",
     "section": "Regression Task",
-    "text": "Regression Task\n\nresponse variable: body_mass_g\nexplanatory variables: bill_depth_mm, bill_length_mm, flipper_length_mm\n\n\n\n[1] \"MSE: 158326.144647264\""
+    "text": "Regression Task\n\nresponse variable: body_mass_g\nexplanatory variables: bill_depth_mm, bill_length_mm, flipper_length_mm\n\n\n\n[1] \"MSE: 132370.816130703\""
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#dimensionality-reduction",
@@ -2153,7 +2153,7 @@
     "href": "posts/05_dimension_reduction/05_dimension_reduction.html#pca-model",
     "title": "5: Dimension Reduction",
     "section": "PCA Model",
-    "text": "PCA Model\n\\[\\hat{y} = \\beta_{0} + \\beta_{1}P_{1} + \\beta_{2}P_{2}\\]\n\n\\(P_{1}\\): principal component 1\n\\(P_{2}\\): principal component 2\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"MSE: 252861.426286193\""
+    "text": "PCA Model\n\\[\\hat{y} = \\beta_{0} + \\beta_{1}P_{1} + \\beta_{2}P_{2}\\]\n\n\\(P_{1}\\): principal component 1\n\\(P_{2}\\): principal component 2\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"MSE: 224001.009481778\""
   },
   {
     "objectID": "posts/05_dimension_reduction/05_dimension_reduction.html#alexnet",

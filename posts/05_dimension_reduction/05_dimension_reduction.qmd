@@ -573,6 +573,7 @@ lda_plot_2
 * due this Friday:
 
     - Precept 3
+    - Literature Report (quick essay)
     - Pick Group Partners (survey)
 
 :::
