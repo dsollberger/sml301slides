@@ -454,10 +454,10 @@ train_data |>
   ggplot(aes(x = body_mass_g, y = bill_depth_mm)) +
   geom_rect(aes(xmin = bb_left, xmax = bb_right, 
                 ymin = bb_bottom, ymax = 16), 
-            alpha = 0.25, fill = "#6BAED6") +
+            alpha = 0.25, fill = "#74C476") +
   geom_rect(aes(xmin = bb_left, xmax = bb_right, 
                 ymin = 16, ymax = bb_top), 
-            alpha = 0.25, fill = "#74C476") +
+            alpha = 0.25, fill = "#6BAED6") +
   geom_point(color = "gray50") +
   labs(title = "Predictor Space",
        subtitle = "decision regions",
@@ -512,7 +512,7 @@ train_data |>
             alpha = 0.25, fill = "#74C476") +
   geom_rect(aes(xmin = bb_left, xmax = bb_right, 
                 ymin = 16, ymax = bb_top), 
-            alpha = 0.25, fill = "#74C476") +
+            alpha = 0.25, fill = "#6BAED6") +
   geom_point(color = "gray50") +
   labs(title = "Predictor Space",
        subtitle = "decision regions",
@@ -582,7 +582,7 @@ train_data |>
             alpha = 0.25, fill = "#74C476") +
   geom_rect(aes(xmin = bb_left, xmax = bb_right, 
                 ymin = 16, ymax = bb_top), 
-            alpha = 0.25, fill = "#74C476") +
+            alpha = 0.25, fill = "#6BAED6") +
   geom_point(color = "gray50") +
   labs(title = "Predictor Space",
        subtitle = "decision regions",
