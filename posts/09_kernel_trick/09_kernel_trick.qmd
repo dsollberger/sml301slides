@@ -751,10 +751,18 @@ $$K(x, x_{i}) = \text{exp}\left(-\gamma\sum_{j=1}^p(x_{ij} - x_{i'j})^2\right), 
 :::: {.columns}
 
 ::: {.column width="40%"}
-* due this Friday:
+Midsemester Project
 
-    - Precept 5
-    - CuriosityMid (survey)
+* due Oct 9:
+
+  * Precept 5
+  * Slides as Outline
+  
+* due Oct 16:
+
+  * Report
+  * Poster
+  * Video
 
 :::
 
