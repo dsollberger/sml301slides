@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/12_hyperparameters/12_hyperparameters.html",
       "/posts/11_MNIST/11_MNIST.html",
       "/posts/10_FCN/10_FCN.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",
@@ -18,6 +19,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/12_hyperparameters/12_hyperparameters.html",
       "/posts/11_MNIST/11_MNIST.html",
       "/posts/10_FCN/10_FCN.html",
       "/posts/09_kernel_trick/09_kernel_trick.html",

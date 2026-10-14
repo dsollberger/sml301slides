@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -3764,5 +3764,82 @@
     "title": "Introduction to Deep Learning with Keras and TensorFlow",
     "section": "Great results!",
     "text": "Great results!\nBut wouldn’t it be nice if we could visualize those convolutions so that we can see what the model is seeing?\n\nfrom keras import backend as K\n\n# choose any image to want by specifying the index\nimg = X_test[3]\nimg = np.expand_dims(img, axis=0) # Keras requires the image to be in 4D, so we add an extra dimension to it.\n\n# Not important to understand how this function work -- It just plots a convolution layer\n\ndef visualize(layer):\n    inputs = [K.learning_phase()] + model.inputs\n\n    _convout1_f = K.function(inputs, [layer.output])\n\n    def convout1_f(X):\n        # The [0] is to disable the training phase flag\n        return _convout1_f([0] + [X])\n\n    convolutions = convout1_f(img)\n    convolutions = np.squeeze(convolutions)\n\n    print ('Shape of conv:', convolutions.shape)\n\n    m = convolutions.shape[2]\n    n = int(np.ceil(np.sqrt(m)))\n\n    # Visualization of each filter of the layer\n    fig = plt.figure(figsize=(15,12))\n    for i in range(m):\n        ax = fig.add_subplot(n,n,i+1)\n        ax.imshow(convolutions[:,:,i], cmap='gray')\n\n\nplt.figure()\nplt.imshow(X_test[3].reshape(28,28), cmap='gray', interpolation='none')\n\n\nvisualize(convLayer01) # visualize first set of feature maps\n\n\nvisualize(convLayer02) # visualize second set of feature maps\n\n\nvisualize(convLayer03)# visualize third set of feature maps\n\n\nvisualize(convLayer04)# visualize fourth set of feature maps\n\n\nFor a 3D visualization of a very similar network, visit http://scs.ryerson.ca/~aharley/vis/conv/"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html",
+    "title": "12: Hyperparameters",
+    "section": "",
+    "text": "Outline semester goals\nRevisit hyperparameters\nIntroduce neural network convergence aids\n\n\n\n\n\n\n\npicking hyperparameters\n\n\n\nimage source: Daniel Shapiro"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#learning-objectives",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#learning-objectives",
+    "title": "12: Hyperparameters",
+    "section": "",
+    "text": "Outline semester goals\nRevisit hyperparameters\nIntroduce neural network convergence aids\n\n\n\n\n\n\n\npicking hyperparameters\n\n\n\nimage source: Daniel Shapiro"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#architectural",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#architectural",
+    "title": "12: Hyperparameters",
+    "section": "Architectural",
+    "text": "Architectural\n\nDeep learning: having more than one hidden layer\n\n\n\n\nPytorch activation functions\n\n\n\nimage source: PyTorch\n\n\n\n\n\n\n\nTipHow many neurons in a layer?\n\n\n\n\n\nWhile we don’t know the answer in advance, inspired by the MNIST work, practioners tend to use powers of two:\n\n2 neurons\n4 neurons\n8 neurons\n16 neurons\n32 neurons\n64 neurons\n…\n\nto paraphrase Deep Learning Illustrated"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#training",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#training",
+    "title": "12: Hyperparameters",
+    "section": "Training",
+    "text": "Training\n\nBatches\n\n\n\nbatch inputs\n\n\n\nimage source: Sunita Nayak\n\n\n\nLearning Rate\n\n\n\nadaptive learning rate\n\n\n\nimage source: Sahin Ahmed\n\n\n\n\nlearnig rate scheduler\n\n\n\nimage source: Theo Martin\n\n\n\nAdam\nOne popular optimizer is Adam (adaptive moment estimation)\n\n\n\nAdam\n\n\n\nimage source: Michael Brenndoerfer"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#regularization",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#regularization",
+    "title": "12: Hyperparameters",
+    "section": "Regularization",
+    "text": "Regularization\nWhile “big data” and “large language” projects can move beyond overfitting, medium-sized projects are still susceptible.\n\n\n\nbias-variance trade-off\n\n\n\nimage source: Pierre-Emmanuel Saint-Mezard\n\n\nWeight Decay\n\nridge regression\n\n\\[\\text{Loss} = \\text{Error}(y, \\hat{y}) + \\lambda \\sum_{i=1}^{N} w_{i}^{2}\\]\n\nLASSO regression\n\n\\[\\text{Loss} = \\text{Error}(y, \\hat{y}) + \\lambda \\sum_{i=1}^{N} |w_{i}|\\]\n\n\nEarly Stopping\n\n\n\nearly stopping\n\n\n\nimage source: Pierre-Emmanuel Saint-Mezard\n\n\n\nDropout\nInstead of fully connected networks, one could randomly disable neurons to try to prevent overly memorizing training data.\n\n\n\ndropout\n\n\n\nimage source: Pierre-Emmanuel Saint-Mezard"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#tensorflow-playground-1",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#tensorflow-playground-1",
+    "title": "12: Hyperparameters",
+    "section": "TensorFlow Playground",
+    "text": "TensorFlow Playground\n\nlink: https://playground.tensorflow.org\nexplore the various menus and buttons\nfeel free to run a simulation"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#setup",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#setup",
+    "title": "12: Hyperparameters",
+    "section": "Setup",
+    "text": "Setup\n\nWindows\nFor those of us who use Windows, we might want to ensure that the Python program is accessible to command-line and other interfaces. During installation, ensure that “Add Python to environment variables” is set.\n\n\n\nPython installation settings\n\n\n\n\n\n\n\n\nWarningPython Environments\n\n\n\n\n\nActually, the above is naive advice on my part. Python programmers know that keeping separate environments is wiser since Python programming is rife with the possibility of having incompatible packages. As we will soon see, advice for small programs is to use virtual environments\n\n\n\n\n\nVirtual Environments\nEspecially when trying out new software, Python programmers recommend using virtual environments that are quarantined from the rest of a computer so that installing packages there do not disturb other projects.\n\nopen a command-line interface (CLI)\nnavigate to the folder where you want to build a virtual environment\ninstall a virtual environment with\n\npython -m venv vir_env\n(where vir_env is a label that you can customize)\n\nactivate and enter the virtual environment with\n\n\n\n\nMac\nsource vir_env/bin/activate\n\n\n\n\n\nWindows\nvir_env\\Scripts\\activate.bat"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#installation",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#installation",
+    "title": "12: Hyperparameters",
+    "section": "Installation",
+    "text": "Installation\nWe can now install marimo (say, within a virtual environment) with\npip install marimo"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#tutorials",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#tutorials",
+    "title": "12: Hyperparameters",
+    "section": "Tutorials",
+    "text": "Tutorials\nWe can peruse the features of marimo through their tutorials\n\nmarimo tutorial intro\nmarimo tutorial dataflow\nmarimo tutorial ui\nmarimo tutorial markdown\nmarimo tutorial plots\nmarimo tutorial sql\nmarimo tutorial layout\nmarimo tutorial fileformat\nmarimo tutorial markdown-format\nmarimo tutorial for-jupyter-users"
+  },
+  {
+    "objectID": "posts/12_hyperparameters/12_hyperparameters.html#coup-de-grace",
+    "href": "posts/12_hyperparameters/12_hyperparameters.html#coup-de-grace",
+    "title": "12: Hyperparameters",
+    "section": "Coup de Grace",
+    "text": "Coup de Grace\nOne of the best applications of marimo (for our SML 301 course) is this demonstration of an embedding of the MNIST data set:\n\n\n\nMNIST\n\n\n\n\n\n\n\n\nWarningDCP3"
+  },
+  {
+    "objectID": "code/12_marimo.html",
+    "href": "code/12_marimo.html",
+    "title": "SML 301 Slides",
+    "section": "",
+    "text": "# https://docs.marimo.io/getting_started/\n!pip install marimo\n\nmarimo tutorial intro\nmarimo tutorial dataflow\nmarimo tutorial ui\nmarimo tutorial markdown\nmarimo tutorial plots\nmarimo tutorial sql\nmarimo tutorial layout\nmarimo tutorial fileformat\nmarimo tutorial markdown-format\nmarimo tutorial for-jupyter-users"
   }
 ]
