@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/13_recurrence/13_recurrence.html",
       "/posts/12_hyperparameters/12_hyperparameters.html",
       "/posts/11_MNIST/11_MNIST.html",
       "/posts/10_FCN/10_FCN.html",
@@ -19,6 +20,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/13_recurrence/13_recurrence.html",
       "/posts/12_hyperparameters/12_hyperparameters.html",
       "/posts/11_MNIST/11_MNIST.html",
       "/posts/10_FCN/10_FCN.html",
