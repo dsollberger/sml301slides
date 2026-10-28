@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -3925,5 +3925,166 @@
     "title": "SML 301",
     "section": "Evaluate Model",
     "text": "Evaluate Model\n\nplt.figure()\nplt.plot(all_losses)\nplt.show()\n\n\nevaluate(gru, test_set, classes=alldata.labels_uniq)"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html",
+    "href": "posts/14_image_processing/14_image_processing.html",
+    "title": "14: Image Processing",
+    "section": "",
+    "text": "Explore image processing\nIntroduce image augmentation\nPerform Feature Extraction\n\n\n\n\n\n\n\nimage processing"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#learning-objectives",
+    "href": "posts/14_image_processing/14_image_processing.html#learning-objectives",
+    "title": "14: Image Processing",
+    "section": "",
+    "text": "Explore image processing\nIntroduce image augmentation\nPerform Feature Extraction\n\n\n\n\n\n\n\nimage processing"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#overview",
+    "href": "posts/14_image_processing/14_image_processing.html#overview",
+    "title": "14: Image Processing",
+    "section": "Overview",
+    "text": "Overview\n\n\n\nGANs overview\n\n\n\nimage source: Deep Learning Illustrated"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#discriminator",
+    "href": "posts/14_image_processing/14_image_processing.html#discriminator",
+    "title": "14: Image Processing",
+    "section": "Discriminator",
+    "text": "Discriminator\n\n\n\nTraining the discriminator\n\n\n\nimage source: Deep Learning Illustrated"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#generator",
+    "href": "posts/14_image_processing/14_image_processing.html#generator",
+    "title": "14: Image Processing",
+    "section": "Generator",
+    "text": "Generator\n\n\n\nTraining the generator\n\n\n\nimage source: Deep Learning Illustrated\n\n\n\n\n\n\n\nTipGAN Objectives\n\n\n\n\nthe goal of a generator is to create better fake images\nthe goal of a discriminator is to better classify fake images"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#adversarial-network",
+    "href": "posts/14_image_processing/14_image_processing.html#adversarial-network",
+    "title": "14: Image Processing",
+    "section": "Adversarial Network",
+    "text": "Adversarial Network\n\n\n\nAdversarial network\n\n\n\nimage source: Deep Learning Illustrated"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#initial-results",
+    "href": "posts/14_image_processing/14_image_processing.html#initial-results",
+    "title": "14: Image Processing",
+    "section": "Initial Results",
+    "text": "Initial Results\n # Activity: Quick Draw!\n\nAppLionsTigersPenguins\n\n\n\n\n\n\n\nQuick Draw, by Google\n\n\n\n\n\nTry out Quick Draw!\n\nhttps://quickdraw.withgoogle.com/\napp will ask you to sketch 6 images\n\nand it will try to recognize your artwork\n\ncaution: there is sound\n\n\n\n\n\n\n\n\nQuick, Draw! Lions\n\n\n\n\n\n\n\nQuick, Draw! Tigers\n\n\n\n\n\n\n\nQuick, Draw! Penguins\n\n\n\n\n\n\n\n\n\n\n\nWarningDCP1"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#color-histograms",
+    "href": "posts/14_image_processing/14_image_processing.html#color-histograms",
+    "title": "14: Image Processing",
+    "section": "Color Histograms",
+    "text": "Color Histograms\n\nRGBComparisons\n\n\n\n\n\nRGB histograms\n\n\n\nimage source: PyImageSearch\n\n\n\n\n\n\ncomparing histograms\n\n\n\nimage source: Pinecone\n\n\n\n\n\n\n\n\n\n\nWarningDCP2"
+  },
+  {
+    "objectID": "posts/14_image_processing/14_image_processing.html#image-augmentation",
+    "href": "posts/14_image_processing/14_image_processing.html#image-augmentation",
+    "title": "14: Image Processing",
+    "section": "Image Augmentation",
+    "text": "Image Augmentation\n\nrotation\ntranslation\nreflections\netc.\n\n\n\n\nimage augmentation\n\n\n\nimage source: Arun Gandhi"
+  },
+  {
+    "objectID": "code/14_image_processing.html",
+    "href": "code/14_image_processing.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "review of neural network calculations\nimage processing\ndata augmentation"
+  },
+  {
+    "objectID": "code/14_image_processing.html#session-15-image-processing",
+    "href": "code/14_image_processing.html#session-15-image-processing",
+    "title": "SML 301",
+    "section": "",
+    "text": "review of neural network calculations\nimage processing\ndata augmentation"
+  },
+  {
+    "objectID": "code/14_image_processing.html#prep",
+    "href": "code/14_image_processing.html#prep",
+    "title": "SML 301",
+    "section": "Prep",
+    "text": "Prep\n\nInstalling the packages (above) might take a few minutes\nHereafter, you are advised to connect to a T4 GPU runtime (upper-right corner)\n\n\nimport cv2 #Open Source Computer Vision library\nimport json\nimport numpy as np\nimport pandas as pd\nimport pytorch_lightning as pl\nimport sympy\nimport torch\nimport torch.nn as nn\nimport torch.nn.functional as F\nimport torchvision.models as models\nimport urllib.request\n\nfrom matplotlib import pyplot as plt\n#from palmerpenguins import load_penguins\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import LabelEncoder, StandardScaler\nfrom sympy import isprime\nfrom torch.utils.data import TensorDataset, DataLoader\nfrom torchvision import transforms  # Use pretrained PyTorch models\nfrom torchvision.models import resnet18, ResNet18_Weights\n\n\n# seed function for reproducibility\ndef random_seed(seed_value):\n    np.random.seed(seed_value)\n    torch.manual_seed(seed_value)\n    #random.seed(seed_value)\n    torch.backends.cudnn.deterministic = True\n    torch.backends.cudnn.benchmark = False\n\nlr = 0.01 #learning rate"
+  },
+  {
+    "objectID": "code/14_image_processing.html#prep-1",
+    "href": "code/14_image_processing.html#prep-1",
+    "title": "SML 301",
+    "section": "Prep",
+    "text": "Prep\n\nupload an image file into your Colab session (mentally note where it has been stored)\n\n\n# Load image as grayscale.\n# Intensity values range from black = 0 to white = 255.\nimage = cv2.imread(\"/content/princeton_tiger.png\", cv2.IMREAD_GRAYSCALE)\n\n# Show image\nplt.imshow(image, cmap=\"gray\")\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n# Show data type\nprint(type(image))\n\n# Get resolution\nprint(image.shape)\n\n# Show image data\nimage\n\n\n&lt;class 'numpy.ndarray'&gt;\n(679, 950)\n\n\n\n      ndarray (679, 950) show dataarray([[149, 149, 150, ..., 169, 169, 169],\n       [149, 149, 150, ..., 169, 169, 169],\n       [149, 149, 150, ..., 169, 169, 169],\n       ...,\n       [ 58,  58,  59, ..., 149, 157, 158],\n       [ 55,  55,  56, ..., 148, 155, 158],\n       [ 58,  58,  59, ..., 150, 156, 157]], dtype=uint8)\n\n\n\n# Load image in BGR (blue, green, red) colors\nimage_bgr = cv2.imread(\"/content/princeton_tiger.png\", cv2.IMREAD_COLOR)\n\n# Show pixel\nimage_bgr[0, 0]\n\n# Show image\nplt.imshow(image_bgr)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n# OpenCV uses BGR as default.\n# Matplotlib uses RGB as default.\n# In order to show the image in Matplotlib, we should convert it to RGB.\nimage_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)\n\n# Show image\nplt.imshow(image_rgb), plt.axis(\"off\")\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#saving-images",
+    "href": "code/14_image_processing.html#saving-images",
+    "title": "SML 301",
+    "section": "Saving Images",
+    "text": "Saving Images\n\n# Save image.\n# If the image already exists, imwrite() overwrites it.\ncv2.imwrite(\"/content/princeton_tiger_rgb.png\", image_rgb)\n\nTrue"
+  },
+  {
+    "objectID": "code/14_image_processing.html#resizing-images",
+    "href": "code/14_image_processing.html#resizing-images",
+    "title": "SML 301",
+    "section": "Resizing Images",
+    "text": "Resizing Images\n\n# Get resolution\nprint(image.shape)\n\n# Resize image\nimage_smaller = cv2.resize(image, (image.shape[1] // 10, image.shape[0] // 10))\nimage_smaller.shape\n\n# View image\nplt.imshow(image_smaller, cmap=\"gray\"), plt.axis(\"off\")\nplt.show()\n\n(679, 950)"
+  },
+  {
+    "objectID": "code/14_image_processing.html#cropping-images",
+    "href": "code/14_image_processing.html#cropping-images",
+    "title": "SML 301",
+    "section": "Cropping Images",
+    "text": "Cropping Images\n\n# Select first half of the columns and all rows\nimage_cropped = image[:, :image.shape[0] // 2]\nimage_cropped.shape\n\n# Show image\nplt.imshow(image_cropped, cmap=\"gray\"), plt.axis(\"off\"), plt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#blurring-images",
+    "href": "code/14_image_processing.html#blurring-images",
+    "title": "SML 301",
+    "section": "Blurring Images",
+    "text": "Blurring Images\nSee also: Image Kernels Explained Visually https://setosa.io/ev/image-kernels/\n\n# Blur image with the kernel size of (5, 5)\nimage_blurry = cv2.blur(image, (5, 5))\n\n# Show image\nplt.imshow(image_blurry, cmap=\"gray\"), plt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\n\n# Blur image with the kernel size of (10, 10)\nimage_very_blurry = cv2.blur(image, (100, 100))\n\n# Show image\nplt.imshow(image_very_blurry, cmap=\"gray\"), plt.xticks([]), plt.yticks([])\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#sharpening-images",
+    "href": "code/14_image_processing.html#sharpening-images",
+    "title": "SML 301",
+    "section": "Sharpening Images",
+    "text": "Sharpening Images\n\n# Create kernel\nkernel = np.array(\n    [[ 0, -1,  0],\n     [-1,  5, -1],\n     [ 0, -1,  0]]\n)\n\n# Sharpen image\nimage_sharp = cv2.filter2D(image, -1, kernel)\n\n# Show images\n# Create a figure and a 1x2 grid of subplots (1 row, 2 columns)\nfig, axes = plt.subplots(1, 2, figsize=(10, 5))\naxes[0].imshow(image, cmap = \"gray\")\naxes[0].set_title('original (grayscale)')\naxes[0].axis('off')  # Turn off axis labels and ticks\naxes[1].imshow(image_sharp, cmap = \"gray\")\naxes[1].set_title('sharper image')\naxes[1].axis('off')  # Turn off axis labels and ticks\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#enhancing-contrast",
+    "href": "code/14_image_processing.html#enhancing-contrast",
+    "title": "SML 301",
+    "section": "Enhancing Contrast",
+    "text": "Enhancing Contrast\n\n# grayscale images\nimage_enhanced = cv2.equalizeHist(image)\n\n# Show images\n# Create a figure and a 1x2 grid of subplots (1 row, 2 columns)\nfig, axes = plt.subplots(1, 2, figsize=(10, 5))\naxes[0].imshow(image, cmap = \"gray\")\naxes[0].set_title('original (grayscale)')\naxes[0].axis('off')  # Turn off axis labels and ticks\naxes[1].imshow(image_enhanced, cmap = \"gray\")\naxes[1].set_title('enhanced contrast')\naxes[1].axis('off')  # Turn off axis labels and ticks\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n# For color images:\n# - Convert to YUV (Y = luma, or brightness, U, V = colors).\n# -&gt;\n# - equalizeHist\n# -&gt;\n# - Convert to BGR or RGB.\n\n# Convert to YUV\nimage_yuv = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2YUV)\n\n# Apply histogram equalization\nimage_yuv[:, :, 0] = cv2.equalizeHist(image_yuv[:, :, 0])\n\n# Convert to RGB\nimage_rgb_enhanced = cv2.cvtColor(image_yuv, cv2.COLOR_YUV2RGB)\n\n# Show images\nfig, axes = plt.subplots(1, 2, figsize=(10, 5))\naxes[0].imshow(image_rgb)\naxes[0].set_title('original')\naxes[0].axis('off')  # Turn off axis labels and ticks\naxes[1].imshow(image_rgb_enhanced)\naxes[1].set_title('enhanced contrast')\naxes[1].axis('off')  # Turn off axis labels and ticks\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#removing-background",
+    "href": "code/14_image_processing.html#removing-background",
+    "title": "SML 301",
+    "section": "Removing Background",
+    "text": "Removing Background\n\nTODO: find better code from a different library\n\n# Rectangle values: start x, start y, width, height\nrectangle = (225, 75, 450, 490)\n\n# Create initial mask\nmask = np.zeros(image_rgb.shape[:2], np.uint8)\n\n# Create temporary arrays used by grabCut\nbgdModel = np.zeros((1, 65), np.float64)\nfgdModel = np.zeros((1, 65), np.float64)\n\n# Apply grabCut\ncv2.grabCut(\n    image_rgb,  # image\n    mask,\n    rectangle,\n    bgdModel,  # temporary array for background\n    fgdModel,  # temporary array for foreground\n    5,  # number of iterations\n    cv2.GC_INIT_WITH_RECT,  # Initiative with rectangle\n)\n\n# Create new mask where sure (mask == 0) and likely (mask == 2) backgrounds set to 0, otherwise 1\nnew_mask = np.where((mask == 0) | (mask == 2), 0, 1).astype('uint8')\n\n# matrix\nimage_rgb_nobg = image_rgb * new_mask[:, :, np.newaxis]\n\n# Show images\nfig, axes = plt.subplots(1, 3, figsize=(10, 5))\naxes[0].imshow(image_rgb)\naxes[0].set_title('original')\naxes[0].axis('off')  # Turn off axis labels and ticks\naxes[1].imshow(new_mask, cmap = \"gray\")\naxes[1].set_title('mask')\naxes[1].axis('off')  # Turn off axis labels and ticks\naxes[2].imshow(image_rgb_nobg)\naxes[2].set_title('background removed')\naxes[2].axis('off')  # Turn off axis labels and ticks\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#edge-detection",
+    "href": "code/14_image_processing.html#edge-detection",
+    "title": "SML 301",
+    "section": "Edge Detection",
+    "text": "Edge Detection\n\n# Calculate median intensity\nmedian_intensity = np.median(image)\n\n# Set thresholds to be one standard deviation above and below median intensity\nlower_threshold = int(max(0, (1.0 - 0.33) * median_intensity))\nupper_threshold = int(min(255, (1.0 + 0.33) * median_intensity))\n\n# Apply Canny edge detector\nimage_canny = cv2.Canny(image, lower_threshold, upper_threshold)\n\n# Show images\nfig, axes = plt.subplots(1, 2, figsize=(10, 5))\naxes[0].imshow(image, cmap = \"gray\")\naxes[0].set_title('original (grayscale)')\naxes[0].axis('off')  # Turn off axis labels and ticks\naxes[1].imshow(image_canny, cmap = \"gray\")\naxes[1].set_title('edge detection')\naxes[1].axis('off')  # Turn off axis labels and ticks\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "code/14_image_processing.html#band-histograms",
+    "href": "code/14_image_processing.html#band-histograms",
+    "title": "SML 301",
+    "section": "Band Histograms",
+    "text": "Band Histograms\n\nprint(image_rgb.shape)\n\n# Create a list for feature values\nfeatures = []\n\n# Calculate histogram or each channel and add to feature value list\nfor i, channel in enumerate([\"r\", \"g\", \"b\"]):  # 0 = red, 1 = green, 2 = blue\n    histogram = cv2.calcHist(\n        [image_rgb],  # image\n        [i],  # index of channel\n        None,  # no mask\n        [256],  # histogram size\n        [0, 256])  # range\n    # The x-axis represents the 256 possible channel values,\n    # and the y-axis represents the number of times a particular channel value\n    # appears across all pixels in an image\n    plt.plot(histogram, color=channel)\n    plt.xlim([0, 256])\n    features.extend(histogram)\n\n# Show plot\nplt.show()\nprint(\"256*3 features\")\n\n(679, 950, 3)\n\n\n\n\n\n\n\n\n\n256*3 features"
+  },
+  {
+    "objectID": "code/14_image_processing.html#todo-describe-transfer-learning-and-resnet",
+    "href": "code/14_image_processing.html#todo-describe-transfer-learning-and-resnet",
+    "title": "SML 301",
+    "section": "TODO: describe transfer learning and ResNet",
+    "text": "TODO: describe transfer learning and ResNet\n\n# Convert to PyTorch data type\nconvert_tensor = transforms.ToTensor()\npytorch_image = convert_tensor(image_rgb)\n\n# Load the pretrained model\nmodel = models.resnet18(weights=ResNet18_Weights.DEFAULT)\n\n# Select the specific layer of the model we want output from\nlayer = model._modules.get('avgpool')\n\n# Set model to evaluation mode\nmodel.eval()\n\n# Infer the embedding with the no_grad option\nwith torch.no_grad():\n    embedding_pytorch = model(pytorch_image.unsqueeze(0))\n\nembedding_pytorch.shape\n\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n\n\n100%|██████████| 44.7M/44.7M [00:00&lt;00:00, 201MB/s]\n\n\ntorch.Size([1, 1000])"
   }
 ]
