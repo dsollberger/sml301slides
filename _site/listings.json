@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/15_CNN/15_CNN.html",
       "/posts/14_image_processing/14_image_processing.html",
       "/posts/13_recurrence/13_recurrence.html",
       "/posts/12_hyperparameters/12_hyperparameters.html",
@@ -21,6 +22,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/15_CNN/15_CNN.html",
       "/posts/14_image_processing/14_image_processing.html",
       "/posts/13_recurrence/13_recurrence.html",
       "/posts/12_hyperparameters/12_hyperparameters.html",

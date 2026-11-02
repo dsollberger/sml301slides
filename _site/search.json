@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -4086,5 +4086,173 @@
     "title": "SML 301",
     "section": "TODO: describe transfer learning and ResNet",
     "text": "TODO: describe transfer learning and ResNet\n\n# Convert to PyTorch data type\nconvert_tensor = transforms.ToTensor()\npytorch_image = convert_tensor(image_rgb)\n\n# Load the pretrained model\nmodel = models.resnet18(weights=ResNet18_Weights.DEFAULT)\n\n# Select the specific layer of the model we want output from\nlayer = model._modules.get('avgpool')\n\n# Set model to evaluation mode\nmodel.eval()\n\n# Infer the embedding with the no_grad option\nwith torch.no_grad():\n    embedding_pytorch = model(pytorch_image.unsqueeze(0))\n\nembedding_pytorch.shape\n\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n\n\n100%|██████████| 44.7M/44.7M [00:00&lt;00:00, 201MB/s]\n\n\ntorch.Size([1, 1000])"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html",
+    "href": "posts/15_CNN/15_CNN.html",
+    "title": "15: Convolutional Neural Networks",
+    "section": "",
+    "text": "Continue exploring generative adversarial networks\nMotivate convolutional neural networks\nCompute convolutions\n\n\n\n\n\n\n\nCycle GANs\n\n\n\nimage credit: Jun-Yan Zhu, et al."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#learning-objectives",
+    "href": "posts/15_CNN/15_CNN.html#learning-objectives",
+    "title": "15: Convolutional Neural Networks",
+    "section": "",
+    "text": "Continue exploring generative adversarial networks\nMotivate convolutional neural networks\nCompute convolutions\n\n\n\n\n\n\n\nCycle GANs\n\n\n\nimage credit: Jun-Yan Zhu, et al."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#activity-pix2pix-image-to-image",
+    "href": "posts/15_CNN/15_CNN.html#activity-pix2pix-image-to-image",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Activity: Pix2Pix Image-to-Image",
+    "text": "Activity: Pix2Pix Image-to-Image\n\nAppex1ex2ex1\n\n\n\n\n\n\n\nimage-to-image\n\n\n\n\n\n\napp (link) by Christopher Hesse (no longer active)\nGitHub repo\nTensorFlow code\n\n\n\n\n\n\n\n\nedges2cats\n\n\n\n\n\n\n\nfacades\n\n\n\n\n\n\n\nedges2handbags"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#architecture",
+    "href": "posts/15_CNN/15_CNN.html#architecture",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Architecture",
+    "text": "Architecture\n\n\n\nZhang, et al., 2016"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#scaling",
+    "href": "posts/15_CNN/15_CNN.html#scaling",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Scaling",
+    "text": "Scaling\n\n\n\nZhang, et al., 2016"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#architecture-1",
+    "href": "posts/15_CNN/15_CNN.html#architecture-1",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Architecture",
+    "text": "Architecture\n\n\n\n\ncycle GAN architecture\n\n\n\nimages source: Bansal and Rathore\n\n\n\n\n\n\n\nTipcGAN Objective\n\n\n\nIn a cyclic GAN, the generator and discriminator converge toward a Nash equilibrium.\n\n\n\n\n\n\n\n\nWarningDCP1"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#image-classification-example-mnist-dataset",
+    "href": "posts/15_CNN/15_CNN.html#image-classification-example-mnist-dataset",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Image Classification Example: MNIST Dataset",
+    "text": "Image Classification Example: MNIST Dataset\n\n\n\nFive handwritten MNIST digits: 5, 0, 4, 1, 9, white on black\n\n\nFigure: Example MNIST digits\n\nConsider an image classification task using the MNIST dataset.\nContains 70,000 grayscale images of handwritten digits.\nEach image is 28×28 pixels in size.\nThere are 10 classes (digits 0–9).\nWhen using a dense neural network, we flatten each 28×28 image into a 784-dimensional vector.\nThis process destroys the two-dimensional structure that humans use to perceive spatial relationships.\nHuman vision is inherently two-dimensional, and spatial patterns—edges, shapes, and local contrast—are crucial for recognition."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#limitations-of-dense-networks-for-image-data",
+    "href": "posts/15_CNN/15_CNN.html#limitations-of-dense-networks-for-image-data",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Limitations of Dense Networks for Image Data",
+    "text": "Limitations of Dense Networks for Image Data\n\nFlattening images removes spatial structure—but there’s also a computational problem.\nEach neuron in a dense layer connected to a 28×28 grayscale image needs:\n28 × 28 + 1 = 785 parameters (weights + bias).\nFor larger images, the parameter count grows rapidly.\nFor example: 200×200 RGB image\n\n200 × 200 × 3 = 120,000 inputs per neuron\n⇒ 120,001 parameters per neuron\nFor 64 neurons in the first hidden layer ⇒ nearly 8 million parameters.\n\nConvolutional Neural Networks (CNNs) address these issues by exploiting local spatial structure and weight sharing."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#what-is-a-convolutional-neural-network-cnn",
+    "href": "posts/15_CNN/15_CNN.html#what-is-a-convolutional-neural-network-cnn",
+    "title": "15: Convolutional Neural Networks",
+    "section": "What Is a Convolutional Neural Network (CNN)?",
+    "text": "What Is a Convolutional Neural Network (CNN)?\n\nA Convolutional Neural Network (CNN)—also called a ConvNet—is a neural network that includes one or more convolutional layers.\nThese layers allow the network to efficiently process spatial patterns in data, such as images.\nCNNs are particularly powerful for computer vision tasks because they can capture:\n\nLocal structures (edges, corners, textures)\nSpatial hierarchies (shapes, objects)\n\nEach convolutional layer applies a small matrix of weights (called a kernel, filter, or convolution matrix) across the image."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#d-convolution-the-core-operation",
+    "href": "posts/15_CNN/15_CNN.html#d-convolution-the-core-operation",
+    "title": "15: Convolutional Neural Networks",
+    "section": "2D Convolution: The Core Operation",
+    "text": "2D Convolution: The Core Operation\n\n\n\nA 3×3 input and a 2×2 kernel produce a 2×2 output; for example, y11 = α11·x11 + α12·x12 + α21·x21 + α22·x22 + α0\n\n\n\nPick a small matrix F (e.g., 2 × 2 or 3 × 3) of weights — the kernel or filter.\nSlide F across the image and compute the inner product between F and each local patch.\nReplace the center pixel with the computed value to form the feature map.\nDifferent kernels capture different low-level features: edges, corners, textures, etc.\nTo detect new patterns, learn new weights in F.\n\nImage source: https://www.cs.cmu.edu/~mgormley/courses/10601-s24//slides/lecture17-cnn.pdf"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#convolution-vs.-dense-layers",
+    "href": "posts/15_CNN/15_CNN.html#convolution-vs.-dense-layers",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Convolution vs. Dense Layers",
+    "text": "Convolution vs. Dense Layers\n\nThe mathematical operation of a convolutional layer is similar to that of a neuron:\n\\[z = \\sum w_{ij} x_{ij} + b, \\quad a = \\sigma(z)\\]\nThe key difference:\n\nA dense layer has a unique weight for every input.\nA convolutional layer uses a small kernel (e.g., 3 × 3) whose weights are shared across spatial locations.\n\nThis weight sharing reduces the number of parameters by orders of magnitude.\nThe same filter detects the same pattern anywhere in the image.\n\nCheck out: https://ezyang.github.io/convolution-visualizer/"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#multiple-filters-in-a-convolutional-layer",
+    "href": "posts/15_CNN/15_CNN.html#multiple-filters-in-a-convolutional-layer",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Multiple Filters in a Convolutional Layer",
+    "text": "Multiple Filters in a Convolutional Layer\n\n\n\nTable of four 3×3 kernels (original, Gaussian blur, sharpen, edge detection), each shown with its effect on a photo of an animal’s face\n\n\n\nA convolutional layer usually applies multiple filters (kernels) in parallel.\nEach filter learns to detect a different type of pattern or feature.\nThe outputs from all filters form a stack of feature maps.\nThese maps together capture richer information about the input image.\n\nImage source: https://medium.com/@abhishekjainindore24/all-about-convolutions-kernels-features-in-cnn-c656616390a1"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#applying-convolution-to-multiple-layers",
+    "href": "posts/15_CNN/15_CNN.html#applying-convolution-to-multiple-layers",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Applying Convolution to Multiple Layers",
+    "text": "Applying Convolution to Multiple Layers\n\n\n\nWorked example: an RGB image split into red, green and blue channels, each multiplied by its own 3×3 weights; the results are summed with a bias of 0.20 to give a z value of 2.64\n\n\nImage source: Deep Learning Illustrated"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#activation-maps-from-multiple-filters",
+    "href": "posts/15_CNN/15_CNN.html#activation-maps-from-multiple-filters",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Activation Maps from Multiple Filters",
+    "text": "Activation Maps from Multiple Filters\n\n\n\nA 32×32×3 input volume mapped to a 32×32×16 activation map, with lines linking a local patch of the input to a position in the output\n\n\nFigure: Each filter produces a feature map highlighting specific image regions it responds to.\nImage source: Deep Learning Illustrated\n\nThe first convolutional layer may contain kernels that detect simple patterns such as vertical or horizontal lines, or color transitions.\nEach filter scans the image and produces a high activation when its preferred pattern appears.\nThese activation maps serve as the input to the next layer, allowing the network to learn from spatial features directly."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#from-low-level-to-high-level-features",
+    "href": "posts/15_CNN/15_CNN.html#from-low-level-to-high-level-features",
+    "title": "15: Convolutional Neural Networks",
+    "section": "From Low-Level to High-Level Features",
+    "text": "From Low-Level to High-Level Features\n\n\n\nA cat image broken into simple curves and edges, which combine into an eye, a nose and an ear, which combine into the label “cat”\n\n\nFigure: Deeper layers combine low-level features into more abstract representations.\nImage source: Deep Learning with Python\n\nEarly layers learn to detect edges, corners, and simple shapes.\nMiddle layers capture textures and patterns.\nDeep layers combine these into high-level features, such as object parts or entire objects.\nThis creates a feature hierarchy: edges → shapes → textures → objects.\n\n\n\n\n\n\n\nWarningDCP2"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#key-features-of-convolutional-layers",
+    "href": "posts/15_CNN/15_CNN.html#key-features-of-convolutional-layers",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Key Features of Convolutional Layers",
+    "text": "Key Features of Convolutional Layers\n\nPosition Invariance: Convolutional layers enable the network to recognize features regardless of their location in the image. A single kernel can identify its corresponding pattern anywhere in the input.\nPreservation of Spatial Structure: CNNs operate on the two-dimensional structure of images, learning features within their local spatial context.\nParameter Efficiency: By using small kernels and shared weights, convolutional layers require far fewer parameters than dense layers, improving computational efficiency.\nImproved Performance: CNNs achieve superior accuracy in computer vision tasks such as image classification and object detection."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#convolutional-layer-hyperparameters",
+    "href": "posts/15_CNN/15_CNN.html#convolutional-layer-hyperparameters",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Convolutional Layer Hyperparameters",
+    "text": "Convolutional Layer Hyperparameters\n\nSeveral hyperparameters determine the number of weights, biases, and overall behavior of a convolutional layer.\nThe most important ones are:\n\nKernel size – defines the receptive field of the filter.\nStride length – defines how far the kernel moves at each step.\nPadding – controls how the image borders are handled.\n\nTogether, these control:\n\nThe spatial size of the output feature map,\nThe number of learnable parameters,\nAnd the computational cost of the convolution."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#kernel-size",
+    "href": "posts/15_CNN/15_CNN.html#kernel-size",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Kernel Size",
+    "text": "Kernel Size\n\nThe kernel size (or filter size, or receptive field) determines how many pixels are combined in each operation.\nCommon choices:\n\n3 × 3, standard in most modern CNNs.\n5 × 5, sometimes used for slightly larger receptive fields.\n7 × 7, used rarely; larger filters can be harder to train effectively.\n\nIf the kernel is too small (2 × 2), it can’t capture meaningful structures; if too large, it may mix too many competing features."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#stride-length",
+    "href": "posts/15_CNN/15_CNN.html#stride-length",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Stride Length",
+    "text": "Stride Length\n\nThe stride defines the number of pixels the kernel shifts each time it moves across the image.\nTypical values:\n\nS = 1, default; retains high spatial resolution.\nS = 2, halves spatial resolution; faster computation.\nS &gt; 3, usually suboptimal; may skip important regions.\n\nIncreasing stride reduces computation but also reduces the spatial detail captured."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#padding",
+    "href": "posts/15_CNN/15_CNN.html#padding",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Padding",
+    "text": "Padding\n\nPadding adds extra pixels (zeros) around the image border.\nPurpose:\n\nControls the output size of the feature map.\nEnsures border pixels are treated equally.\n\nExample: For a 28 × 28 image and a 5 × 5 kernel, adding 2 zeros on each side maintains output size.\nOutput size can be computed by:\n\\[\\text{Output size} = \\frac{D - F + 2P}{S} + 1\\]\nwhere:\n\nD = input dimension\nF = kernel size\nP = padding\nS = stride"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#pooling-layers",
+    "href": "posts/15_CNN/15_CNN.html#pooling-layers",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Pooling Layers",
+    "text": "Pooling Layers\n\n\n\nA 4×4 activation map reduced by a max-pooling layer to a 2×2 activation map containing 5, 6, 7 and 3\n\n\nFigure: Max-pooling operation with a 2 × 2 filter and stride 2. Only the maximum value from each region is kept.\nImage source: Deep Learning Illustrated\n\nPurpose: Reduce the number of parameters and computation while helping to prevent overfitting.\nLike convolutional layers, pooling layers have:\n\nA filter size (typically 2 × 2)\nA stride length (typically 2)\n\nThe filter slides over the input feature map.\nAt each step, it applies a data-reducing operation, most commonly the max operation.\nMax Pooling: keeps only the largest activation in each 2 × 2 region, effectively downsampling by a factor of 4."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#from-convolution-to-classification",
+    "href": "posts/15_CNN/15_CNN.html#from-convolution-to-classification",
+    "title": "15: Convolutional Neural Networks",
+    "section": "From Convolution to Classification",
+    "text": "From Convolution to Classification\n\nAfter several convolution + pooling layers, the network has learned hierarchical spatial features.\nThese features are stored in the final set of activation maps.\nA Flatten layer converts these 2D feature maps into a 1D vector.\nThe vector is passed to one or more fully connected (dense) layers that combine the extracted features.\nThe final layer (often with a softmax activation) outputs a probability distribution over classes.\n\nCheck out: https://adamharley.com/nnvis/cnn/2d.html"
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#flattening-the-feature-maps",
+    "href": "posts/15_CNN/15_CNN.html#flattening-the-feature-maps",
+    "title": "15: Convolutional Neural Networks",
+    "section": "Flattening the Feature Maps",
+    "text": "Flattening the Feature Maps\n\nAfter several convolution + pooling layers, the output is a 3D tensor:\n(H, W, C)\nwhere:\n\nH = height\nW = width\nC = number of feature maps (filters)\n\nThe Flatten layer reshapes this 3D tensor into a single 1D vector of length:\nH × W × C\nThis 1D vector becomes the input to one or more fully connected (dense) layers.\nFinally, the dense layers perform classification (often using a softmax output layer)."
+  },
+  {
+    "objectID": "posts/15_CNN/15_CNN.html#cnn-architecture-overview",
+    "href": "posts/15_CNN/15_CNN.html#cnn-architecture-overview",
+    "title": "15: Convolutional Neural Networks",
+    "section": "CNN Architecture Overview",
+    "text": "CNN Architecture Overview\n\n\n\nPipeline from a 28×28 input image through convolution (6@28×28), pooling (6@14×14), convolution (16@10×10) and pooling (16@5×5) to dense layers of 120, 84 and 10 units\n\n\nFigure: Example of a CNN pipeline. Sequential layers extract features, downsample, and classify.\n\nThe network starts with the raw input image (e.g., 28×28 grayscale digit).\nConvolution layers extract local features (edges, textures).\nPooling layers downsample feature maps and retain the strongest activations.\nFlatten layer converts 3D feature maps into a 1D vector.\nFully connected layers combine extracted features to perform classification.\nThe final output layer (e.g., softmax) produces probabilities over classes.\n\nImage source: Zhang, Lipton, Li, and Smola, Dive Into Deep Learning (2023)"
   }
 ]
