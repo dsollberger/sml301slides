@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2026-11-04">
+
+<title>16: NLP (Bag of Words) – SML 301 Slides</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29b139f52e1b4087b0c9e4528fec9435.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nlp-bag-of-words" id="toc-nlp-bag-of-words" class="nav-link active" data-scroll-target="#nlp-bag-of-words">16: NLP (Bag of Words)</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  </ul></li>
+  <li><a href="#natural-language-processing" id="toc-natural-language-processing" class="nav-link" data-scroll-target="#natural-language-processing">Natural language processing</a>
+  <ul class="collapse">
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure">Data structure</a></li>
+  <li><a href="#how-do-we-apply-statistics-to-language" id="toc-how-do-we-apply-statistics-to-language" class="nav-link" data-scroll-target="#how-do-we-apply-statistics-to-language">How do we apply statistics to language?</a></li>
+  <li><a href="#nlp-tasks-we-will-look-at" id="toc-nlp-tasks-we-will-look-at" class="nav-link" data-scroll-target="#nlp-tasks-we-will-look-at">NLP tasks we will look at</a></li>
+  <li><a href="#tasks-in-natural-language-processing" id="toc-tasks-in-natural-language-processing" class="nav-link" data-scroll-target="#tasks-in-natural-language-processing">Tasks in Natural Language Processing</a></li>
+  <li><a href="#protein-language-models" id="toc-protein-language-models" class="nav-link" data-scroll-target="#protein-language-models">Protein Language Models</a></li>
+  </ul></li>
+  <li><a href="#modern-applications" id="toc-modern-applications" class="nav-link" data-scroll-target="#modern-applications">Modern Applications</a>
+  <ul class="collapse">
+  <li><a href="#translation" id="toc-translation" class="nav-link" data-scroll-target="#translation">Translation</a></li>
+  </ul></li>
+  <li><a href="#why-is-language-processing-difficult" id="toc-why-is-language-processing-difficult" class="nav-link" data-scroll-target="#why-is-language-processing-difficult">Why is language processing difficult?</a>
+  <ul class="collapse">
+  <li><a href="#theoretical" id="toc-theoretical" class="nav-link" data-scroll-target="#theoretical">Theoretical</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">Practical</a></li>
+  </ul></li>
+  <li><a href="#terminology-in-nlp" id="toc-terminology-in-nlp" class="nav-link" data-scroll-target="#terminology-in-nlp">Terminology in NLP</a>
+  <ul class="collapse">
+  <li><a href="#nlp-in-application-text-classification" id="toc-nlp-in-application-text-classification" class="nav-link" data-scroll-target="#nlp-in-application-text-classification">NLP in application – text classification</a></li>
+  <li><a href="#other-examples-of-text-classification" id="toc-other-examples-of-text-classification" class="nav-link" data-scroll-target="#other-examples-of-text-classification">Other examples of text classification</a></li>
+  </ul></li>
+  <li><a href="#text-classification" id="toc-text-classification" class="nav-link" data-scroll-target="#text-classification">Text Classification</a>
+  <ul class="collapse">
+  <li><a href="#text-classification-spam-filter-rule-based" id="toc-text-classification-spam-filter-rule-based" class="nav-link" data-scroll-target="#text-classification-spam-filter-rule-based">Text classification – spam filter (rule based)</a></li>
+  <li><a href="#text-classification-statistical-approach" id="toc-text-classification-statistical-approach" class="nav-link" data-scroll-target="#text-classification-statistical-approach">Text classification – statistical approach</a></li>
+  </ul></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes">Naive Bayes</a>
+  <ul class="collapse">
+  <li><a href="#naive-bayes-spam-filter-goal" id="toc-naive-bayes-spam-filter-goal" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-goal">Naive Bayes spam filter — goal</a></li>
+  <li><a href="#naive-bayes-spam-filter-estimating-probabilities-by-counting" id="toc-naive-bayes-spam-filter-estimating-probabilities-by-counting" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-estimating-probabilities-by-counting">Naive Bayes spam filter — estimating probabilities by counting</a></li>
+  <li><a href="#naive-bayes-spam-filter-the-problem" id="toc-naive-bayes-spam-filter-the-problem" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-the-problem">Naive Bayes spam filter — the problem</a></li>
+  <li><a href="#naive-bayes-spam-filter-bayes-rule" id="toc-naive-bayes-spam-filter-bayes-rule" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-bayes-rule">Naive Bayes spam filter — Bayes rule</a></li>
+  <li><a href="#naive-bayes-spam-filter-the-naive-assumption" id="toc-naive-bayes-spam-filter-the-naive-assumption" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-the-naive-assumption">Naive Bayes spam filter — the naive assumption</a></li>
+  <li><a href="#naive-bayes-spam-filter-the-likelihood" id="toc-naive-bayes-spam-filter-the-likelihood" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-the-likelihood">Naive Bayes spam filter — the likelihood</a></li>
+  <li><a href="#naive-bayes-spam-filter-the-prior" id="toc-naive-bayes-spam-filter-the-prior" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-the-prior">Naive Bayes spam filter — the prior</a></li>
+  <li><a href="#naive-bayes-spam-filter-putting-it-all-together" id="toc-naive-bayes-spam-filter-putting-it-all-together" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-putting-it-all-together">Naive Bayes spam filter — putting it all together</a></li>
+  <li><a href="#data-sparsity-and-smoothing" id="toc-data-sparsity-and-smoothing" class="nav-link" data-scroll-target="#data-sparsity-and-smoothing">Data sparsity and smoothing</a></li>
+  <li><a href="#naive-bayes-spam-filter-summary" id="toc-naive-bayes-spam-filter-summary" class="nav-link" data-scroll-target="#naive-bayes-spam-filter-summary">Naive Bayes spam filter – summary</a></li>
+  </ul></li>
+  <li><a href="#ethics-enclave-ai-legislation-tracker" id="toc-ethics-enclave-ai-legislation-tracker" class="nav-link" data-scroll-target="#ethics-enclave-ai-legislation-tracker">Ethics Enclave: AI Legislation Tracker</a>
+  <ul class="collapse">
+  <li><a href="#arizona-example" id="toc-arizona-example" class="nav-link" data-scroll-target="#arizona-example">Arizona (example)</a></li>
+  </ul></li>
+  <li><a href="#document-classification" id="toc-document-classification" class="nav-link" data-scroll-target="#document-classification">Document classification</a>
+  <ul class="collapse">
+  <li><a href="#documents-and-vectors" id="toc-documents-and-vectors" class="nav-link" data-scroll-target="#documents-and-vectors">Documents and vectors</a></li>
+  <li><a href="#vector-similarity-review" id="toc-vector-similarity-review" class="nav-link" data-scroll-target="#vector-similarity-review">Vector similarity – review</a></li>
+  </ul></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a>
+  <ul class="collapse">
+  <li><a href="#words-as-discrete-symbols" id="toc-words-as-discrete-symbols" class="nav-link" data-scroll-target="#words-as-discrete-symbols">Words as discrete symbols</a></li>
+  <li><a href="#word-vectors" id="toc-word-vectors" class="nav-link" data-scroll-target="#word-vectors">Word vectors</a></li>
+  <li><a href="#word-vectors-visualization" id="toc-word-vectors-visualization" class="nav-link" data-scroll-target="#word-vectors-visualization">Word vectors – visualization</a></li>
+  <li><a href="#how-to-represent-the-meaning-of-a-word" id="toc-how-to-represent-the-meaning-of-a-word" class="nav-link" data-scroll-target="#how-to-represent-the-meaning-of-a-word">How to represent the meaning of a word?</a></li>
+  <li><a href="#word-meaning-from-linguistic-tools" id="toc-word-meaning-from-linguistic-tools" class="nav-link" data-scroll-target="#word-meaning-from-linguistic-tools">Word meaning from linguistic tools</a></li>
+  <li><a href="#representing-words-by-context" id="toc-representing-words-by-context" class="nav-link" data-scroll-target="#representing-words-by-context">Representing words by context</a></li>
+  <li><a href="#distributional-hypothesis" id="toc-distributional-hypothesis" class="nav-link" data-scroll-target="#distributional-hypothesis">Distributional hypothesis</a></li>
+  <li><a href="#word-vectors-from-co-occurrence-matrix" id="toc-word-vectors-from-co-occurrence-matrix" class="nav-link" data-scroll-target="#word-vectors-from-co-occurrence-matrix">Word vectors from co-occurrence matrix</a></li>
+  <li><a href="#improving-the-co-occurrence-matrix" id="toc-improving-the-co-occurrence-matrix" class="nav-link" data-scroll-target="#improving-the-co-occurrence-matrix">Improving the co-occurrence matrix</a></li>
+  </ul></li>
+  <li><a href="#pointwise-mutual-information" id="toc-pointwise-mutual-information" class="nav-link" data-scroll-target="#pointwise-mutual-information">Pointwise Mutual Information</a>
+  <ul class="collapse">
+  <li><a href="#pointwise-mutual-information-example" id="toc-pointwise-mutual-information-example" class="nav-link" data-scroll-target="#pointwise-mutual-information-example">Pointwise Mutual Information (example)</a></li>
+  <li><a href="#augmented-co-occurrence-matrix" id="toc-augmented-co-occurrence-matrix" class="nav-link" data-scroll-target="#augmented-co-occurrence-matrix">Augmented co-occurrence matrix</a></li>
+  </ul></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">16: NLP (Bag of Words)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 4, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="nlp-bag-of-words" class="level1">
+<h1>16: NLP (Bag of Words)</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Motivate natural language processing</li>
+<li>Explore the early adapations</li>
+<li>Compute word frequencies</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide21_bag_of_words.png" class="img-fluid figure-img"></p>
+<figcaption>Movie review turned into a bag of words and word counts</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="natural-language-processing" class="level1">
+<h1>Natural language processing</h1>
+<p><strong>NLP:</strong> developing computer programs to classify, analyze and predict human language.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide02_cartoons.png" class="img-fluid figure-img"></p>
+<figcaption>What we say to dogs cartoon and xkcd language-nerd comic</figcaption>
+</figure>
+</div>
+<p>NLP involves computer science, mathematics, linguistics and more.</p>
+<hr>
+<section id="data-structure" class="level2">
+<h2 class="anchored" data-anchor-id="data-structure">Data structure</h2>
+<p>So far our input <strong>data</strong> has looked like this — a numeric matrix of samples × features, or an image as a grid of pixel intensities:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide03_numeric_data.png" class="img-fluid figure-img"></p>
+<figcaption>Numeric feature matrix and MNIST digit pixel grid</figcaption>
+</figure>
+</div>
+<p><strong>But now we have:</strong> unstructured text — books, research papers, Wikipedia, Reddit, the New York Times, …</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide03_text_data.png" class="img-fluid figure-img"></p>
+<figcaption>Text data sources: books, papers, Wikipedia, Reddit, NYT</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="how-do-we-apply-statistics-to-language" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-apply-statistics-to-language">How do we apply statistics to language?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide04_tasks.png" class="img-fluid figure-img"></p>
+<figcaption>Classification, regression and prediction examples</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Classification:</strong> email → model → <em>spam</em> / <em>not spam</em></p></li>
+<li><p><strong>Regression:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Review</th>
+<th style="text-align: center;">Sentiment Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Amazing product! Works perfectly.”</td>
+<td style="text-align: center;">0.95</td>
+</tr>
+<tr class="even">
+<td>“It’s okay, nothing special.”</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="odd">
+<td>“Terrible experience, never buying again.”</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>Prediction:</strong> search autocomplete — “what is the” → “what is the weather”, “what is the norovirus”, …</p></li>
+</ul>
+<hr>
+</section>
+<section id="nlp-tasks-we-will-look-at" class="level2">
+<h2 class="anchored" data-anchor-id="nlp-tasks-we-will-look-at">NLP tasks we will look at</h2>
+<ol type="1">
+<li>How to build a model for <strong>text classification</strong></li>
+<li>How to define <strong>numerical representations of words</strong></li>
+<li>How to <strong>predict the next word</strong> in a sentence</li>
+</ol>
+<hr>
+</section>
+<section id="tasks-in-natural-language-processing" class="level2">
+<h2 class="anchored" data-anchor-id="tasks-in-natural-language-processing">Tasks in Natural Language Processing</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide06_nlp_tasks.png" class="img-fluid figure-img"></p>
+<figcaption>Wheel of NLP applications</figcaption>
+</figure>
+</div>
+<ul>
+<li>NLP has many applications</li>
+<li>Active field of research</li>
+</ul>
+<p>Applications: language translation, smart assistants, document analysis, online searches, predictive text, automatic summarization, social media monitoring, chatbots, sentiment analysis, email filtering.</p>
+<p><em>Source: <a href="https://datasciencedojo.com/blog/natural-language-processing-applications/" class="uri">https://datasciencedojo.com/blog/natural-language-processing-applications/</a></em></p>
+<hr>
+</section>
+<section id="protein-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="protein-language-models">Protein Language Models</h2>
+<p>Protein structure/function can be <strong>represented</strong> by language models.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide07_protein_lm.png" class="img-fluid figure-img"></p>
+<figcaption>DNA to RNA to protein to structure</figcaption>
+</figure>
+</div>
+<ul>
+<li>Amino acids can be thought of as <strong>“words”</strong></li>
+<li>A sequence of amino acids defines the protein <strong>“sentence”</strong></li>
+</ul>
+<p><em>Jumper et al., Nature, 2021; Bittrich et al., Sci Rep, 2019</em></p>
+<hr>
+</section>
+</section>
+<section id="modern-applications" class="level1">
+<h1>Modern Applications</h1>
+<p><strong>Question answering:</strong> “what should I teach for an NLP course?”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide08_question_answering.png" class="img-fluid figure-img"></p>
+<figcaption>ChatGPT answer about an NLP curriculum</figcaption>
+</figure>
+</div>
+<p><strong>Text to image:</strong> “astronaut riding a horse by Hiroshige”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide08_text_to_image.png" class="img-fluid figure-img"></p>
+<figcaption>Astronaut riding a horse in Hiroshige style</figcaption>
+</figure>
+</div>
+<hr>
+<section id="translation" class="level2">
+<h2 class="anchored" data-anchor-id="translation">Translation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide09_translation.png" class="img-fluid figure-img"></p>
+<figcaption>Google Translate English-Hindi round trip</figcaption>
+</figure>
+</div>
+<ul>
+<li>English → Hindi: “The man shot the elephant while wearing his pajamas” → आदमी ने अपना पजामा पहने हुए हाथी को गोली मार दी</li>
+<li>Hindi → English (round trip): → “Man shoots elephant wearing his pajamas”</li>
+</ul>
+<p><em>(Based on Google Translate result in 2023-01)</em></p>
+<hr>
+</section>
+</section>
+<section id="why-is-language-processing-difficult" class="level1">
+<h1>Why is language processing difficult?</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide10_ambiguity.png" class="img-fluid figure-img"></p>
+<figcaption>Examples of lexical and syntactic ambiguity</figcaption>
+</figure>
+</div>
+<section id="theoretical" class="level3">
+<h3 class="anchored" data-anchor-id="theoretical">Theoretical</h3>
+<ul>
+<li>Words can have multiple meanings (<strong>lexical ambiguity</strong>) — <em>“The fisherman went to the bank”</em></li>
+<li>Language requires information from context</li>
+<li>Sentences can have multiple meanings (<strong>syntactic ambiguity</strong>) — <em>“John saw the man on the mountain with a telescope”</em>, <em>“The old man the boat”</em></li>
+<li>Language is constantly evolving — <em>“spill the tea”</em></li>
+</ul>
+</section>
+<section id="practical" class="level3">
+<h3 class="anchored" data-anchor-id="practical">Practical</h3>
+<ul>
+<li>Data preprocessing, validation</li>
+<li>Data management (e.g., data from the internet)</li>
+<li>Accents and dialects</li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="terminology-in-nlp" class="level1">
+<h1>Terminology in NLP</h1>
+<ul>
+<li><strong>Language model</strong> – a model that analyzes or predicts text by assigning probabilities to sequences of words</li>
+<li><strong>Tokenization</strong> – splitting longer text into smaller parts (tokens), e.g., a sentence into individual words</li>
+<li><strong>Corpus</strong> – a collection of texts</li>
+<li><strong>Stop words</strong> – words that are removed from text because they contribute little meaning, e.g., <em>the, and, a</em></li>
+<li><strong>Bag of words</strong> – a language representation model that only considers the occurrence of words in a text</li>
+<li><strong>n-gram</strong> – a language representation model that considers contiguous sections of <em>n</em> items in a text</li>
+</ul>
+<p>Example 3-gram: “the old man the boat” → {“the old man”, “old man the”, “man the boat”}</p>
+<hr>
+<section id="nlp-in-application-text-classification" class="level2">
+<h2 class="anchored" data-anchor-id="nlp-in-application-text-classification">NLP in application – text classification</h2>
+<ul>
+<li><strong>Spam detection:</strong> email → model → <em>spam</em> / <em>not spam</em></li>
+<li><strong>Sentiment analysis:</strong> review → model → <em>positive</em> / <em>negative</em></li>
+</ul>
+<hr>
+</section>
+<section id="other-examples-of-text-classification" class="level2">
+<h2 class="anchored" data-anchor-id="other-examples-of-text-classification">Other examples of text classification</h2>
+<p><strong>Subject categorization</strong> — Medical Subject Heading (MeSH) Categorization:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide14_mesh.png" class="img-fluid figure-img"></p>
+<figcaption>Journal article for subject categorization</figcaption>
+</figure>
+</div>
+<ul>
+<li>A. Anatomy</li>
+<li>B. Organisms</li>
+<li>C. Diseases</li>
+<li>D. Chemicals and Drugs</li>
+<li>…</li>
+</ul>
+<p><strong>Federalist papers:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide14_federalist.png" class="img-fluid figure-img"></p>
+<figcaption>Federalist papers title page</figcaption>
+</figure>
+</div>
+<ul>
+<li>1787–1788: 85 anonymous essays written by Hamilton, Madison and Jay to try and convince New York to ratify the U.S. Constitution</li>
+<li>Authorship of 12 of the letters in dispute</li>
+<li>Solved using Bayesian methods</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="text-classification" class="level1">
+<h1>Text Classification</h1>
+<section id="text-classification-spam-filter-rule-based" class="level2">
+<h2 class="anchored" data-anchor-id="text-classification-spam-filter-rule-based">Text classification – spam filter (rule based)</h2>
+<p>Let’s consider making a spam filter. Is it possible to use a rule-based system and heuristics?</p>
+<ul>
+<li>If document contains a word in <span class="math inline">\(S = \{\text{word}_1, \text{word}_2, \dots, \text{word}_n\}\)</span>, then spam
+<ul>
+<li>could include e.g.&nbsp;medicine names, web domains, dollars, etc.</li>
+</ul></li>
+<li>If document contains mostly capital letters, then spam</li>
+<li>If …</li>
+</ul>
+<p>Can be very effective for certain cases, but is not well defined or generalized.</p>
+<hr>
+</section>
+<section id="text-classification-statistical-approach" class="level2">
+<h2 class="anchored" data-anchor-id="text-classification-statistical-approach">Text classification – statistical approach</h2>
+<p><strong>Input:</strong> a set of <span class="math inline">\(n\)</span> <strong>labeled documents</strong>, <span class="math inline">\(D = \{(c_1, \mathbf{x}_1), (c_2, \mathbf{x}_2), \dots, (c_n, \mathbf{x}_n)\}\)</span></p>
+<ul>
+<li>where <span class="math inline">\(\mathbf{x}_i\)</span> is a document containing ordered words <span class="math inline">\(\{x_1, x_2, \dots, x_k\}\)</span></li>
+<li>and <span class="math inline">\(c_i \in C\)</span> is a label corresponding to spam (+1) or not spam (−1)</li>
+</ul>
+<p><strong>Output:</strong> a trained classifier <span class="math inline">\(h : \mathbf{X} \to C\)</span></p>
+<ul>
+<li>given a set of new documents, we can use <span class="math inline">\(h\)</span> to predict the class</li>
+</ul>
+<p>Possible models: naive Bayes, logistic regression, SVM, neural network.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide16_classifiers.png" class="img-fluid figure-img"></p>
+<figcaption>Naive Bayes, logistic regression, SVM and neural network diagrams</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="naive-bayes" class="level1">
+<h1>Naive Bayes</h1>
+<section id="naive-bayes-spam-filter-goal" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-goal">Naive Bayes spam filter — goal</h2>
+<p><strong>Goal:</strong> build a text classification model to identify emails as spam or not spam.</p>
+<p>Given a training dataset <span class="math inline">\(D = \{(c_1, \mathbf{x}_1), \dots, (c_n, \mathbf{x}_n)\}\)</span> where <span class="math inline">\(c \in \{+1, -1\}\)</span> is a label and <span class="math inline">\(\mathbf{x}\)</span> is a text document, we want a model to compute:</p>
+<p><span class="math display">\[h(\mathbf{x}) = \arg\max_c P(c \mid \mathbf{x})\]</span></p>
+<p>the probability of a class given the input text data. How to compute <span class="math inline">\(P(c \mid \mathbf{x})\)</span>?</p>
+<p><em>This is difficult to estimate for continuous or high-dimensional data!</em></p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-estimating-probabilities-by-counting" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-estimating-probabilities-by-counting">Naive Bayes spam filter — estimating probabilities by counting</h2>
+<p>We seek to compute <span class="math inline">\(P(c_i = c \mid \mathbf{x}_i = \mathbf{x})\)</span>.</p>
+<p>Recall that</p>
+<p><span class="math display">\[P(X = x) = \frac{\sum_{i=1}^{n} I(x_i = x)}{n}\]</span></p>
+<p>e.g., for coin flips HHHHT: <span class="math inline">\(P(X = \text{heads}) = 4/5\)</span>, <span class="math inline">\(P(X = \text{tails}) = 1/5\)</span>.</p>
+<p>Then for the conditional probability:</p>
+<p><span class="math display">\[P(y \mid x) = \frac{P(y, x)}{P(x)} = \frac{\sum I(x_i = x \wedge y_i = y)}{\sum I(x_i = x)}\]</span></p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-the-problem">Naive Bayes spam filter — the problem</h2>
+<p>Consider this expression for text data:</p>
+<p><span class="math display">\[P(c \mid \mathbf{x}) = P(c \mid x_1, x_2, x_3, \dots, x_d)\]</span></p>
+<p>This implies that in order to compute <span class="math inline">\(P(c \mid \mathbf{x})\)</span>, we need to have seen that <em>specific</em> email to know if it’s spam.</p>
+<p>This is impractical given the enormous space of text data!</p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-bayes-rule" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-bayes-rule">Naive Bayes spam filter — Bayes rule</h2>
+<p>Let’s try applying Bayes rule:</p>
+<p><span class="math display">\[P(c \mid \mathbf{x}) = \frac{P(\mathbf{x} \mid c)\,P(c)}{P(\mathbf{x})} \propto P(\mathbf{x} \mid c)\,P(c)\]</span></p>
+<ul>
+<li><span class="math inline">\(P(\mathbf{x} \mid c)\)</span>: likelihood of the data given the label</li>
+<li><span class="math inline">\(P(c)\)</span>: prior probability of spam or not spam</li>
+</ul>
+<p>This is our <strong>Bayes classifier</strong>:</p>
+<p><span class="math display">\[h(\mathbf{x}) = \arg\max_c P(c \mid \mathbf{x}) = \arg\max_c P(\mathbf{x} \mid c)\,P(c)\]</span></p>
+<p>How can we estimate <span class="math inline">\(P(\mathbf{x} \mid c)\)</span>, the likelihood of the data?</p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-the-naive-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-the-naive-assumption">Naive Bayes spam filter — the naive assumption</h2>
+<p>How do we estimate <span class="math inline">\(\hat{P}(\mathbf{x} \mid c)\)</span>?</p>
+<p><span class="math display">\[P(\mathbf{x} \mid c) = P(x_1, x_2, x_3, \dots, x_d \mid c)\]</span></p>
+<p><em>This is also difficult to compute!</em> Let’s make the <strong>naive Bayes</strong> assumption:</p>
+<p>all <strong>features</strong> (“words”) in <span class="math inline">\(\mathbf{x}\)</span> are <strong>independent</strong> — this is our <strong>bag of words</strong> model.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide21_bag_of_words.png" class="img-fluid figure-img"></p>
+<figcaption>Movie review turned into a bag of words and word counts</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-the-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-the-likelihood">Naive Bayes spam filter — the likelihood</h2>
+<p>Using <strong>naive Bayes</strong>:</p>
+<p><span class="math display">\[P(\mathbf{x} \mid c) \approx P(x_1 \mid c)\,P(x_2 \mid c)\,P(x_3 \mid c) \cdots P(x_d \mid c)\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide21_bag_of_words.png" class="img-fluid figure-img"></p>
+<figcaption>Movie review turned into a bag of words and word counts</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\hat{P}(x_i \mid c_j) = \frac{\text{Count}(x_i, c_j)}{\sum_{x \in V} \text{Count}(x, c_j)}\]</span></p>
+<p><span class="math display">\[\hat{P}(\mathbf{x} \mid c) = \prod_{i}^{d} P(x_i \mid c) \quad\Longrightarrow\quad \log \hat{P}(\mathbf{x} \mid c) = \sum_{i}^{d} \log P(x_i \mid c)\]</span></p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-the-prior" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-the-prior">Naive Bayes spam filter — the prior</h2>
+<p>Bayes classifier: <span class="math inline">\(h(\mathbf{x}) = \arg\max_c P(c \mid \mathbf{x}) = \arg\max_c P(\mathbf{x} \mid c)\,P(c)\)</span></p>
+<p>How can we estimate <span class="math inline">\(P(c)\)</span>, the probability that an email is spam or not?</p>
+<p><span class="math display">\[\hat{P}(c_j) = \frac{\sum_{k}^{n} I(c_k = c_j)}{n} = \frac{\text{Count}(c_j)}{n}\]</span></p>
+<p>where <span class="math inline">\(I(c_k = c_j)\)</span> is 1 if <span class="math inline">\(c_k = c_j\)</span>, 0 otherwise.</p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-putting-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-putting-it-all-together">Naive Bayes spam filter — putting it all together</h2>
+<p>Input: a set of labeled documents <span class="math inline">\(D = \{(c_k, \mathbf{x}_k)\}_{k=1}^{n}\)</span></p>
+<ol type="1">
+<li>Compute the vocabulary <span class="math inline">\(V\)</span></li>
+<li>Estimate the priors: <span class="math inline">\(\hat{P}(c_j) = \dfrac{\text{Count}(c_j)}{n}\)</span></li>
+<li>Estimate the naive data likelihood: <span class="math inline">\(\hat{P}(x_i \mid c_j) = \dfrac{\text{Count}(x_i, c_j)}{\sum_{x \in V} \text{Count}(x, c_j)}\)</span></li>
+<li>Prediction given a new document:</li>
+</ol>
+<p><span class="math display">\[\hat{c} = \arg\max_c \sum_{i}^{n} \log \hat{P}(x_i \mid c_j) + \log \hat{P}(c_j)\]</span></p>
+<p><strong>Q:</strong> What about words that appear in the test set but not in training?</p>
+<hr>
+</section>
+<section id="data-sparsity-and-smoothing" class="level2">
+<h2 class="anchored" data-anchor-id="data-sparsity-and-smoothing">Data sparsity and smoothing</h2>
+<p>E.g., what if Count(“fantastic”, spam) = 0? That implies</p>
+<p><span class="math display">\[P(x_i = \text{fantastic} \mid c = \text{spam}) = 0\]</span></p>
+<p>so in</p>
+<p><span class="math display">\[\hat{c} = \arg\max_c \sum_{i}^{n} \log \hat{P}(x_i \mid c_j) + \log \hat{P}(c_j)\]</span></p>
+<p>this term would become 0 for <span class="math inline">\(c\)</span> = spam (i.e., <span class="math inline">\(\log 0 = -\infty\)</span>)!</p>
+<p>Instead we apply a <strong>smoothing</strong> parameter <span class="math inline">\(\alpha\)</span>:</p>
+<p><span class="math display">\[\hat{P}(x_i \mid c_j) = \frac{\text{Count}(x_i, c_j) + \alpha}{\sum_{x \in V} \text{Count}(x, c_j) + \alpha\,|V|}\]</span></p>
+<hr>
+</section>
+<section id="naive-bayes-spam-filter-summary" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-spam-filter-summary">Naive Bayes spam filter – summary</h2>
+<ul>
+<li>(+) Fast to compute, low storage requirements</li>
+<li>(+) Can use many different features (e.g., number of capital words, hour email sent, …)</li>
+<li>(+) Works well with small amounts of training data</li>
+<li>(−) Independence assumption is too strong</li>
+</ul>
+<p>Notes: - Several extensions to naive Bayes (e.g., binary naive Bayes) - Can also be formulated as a discriminative problem (logistic regression)</p>
+</section>
+</section>
+<section id="ethics-enclave-ai-legislation-tracker" class="level1">
+<h1>Ethics Enclave: AI Legislation Tracker</h1>
+<section id="arizona-example" class="level2">
+<h2 class="anchored" data-anchor-id="arizona-example">Arizona (example)</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Politics</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Deepfakes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Healthcare</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Legal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Data Centers</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="arizona/election_distrust.png" class="img-fluid figure-img"></p>
+<figcaption>election audits</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://americanoversight.org/reports-and-features/how-the-arizona-election-audit-has-already-been-compromised/">American Oversight</a></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="hb-2394" class="level3">
+<h3 class="anchored" data-anchor-id="hb-2394">HB 2394</h3>
+<p>(sponsored by Rep.&nbsp;Alexander Kolodin, R) lets candidates and others go to court to get an official ruling that a “digital impersonation” of them is fake. Kolodin drew attention for saying he used ChatGPT to help draft the bill’s definition of a deepfake.</p>
+<p>— Claude</p>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<section id="sb-1359" class="level3">
+<h3 class="anchored" data-anchor-id="sb-1359">SB 1359</h3>
+<p>requires disclosure on AI-generated deceptive media about candidates distributed in the run-up to an election.</p>
+<p>— Claude</p>
+</section>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="columns">
+<div class="column" style="width:45%;">
+<section id="hb-2175" class="level3">
+<h3 class="anchored" data-anchor-id="hb-2175">HB 2175</h3>
+<p>bars insurers from denying claims or prior authorizations based on AI alone. A licensed medical professional has to review those denials personally. It was sponsored by Rep.&nbsp;Julie Willoughby (R), an ER nurse, signed by Hobbs, and takes effect in 2026.</p>
+<p>— Claude</p>
+</section>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="arizona/Claim_Denial_ROPA.png" class="img-fluid figure-img"></p>
+<figcaption>AI cannot solely deny healthcare claims</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="arizona/AI_victim.png" class="img-fluid figure-img"></p>
+<figcaption>road rage case</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://nypost.com/2025/05/07/us-news/man-shot-dead-in-road-rage-incident-reincarnated-in-ai-video-to-deliver-message-to-his-killer-in-court/">New York Post</a></li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="arizona/Project_Blue.png" class="img-fluid figure-img"></p>
+<figcaption>Project Blue</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.reddit.com/r/Tucson/comments/1m8i8t8/boo_to_project_blue/">No Desert Data Center</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="document-classification" class="level1">
+<h1>Document classification</h1>
+<p><strong>Idea:</strong> documents that contain similar distributions of words are related.</p>
+<p>This is referred to as <strong>latent semantic analysis</strong>.</p>
+<p>We can classify texts by creating a <strong>term-document matrix</strong>. Example — word counts across plays, where each column is a document vector <span class="math inline">\(v_i \in \mathbb{R}^d\)</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">As You Like It</th>
+<th style="text-align: center;">Twelfth Night</th>
+<th style="text-align: center;">Julius Caesar</th>
+<th style="text-align: center;">Henry V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>battle</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="even">
+<td>good</td>
+<td style="text-align: center;">114</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">89</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+</tr>
+<tr class="even">
+<td>fool</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">58</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td>wit</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="documents-and-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="documents-and-vectors">Documents and vectors</h2>
+<p>Using only the words <em>battle</em> and <em>fool</em>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">As You Like It</th>
+<th style="text-align: center;">Twelfth Night</th>
+<th style="text-align: center;">Julius Caesar</th>
+<th style="text-align: center;">Henry V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>battle</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="even">
+<td>fool</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">58</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\text{"Twelfth Night"} = \begin{bmatrix} 0 \\ 58 \end{bmatrix} \quad \text{"As You Like It"} = \begin{bmatrix} 1 \\ 36 \end{bmatrix} \quad \text{"Henry V"} = \begin{bmatrix} 13 \\ 4 \end{bmatrix} \quad \text{"Julius Caesar"} = \begin{bmatrix} 7 \\ 1 \end{bmatrix}\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide04_document_vectors.png" class="img-fluid figure-img"></p>
+<figcaption>Plays plotted as vectors of battle vs.&nbsp;fool counts</figcaption>
+</figure>
+</div>
+<p>The comedies point along the “fool” axis; the histories and tragedies point along the “battle” axis.</p>
+<hr>
+</section>
+<section id="vector-similarity-review" class="level2">
+<h2 class="anchored" data-anchor-id="vector-similarity-review">Vector similarity – review</h2>
+<p>We have many notions of <strong>similarity</strong> that can be used to compare vectors <span class="math inline">\(\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\)</span>, <span class="math inline">\(\mathbf{y} = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide05_vector_angle.png" class="img-fluid figure-img"></p>
+<figcaption>Two vectors x and y separated by angle theta</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Euclidean distance:</strong> <span class="math inline">\(\|\mathbf{x} - \mathbf{y}\| = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}\)</span></li>
+<li><strong>Dot product:</strong> <span class="math inline">\(\mathbf{x}^\top \mathbf{y} = \langle \mathbf{x}, \mathbf{y} \rangle = x_1 y_1 + x_2 y_2\)</span></li>
+<li><strong>Cosine similarity:</strong> <span class="math inline">\(\mathbf{x}^\top \mathbf{y} = \|\mathbf{x}\|\|\mathbf{y}\| \cos(\theta)\)</span>, so</li>
+</ul>
+<p><span class="math display">\[\cos(\theta) = \frac{\mathbf{x}^\top \mathbf{y}}{\|\mathbf{x}\|\|\mathbf{y}\|} = \frac{x_1 y_1 + x_2 y_2}{\sqrt{x_1^2 + x_2^2}\,\sqrt{y_1^2 + y_2^2}}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="vectors" class="level1">
+<h1>Vectors</h1>
+<p><strong>Big picture question:</strong> how do we <strong>represent</strong> the meaning of words as <strong>vectors</strong>?</p>
+<p><strong>Example:</strong> which words are most similar: “the”, “cat”, “dog”, “animal”?</p>
+<p><strong>Goal:</strong> we want to construct (or learn) a vector representation of every word.</p>
+<p><span class="math display">\[\text{"the"} = \begin{bmatrix} 0.325 \\ 0.109 \\ 0.255 \\ 0.881 \end{bmatrix} \quad \text{"cat"} = \begin{bmatrix} -0.855 \\ -0.009 \\ 0.431 \\ 0.218 \end{bmatrix} \quad \text{"dog"} = \begin{bmatrix} -0.897 \\ -0.151 \\ 0.545 \\ 0.133 \end{bmatrix} \quad \text{"animal"} = \begin{bmatrix} -0.723 \\ -0.207 \\ 0.629 \\ -0.033 \end{bmatrix}\]</span></p>
+<p>similarity(cat, dog) &gt; similarity(cat, animal) &gt; similarity(cat, the)</p>
+<hr>
+<section id="words-as-discrete-symbols" class="level2">
+<h2 class="anchored" data-anchor-id="words-as-discrete-symbols">Words as discrete symbols</h2>
+<p>For the bag of words model, we make the assumption that all words are <strong>discrete</strong>.</p>
+<p>This idea is known as <strong>one-hot encoding</strong>. Each word vector has one 1, the rest 0s:</p>
+<pre><code> tree = [0, 0, 0, 0, 0, 0, 1, 0]
+  cat = [0, 0, 1, 0, 0, 0, 0, 0]
+tiger = [0, 0, 0, 0, 1, 0, 0, 0]</code></pre>
+<p>Any problems with this model?</p>
+<ul>
+<li>Vectors are <strong>orthogonal</strong> and contain no notion of similarity, i.e.&nbsp;<span class="math inline">\(w_i^\top w_j = 0 \;\; \forall i, j,\ i \neq j\)</span></li>
+<li>Vector dimension = number of words in vocabulary (usually &gt; 100,000)</li>
+</ul>
+<hr>
+</section>
+<section id="word-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="word-vectors">Word vectors</h2>
+<p>Let <span class="math inline">\(\mathbf{w}_i \in \mathbb{R}^d\)</span> be a vector representing the <span class="math inline">\(i^{\text{th}}\)</span> word:</p>
+<p><span class="math display">\[\mathbf{w}_i = [x_1, x_2, x_3, \dots, x_d]^\top\]</span></p>
+<p>We want to construct <strong>dense vectors</strong> that meaningfully encode each word.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide09_word_vectors.png" class="img-fluid figure-img"></p>
+<figcaption>Word vectors w1, w2, w3 drawn as arrows</figcaption>
+</figure>
+</div>
+<p>Desired properties: - Dimensionality of the vectors <span class="math inline">\(d \ll\)</span> number of words - Words with similar meaning have similar vectors</p>
+<hr>
+</section>
+<section id="word-vectors-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="word-vectors-visualization">Word vectors – visualization</h2>
+<p><span class="math display">\[\text{cat} = [0.325, -0.109, -0.255, 0.881, 0.017, 0.627, -0.390, 0.424, \dots, -0.920]^\top, \qquad \mathbf{x} \in \mathbb{R}^{200}\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide10_embedding_projector.png" class="img-fluid figure-img"></p>
+<figcaption>Embedding projector showing cat and its 15 nearest neighbors</figcaption>
+</figure>
+</div>
+<p>Vocabulary <span class="math inline">\(V\)</span> = 10,000; the zoomed-in view shows the 15 nearest neighbors of “cat”.</p>
+<p>Let’s look at <strong>word embeddings</strong>: <a href="https://projector.tensorflow.org/" class="uri">https://projector.tensorflow.org/</a></p>
+<hr>
+</section>
+<section id="how-to-represent-the-meaning-of-a-word" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-represent-the-meaning-of-a-word">How to represent the meaning of a word?</h2>
+<ul>
+<li><strong>Definition (meaning)</strong> – the idea represented by a word or phrase</li>
+<li><strong>Denotational semantics</strong> – pairing between a signifier (word) and signified (idea): tree ⇔ {🌲, 🌳, 🌴}</li>
+</ul>
+<p>Construct representation by similarities from semantics (e.g., synonyms): - synonyms: car/automobile; antonyms: dark/light - words that are not synonyms or antonyms but share some meaning, e.g.&nbsp;cat/dog, car/bicycle - and words that are not similar but are still related, e.g.&nbsp;coffee/cup, chef/menu</p>
+<hr>
+</section>
+<section id="word-meaning-from-linguistic-tools" class="level2">
+<h2 class="anchored" data-anchor-id="word-meaning-from-linguistic-tools">Word meaning from linguistic tools</h2>
+<p><strong>WordNet:</strong> a lexical database of semantic relations — <a href="https://wordnet.princeton.edu/" class="uri">https://wordnet.princeton.edu/</a></p>
+<p>Synonym sets, word associations, hierarchy, categories.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide12_wordnet_hierarchy.png" class="img-fluid figure-img"></p>
+<figcaption>WordNet hypernym/hyponym hierarchy for colors</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide12_wordnet_search.png" class="img-fluid figure-img"></p>
+<figcaption>WordNet search results listing hypernym synsets (procyonid, carnivore, mammal, … entity)</figcaption>
+</figure>
+</div>
+<p>Great resource, but requires human annotations, words are constantly changing, lacks nuance (e.g., abstracts), and has no inherent numerical structure.</p>
+<hr>
+</section>
+<section id="representing-words-by-context" class="level2">
+<h2 class="anchored" data-anchor-id="representing-words-by-context">Representing words by context</h2>
+<p><strong>Distributional semantics:</strong> a word’s <strong>meaning</strong> is given by the words that <strong>frequently</strong> appear close-by.</p>
+<blockquote class="blockquote">
+<p>“You shall know a word by the company it keeps” (J. R. Firth 1957: 11)</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide13_firth.png" class="img-fluid figure-img"></p>
+<figcaption>J. R. Firth</figcaption>
+</figure>
+</div>
+<p>One of the most successful ideas in modern statistical NLP.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide13_banking_context.png" class="img-fluid figure-img"></p>
+<figcaption>Context words around “banking” in three sentences</figcaption>
+</figure>
+</div>
+<p>These <strong>context words</strong> will <strong>represent</strong> <em>banking</em>.</p>
+<hr>
+</section>
+<section id="distributional-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="distributional-hypothesis">Distributional hypothesis</h2>
+<p><strong>“Ong choy”</strong> - Ong choy is delicious sautéed with garlic - Ong choy is superb over rice - Ong choy leaves with salty sauces</p>
+<p>You may have previously seen: - spinach <strong>sautéed with garlic over rice</strong> - chard stems and <strong>leaves</strong> are <strong>delicious</strong> - collard greens and other <strong>salty</strong> leafy greens</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide14_water_spinach.png" class="img-fluid figure-img"></p>
+<figcaption>Ipomoea aquatica, widely known as water spinach</figcaption>
+</figure>
+</div>
+<p><em>Ipomoea aquatica</em>, widely known as water spinach.</p>
+<hr>
+</section>
+<section id="word-vectors-from-co-occurrence-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="word-vectors-from-co-occurrence-matrix">Word vectors from co-occurrence matrix</h2>
+<p>How can we employ the distributional hypothesis computationally?</p>
+<p><strong>Idea:</strong> accumulate statistics for what words appear near each other.</p>
+<p>Each column (word) contains counts of how often <span class="math inline">\(w_i\)</span> appears next to <span class="math inline">\(w_j\)</span>. There’s a choice of how many context words to include in the counting (<strong>window size</strong>).</p>
+<p>Example corpus: “I like statistics”, “I like NLP”, “I enjoy coffee”</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>count</th>
+<th style="text-align: center;">I</th>
+<th style="text-align: center;">like</th>
+<th style="text-align: center;">statistics</th>
+<th style="text-align: center;">NLP</th>
+<th style="text-align: center;">enjoy</th>
+<th style="text-align: center;">coffee</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>I</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td><strong>like</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td><strong>statistics</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td><strong>NLP</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td><strong>enjoy</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td><strong>coffee</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="improving-the-co-occurrence-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="improving-the-co-occurrence-matrix">Improving the co-occurrence matrix</h2>
+<p><strong>Problem 1</strong> – raw counts lead to bad vector representations. - Frequency is clearly useful information, but overly frequent words are not informative context words. - Solution: introduce a <strong>weighted function</strong>.</p>
+<p><strong>Problem 2</strong> – the co-occurrence matrix <span class="math inline">\(A \in \mathbb{R}^{|V| \times |V|}\)</span> is large and sparse. - Solution: introduce the <strong>Singular Value Decomposition (SVD)</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="pointwise-mutual-information" class="level1">
+<h1>Pointwise Mutual Information</h1>
+<p>Problem 1 – raw counts lead to bad vector representations.</p>
+<p>Instead we will introduce <strong>Pointwise Mutual Information (PMI)</strong>:</p>
+<p><span class="math display">\[\text{PMI}(w_1, w_2) = \log_2 \frac{P(w_1, w_2)}{P(w_1)\,P(w_2)}\]</span></p>
+<p>Do <em>word 1</em> and <em>word 2</em> co-occur more or less than if they were independent?</p>
+<ul>
+<li><span class="math inline">\(\text{PMI}(w_1, w_2) &gt; 0 \Rightarrow P(w_1, w_2) &gt; P(w_1)P(w_2)\)</span></li>
+<li><span class="math inline">\(\text{PMI}(w_1, w_2) &lt; 0 \Rightarrow P(w_1, w_2) &lt; P(w_1)P(w_2)\)</span></li>
+</ul>
+<p>Typically we use <strong>Positive</strong> Pointwise Mutual Information:</p>
+<p><span class="math display">\[\text{PPMI}(w_1, w_2) = \max\left(\log_2 \frac{P(w_1, w_2)}{P(w_1)\,P(w_2)},\ 0\right)\]</span></p>
+<hr>
+<section id="pointwise-mutual-information-example" class="level2">
+<h2 class="anchored" data-anchor-id="pointwise-mutual-information-example">Pointwise Mutual Information (example)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide18_ppmi_example.png" class="img-fluid figure-img"></p>
+<figcaption>Count table, joint probabilities and resulting PPMI matrix</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\text{PPMI}(w, c) = \max\left(\log_2 \frac{P(w, c)}{P(w)\,P(c)},\ 0\right)\]</span></p>
+<p>PPMI(information, data) = ?</p>
+<ul>
+<li><span class="math inline">\(P(w = \text{information}, c = \text{data}) = 3982 / 11716 = 0.3399\)</span></li>
+<li><span class="math inline">\(P(w = \text{information}) = 7703 / 11716 = 0.6575\)</span></li>
+<li><span class="math inline">\(P(c = \text{data}) = 5677 / 11716 = 0.4842\)</span></li>
+</ul>
+<p><span class="math display">\[\log_2\left(\frac{0.3399}{0.6575 \cdot 0.4842}\right) \approx 0.09\]</span></p>
+<hr>
+</section>
+<section id="augmented-co-occurrence-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="augmented-co-occurrence-matrix">Augmented co-occurrence matrix</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide19_augmented_matrix.png" class="img-fluid figure-img"></p>
+<figcaption>Raw count matrix augmented into a PPMI matrix</figcaption>
+</figure>
+</div>
+<p>Problem 2 – the co-occurrence matrix is large and sparse: - Very <strong>high-dimensional</strong>, <span class="math inline">\(A \in \mathbb{R}^{100{,}000 \times 100{,}000}\)</span> (requires a lot of memory even though sparse) - Can be less robust for some models. How to reduce the dimensionality?</p>
+<hr>
+</section>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>due this Friday (Nov 6):</p>
+<ul>
+<li><p>Precept 7 (1.5 hours)</p></li>
+<li><p>Multipass: DeepSeek (20 minutes)</p></li>
+<li><p>Literature Search (10 minutes)</p>
+<ul>
+<li>one per person</li>
+</ul></li>
+</ul></li>
+<li><p>exam: Nov 18</p></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gym_vibe_coding.png" class="img-fluid figure-img"></p>
+<figcaption>sarcasm (fabricated image)</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://www.linkedin.com/feed/update/urn:li:activity:7521482762902593536/">GenAI Academy</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Today’s slides were adapted by lectures by DataX postdocs Eric Verkebe and Giuseppe Ferro</p>
+<ul>
+<li>which in turn adapted from materials by Dan Jurafsky, Chris Manning and Karthik Narasimhan</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.6.1    fastmap_1.2.0     cli_3.6.6        
+ [5] tools_4.6.1       htmltools_0.5.9   otel_0.2.0        rstudioapi_0.19.0
+ [9] yaml_2.3.12       rmarkdown_2.31    knitr_1.51        jsonlite_2.0.0   
+[13] xfun_0.57         digest_0.6.39     rlang_1.2.0       evaluate_1.0.5   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

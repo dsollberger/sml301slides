@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -4254,5 +4254,320 @@
     "title": "15: Convolutional Neural Networks",
     "section": "CNN Architecture Overview",
     "text": "CNN Architecture Overview\n\n\n\nPipeline from a 28×28 input image through convolution (6@28×28), pooling (6@14×14), convolution (16@10×10) and pooling (16@5×5) to dense layers of 120, 84 and 10 units\n\n\nFigure: Example of a CNN pipeline. Sequential layers extract features, downsample, and classify.\n\nThe network starts with the raw input image (e.g., 28×28 grayscale digit).\nConvolution layers extract local features (edges, textures).\nPooling layers downsample feature maps and retain the strongest activations.\nFlatten layer converts 3D feature maps into a 1D vector.\nFully connected layers combine extracted features to perform classification.\nThe final output layer (e.g., softmax) produces probabilities over classes.\n\nImage source: Zhang, Lipton, Li, and Smola, Dive Into Deep Learning (2023)"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html",
+    "title": "16: NLP (Bag of Words)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#learning-objectives",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#learning-objectives",
+    "title": "16: NLP (Bag of Words)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#data-structure",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#data-structure",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Data structure",
+    "text": "Data structure\nSo far our input data has looked like this — a numeric matrix of samples × features, or an image as a grid of pixel intensities:\n\n\n\nNumeric feature matrix and MNIST digit pixel grid\n\n\nBut now we have: unstructured text — books, research papers, Wikipedia, Reddit, the New York Times, …\n\n\n\nText data sources: books, papers, Wikipedia, Reddit, NYT"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#how-do-we-apply-statistics-to-language",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#how-do-we-apply-statistics-to-language",
+    "title": "16: NLP (Bag of Words)",
+    "section": "How do we apply statistics to language?",
+    "text": "How do we apply statistics to language?\n\n\n\nClassification, regression and prediction examples\n\n\n\nClassification: email → model → spam / not spam\nRegression:\n\n\n\nReview\nSentiment Score\n\n\n\n\n“Amazing product! Works perfectly.”\n0.95\n\n\n“It’s okay, nothing special.”\n0.5\n\n\n“Terrible experience, never buying again.”\n0.1\n\n\n\nPrediction: search autocomplete — “what is the” → “what is the weather”, “what is the norovirus”, …"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#nlp-tasks-we-will-look-at",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#nlp-tasks-we-will-look-at",
+    "title": "16: NLP (Bag of Words)",
+    "section": "NLP tasks we will look at",
+    "text": "NLP tasks we will look at\n\nHow to build a model for text classification\nHow to define numerical representations of words\nHow to predict the next word in a sentence"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#tasks-in-natural-language-processing",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#tasks-in-natural-language-processing",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Tasks in Natural Language Processing",
+    "text": "Tasks in Natural Language Processing\n\n\n\nWheel of NLP applications\n\n\n\nNLP has many applications\nActive field of research\n\nApplications: language translation, smart assistants, document analysis, online searches, predictive text, automatic summarization, social media monitoring, chatbots, sentiment analysis, email filtering.\nSource: https://datasciencedojo.com/blog/natural-language-processing-applications/"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#protein-language-models",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#protein-language-models",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Protein Language Models",
+    "text": "Protein Language Models\nProtein structure/function can be represented by language models.\n\n\n\nDNA to RNA to protein to structure\n\n\n\nAmino acids can be thought of as “words”\nA sequence of amino acids defines the protein “sentence”\n\nJumper et al., Nature, 2021; Bittrich et al., Sci Rep, 2019"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#translation",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#translation",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Translation",
+    "text": "Translation\n\n\n\nGoogle Translate English-Hindi round trip\n\n\n\nEnglish → Hindi: “The man shot the elephant while wearing his pajamas” → आदमी ने अपना पजामा पहने हुए हाथी को गोली मार दी\nHindi → English (round trip): → “Man shoots elephant wearing his pajamas”\n\n(Based on Google Translate result in 2023-01)"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#nlp-in-application-text-classification",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#nlp-in-application-text-classification",
+    "title": "16: NLP (Bag of Words)",
+    "section": "NLP in application – text classification",
+    "text": "NLP in application – text classification\n\nSpam detection: email → model → spam / not spam\nSentiment analysis: review → model → positive / negative"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#other-examples-of-text-classification",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#other-examples-of-text-classification",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Other examples of text classification",
+    "text": "Other examples of text classification\nSubject categorization — Medical Subject Heading (MeSH) Categorization:\n\n\n\nJournal article for subject categorization\n\n\n\nA. Anatomy\nB. Organisms\nC. Diseases\nD. Chemicals and Drugs\n…\n\nFederalist papers:\n\n\n\nFederalist papers title page\n\n\n\n1787–1788: 85 anonymous essays written by Hamilton, Madison and Jay to try and convince New York to ratify the U.S. Constitution\nAuthorship of 12 of the letters in dispute\nSolved using Bayesian methods"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#text-classification-spam-filter-rule-based",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#text-classification-spam-filter-rule-based",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Text classification – spam filter (rule based)",
+    "text": "Text classification – spam filter (rule based)\nLet’s consider making a spam filter. Is it possible to use a rule-based system and heuristics?\n\nIf document contains a word in \\(S = \\{\\text{word}_1, \\text{word}_2, \\dots, \\text{word}_n\\}\\), then spam\n\ncould include e.g. medicine names, web domains, dollars, etc.\n\nIf document contains mostly capital letters, then spam\nIf …\n\nCan be very effective for certain cases, but is not well defined or generalized."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#text-classification-statistical-approach",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#text-classification-statistical-approach",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Text classification – statistical approach",
+    "text": "Text classification – statistical approach\nInput: a set of \\(n\\) labeled documents, \\(D = \\{(c_1, \\mathbf{x}_1), (c_2, \\mathbf{x}_2), \\dots, (c_n, \\mathbf{x}_n)\\}\\)\n\nwhere \\(\\mathbf{x}_i\\) is a document containing ordered words \\(\\{x_1, x_2, \\dots, x_k\\}\\)\nand \\(c_i \\in C\\) is a label corresponding to spam (+1) or not spam (−1)\n\nOutput: a trained classifier \\(h : \\mathbf{X} \\to C\\)\n\ngiven a set of new documents, we can use \\(h\\) to predict the class\n\nPossible models: naive Bayes, logistic regression, SVM, neural network.\n\n\n\nNaive Bayes, logistic regression, SVM and neural network diagrams"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-goal",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-goal",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — goal",
+    "text": "Naive Bayes spam filter — goal\nGoal: build a text classification model to identify emails as spam or not spam.\nGiven a training dataset \\(D = \\{(c_1, \\mathbf{x}_1), \\dots, (c_n, \\mathbf{x}_n)\\}\\) where \\(c \\in \\{+1, -1\\}\\) is a label and \\(\\mathbf{x}\\) is a text document, we want a model to compute:\n\\[h(\\mathbf{x}) = \\arg\\max_c P(c \\mid \\mathbf{x})\\]\nthe probability of a class given the input text data. How to compute \\(P(c \\mid \\mathbf{x})\\)?\nThis is difficult to estimate for continuous or high-dimensional data!"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-estimating-probabilities-by-counting",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-estimating-probabilities-by-counting",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — estimating probabilities by counting",
+    "text": "Naive Bayes spam filter — estimating probabilities by counting\nWe seek to compute \\(P(c_i = c \\mid \\mathbf{x}_i = \\mathbf{x})\\).\nRecall that\n\\[P(X = x) = \\frac{\\sum_{i=1}^{n} I(x_i = x)}{n}\\]\ne.g., for coin flips HHHHT: \\(P(X = \\text{heads}) = 4/5\\), \\(P(X = \\text{tails}) = 1/5\\).\nThen for the conditional probability:\n\\[P(y \\mid x) = \\frac{P(y, x)}{P(x)} = \\frac{\\sum I(x_i = x \\wedge y_i = y)}{\\sum I(x_i = x)}\\]"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-problem",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-problem",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — the problem",
+    "text": "Naive Bayes spam filter — the problem\nConsider this expression for text data:\n\\[P(c \\mid \\mathbf{x}) = P(c \\mid x_1, x_2, x_3, \\dots, x_d)\\]\nThis implies that in order to compute \\(P(c \\mid \\mathbf{x})\\), we need to have seen that specific email to know if it’s spam.\nThis is impractical given the enormous space of text data!"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-bayes-rule",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-bayes-rule",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — Bayes rule",
+    "text": "Naive Bayes spam filter — Bayes rule\nLet’s try applying Bayes rule:\n\\[P(c \\mid \\mathbf{x}) = \\frac{P(\\mathbf{x} \\mid c)\\,P(c)}{P(\\mathbf{x})} \\propto P(\\mathbf{x} \\mid c)\\,P(c)\\]\n\n\\(P(\\mathbf{x} \\mid c)\\): likelihood of the data given the label\n\\(P(c)\\): prior probability of spam or not spam\n\nThis is our Bayes classifier:\n\\[h(\\mathbf{x}) = \\arg\\max_c P(c \\mid \\mathbf{x}) = \\arg\\max_c P(\\mathbf{x} \\mid c)\\,P(c)\\]\nHow can we estimate \\(P(\\mathbf{x} \\mid c)\\), the likelihood of the data?"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-naive-assumption",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-naive-assumption",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — the naive assumption",
+    "text": "Naive Bayes spam filter — the naive assumption\nHow do we estimate \\(\\hat{P}(\\mathbf{x} \\mid c)\\)?\n\\[P(\\mathbf{x} \\mid c) = P(x_1, x_2, x_3, \\dots, x_d \\mid c)\\]\nThis is also difficult to compute! Let’s make the naive Bayes assumption:\nall features (“words”) in \\(\\mathbf{x}\\) are independent — this is our bag of words model.\n\n\n\nMovie review turned into a bag of words and word counts"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-likelihood",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-likelihood",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — the likelihood",
+    "text": "Naive Bayes spam filter — the likelihood\nUsing naive Bayes:\n\\[P(\\mathbf{x} \\mid c) \\approx P(x_1 \\mid c)\\,P(x_2 \\mid c)\\,P(x_3 \\mid c) \\cdots P(x_d \\mid c)\\]\n\n\n\nMovie review turned into a bag of words and word counts\n\n\n\\[\\hat{P}(x_i \\mid c_j) = \\frac{\\text{Count}(x_i, c_j)}{\\sum_{x \\in V} \\text{Count}(x, c_j)}\\]\n\\[\\hat{P}(\\mathbf{x} \\mid c) = \\prod_{i}^{d} P(x_i \\mid c) \\quad\\Longrightarrow\\quad \\log \\hat{P}(\\mathbf{x} \\mid c) = \\sum_{i}^{d} \\log P(x_i \\mid c)\\]"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-prior",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-the-prior",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — the prior",
+    "text": "Naive Bayes spam filter — the prior\nBayes classifier: \\(h(\\mathbf{x}) = \\arg\\max_c P(c \\mid \\mathbf{x}) = \\arg\\max_c P(\\mathbf{x} \\mid c)\\,P(c)\\)\nHow can we estimate \\(P(c)\\), the probability that an email is spam or not?\n\\[\\hat{P}(c_j) = \\frac{\\sum_{k}^{n} I(c_k = c_j)}{n} = \\frac{\\text{Count}(c_j)}{n}\\]\nwhere \\(I(c_k = c_j)\\) is 1 if \\(c_k = c_j\\), 0 otherwise."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-putting-it-all-together",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-putting-it-all-together",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter — putting it all together",
+    "text": "Naive Bayes spam filter — putting it all together\nInput: a set of labeled documents \\(D = \\{(c_k, \\mathbf{x}_k)\\}_{k=1}^{n}\\)\n\nCompute the vocabulary \\(V\\)\nEstimate the priors: \\(\\hat{P}(c_j) = \\dfrac{\\text{Count}(c_j)}{n}\\)\nEstimate the naive data likelihood: \\(\\hat{P}(x_i \\mid c_j) = \\dfrac{\\text{Count}(x_i, c_j)}{\\sum_{x \\in V} \\text{Count}(x, c_j)}\\)\nPrediction given a new document:\n\n\\[\\hat{c} = \\arg\\max_c \\sum_{i}^{n} \\log \\hat{P}(x_i \\mid c_j) + \\log \\hat{P}(c_j)\\]\nQ: What about words that appear in the test set but not in training?"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#data-sparsity-and-smoothing",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#data-sparsity-and-smoothing",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Data sparsity and smoothing",
+    "text": "Data sparsity and smoothing\nE.g., what if Count(“fantastic”, spam) = 0? That implies\n\\[P(x_i = \\text{fantastic} \\mid c = \\text{spam}) = 0\\]\nso in\n\\[\\hat{c} = \\arg\\max_c \\sum_{i}^{n} \\log \\hat{P}(x_i \\mid c_j) + \\log \\hat{P}(c_j)\\]\nthis term would become 0 for \\(c\\) = spam (i.e., \\(\\log 0 = -\\infty\\))!\nInstead we apply a smoothing parameter \\(\\alpha\\):\n\\[\\hat{P}(x_i \\mid c_j) = \\frac{\\text{Count}(x_i, c_j) + \\alpha}{\\sum_{x \\in V} \\text{Count}(x, c_j) + \\alpha\\,|V|}\\]"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-summary",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#naive-bayes-spam-filter-summary",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Naive Bayes spam filter – summary",
+    "text": "Naive Bayes spam filter – summary\n\n(+) Fast to compute, low storage requirements\n(+) Can use many different features (e.g., number of capital words, hour email sent, …)\n(+) Works well with small amounts of training data\n(−) Independence assumption is too strong\n\nNotes: - Several extensions to naive Bayes (e.g., binary naive Bayes) - Can also be formulated as a discriminative problem (logistic regression)"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#arizona-example",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#arizona-example",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Arizona (example)",
+    "text": "Arizona (example)\n\nPoliticsDeepfakesHealthcareLegalData Centers\n\n\n\n\n\nelection audits\n\n\n\nimage source: American Oversight\n\n\n\n\n\n\nHB 2394\n(sponsored by Rep. Alexander Kolodin, R) lets candidates and others go to court to get an official ruling that a “digital impersonation” of them is fake. Kolodin drew attention for saying he used ChatGPT to help draft the bill’s definition of a deepfake.\n— Claude\n\n\n\n\n\nSB 1359\nrequires disclosure on AI-generated deceptive media about candidates distributed in the run-up to an election.\n— Claude\n\n\n\n\n\n\n\n\nHB 2175\nbars insurers from denying claims or prior authorizations based on AI alone. A licensed medical professional has to review those denials personally. It was sponsored by Rep. Julie Willoughby (R), an ER nurse, signed by Hobbs, and takes effect in 2026.\n— Claude\n\n\n\n\n\n\n\nAI cannot solely deny healthcare claims\n\n\n\n\n\n\n\n\n\nroad rage case\n\n\n\nimage source: New York Post\n\n\n\n\n\n\nProject Blue\n\n\n\nimage source: No Desert Data Center\n\n\n\n\n\n\n\n\n\n\nWarningDCP2"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#documents-and-vectors",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#documents-and-vectors",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Documents and vectors",
+    "text": "Documents and vectors\nUsing only the words battle and fool:\n\n\n\n\nAs You Like It\nTwelfth Night\nJulius Caesar\nHenry V\n\n\n\n\nbattle\n1\n0\n7\n13\n\n\nfool\n36\n58\n1\n4\n\n\n\n\\[\\text{\"Twelfth Night\"} = \\begin{bmatrix} 0 \\\\ 58 \\end{bmatrix} \\quad \\text{\"As You Like It\"} = \\begin{bmatrix} 1 \\\\ 36 \\end{bmatrix} \\quad \\text{\"Henry V\"} = \\begin{bmatrix} 13 \\\\ 4 \\end{bmatrix} \\quad \\text{\"Julius Caesar\"} = \\begin{bmatrix} 7 \\\\ 1 \\end{bmatrix}\\]\n\n\n\nPlays plotted as vectors of battle vs. fool counts\n\n\nThe comedies point along the “fool” axis; the histories and tragedies point along the “battle” axis."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#vector-similarity-review",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#vector-similarity-review",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Vector similarity – review",
+    "text": "Vector similarity – review\nWe have many notions of similarity that can be used to compare vectors \\(\\mathbf{x} = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}\\), \\(\\mathbf{y} = \\begin{bmatrix} y_1 \\\\ y_2 \\end{bmatrix}\\):\n\n\n\nTwo vectors x and y separated by angle theta\n\n\n\nEuclidean distance: \\(\\|\\mathbf{x} - \\mathbf{y}\\| = \\sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}\\)\nDot product: \\(\\mathbf{x}^\\top \\mathbf{y} = \\langle \\mathbf{x}, \\mathbf{y} \\rangle = x_1 y_1 + x_2 y_2\\)\nCosine similarity: \\(\\mathbf{x}^\\top \\mathbf{y} = \\|\\mathbf{x}\\|\\|\\mathbf{y}\\| \\cos(\\theta)\\), so\n\n\\[\\cos(\\theta) = \\frac{\\mathbf{x}^\\top \\mathbf{y}}{\\|\\mathbf{x}\\|\\|\\mathbf{y}\\|} = \\frac{x_1 y_1 + x_2 y_2}{\\sqrt{x_1^2 + x_2^2}\\,\\sqrt{y_1^2 + y_2^2}}\\]"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#words-as-discrete-symbols",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#words-as-discrete-symbols",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Words as discrete symbols",
+    "text": "Words as discrete symbols\nFor the bag of words model, we make the assumption that all words are discrete.\nThis idea is known as one-hot encoding. Each word vector has one 1, the rest 0s:\n tree = [0, 0, 0, 0, 0, 0, 1, 0]\n  cat = [0, 0, 1, 0, 0, 0, 0, 0]\ntiger = [0, 0, 0, 0, 1, 0, 0, 0]\nAny problems with this model?\n\nVectors are orthogonal and contain no notion of similarity, i.e. \\(w_i^\\top w_j = 0 \\;\\; \\forall i, j,\\ i \\neq j\\)\nVector dimension = number of words in vocabulary (usually &gt; 100,000)"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Word vectors",
+    "text": "Word vectors\nLet \\(\\mathbf{w}_i \\in \\mathbb{R}^d\\) be a vector representing the \\(i^{\\text{th}}\\) word:\n\\[\\mathbf{w}_i = [x_1, x_2, x_3, \\dots, x_d]^\\top\\]\nWe want to construct dense vectors that meaningfully encode each word.\n\n\n\nWord vectors w1, w2, w3 drawn as arrows\n\n\nDesired properties: - Dimensionality of the vectors \\(d \\ll\\) number of words - Words with similar meaning have similar vectors"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors-visualization",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors-visualization",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Word vectors – visualization",
+    "text": "Word vectors – visualization\n\\[\\text{cat} = [0.325, -0.109, -0.255, 0.881, 0.017, 0.627, -0.390, 0.424, \\dots, -0.920]^\\top, \\qquad \\mathbf{x} \\in \\mathbb{R}^{200}\\]\n\n\n\nEmbedding projector showing cat and its 15 nearest neighbors\n\n\nVocabulary \\(V\\) = 10,000; the zoomed-in view shows the 15 nearest neighbors of “cat”.\nLet’s look at word embeddings: https://projector.tensorflow.org/"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#how-to-represent-the-meaning-of-a-word",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#how-to-represent-the-meaning-of-a-word",
+    "title": "16: NLP (Bag of Words)",
+    "section": "How to represent the meaning of a word?",
+    "text": "How to represent the meaning of a word?\n\nDefinition (meaning) – the idea represented by a word or phrase\nDenotational semantics – pairing between a signifier (word) and signified (idea): tree ⇔ {🌲, 🌳, 🌴}\n\nConstruct representation by similarities from semantics (e.g., synonyms): - synonyms: car/automobile; antonyms: dark/light - words that are not synonyms or antonyms but share some meaning, e.g. cat/dog, car/bicycle - and words that are not similar but are still related, e.g. coffee/cup, chef/menu"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#word-meaning-from-linguistic-tools",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#word-meaning-from-linguistic-tools",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Word meaning from linguistic tools",
+    "text": "Word meaning from linguistic tools\nWordNet: a lexical database of semantic relations — https://wordnet.princeton.edu/\nSynonym sets, word associations, hierarchy, categories.\n\n\n\nWordNet hypernym/hyponym hierarchy for colors\n\n\n\n\n\nWordNet search results listing hypernym synsets (procyonid, carnivore, mammal, … entity)\n\n\nGreat resource, but requires human annotations, words are constantly changing, lacks nuance (e.g., abstracts), and has no inherent numerical structure."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#representing-words-by-context",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#representing-words-by-context",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Representing words by context",
+    "text": "Representing words by context\nDistributional semantics: a word’s meaning is given by the words that frequently appear close-by.\n\n“You shall know a word by the company it keeps” (J. R. Firth 1957: 11)\n\n\n\n\nJ. R. Firth\n\n\nOne of the most successful ideas in modern statistical NLP.\n\n\n\nContext words around “banking” in three sentences\n\n\nThese context words will represent banking."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#distributional-hypothesis",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#distributional-hypothesis",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Distributional hypothesis",
+    "text": "Distributional hypothesis\n“Ong choy” - Ong choy is delicious sautéed with garlic - Ong choy is superb over rice - Ong choy leaves with salty sauces\nYou may have previously seen: - spinach sautéed with garlic over rice - chard stems and leaves are delicious - collard greens and other salty leafy greens\n\n\n\nIpomoea aquatica, widely known as water spinach\n\n\nIpomoea aquatica, widely known as water spinach."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors-from-co-occurrence-matrix",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#word-vectors-from-co-occurrence-matrix",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Word vectors from co-occurrence matrix",
+    "text": "Word vectors from co-occurrence matrix\nHow can we employ the distributional hypothesis computationally?\nIdea: accumulate statistics for what words appear near each other.\nEach column (word) contains counts of how often \\(w_i\\) appears next to \\(w_j\\). There’s a choice of how many context words to include in the counting (window size).\nExample corpus: “I like statistics”, “I like NLP”, “I enjoy coffee”\n\n\n\ncount\nI\nlike\nstatistics\nNLP\nenjoy\ncoffee\n\n\n\n\nI\n0\n2\n0\n0\n1\n0\n\n\nlike\n2\n0\n1\n1\n0\n0\n\n\nstatistics\n0\n1\n0\n0\n0\n0\n\n\nNLP\n0\n1\n0\n0\n0\n0\n\n\nenjoy\n1\n0\n0\n0\n0\n1\n\n\ncoffee\n0\n0\n0\n0\n1\n0\n\n\n\n\n\n\n\n\n\n\nWarningDCP3"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#improving-the-co-occurrence-matrix",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#improving-the-co-occurrence-matrix",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Improving the co-occurrence matrix",
+    "text": "Improving the co-occurrence matrix\nProblem 1 – raw counts lead to bad vector representations. - Frequency is clearly useful information, but overly frequent words are not informative context words. - Solution: introduce a weighted function.\nProblem 2 – the co-occurrence matrix \\(A \\in \\mathbb{R}^{|V| \\times |V|}\\) is large and sparse. - Solution: introduce the Singular Value Decomposition (SVD)."
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#pointwise-mutual-information-example",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#pointwise-mutual-information-example",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Pointwise Mutual Information (example)",
+    "text": "Pointwise Mutual Information (example)\n\n\n\nCount table, joint probabilities and resulting PPMI matrix\n\n\n\\[\\text{PPMI}(w, c) = \\max\\left(\\log_2 \\frac{P(w, c)}{P(w)\\,P(c)},\\ 0\\right)\\]\nPPMI(information, data) = ?\n\n\\(P(w = \\text{information}, c = \\text{data}) = 3982 / 11716 = 0.3399\\)\n\\(P(w = \\text{information}) = 7703 / 11716 = 0.6575\\)\n\\(P(c = \\text{data}) = 5677 / 11716 = 0.4842\\)\n\n\\[\\log_2\\left(\\frac{0.3399}{0.6575 \\cdot 0.4842}\\right) \\approx 0.09\\]"
+  },
+  {
+    "objectID": "posts/16_bag_of_words/16_bag_of_words.html#augmented-co-occurrence-matrix",
+    "href": "posts/16_bag_of_words/16_bag_of_words.html#augmented-co-occurrence-matrix",
+    "title": "16: NLP (Bag of Words)",
+    "section": "Augmented co-occurrence matrix",
+    "text": "Augmented co-occurrence matrix\n\n\n\nRaw count matrix augmented into a PPMI matrix\n\n\nProblem 2 – the co-occurrence matrix is large and sparse: - Very high-dimensional, \\(A \\in \\mathbb{R}^{100{,}000 \\times 100{,}000}\\) (requires a lot of memory even though sparse) - Can be less robust for some models. How to reduce the dimensionality?"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html",
+    "href": "code/16_bag_of_words.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "Learning Objectives: * Explore word frequency models * Carry out Naive Bayes modeling\nToday, we are going through the “Working with Text Data” tutorial provided by Scikit Learn\n\n“The 20 Newsgroups data set is a collection of approximately 20,000 newsgroup documents, partitioned (nearly) evenly across 20 different newsgroups. To the best of our knowledge, it was originally collected by Ken Lang, probably for his paper “Newsweeder: Learning to filter netnews,” though he does not explicitly mention this collection. The 20 newsgroups collection has become a popular data set for experiments in text applications of machine learning techniques, such as text classification and text clustering.”\nhttps://scikit-learn.org/1.1/tutorial/text_analytics/working_with_text_data.html\n\n\nimport numpy as np\n\nfrom sklearn import metrics\nfrom sklearn.datasets import fetch_20newsgroups\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom sklearn.feature_extraction.text import TfidfTransformer\nfrom sklearn.linear_model import SGDClassifier\nfrom sklearn.naive_bayes import MultinomialNB\nfrom sklearn.pipeline import Pipeline\n\n\ncategories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med'] #here: focus on just 4 groups\ntwenty_train = fetch_20newsgroups(subset='train', categories=categories, shuffle=True, random_state=42)\n\n\nprint(twenty_train.target_names)\n\n['alt.atheism', 'comp.graphics', 'sci.med', 'soc.religion.christian']\n\n\n\nlen(twenty_train.data)\n\n2257\n\n\n\nlen(twenty_train.filenames)\n\n2257\n\n\n\nprint(\"\\n\".join(twenty_train.data[0].split(\"\\n\")[:3]))\n\nFrom: sd345@city.ac.uk (Michael Collier)\nSubject: Converting images to HP LaserJet III?\nNntp-Posting-Host: hampton\n\n\n\nprint(twenty_train.target_names[twenty_train.target[0]])\n\ncomp.graphics\n\n\n\ntwenty_train.target[:10]\n\narray([1, 1, 3, 3, 3, 3, 3, 2, 2, 2])\n\n\n\nfor t in twenty_train.target[:10]:\n    print(twenty_train.target_names[t])\n\ncomp.graphics\ncomp.graphics\nsoc.religion.christian\nsoc.religion.christian\nsoc.religion.christian\nsoc.religion.christian\nsoc.religion.christian\nsci.med\nsci.med\nsci.med\n\n\n\n\n\ncount_vect = CountVectorizer()\nX_train_counts = count_vect.fit_transform(twenty_train.data)\nX_train_counts.shape\n\n(2257, 35788)\n\n\n\n\n\n\ntf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)\nX_train_tf = tf_transformer.transform(X_train_counts)\nX_train_tf.shape\n\n(2257, 35788)\n\n\n\ntfidf_transformer = TfidfTransformer()\nX_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)\nX_train_tfidf.shape\n\n(2257, 35788)\n\n\n\n\n\n\nclf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)\ndocs_new = ['God is love', 'OpenGL on the GPU is fast']\nX_new_counts = count_vect.transform(docs_new)\nX_new_tfidf = tfidf_transformer.transform(X_new_counts)\npredicted = clf.predict(X_new_tfidf)\nfor doc, category in zip(docs_new, predicted):\n    print('%r =&gt; %s' % (doc, twenty_train.target_names[category]))\n\n'God is love' =&gt; soc.religion.christian\n'OpenGL on the GPU is fast' =&gt; comp.graphics\n\n\n\n\n\n\ntext_clf = Pipeline([\n    ('vect', CountVectorizer()),\n    ('tfidf', TfidfTransformer()),\n    ('clf', MultinomialNB()),\n])\ntext_clf.fit(twenty_train.data, twenty_train.target)\n\nPipeline(steps=[('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),\n                ('clf', MultinomialNB())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),\n                ('clf', MultinomialNB())]) CountVectorizer?Documentation for CountVectorizerCountVectorizer() TfidfTransformer?Documentation for TfidfTransformerTfidfTransformer() MultinomialNB?Documentation for MultinomialNBMultinomialNB() \n\n\n\n\n\n\ntwenty_test = fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)\ndocs_test = twenty_test.data\npredicted = text_clf.predict(docs_test)\nnp.mean(predicted == twenty_test.target)\n\nnp.float64(0.8348868175765646)\n\n\n\n\n\n\ntext_clf = Pipeline([\n    ('vect', CountVectorizer()),\n    ('tfidf', TfidfTransformer()),\n    ('clf', SGDClassifier(loss='hinge', penalty='l2',\n                          alpha=1e-3, random_state=42,\n                          max_iter=5, tol=None)),\n])\n\ntext_clf.fit(twenty_train.data, twenty_train.target)\npredicted = text_clf.predict(docs_test)\nnp.mean(predicted == twenty_test.target)\n\nnp.float64(0.9101198402130493)\n\n\n\n\n\n\nprint(metrics.classification_report(twenty_test.target, predicted, target_names=twenty_test.target_names))\n\n                        precision    recall  f1-score   support\n\n           alt.atheism       0.95      0.80      0.87       319\n         comp.graphics       0.87      0.98      0.92       389\n               sci.med       0.94      0.89      0.91       396\nsoc.religion.christian       0.90      0.95      0.93       398\n\n              accuracy                           0.91      1502\n             macro avg       0.91      0.91      0.91      1502\n          weighted avg       0.91      0.91      0.91      1502\n\n\n\n\nmetrics.confusion_matrix(twenty_test.target, predicted)\n\narray([[256,  11,  16,  36],\n       [  4, 380,   3,   2],\n       [  5,  35, 353,   3],\n       [  5,  11,   4, 378]])"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#tokenizing-text-with-scikit-learn",
+    "href": "code/16_bag_of_words.html#tokenizing-text-with-scikit-learn",
+    "title": "SML 301",
+    "section": "",
+    "text": "count_vect = CountVectorizer()\nX_train_counts = count_vect.fit_transform(twenty_train.data)\nX_train_counts.shape\n\n(2257, 35788)"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#from-occurences-to-frequencies",
+    "href": "code/16_bag_of_words.html#from-occurences-to-frequencies",
+    "title": "SML 301",
+    "section": "",
+    "text": "tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)\nX_train_tf = tf_transformer.transform(X_train_counts)\nX_train_tf.shape\n\n(2257, 35788)\n\n\n\ntfidf_transformer = TfidfTransformer()\nX_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)\nX_train_tfidf.shape\n\n(2257, 35788)"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#training-a-classifier",
+    "href": "code/16_bag_of_words.html#training-a-classifier",
+    "title": "SML 301",
+    "section": "",
+    "text": "clf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)\ndocs_new = ['God is love', 'OpenGL on the GPU is fast']\nX_new_counts = count_vect.transform(docs_new)\nX_new_tfidf = tfidf_transformer.transform(X_new_counts)\npredicted = clf.predict(X_new_tfidf)\nfor doc, category in zip(docs_new, predicted):\n    print('%r =&gt; %s' % (doc, twenty_train.target_names[category]))\n\n'God is love' =&gt; soc.religion.christian\n'OpenGL on the GPU is fast' =&gt; comp.graphics"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#building-a-pipeline",
+    "href": "code/16_bag_of_words.html#building-a-pipeline",
+    "title": "SML 301",
+    "section": "",
+    "text": "text_clf = Pipeline([\n    ('vect', CountVectorizer()),\n    ('tfidf', TfidfTransformer()),\n    ('clf', MultinomialNB()),\n])\ntext_clf.fit(twenty_train.data, twenty_train.target)\n\nPipeline(steps=[('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),\n                ('clf', MultinomialNB())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),\n                ('clf', MultinomialNB())]) CountVectorizer?Documentation for CountVectorizerCountVectorizer() TfidfTransformer?Documentation for TfidfTransformerTfidfTransformer() MultinomialNB?Documentation for MultinomialNBMultinomialNB()"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#evaluation-of-the-performance-on-the-test-set",
+    "href": "code/16_bag_of_words.html#evaluation-of-the-performance-on-the-test-set",
+    "title": "SML 301",
+    "section": "",
+    "text": "twenty_test = fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)\ndocs_test = twenty_test.data\npredicted = text_clf.predict(docs_test)\nnp.mean(predicted == twenty_test.target)\n\nnp.float64(0.8348868175765646)"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#vector-model",
+    "href": "code/16_bag_of_words.html#vector-model",
+    "title": "SML 301",
+    "section": "",
+    "text": "text_clf = Pipeline([\n    ('vect', CountVectorizer()),\n    ('tfidf', TfidfTransformer()),\n    ('clf', SGDClassifier(loss='hinge', penalty='l2',\n                          alpha=1e-3, random_state=42,\n                          max_iter=5, tol=None)),\n])\n\ntext_clf.fit(twenty_train.data, twenty_train.target)\npredicted = text_clf.predict(docs_test)\nnp.mean(predicted == twenty_test.target)\n\nnp.float64(0.9101198402130493)"
+  },
+  {
+    "objectID": "code/16_bag_of_words.html#metrics",
+    "href": "code/16_bag_of_words.html#metrics",
+    "title": "SML 301",
+    "section": "",
+    "text": "print(metrics.classification_report(twenty_test.target, predicted, target_names=twenty_test.target_names))\n\n                        precision    recall  f1-score   support\n\n           alt.atheism       0.95      0.80      0.87       319\n         comp.graphics       0.87      0.98      0.92       389\n               sci.med       0.94      0.89      0.91       396\nsoc.religion.christian       0.90      0.95      0.93       398\n\n              accuracy                           0.91      1502\n             macro avg       0.91      0.91      0.91      1502\n          weighted avg       0.91      0.91      0.91      1502\n\n\n\n\nmetrics.confusion_matrix(twenty_test.target, predicted)\n\narray([[256,  11,  16,  36],\n       [  4, 380,   3,   2],\n       [  5,  35, 353,   3],\n       [  5,  11,   4, 378]])"
+  },
+  {
+    "objectID": "code/15_CNN.html",
+    "href": "code/15_CNN.html",
+    "title": "SML 301",
+    "section": "",
+    "text": "Session 15: Convolutional Neural Networks\nLearning Objectives:\n\nPractice convolution calculations\n\n\n#!pip install tensorflow\nimport numpy as np\nimport tensorflow\n\nfrom tensorflow.keras.layers import MaxPooling2D, ZeroPadding2D\n\nConvolutions\nUse MaxPooling2D in each of the following exercises on the matrix\n\nTip: you may and should do the following calculations by hand\n\n\nA = np.array([[16, 3, 2, 13],\n              [5, 10, 11, 8],\n              [9, 6, 7, 12],\n              [4, 15, 14, 1]])\nprint(A.reshape(4, 4))\n\n[[16  3  2 13]\n [ 5 10 11  8]\n [ 9  6  7 12]\n [ 4 15 14  1]]\n\n\n\nkernel size: 2\npadding: 0\nstride: 1\n\n\nout = MaxPooling2D(pool_size=2, strides=1)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(3, 3))\n\n[[16 11 13]\n [10 11 12]\n [15 15 14]]\n\n\n\nkernel size: 3\npadding: 0\nstride: 1\n\n\nout = MaxPooling2D(pool_size=3, strides=1)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(2, 2))\n\n[[16 13]\n [15 15]]\n\n\n\nkernel size: 2\npadding: 0\nstride: 2\n\n\nout = MaxPooling2D(pool_size=2, strides=2)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(2, 2))\n\n[[16 13]\n [15 14]]\n\n\n\nkernel size: 3\npadding: 1\nstride: 1\n\n\nout = MaxPooling2D(pool_size=3, strides=1)(ZeroPadding2D(padding=1)(A.reshape(1, 4, 4, 1)))\n#print(out)\nprint(out.numpy().reshape(4, 4))\n\n[[16 16 13 13]\n [16 16 13 13]\n [15 15 15 14]\n [15 15 15 14]]"
   }
 ]
