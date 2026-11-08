@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/17_word2vec/17_word2vec.html",
       "/posts/16_bag_of_words/16_bag_of_words.html",
       "/posts/15_CNN/15_CNN.html",
       "/posts/14_image_processing/14_image_processing.html",
@@ -23,6 +24,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/17_word2vec/17_word2vec.html",
       "/posts/16_bag_of_words/16_bag_of_words.html",
       "/posts/15_CNN/15_CNN.html",
       "/posts/14_image_processing/14_image_processing.html",

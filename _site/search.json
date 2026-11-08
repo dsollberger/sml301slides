@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -4569,5 +4569,243 @@
     "title": "SML 301",
     "section": "",
     "text": "Session 15: Convolutional Neural Networks\nLearning Objectives:\n\nPractice convolution calculations\n\n\n#!pip install tensorflow\nimport numpy as np\nimport tensorflow\n\nfrom tensorflow.keras.layers import MaxPooling2D, ZeroPadding2D\n\nConvolutions\nUse MaxPooling2D in each of the following exercises on the matrix\n\nTip: you may and should do the following calculations by hand\n\n\nA = np.array([[16, 3, 2, 13],\n              [5, 10, 11, 8],\n              [9, 6, 7, 12],\n              [4, 15, 14, 1]])\nprint(A.reshape(4, 4))\n\n[[16  3  2 13]\n [ 5 10 11  8]\n [ 9  6  7 12]\n [ 4 15 14  1]]\n\n\n\nkernel size: 2\npadding: 0\nstride: 1\n\n\nout = MaxPooling2D(pool_size=2, strides=1)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(3, 3))\n\n[[16 11 13]\n [10 11 12]\n [15 15 14]]\n\n\n\nkernel size: 3\npadding: 0\nstride: 1\n\n\nout = MaxPooling2D(pool_size=3, strides=1)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(2, 2))\n\n[[16 13]\n [15 15]]\n\n\n\nkernel size: 2\npadding: 0\nstride: 2\n\n\nout = MaxPooling2D(pool_size=2, strides=2)(A.reshape(1, 4, 4, 1))\nprint(out.numpy().reshape(2, 2))\n\n[[16 13]\n [15 14]]\n\n\n\nkernel size: 3\npadding: 1\nstride: 1\n\n\nout = MaxPooling2D(pool_size=3, strides=1)(ZeroPadding2D(padding=1)(A.reshape(1, 4, 4, 1)))\n#print(out)\nprint(out.numpy().reshape(4, 4))\n\n[[16 16 13 13]\n [16 16 13 13]\n [15 15 15 14]\n [15 15 15 14]]"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html",
+    "href": "posts/17_word2vec/17_word2vec.html",
+    "title": "17: NLP (Word2Vec)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts\n\n\n\nimage source: Nikhil Birajar"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#learning-objectives",
+    "href": "posts/17_word2vec/17_word2vec.html#learning-objectives",
+    "title": "17: NLP (Word2Vec)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts\n\n\n\nimage source: Nikhil Birajar"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#words-as-discrete-symbols",
+    "href": "posts/17_word2vec/17_word2vec.html#words-as-discrete-symbols",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Words as discrete symbols",
+    "text": "Words as discrete symbols\nFor the bag of words model, we make the assumption that all words are discrete.\nThis idea is known as one-hot encoding. Each word vector has one 1, the rest 0s:\n tree = [0, 0, 0, 0, 0, 0, 1, 0]\n  cat = [0, 0, 1, 0, 0, 0, 0, 0]\ntiger = [0, 0, 0, 0, 1, 0, 0, 0]\nAny problems with this model?\n\nVectors are orthogonal and contain no notion of similarity, i.e. \\(w_i^\\top w_j = 0 \\;\\; \\forall i, j,\\ i \\neq j\\)\nVector dimension = number of words in vocabulary (usually &gt; 100,000)"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-vectors",
+    "href": "posts/17_word2vec/17_word2vec.html#word-vectors",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word vectors",
+    "text": "Word vectors\nLet \\(\\mathbf{w}_i \\in \\mathbb{R}^d\\) be a vector representing the \\(i^{\\text{th}}\\) word:\n\\[\\mathbf{w}_i = [x_1, x_2, x_3, \\dots, x_d]^\\top\\]\nWe want to construct dense vectors that meaningfully encode each word.\n\n\n\nWord vectors w1, w2, w3 drawn as arrows\n\n\nDesired properties: - Dimensionality of the vectors \\(d \\ll\\) number of words - Words with similar meaning have similar vectors"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-vectors-visualization",
+    "href": "posts/17_word2vec/17_word2vec.html#word-vectors-visualization",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word vectors – visualization",
+    "text": "Word vectors – visualization\n\\[\\text{cat} = [0.325, -0.109, -0.255, 0.881, 0.017, 0.627, -0.390, 0.424, \\dots, -0.920]^\\top, \\qquad \\mathbf{x} \\in \\mathbb{R}^{200}\\]\n\n\n\nEmbedding projector showing cat and its 15 nearest neighbors\n\n\nVocabulary \\(V\\) = 10,000; the zoomed-in view shows the 15 nearest neighbors of “cat”.\nLet’s look at word embeddings: https://projector.tensorflow.org/"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#how-to-represent-the-meaning-of-a-word",
+    "href": "posts/17_word2vec/17_word2vec.html#how-to-represent-the-meaning-of-a-word",
+    "title": "17: NLP (Word2Vec)",
+    "section": "How to represent the meaning of a word?",
+    "text": "How to represent the meaning of a word?\n\nDefinition (meaning) – the idea represented by a word or phrase\nDenotational semantics – pairing between a signifier (word) and signified (idea): tree ⇔ {🌲, 🌳, 🌴}\n\nConstruct representation by similarities from semantics (e.g., synonyms): - synonyms: car/automobile; antonyms: dark/light - words that are not synonyms or antonyms but share some meaning, e.g. cat/dog, car/bicycle - and words that are not similar but are still related, e.g. coffee/cup, chef/menu"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-meaning-from-linguistic-tools",
+    "href": "posts/17_word2vec/17_word2vec.html#word-meaning-from-linguistic-tools",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word meaning from linguistic tools",
+    "text": "Word meaning from linguistic tools\nWordNet: a lexical database of semantic relations — https://wordnet.princeton.edu/\nSynonym sets, word associations, hierarchy, categories.\n\n\n\nWordNet hypernym/hyponym hierarchy for colors\n\n\n\n\n\nWordNet search results listing hypernym synsets (procyonid, carnivore, mammal, … entity)\n\n\nGreat resource, but requires human annotations, words are constantly changing, lacks nuance (e.g., abstracts), and has no inherent numerical structure."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#representing-words-by-context",
+    "href": "posts/17_word2vec/17_word2vec.html#representing-words-by-context",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Representing words by context",
+    "text": "Representing words by context\nDistributional semantics: a word’s meaning is given by the words that frequently appear close-by.\n\n“You shall know a word by the company it keeps” (J. R. Firth 1957: 11)\n\n\n\n\nJ. R. Firth\n\n\nOne of the most successful ideas in modern statistical NLP.\n\n\n\nContext words around “banking” in three sentences\n\n\nThese context words will represent banking."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#distributional-hypothesis",
+    "href": "posts/17_word2vec/17_word2vec.html#distributional-hypothesis",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Distributional hypothesis",
+    "text": "Distributional hypothesis\n“Ong choy” - Ong choy is delicious sautéed with garlic - Ong choy is superb over rice - Ong choy leaves with salty sauces\nYou may have previously seen: - spinach sautéed with garlic over rice - chard stems and leaves are delicious - collard greens and other salty leafy greens\n\n\n\nIpomoea aquatica, widely known as water spinach\n\n\nIpomoea aquatica, widely known as water spinach."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-vectors-from-co-occurrence-matrix",
+    "href": "posts/17_word2vec/17_word2vec.html#word-vectors-from-co-occurrence-matrix",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word vectors from co-occurrence matrix",
+    "text": "Word vectors from co-occurrence matrix\nHow can we employ the distributional hypothesis computationally?\nIdea: accumulate statistics for what words appear near each other.\nEach column (word) contains counts of how often \\(w_i\\) appears next to \\(w_j\\). There’s a choice of how many context words to include in the counting (window size).\nExample corpus: “I like statistics”, “I like NLP”, “I enjoy coffee”\n\n\n\ncount\nI\nlike\nstatistics\nNLP\nenjoy\ncoffee\n\n\n\n\nI\n0\n2\n0\n0\n1\n0\n\n\nlike\n2\n0\n1\n1\n0\n0\n\n\nstatistics\n0\n1\n0\n0\n0\n0\n\n\nNLP\n0\n1\n0\n0\n0\n0\n\n\nenjoy\n1\n0\n0\n0\n0\n1\n\n\ncoffee\n0\n0\n0\n0\n1\n0"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#improving-the-co-occurrence-matrix",
+    "href": "posts/17_word2vec/17_word2vec.html#improving-the-co-occurrence-matrix",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Improving the co-occurrence matrix",
+    "text": "Improving the co-occurrence matrix\nProblem 1 – raw counts lead to bad vector representations. - Frequency is clearly useful information, but overly frequent words are not informative context words. - Solution: introduce a weighted function.\nProblem 2 – the co-occurrence matrix \\(A \\in \\mathbb{R}^{|V| \\times |V|}\\) is large and sparse. - Solution: introduce the Singular Value Decomposition (SVD).\n\n\n\n\n\n\n\nWarningDCP1"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#pointwise-mutual-information-example",
+    "href": "posts/17_word2vec/17_word2vec.html#pointwise-mutual-information-example",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Pointwise Mutual Information (example)",
+    "text": "Pointwise Mutual Information (example)\n\n\n\nCount table, joint probabilities and resulting PPMI matrix\n\n\n\\[\\text{PPMI}(w, c) = \\max\\left(\\log_2 \\frac{P(w, c)}{P(w)\\,P(c)},\\ 0\\right)\\]\nPPMI(information, data) = ?\n\n\\(P(w = \\text{information}, c = \\text{data}) = 3982 / 11716 = 0.3399\\)\n\\(P(w = \\text{information}) = 7703 / 11716 = 0.6575\\)\n\\(P(c = \\text{data}) = 5677 / 11716 = 0.4842\\)\n\n\\[\\log_2\\left(\\frac{0.3399}{0.6575 \\cdot 0.4842}\\right) \\approx 0.09\\]"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#augmented-co-occurrence-matrix",
+    "href": "posts/17_word2vec/17_word2vec.html#augmented-co-occurrence-matrix",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Augmented co-occurrence matrix",
+    "text": "Augmented co-occurrence matrix\n\n\n\nRaw count matrix augmented into a PPMI matrix\n\n\nProblem 2 – the co-occurrence matrix is large and sparse: - Very high-dimensional, \\(A \\in \\mathbb{R}^{100{,}000 \\times 100{,}000}\\) (requires a lot of memory even though sparse) - Can be less robust for some models. How to reduce the dimensionality?"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word2vec-objective-function-1",
+    "href": "posts/17_word2vec/17_word2vec.html#word2vec-objective-function-1",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word2vec: objective function (1)",
+    "text": "Word2vec: objective function (1)\nFor each position \\(t = 1, \\dots, T\\), predict context words within a window of fixed size \\(m\\), given center word \\(w_t\\). This is the data likelihood:\n\\[\\text{Likelihood} = L(\\Theta) = \\prod_{t=1}^{T} \\prod_{\\substack{-m \\le j \\le m \\\\ j \\neq 0}} P(w_{t+j} \\mid w_t ; \\Theta)\\]\nWe want to maximize the likelihood \\(L(\\Theta)\\) of predicting the outer context words (\\(w_o\\)) given the center word (\\(w_c\\))."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word2vec-objective-function-2",
+    "href": "posts/17_word2vec/17_word2vec.html#word2vec-objective-function-2",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word2vec: objective function (2)",
+    "text": "Word2vec: objective function (2)\nHow to calculate \\(P(w_{t+j} \\mid w_t ; \\Theta)\\)?\nWe define two vectors for each word: - \\(w_o\\) for when the word is an outside (context) word - \\(w_c\\) for when the word is the center word\nThen for a center word \\(c\\) and an outside context word \\(o\\):\n\\[P(w_o \\mid w_c) = \\frac{\\exp(w_o^T w_c)}{\\sum_{w \\in V} \\exp(w_o^T w_c)}\\]"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word2vec-model-training",
+    "href": "posts/17_word2vec/17_word2vec.html#word2vec-model-training",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word2vec: model training",
+    "text": "Word2vec: model training\nTo train the model, we gradually adjust the parameters \\(\\Theta\\) to maximize the likelihood (or equivalently, minimize the loss):\n\\[\\Theta = \\begin{bmatrix} w_{\\text{aardvark}} \\\\ \\vdots \\\\ w_{\\text{zebra}} \\\\ u_{\\text{aardvark}} \\\\ \\vdots \\\\ u_{\\text{zebra}} \\end{bmatrix} \\in \\mathbb{R}^{2|V| \\times d}\\]\nThe top half holds the center-word vectors and the bottom half the outside-word vectors.\nWe optimize the parameters by using stochastic gradient descent.\n\n\n\nParameter vector Θ and an SGD path on a loss contour plot"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-vector-applications",
+    "href": "posts/17_word2vec/17_word2vec.html#word-vector-applications",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word vector applications",
+    "text": "Word vector applications\nTrained word embeddings are available: - word2vec: https://code.google.com/archive/p/word2vec/ - GloVe: https://nlp.stanford.edu/projects/glove/\nEasy-to-use Python libraries:\ndef load_embedding_model():\n    \"\"\"\n    Load GloVe Vectors\n    Return:\n        wv_from_bin: All 400000 embeddings, each length 200\n    \"\"\"\n    import gensim.downloader as api\n    wv_from_bin = api.load(\"glove-wiki-gigaword-200\")\n    print(\"Loaded vocab size %i\" % len(list(wv_from_bin.index_to_key)))\n    return wv_from_bin\n\nwv_from_bin = load_embedding_model()\n\n\n\nGensim code for loading GloVe vectors"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-vector-applications-classification",
+    "href": "posts/17_word2vec/17_word2vec.html#word-vector-applications-classification",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word vector applications (classification)",
+    "text": "Word vector applications (classification)\nClassifying the sentence “I don’t like this movie”:\nNaive Bayes\n\\[\\hat{P}(x_i \\mid c_j) = \\frac{\\text{Count}(x_i, c_j)}{\\sum_{x \\in V} \\text{Count}(x, c_j)} \\qquad \\hat{c} = \\arg\\max_c \\sum_{i}^{n} \\log \\hat{P}(x_i \\mid c_j) + \\log \\hat{P}(c_j)\\]\nWord vectors\n\\[\\underset{\\text{I}}{\\begin{bmatrix} 0.17 \\\\ 0.28 \\end{bmatrix}} \\underset{\\text{don't}}{\\begin{bmatrix} -0.31 \\\\ 0.95 \\end{bmatrix}} \\underset{\\text{like}}{\\begin{bmatrix} -0.28 \\\\ -0.26 \\end{bmatrix}} \\underset{\\text{this}}{\\begin{bmatrix} 0.51 \\\\ -0.43 \\end{bmatrix}} \\underset{\\text{movie}}{\\begin{bmatrix} 0.74 \\\\ 0.63 \\end{bmatrix}}\\]\n\\[\\text{vec}(s) = w_1 + \\dots + w_n\\]\nThen predict from a classifier using \\(\\text{vec}(s)\\)."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#language-models-are-everywhere",
+    "href": "posts/17_word2vec/17_word2vec.html#language-models-are-everywhere",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Language models are everywhere",
+    "text": "Language models are everywhere\nGoogle search autocomplete, phone keyboard next-word suggestions, ChatGPT, Grammarly.\n\n\n\nGoogle autocomplete, phone keyboard suggestions, ChatGPT and Grammarly\n\n\n\n\n\n\n\n\n\nWarningDCP2\n\n\n\nWord2Vec demo by Raimi"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#word-probability-example",
+    "href": "posts/17_word2vec/17_word2vec.html#word-probability-example",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Word probability example",
+    "text": "Word probability example\nConsider we have a large corpus of text, and we want to estimate \\(P(w_i \\mid w_{i-1})\\).\n“The blue ______”: what is \\(P(\\text{sky} \\mid \\text{blue})\\)?\nCompute word/phrase probabilities by counting (similar to naive Bayes):\n\\[P(w_i \\mid w_{i-1}) = \\frac{P(w_{i-1}, w_i)}{P(w_{i-1})}\\]\n\\[P(\\text{sky} \\mid \\text{blue}) = \\frac{P(\\text{blue sky})}{P(\\text{blue})} = \\frac{\\text{count(blue sky)}}{\\text{count(blue)}} = \\frac{50}{200} = 0.25\\]\nIs this something we can reasonably expect to compute?"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#estimating-word-probabilities",
+    "href": "posts/17_word2vec/17_word2vec.html#estimating-word-probabilities",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Estimating word probabilities",
+    "text": "Estimating word probabilities\nSeems like a daunting task. Let’s consider the space of text data.\n\n\n\nSample space of all pieces of text, from “hello” to The Lord of the Rings\n\n\nHow likely is any word, phrase or document?\n\nGiven a vocabulary of size \\(V\\) and sentence length \\(n\\), the number of sentences of length \\(n\\) is \\(V^n\\)\nConsider sentences of length \\(n = 10\\)\nA typical English vocabulary is ≈ 40k words\nThen the number of possible sequences is \\(\\approx 4 \\times 10^{50}\\) ≈ the number of atoms in the Earth"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#markov-assumption",
+    "href": "posts/17_word2vec/17_word2vec.html#markov-assumption",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Markov assumption",
+    "text": "Markov assumption\nUse only the recent past to predict the next word.\nConsider the sentence “the sky is blue”:\n\\[P(\\text{the sky is blue}) = P(\\text{the})\\,P(\\text{sky} \\mid \\text{the})\\,P(\\text{is} \\mid \\text{the sky})\\,P(\\text{blue} \\mid \\text{the sky is})\\]\n\n1st order: \\(P(\\text{blue} \\mid \\text{the sky is}) \\approx P(\\text{blue} \\mid \\text{is})\\)\n2nd order: \\(P(\\text{blue} \\mid \\text{the sky is}) \\approx P(\\text{blue} \\mid \\text{sky is})\\)\n\nThis reduces the number of estimated parameters in exchange for model capacity."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#kth-order-markov-model",
+    "href": "posts/17_word2vec/17_word2vec.html#kth-order-markov-model",
+    "title": "17: NLP (Word2Vec)",
+    "section": "kth order Markov model",
+    "text": "kth order Markov model\nConsider only the last k words for context (truncated context words):\n\\[P(w_i \\mid w_1, w_2, \\dots, w_{i-1}) \\approx P(w_i \\mid w_{i-k}, \\dots, w_{i-1})\\]\nThis implies that the probability of a sequence is:\n\\[P(w_1, \\dots, w_n) \\approx \\prod_i P(w_i \\mid w_{i-k}, \\dots, w_{i-1})\\]\nWe only need to estimate the counts for k-grams in text."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#generating-from-a-language-model-sampling",
+    "href": "posts/17_word2vec/17_word2vec.html#generating-from-a-language-model-sampling",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Generating from a language model (sampling)",
+    "text": "Generating from a language model (sampling)\nGiven a language model, how do we generate a sequence?\nE.g., using a bigram model, \\(P(w_1, \\dots, w_n) = \\prod_{i}^{n} P(w_i \\mid w_{i-1})\\):\n\nGenerate the 1st word: \\(w_1 \\sim P(w)\\)\nGenerate the 2nd word: \\(w_2 \\sim P(w \\mid w_1)\\)\nGenerate the 3rd word: \\(w_3 \\sim P(w \\mid w_2)\\)\nGenerate the 4th word …\n\n\n\n\nSampling a word by rolling a die against the cumulative probability of each word"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#example-of-n-gram-language-model",
+    "href": "posts/17_word2vec/17_word2vec.html#example-of-n-gram-language-model",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Example of n-gram language model",
+    "text": "Example of n-gram language model\nText generated by models trained on 40 million words from the Wall Street Journal:\n\n\n\nSentences generated by unigram, bigram and trigram WSJ models\n\n\n\n1-gram: “Months the my and issue of year foreign new exchange’s september were recession exchange new endorsed a acquire to six executives”\n2-gram: “Last December through the way to preserve the Hudson corporation N. B. E. C. Taylor would seem to complete the major central planners one point five percent of U. S. E. has already old M. X. corporation of living on information such as more frequently fishing to keep her”\n3-gram: “They also point to ninety nine point six billion dollars from two hundred four oh six three percent of the rates of interest stores as Mexico and Brazil on market conditions”"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#generating-from-a-language-model-decoding",
+    "href": "posts/17_word2vec/17_word2vec.html#generating-from-a-language-model-decoding",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Generating from a language model (decoding)",
+    "text": "Generating from a language model (decoding)\n“The sky is ______”\nGreedy: choose the most likely word:\n\\[w_4 = \\arg\\max_{w_i \\in V} P(w_i \\mid w_1, w_2, w_3)\\]\nTop-k: choose among the k most likely words.\n\n\n\nTop-k with k = 3: blue, big, falling"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#example-of-n-gram-language-model-1",
+    "href": "posts/17_word2vec/17_word2vec.html#example-of-n-gram-language-model-1",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Example of n-gram language model",
+    "text": "Example of n-gram language model\nSuppose we are learning a 4-gram language model.\n“as the proctor started the clock, the students opened their ______”\nA 4-gram model only conditions on the last three words, “students opened their”, and discards the rest."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#sparsity-problem-with-n-grams",
+    "href": "posts/17_word2vec/17_word2vec.html#sparsity-problem-with-n-grams",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Sparsity problem with n-grams",
+    "text": "Sparsity problem with n-grams\n\\[P(w \\mid \\text{students opened their}) = \\frac{\\text{Count(students opened their } w)}{\\text{Count(students opened their)}}\\]\n\nWhat if “students opened their w” never occurred in the training dataset? Then w has probability zero!\nWhat if “students opened their” never occurred in the training dataset? Then we can’t calculate the probability at all.\n\nWe can try conditioning on less text, known as the “backoff” approach.\n\nIncreasing n makes the sparsity problem worse. Typically limit to n = 5.\nIncreasing n also makes the storage problem worse."
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#neural-language-model-fixed-window",
+    "href": "posts/17_word2vec/17_word2vec.html#neural-language-model-fixed-window",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Neural language model – fixed window",
+    "text": "Neural language model – fixed window\nFixed-window based approach (similar idea to n-gram):\n\nWords: \\(x^{(1)}, x^{(2)}, x^{(3)}, x^{(4)}\\)\nConcatenated word embeddings: \\(e = [e^{(1)}; e^{(2)}; e^{(3)}; e^{(4)}]\\)\nHidden layer: \\(h = f(We + b_1)\\)\nOutput distribution: \\(\\hat{y} = \\text{softmax}(Uh + b_2) \\in \\mathbb{R}^{|V|}\\)\n\n\n\n\nFixed-window neural language model predicting the word after “the students opened their”"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#neural-language-model-pros-and-cons",
+    "href": "posts/17_word2vec/17_word2vec.html#neural-language-model-pros-and-cons",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Neural language model – pros and cons",
+    "text": "Neural language model – pros and cons\nImprovements over n-gram LMs: - No sparsity problem - Don’t need to store all observed n-grams\nRemaining problems: - Fixed window is too small - Increasing the window increases \\(W\\)\n\n\n\nFixed-window neural language model"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#language-model-evaluation",
+    "href": "posts/17_word2vec/17_word2vec.html#language-model-evaluation",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Language model evaluation",
+    "text": "Language model evaluation\nHow do we define the quality of language models? Similar to word vector models, we define both extrinsic and intrinsic evaluation.\n\nExtrinsic = validate on a specific task and measure accuracy (e.g., model A vs. B)\nIntrinsic = measure model accuracy on an intermediate task\n\nMeasure accuracy of predicting words in an unseen test set\nThe metric for evaluation is perplexity\nGives a single metric for evaluating LMs"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#intrinsic-evaluation-motivation",
+    "href": "posts/17_word2vec/17_word2vec.html#intrinsic-evaluation-motivation",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Intrinsic evaluation – motivation",
+    "text": "Intrinsic evaluation – motivation\nGoal: model \\(P(w_1, w_2, \\dots, w_n)\\) or \\(P(w_k \\mid w_1, \\dots, w_{k-1})\\) accurately.\nShannon game: how well can we predict the next word? - I always order pizza with cheese and ______ - The 33rd president of the US was ______ - Once upon a ______\nA better language model assigns higher probability to the word that actually occurs. How do we measure this?\n\n\n\n\n\n\n\nWarningDCP3"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#lm-perplexity-results",
+    "href": "posts/17_word2vec/17_word2vec.html#lm-perplexity-results",
+    "title": "17: NLP (Word2Vec)",
+    "section": "LM perplexity results",
+    "text": "LM perplexity results\nTraining corpus 38 million words, test corpus 1.5 million words, both WSJ:\n\n\n\nN-gram order\nUnigram\nBigram\nTrigram\n\n\n\n\nPerplexity (test)\n962\n170\n109\n\n\n\nIncreasing n improves the model, but: - worsens the sparsity problem - and increases the model size"
+  },
+  {
+    "objectID": "posts/17_word2vec/17_word2vec.html#improving-neural-language-models",
+    "href": "posts/17_word2vec/17_word2vec.html#improving-neural-language-models",
+    "title": "17: NLP (Word2Vec)",
+    "section": "Improving neural language models",
+    "text": "Improving neural language models\nMany new architectures have been introduced to improve language models: - Recurrent neural networks (RNN) - Key idea is to use the same weights across layers - Long short-term memory (LSTM) - Transformers - Key idea is self-attention blocks - Generative pre-trained transformers (GPT)"
   }
 ]
