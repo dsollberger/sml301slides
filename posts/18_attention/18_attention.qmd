@@ -1,7 +1,7 @@
 ---
 title: "18: NLP (Attention)"
 author: "Derek Sollberger"
-date: "2026-11-01"
+date: "2026-11-11"
 format:
   html:
     toc: true
