@@ -116,14 +116,14 @@
     "href": "blog.html",
     "title": "Lecture Sessions",
     "section": "",
-    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: NLP (Attention)\n\n\n\n\n\n\n\n\nNov 1, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SML 301 (Fall 2026)",
     "section": "",
-    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
+    "text": "17: NLP (Word2Vec)\n\n\n\n\n\n\n\n\nNov 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n16: NLP (Bag of Words)\n\n\n\n\n\n\n\n\nNov 4, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n15: Convolutional Neural Networks\n\n\n\n\n\n\n\n\nNov 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n18: NLP (Attention)\n\n\n\n\n\n\n\n\nNov 1, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n14: Image Processing\n\n\n\n\n\n\n\n\nOct 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n13: Recurrence\n\n\n\n\n\n\n\n\nOct 26, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n12: Hyperparameters\n\n\n\n\n\n\n\n\nOct 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n11: MNIST\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n10: Fully Connected Networks\n\n\n\n\n\n\n\n\nOct 7, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n9: The Kernel Trick\n\n\n\n\n\n\n\n\nOct 5, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n8: Nearest Neighbors\n\n\n\n\n\n\n\n\nSep 30, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n7: Random Forests\n\n\n\n\n\n\n\n\nSep 28, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n6: Decision Trees\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n5: Dimension Reduction\n\n\n\n\n\n\n\n\nSep 21, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n4: Classification\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n3: Convergence\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n2: Regression\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nDerek Sollberger\n\n\n\n\n\n\n\n\n\n\n\n\n1: Introductions\n\n\n\n\n\n\n\n\nSep 2, 2026\n\n\nDerek Sollberger\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/03_regression/03_regression.html",
@@ -4807,5 +4807,201 @@
     "title": "17: NLP (Word2Vec)",
     "section": "Improving neural language models",
     "text": "Improving neural language models\nMany new architectures have been introduced to improve language models: - Recurrent neural networks (RNN) - Key idea is to use the same weights across layers - Long short-term memory (LSTM) - Transformers - Key idea is self-attention blocks - Generative pre-trained transformers (GPT)"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html",
+    "href": "posts/18_attention/18_attention.html",
+    "title": "18: NLP (Attention)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts\n\n\n\nimage source: Plotivy"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#learning-objectives",
+    "href": "posts/18_attention/18_attention.html#learning-objectives",
+    "title": "18: NLP (Attention)",
+    "section": "",
+    "text": "Motivate natural language processing\nExplore the early adapations\nCompute word frequencies\n\n\n\n\n\n\n\nMovie review turned into a bag of words and word counts\n\n\n\nimage source: Plotivy"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#recap-bag-of-words",
+    "href": "posts/18_attention/18_attention.html#recap-bag-of-words",
+    "title": "18: NLP (Attention)",
+    "section": "Recap: Bag-of-Words",
+    "text": "Recap: Bag-of-Words\n\n\n\nMovie review turned into a bag of words and word counts"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#recap-one-hot-encoding",
+    "href": "posts/18_attention/18_attention.html#recap-one-hot-encoding",
+    "title": "18: NLP (Attention)",
+    "section": "Recap: one-hot encoding",
+    "text": "Recap: one-hot encoding\nWord embedding: turn words (and sentences) into numerical vectors.\n\n\n\nSentences encoded as one-hot word vectors\n\n\nAny problem with this model? There is no notion of similarity between words! (like and love are as different as any other pair.)"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#distributional-semantics",
+    "href": "posts/18_attention/18_attention.html#distributional-semantics",
+    "title": "18: NLP (Attention)",
+    "section": "Distributional semantics",
+    "text": "Distributional semantics\n\n“You shall know a word by the company it keeps” (J. R. Firth 1957: 11)\n\nThe meaning of a word is given by the words that frequently appear close-by.\n\n\n\nJ. R. Firth and context words around “banking”\n\n\nIf two words predict similar neighbors, they mean similar things.\n\nSpeaker note: John Rupert Firth, English linguist. A very successful idea in NLP."
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#word2vec-skip-gram-algorithm",
+    "href": "posts/18_attention/18_attention.html#word2vec-skip-gram-algorithm",
+    "title": "18: NLP (Attention)",
+    "section": "Word2vec: Skip-Gram Algorithm",
+    "text": "Word2vec: Skip-Gram Algorithm\nGoal: maximize the probability of the real context words given the center word.\n\n\n\nSkip-gram network with embedding layer, variable table and training data\n\n\n\n\n\n2D visualization of word embeddings before and after training"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#binary-classification-task",
+    "href": "posts/18_attention/18_attention.html#binary-classification-task",
+    "title": "18: NLP (Attention)",
+    "section": "Binary classification task",
+    "text": "Binary classification task\n\n\n\nPipeline: sentence → vector → linear score → sigmoid\n\n\n\\[\\text{\"Vaccines cause autism\"} \\;\\rightarrow\\; \\mathbf{x} \\;\\rightarrow\\; z = \\alpha + \\beta \\mathbf{x} \\;\\rightarrow\\; \\phi(z) = \\frac{1}{1 + e^{-z}}\\]\n\\(\\alpha\\) and \\(\\beta\\) are model parameters.\nWord embeddings we tried so far: - Bag-of-words (one-hot encoding) - Word2vec"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#word2vec-fails-to-capture-context",
+    "href": "posts/18_attention/18_attention.html#word2vec-fails-to-capture-context",
+    "title": "18: NLP (Attention)",
+    "section": "Word2vec fails to capture context",
+    "text": "Word2vec fails to capture context\nWord2vec gives each word a single vector, regardless of the sentence it appears in.\n\n\n\nThe word “mole” in three different contexts gets the same embedding E(mole)\n\n\n“American shrew mole”, “One mole of carbon dioxide”, “Take a biopsy of the mole”: three different meanings, but one embedding.\n\n\n\nThe word “model” in “A machine learning model” vs “A fashion model”"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#neural-language-model-fixed-window",
+    "href": "posts/18_attention/18_attention.html#neural-language-model-fixed-window",
+    "title": "18: NLP (Attention)",
+    "section": "Neural language model – fixed window",
+    "text": "Neural language model – fixed window\nFixed-window based approach (similar idea to n-gram):\n\nWords: \\(x^{(1)}, x^{(2)}, x^{(3)}, x^{(4)}\\)\nConcatenated word embeddings: \\(e = [e^{(1)}; e^{(2)}; e^{(3)}; e^{(4)}]\\)\nHidden layer: \\(h = f(We + b_1)\\)\nOutput distribution: \\(\\hat{y} = \\text{softmax}(Uh + b_2) \\in \\mathbb{R}^{|V|}\\)\n\n\n\n\nFixed-window neural language model predicting the word after “the students opened their”"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#neural-language-model-pros-and-cons",
+    "href": "posts/18_attention/18_attention.html#neural-language-model-pros-and-cons",
+    "title": "18: NLP (Attention)",
+    "section": "Neural language model – pros and cons",
+    "text": "Neural language model – pros and cons\nImprovements over n-gram LMs: - No sparsity problem - Don’t need to store all observed n-grams\nRemaining problems: - Fixed window is too small - Increasing the window increases \\(W\\)\n\n\n\nFixed-window neural language model"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#language-model-evaluation",
+    "href": "posts/18_attention/18_attention.html#language-model-evaluation",
+    "title": "18: NLP (Attention)",
+    "section": "Language model evaluation",
+    "text": "Language model evaluation\nHow do we define the quality of language models? Similar to word vector models, we define both extrinsic and intrinsic evaluation.\n\nExtrinsic = validate on a specific task and measure accuracy (e.g., model A vs. B)\nIntrinsic = measure model accuracy on an intermediate task\n\nMeasure accuracy of predicting words in an unseen test set\nThe metric for evaluation is perplexity\nGives a single metric for evaluating LMs"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#intrinsic-evaluation-motivation",
+    "href": "posts/18_attention/18_attention.html#intrinsic-evaluation-motivation",
+    "title": "18: NLP (Attention)",
+    "section": "Intrinsic evaluation – motivation",
+    "text": "Intrinsic evaluation – motivation\nGoal: model \\(P(w_1, w_2, \\dots, w_n)\\) or \\(P(w_k \\mid w_1, \\dots, w_{k-1})\\) accurately.\nShannon game: how well can we predict the next word? - I always order pizza with cheese and ______ - The 33rd president of the US was ______ - Once upon a ______\nA better language model assigns higher probability to the word that actually occurs. How do we measure this?\n\n\n\n\n\n\n\nWarningDCP1"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#lm-perplexity-results",
+    "href": "posts/18_attention/18_attention.html#lm-perplexity-results",
+    "title": "18: NLP (Attention)",
+    "section": "LM perplexity results",
+    "text": "LM perplexity results\nTraining corpus 38 million words, test corpus 1.5 million words, both WSJ:\n\n\n\nN-gram order\nUnigram\nBigram\nTrigram\n\n\n\n\nPerplexity (test)\n962\n170\n109\n\n\n\nIncreasing n improves the model, but: - worsens the sparsity problem - and increases the model size"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#improving-neural-language-models",
+    "href": "posts/18_attention/18_attention.html#improving-neural-language-models",
+    "title": "18: NLP (Attention)",
+    "section": "Improving neural language models",
+    "text": "Improving neural language models\nMany new architectures have been introduced to improve language models: - Recurrent neural networks (RNN) - Key idea is to use the same weights across layers - Long short-term memory (LSTM) - Transformers - Key idea is self-attention blocks - Generative pre-trained transformers (GPT)"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#large-language-model",
+    "href": "posts/18_attention/18_attention.html#large-language-model",
+    "title": "18: NLP (Attention)",
+    "section": "Large language model",
+    "text": "Large language model\n\nA large language model (LLM) is a language model trained with self-supervised machine learning on a vast amount of text.\nNo need for labeled data!\n\n\n\n\nGPT-3: 175,181,291,520 total weights organized into 27,938 matrices"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#the-revolution-transformers",
+    "href": "posts/18_attention/18_attention.html#the-revolution-transformers",
+    "title": "18: NLP (Attention)",
+    "section": "The revolution: Transformers",
+    "text": "The revolution: Transformers\n\n\n\nFirst page of “Attention Is All You Need”\n\n\nVaswani et al., “Attention Is All You Need” (2017).\n\nSpeaker note: 2017 paper, which has over 200k citations."
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#what-does-chatgpt-do",
+    "href": "posts/18_attention/18_attention.html#what-does-chatgpt-do",
+    "title": "18: NLP (Attention)",
+    "section": "What does ChatGPT do?",
+    "text": "What does ChatGPT do?\n\nGPT = Generative Pretrained Transformer\nNext word prediction\nThis is not how we write!\n\n\n\n\nThe transformer outputs a probability for every word in the vocabulary as the next word after “Write a story.”\n\n\nBy predicting the next word, the model must capture grammar, syntax, semantics, world knowledge, and some reasoning about context.\n\n\n\n\n\n\nWarningDCP2"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#transformer-architecture",
+    "href": "posts/18_attention/18_attention.html#transformer-architecture",
+    "title": "18: NLP (Attention)",
+    "section": "Transformer Architecture",
+    "text": "Transformer Architecture\n\n\n\nInput → tokenization → embedding → positional encoding → series of attention + feedforward blocks → softmax output\n\n\nThe input (“Write a story.”) goes through tokenization, embedding and positional encoding, then through a series of transformer blocks, each made of an attention layer and a feedforward layer. A final softmax gives the output (“Once”).\n\n\n\nTokens of “a fluffy blue creature roamed the verdant forest”, each with a position and a 12,288-dimensional embedding"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#transformer-architecture-attention",
+    "href": "posts/18_attention/18_attention.html#transformer-architecture-attention",
+    "title": "18: NLP (Attention)",
+    "section": "Transformer Architecture: Attention",
+    "text": "Transformer Architecture: Attention\nA word acquires more specific meaning from its surrounding words (context).\n\n\n\nAdjectives “fluffy”, “blue” and “verdant” modify “creature” and “forest”\n\n\nContext-aware embeddings (adjectives in this case):\n\n\n\nEmbeddings E1…E8 updated into context-aware embeddings E′1…E′8\n\n\nThis is a made-up example: we don’t know exactly what these attention mechanisms capture!"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#attention-step-by-step",
+    "href": "posts/18_attention/18_attention.html#attention-step-by-step",
+    "title": "18: NLP (Attention)",
+    "section": "Attention step by step",
+    "text": "Attention step by step\n1. Query: encoded in a matrix learned during training. Each noun “asks”: any adjectives in front of me?\n\n\n\nThe noun “creature” asks “Any adjectives in front of me?”; “fluffy” and “blue” answer “I am!”\n\n\n\n\n\nQuery vector Q4 = W_Q · E4\n\n\n2. Key matrix: “answers” the query.\n\n\n\nKey vectors K = W_K · E answer the query\n\n\n3. To measure how well each key matches each query, take the dot product between the vectors (the slides say “cross product”; it is the dot product \\(K_i \\cdot Q_j\\)).\n\n\n\nGrid of all key–query dot products\n\n\n\n\n\nNumeric dot products: large values where “fluffy” and “blue” meet “creature”\n\n\n\n\n\nThe noun “creature” attends to “fluffy” and “blue”\n\n\n4. Softmax transforms these into positive weights (each column sums to 1).\n\n\n\nSoftmax applied to each column of the grid\n\n\n\n\n\nAttention weights after softmax\n\n\nThe model deduces which words are relevant to which other words. What now?\n5. Update the embedding!\n\n\n\nThe embedding of “creature” moves toward “fluffy”\n\n\n6. Value matrix: how to update the noun embedding.\n\n\n\nValue vector V = W_V · E\n\n\n\n\n\nWeighted sum of value vectors gives ΔE4, added to E4 to get E′4\n\n\nWe obtain a more “refined” word embedding:\n\n\n\nEvery embedding gets its own update: E′i = Ei + ΔEi\n\n\nIn formula form (standard scaled dot-product attention):\n\\[\\text{Attention}(Q, K, V) = \\text{softmax}\\!\\left(\\frac{QK^\\top}{\\sqrt{d_k}}\\right) V\\]"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#transformer-architecture-overview",
+    "href": "posts/18_attention/18_attention.html#transformer-architecture-overview",
+    "title": "18: NLP (Attention)",
+    "section": "Transformer Architecture – overview",
+    "text": "Transformer Architecture – overview\n\n\n\nFull architecture next to the next-word prediction view"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#application-to-the-misinformation-problem-1",
+    "href": "posts/18_attention/18_attention.html#application-to-the-misinformation-problem-1",
+    "title": "18: NLP (Attention)",
+    "section": "Application to the misinformation problem",
+    "text": "Application to the misinformation problem\nUse a pre-trained transformer as the encoder in the classification pipeline:\n\n\n\nPipeline with a transformer encoder in place of the bag-of-words vector\n\n\nTwo approaches:\nApproach 1 (frozen encoder): - Create a sentence embedding by averaging pre-trained transformer word embeddings - Learn logistic regression parameters\nApproach 2: fine-tune the transformer\n\n\n\n\n\n\n\n\nStep\nFormula\nNote\n\n\n\n\nInput\n\\(x = (t_1, t_2, \\dots, t_T)\\)\n\n\n\nEncoder\n\\(h_T = f_\\theta(x) \\in \\mathbb{R}^d\\)\ntransformer parameters \\(\\theta\\)\n\n\nLogits\n\\(z = W h_T + b\\)\nclassification head\n\n\nPredicted probs\n\\(\\hat{y} = \\text{softmax}(z)\\)\n\n\n\nLoss\n\\(\\mathcal{L}(\\theta, W, b) = -\\sum_{k=1}^{K} y_k \\log \\hat{y}_k\\)\n\n\n\n\n\n\n\nA pre-trained transformer fine-tuned for question answering, NER, summarization, sentiment analysis, language generation, paraphrase identification and more\n\n\nThe parameters of the transformer are only “slightly” tweaked to avoid catastrophic forgetting.\n\n\n\n\n\n\nWarningDCP3"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#the-persuasive-power-of-vagueness",
+    "href": "posts/18_attention/18_attention.html#the-persuasive-power-of-vagueness",
+    "title": "18: NLP (Attention)",
+    "section": "The persuasive power of vagueness",
+    "text": "The persuasive power of vagueness\n\n\n\nCollaborators: Martino Lovisetto, Boris Koulevo (Alteca, France) and Somiya Schirokauer (Princeton University)\n\n\nJoint work with Martino Lovisetto and Boris Koulevo (Alteca, France) and Somiya Schirokauer (Princeton University).\n\n\n\nVideo still: “Myth: Climate models are reliable and accurate enough to attribute recent global warming to human activities”\n\n\n(Video embedded in the original slides.)\nIf I say “Chicago is a great place to be”…\nYou could infer: - Chicago is cheap - Chicago is fun - Chicago is safe - Etc.\nBy being vague, I have a higher chance of convincing you that Chicago is great, but I am not sure about what conclusions you are drawing.\nVagueness reduces epistemic vigilance through egocentric bias.\nToo precise is easy to falsify. Too vague is not credible. Is there a sweet spot?\nResearch questions:\n\nIs there an optimal level of vagueness for persuasion?\nDoes vagueness correlate with misinformation? If yes, can we use it to help identify misinformation?"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#russells-definition-of-vagueness",
+    "href": "posts/18_attention/18_attention.html#russells-definition-of-vagueness",
+    "title": "18: NLP (Attention)",
+    "section": "Russell’s definition of vagueness",
+    "text": "Russell’s definition of vagueness\n\n“A representation is vague when the relation of the representing system to the represented system is not one-one, but one-many… a photograph which is so smudged that it might equally represent Brown or Jones…”\n\n\n“A vague belief has a much better chance of being true than a precise one, because there are more possible facts that would verify it. If I believe that so-and-so is tall, I am more likely to be right than if I believe that his height is between 6 ft. 2 in. and 6 ft. 3 in.”"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#different-flavors-of-vagueness",
+    "href": "posts/18_attention/18_attention.html#different-flavors-of-vagueness",
+    "title": "18: NLP (Attention)",
+    "section": "Different flavors of vagueness",
+    "text": "Different flavors of vagueness\n\nDegree vagueness\n\n“Gloria is tall” is true iff \\(\\mu_{\\text{height}}(\\text{Gloria}) \\geq t\\) (for some unspecified threshold \\(t\\)).\n“Gloria is taller than 185cm” is true iff \\(\\mu_{\\text{height}}(\\text{Gloria}) \\geq 185\\text{cm}\\).\n\nApproximation vagueness\n\n“Around 20 people attended” is true iff \\(x \\in [20 - t, 20 + t]\\).\n\nCombinatorial vagueness\n\n“Chicago is a great place to be” (many possible combinations of reasons could make it true)."
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#vagueness-predicts-misinformation",
+    "href": "posts/18_attention/18_attention.html#vagueness-predicts-misinformation",
+    "title": "18: NLP (Attention)",
+    "section": "Vagueness “predicts” misinformation?",
+    "text": "Vagueness “predicts” misinformation?\nCount vague words such as “around”, “about”, “almost”, “nearly”, “roughly”:\n\\[\\text{Vagueness score} = \\frac{\\#\\ \\text{vague words}}{\\#\\ \\text{words}}\\]\n\n\n\nVagueness score is higher for texts classified as biased (5,446) than legitimate (23,146); Pearson correlation 0.271\n\n\nBut counting words misses context: “Between the 6-foot guy and the 5-foot guy, I prefer the tall one.” Here tall is not vague at all.\nGuélorget, P., Icard, B., Gadek, G., Gahbiche, S., Gatepaille, S., Atemezing, G., & Égré, P. (2021, November). Combining vagueness detection with deep learning to identify fake news. In 2021 IEEE 24th International Conference on Information Fusion (FUSION) (pp. 1-8). IEEE."
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#our-vagueness-quantifier",
+    "href": "posts/18_attention/18_attention.html#our-vagueness-quantifier",
+    "title": "18: NLP (Attention)",
+    "section": "Our vagueness quantifier",
+    "text": "Our vagueness quantifier\n\n\n\nPipeline: an LLM “sharpens” a vague sentence into precise readings, embeds them, and measures how far apart they are\n\n\n\nInput sentence \\(u\\): “Chicago is a great place to be.”\nAn LLM sharpening generator produces \\(k\\) precise readings: \\(s_1\\) “Chicago has a vibrant cultural scene”, \\(s_2\\) “The job opportunities in Chicago are plentiful”, \\(s_3\\) “Chicago is very affordable”.\nA semantic embedding module maps each reading to a vector \\(\\mathbf{e}_i\\).\nSemantic distance computation: the more the readings disagree, the vaguer the sentence:\n\n\\[V(u) = \\frac{2}{k(k-1)} \\sum_{i&lt;j} \\bigl(1 - \\cos(\\mathbf{e}_i, \\mathbf{e}_j)\\bigr)\\]\nOutput vagueness for the example: \\(V(u) = 0.8\\).\n\n\n\nVagueness metric V(u) is lowest for specific sentences, higher for simple adjectives, highest for complex adjectives"
+  },
+  {
+    "objectID": "posts/18_attention/18_attention.html#next-steps",
+    "href": "posts/18_attention/18_attention.html#next-steps",
+    "title": "18: NLP (Attention)",
+    "section": "Next steps",
+    "text": "Next steps\n\nCheck whether vagueness “predicts” misinformation.\nCheck the relationship between vagueness and persuasion (e.g. GoFundMe or lab experiments)."
   }
 ]

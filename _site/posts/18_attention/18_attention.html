@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Derek Sollberger">
+<meta name="dcterms.date" content="2026-11-01">
+
+<title>18: NLP (Attention) – SML 301 Slides</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29b139f52e1b4087b0c9e4528fec9435.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">SML 301 Slides</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Lecture Sessions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nlp-attention" id="toc-nlp-attention" class="nav-link active" data-scroll-target="#nlp-attention">18: NLP (Attention)</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives:</a></li>
+  </ul></li>
+  <li><a href="#recap-bag-of-words-and-word2vec" id="toc-recap-bag-of-words-and-word2vec" class="nav-link" data-scroll-target="#recap-bag-of-words-and-word2vec">Recap: Bag-of-Words and Word2vec</a>
+  <ul class="collapse">
+  <li><a href="#recap-bag-of-words" id="toc-recap-bag-of-words" class="nav-link" data-scroll-target="#recap-bag-of-words">Recap: Bag-of-Words</a></li>
+  <li><a href="#recap-one-hot-encoding" id="toc-recap-one-hot-encoding" class="nav-link" data-scroll-target="#recap-one-hot-encoding">Recap: one-hot encoding</a></li>
+  <li><a href="#distributional-semantics" id="toc-distributional-semantics" class="nav-link" data-scroll-target="#distributional-semantics">Distributional semantics</a></li>
+  <li><a href="#word2vec-skip-gram-algorithm" id="toc-word2vec-skip-gram-algorithm" class="nav-link" data-scroll-target="#word2vec-skip-gram-algorithm">Word2vec: Skip-Gram Algorithm</a></li>
+  <li><a href="#binary-classification-task" id="toc-binary-classification-task" class="nav-link" data-scroll-target="#binary-classification-task">Binary classification task</a></li>
+  <li><a href="#word2vec-fails-to-capture-context" id="toc-word2vec-fails-to-capture-context" class="nav-link" data-scroll-target="#word2vec-fails-to-capture-context">Word2vec fails to capture context</a></li>
+  </ul></li>
+  <li><a href="#neural-language-model" id="toc-neural-language-model" class="nav-link" data-scroll-target="#neural-language-model">Neural language model</a>
+  <ul class="collapse">
+  <li><a href="#neural-language-model-fixed-window" id="toc-neural-language-model-fixed-window" class="nav-link" data-scroll-target="#neural-language-model-fixed-window">Neural language model – fixed window</a></li>
+  <li><a href="#neural-language-model-pros-and-cons" id="toc-neural-language-model-pros-and-cons" class="nav-link" data-scroll-target="#neural-language-model-pros-and-cons">Neural language model – pros and cons</a></li>
+  <li><a href="#language-model-evaluation" id="toc-language-model-evaluation" class="nav-link" data-scroll-target="#language-model-evaluation">Language model evaluation</a></li>
+  <li><a href="#intrinsic-evaluation-motivation" id="toc-intrinsic-evaluation-motivation" class="nav-link" data-scroll-target="#intrinsic-evaluation-motivation">Intrinsic evaluation – motivation</a></li>
+  </ul></li>
+  <li><a href="#perplexity" id="toc-perplexity" class="nav-link" data-scroll-target="#perplexity">Perplexity</a>
+  <ul class="collapse">
+  <li><a href="#lm-perplexity-results" id="toc-lm-perplexity-results" class="nav-link" data-scroll-target="#lm-perplexity-results">LM perplexity results</a></li>
+  <li><a href="#improving-neural-language-models" id="toc-improving-neural-language-models" class="nav-link" data-scroll-target="#improving-neural-language-models">Improving neural language models</a></li>
+  </ul></li>
+  <li><a href="#large-language-models" id="toc-large-language-models" class="nav-link" data-scroll-target="#large-language-models">Large language models</a>
+  <ul class="collapse">
+  <li><a href="#large-language-model" id="toc-large-language-model" class="nav-link" data-scroll-target="#large-language-model">Large language model</a></li>
+  <li><a href="#the-revolution-transformers" id="toc-the-revolution-transformers" class="nav-link" data-scroll-target="#the-revolution-transformers">The revolution: Transformers</a></li>
+  <li><a href="#what-does-chatgpt-do" id="toc-what-does-chatgpt-do" class="nav-link" data-scroll-target="#what-does-chatgpt-do">What does ChatGPT do?</a></li>
+  <li><a href="#transformer-architecture" id="toc-transformer-architecture" class="nav-link" data-scroll-target="#transformer-architecture">Transformer Architecture</a></li>
+  <li><a href="#transformer-architecture-attention" id="toc-transformer-architecture-attention" class="nav-link" data-scroll-target="#transformer-architecture-attention">Transformer Architecture: Attention</a></li>
+  <li><a href="#attention-step-by-step" id="toc-attention-step-by-step" class="nav-link" data-scroll-target="#attention-step-by-step">Attention step by step</a></li>
+  <li><a href="#transformer-architecture-overview" id="toc-transformer-architecture-overview" class="nav-link" data-scroll-target="#transformer-architecture-overview">Transformer Architecture – overview</a></li>
+  </ul></li>
+  <li><a href="#application-to-the-misinformation-problem" id="toc-application-to-the-misinformation-problem" class="nav-link" data-scroll-target="#application-to-the-misinformation-problem">Application to the misinformation problem</a>
+  <ul class="collapse">
+  <li><a href="#application-to-the-misinformation-problem-1" id="toc-application-to-the-misinformation-problem-1" class="nav-link" data-scroll-target="#application-to-the-misinformation-problem-1">Application to the misinformation problem</a></li>
+  </ul></li>
+  <li><a href="#a-bit-of-giuseppe-ferros-research" id="toc-a-bit-of-giuseppe-ferros-research" class="nav-link" data-scroll-target="#a-bit-of-giuseppe-ferros-research">A bit of Giuseppe Ferro’s research</a>
+  <ul class="collapse">
+  <li><a href="#the-persuasive-power-of-vagueness" id="toc-the-persuasive-power-of-vagueness" class="nav-link" data-scroll-target="#the-persuasive-power-of-vagueness">The persuasive power of vagueness</a></li>
+  <li><a href="#russells-definition-of-vagueness" id="toc-russells-definition-of-vagueness" class="nav-link" data-scroll-target="#russells-definition-of-vagueness">Russell’s definition of vagueness</a></li>
+  <li><a href="#different-flavors-of-vagueness" id="toc-different-flavors-of-vagueness" class="nav-link" data-scroll-target="#different-flavors-of-vagueness">Different flavors of vagueness</a></li>
+  <li><a href="#vagueness-predicts-misinformation" id="toc-vagueness-predicts-misinformation" class="nav-link" data-scroll-target="#vagueness-predicts-misinformation">Vagueness “predicts” misinformation?</a></li>
+  <li><a href="#our-vagueness-quantifier" id="toc-our-vagueness-quantifier" class="nav-link" data-scroll-target="#our-vagueness-quantifier">Our vagueness quantifier</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
+  <li><a href="#quo-vadimus" id="toc-quo-vadimus" class="nav-link" data-scroll-target="#quo-vadimus">Quo Vadimus?</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">18: NLP (Attention)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Derek Sollberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="nlp-attention" class="level1">
+<h1>18: NLP (Attention)</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives:</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Motivate natural language processing</li>
+<li>Explore the early adapations</li>
+<li>Compute word frequencies</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/plotivy-attention-heatmap.png" class="img-fluid figure-img"></p>
+<figcaption>Movie review turned into a bag of words and word counts</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://plotivy.app/charts/attention-heatmap">Plotivy</a></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="recap-bag-of-words-and-word2vec" class="level1">
+<h1>Recap: Bag-of-Words and Word2vec</h1>
+<section id="recap-bag-of-words" class="level2">
+<h2 class="anchored" data-anchor-id="recap-bag-of-words">Recap: Bag-of-Words</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide04_bag_of_words.png" class="img-fluid figure-img"></p>
+<figcaption>Movie review turned into a bag of words and word counts</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="recap-one-hot-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="recap-one-hot-encoding">Recap: one-hot encoding</h2>
+<p><strong>Word embedding:</strong> turn words (and sentences) into numerical vectors.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide05_one_hot.png" class="img-fluid figure-img"></p>
+<figcaption>Sentences encoded as one-hot word vectors</figcaption>
+</figure>
+</div>
+<p><strong>Any problem with this model?</strong> There is no notion of similarity between words! (<em>like</em> and <em>love</em> are as different as any other pair.)</p>
+<hr>
+</section>
+<section id="distributional-semantics" class="level2">
+<h2 class="anchored" data-anchor-id="distributional-semantics">Distributional semantics</h2>
+<blockquote class="blockquote">
+<p>“You shall know a word by the company it keeps” (J. R. Firth 1957: 11)</p>
+</blockquote>
+<p>The <strong>meaning</strong> of a word is given by the words that <strong>frequently</strong> appear close-by.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide07_firth_banking.png" class="img-fluid figure-img"></p>
+<figcaption>J. R. Firth and context words around “banking”</figcaption>
+</figure>
+</div>
+<p><strong>If two words predict similar neighbors, they mean similar things.</strong></p>
+<blockquote class="blockquote">
+<p>Speaker note: John Rupert Firth, English linguist. A very successful idea in NLP.</p>
+</blockquote>
+<hr>
+</section>
+<section id="word2vec-skip-gram-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="word2vec-skip-gram-algorithm">Word2vec: Skip-Gram Algorithm</h2>
+<p><strong>Goal:</strong> maximize the <strong>probability</strong> of the real context words given the center word.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide09_skipgram_network.png" class="img-fluid figure-img"></p>
+<figcaption>Skip-gram network with embedding layer, variable table and training data</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide10_embeddings_before_after.png" class="img-fluid figure-img"></p>
+<figcaption>2D visualization of word embeddings before and after training</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="binary-classification-task" class="level2">
+<h2 class="anchored" data-anchor-id="binary-classification-task">Binary classification task</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide11_classification_pipeline.png" class="img-fluid figure-img"></p>
+<figcaption>Pipeline: sentence → vector → linear score → sigmoid</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\text{"Vaccines cause autism"} \;\rightarrow\; \mathbf{x} \;\rightarrow\; z = \alpha + \beta \mathbf{x} \;\rightarrow\; \phi(z) = \frac{1}{1 + e^{-z}}\]</span></p>
+<p><span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are model parameters.</p>
+<p>Word embeddings we tried so far: - Bag-of-words (one-hot encoding) - Word2vec</p>
+<hr>
+</section>
+<section id="word2vec-fails-to-capture-context" class="level2">
+<h2 class="anchored" data-anchor-id="word2vec-fails-to-capture-context">Word2vec fails to capture context</h2>
+<p>Word2vec gives each word a single vector, regardless of the sentence it appears in.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide12_mole_contexts.png" class="img-fluid figure-img"></p>
+<figcaption>The word “mole” in three different contexts gets the same embedding E(mole)</figcaption>
+</figure>
+</div>
+<p>“American shrew <strong>mole</strong>”, “One <strong>mole</strong> of carbon dioxide”, “Take a biopsy of the <strong>mole</strong>”: three different meanings, but one embedding.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide13_model_contexts.png" class="img-fluid figure-img"></p>
+<figcaption>The word “model” in “A machine learning model” vs “A fashion model”</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="neural-language-model" class="level1">
+<h1>Neural language model</h1>
+<p>How to build a neural language model?</p>
+<ul>
+<li><strong>Input:</strong> sequences of words, <span class="math inline">\(x_1, x_2, x_3, \dots, x_4\)</span></li>
+<li><strong>Output:</strong> probability distribution of the next word, <span class="math inline">\(P(x_i \mid x_1, \dots, x_{i-1})\)</span></li>
+</ul>
+<p><strong>Approach:</strong> let’s use a fixed window of context represented with word embeddings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide25_word_embeddings_input.png" class="img-fluid figure-img"></p>
+<figcaption>Words “the students opened their” mapped to concatenated word embeddings</figcaption>
+</figure>
+</div>
+<hr>
+<section id="neural-language-model-fixed-window" class="level2">
+<h2 class="anchored" data-anchor-id="neural-language-model-fixed-window">Neural language model – fixed window</h2>
+<p>Fixed-window based approach (similar idea to <em>n</em>-gram):</p>
+<ul>
+<li><strong>Words:</strong> <span class="math inline">\(x^{(1)}, x^{(2)}, x^{(3)}, x^{(4)}\)</span></li>
+<li><strong>Concatenated word embeddings:</strong> <span class="math inline">\(e = [e^{(1)}; e^{(2)}; e^{(3)}; e^{(4)}]\)</span></li>
+<li><strong>Hidden layer:</strong> <span class="math inline">\(h = f(We + b_1)\)</span></li>
+<li><strong>Output distribution:</strong> <span class="math inline">\(\hat{y} = \text{softmax}(Uh + b_2) \in \mathbb{R}^{|V|}\)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide26_fixed_window_nlm.png" class="img-fluid figure-img"></p>
+<figcaption>Fixed-window neural language model predicting the word after “the students opened their”</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="neural-language-model-pros-and-cons" class="level2">
+<h2 class="anchored" data-anchor-id="neural-language-model-pros-and-cons">Neural language model – pros and cons</h2>
+<p>Improvements over <em>n</em>-gram LMs: - No sparsity problem - Don’t need to store all observed <em>n</em>-grams</p>
+<p>Remaining problems: - Fixed window is too small - Increasing the window increases <span class="math inline">\(W\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide27_nlm.png" class="img-fluid figure-img"></p>
+<figcaption>Fixed-window neural language model</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="language-model-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="language-model-evaluation">Language model evaluation</h2>
+<p>How do we define the quality of language models? Similar to word vector models, we define both <strong>extrinsic</strong> and <strong>intrinsic</strong> evaluation.</p>
+<ul>
+<li><strong>Extrinsic</strong> = validate on a specific task and measure accuracy (e.g., model A vs.&nbsp;B)</li>
+<li><strong>Intrinsic</strong> = measure model accuracy on an intermediate task
+<ul>
+<li>Measure accuracy of predicting words in an unseen test set</li>
+<li>The metric for evaluation is <strong>perplexity</strong></li>
+<li>Gives a single metric for evaluating LMs</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="intrinsic-evaluation-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="intrinsic-evaluation-motivation">Intrinsic evaluation – motivation</h2>
+<p><strong>Goal:</strong> model <span class="math inline">\(P(w_1, w_2, \dots, w_n)\)</span> or <span class="math inline">\(P(w_k \mid w_1, \dots, w_{k-1})\)</span> accurately.</p>
+<p><strong>Shannon game:</strong> how well can we predict the next word? - I always order pizza with cheese and ______ - The 33rd president of the US was ______ - Once upon a ______</p>
+<p>A better language model assigns higher probability to the word that actually occurs. How do we measure this?</p>
+<hr>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="perplexity" class="level1">
+<h1>Perplexity</h1>
+<p>A measure of how well a language model predicts the next word.</p>
+<p>The intuition is that a good language model prefers “real” sentences over “rare” ones.</p>
+<p><span class="math display">\[\text{Perplexity} = P(w_1, w_2, w_3, \dots, w_n)^{-1/n}\]</span></p>
+<p><span class="math display">\[\text{Perplexity} = \exp\left(-\frac{1}{n} \sum_{i}^{n} \log P(w_i \mid w_1, \dots, w_{i-1})\right) \quad \text{(similar to cross-entropy)}\]</span></p>
+<ul>
+<li>Lower score is better: minimizing perplexity ≈ maximizing the probability of the corpus</li>
+<li>The score can be interpreted as an “average chance” of correctly assigning the next word</li>
+</ul>
+<hr>
+<section id="lm-perplexity-results" class="level2">
+<h2 class="anchored" data-anchor-id="lm-perplexity-results">LM perplexity results</h2>
+<p>Training corpus 38 million words, test corpus 1.5 million words, both WSJ:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>N-gram order</th>
+<th style="text-align: center;">Unigram</th>
+<th style="text-align: center;">Bigram</th>
+<th style="text-align: center;">Trigram</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Perplexity (test)</td>
+<td style="text-align: center;">962</td>
+<td style="text-align: center;">170</td>
+<td style="text-align: center;">109</td>
+</tr>
+</tbody>
+</table>
+<p>Increasing <em>n</em> improves the model, but: - worsens the sparsity problem - and increases the model size</p>
+<hr>
+</section>
+<section id="improving-neural-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="improving-neural-language-models">Improving neural language models</h2>
+<p>Many new <strong>architectures</strong> have been introduced to improve language models: - <strong>Recurrent</strong> neural networks (RNN) - Key idea is to use the same weights across layers - Long short-term memory (LSTM) - <strong>Transformers</strong> - Key idea is self-attention blocks - Generative pre-trained transformers (GPT)</p>
+<hr>
+</section>
+</section>
+<section id="large-language-models" class="level1">
+<h1>Large language models</h1>
+<section id="large-language-model" class="level2">
+<h2 class="anchored" data-anchor-id="large-language-model">Large language model</h2>
+<ul>
+<li>A large language model (LLM) is a language model trained with <strong>self-supervised</strong> machine learning on a vast amount of text.</li>
+<li>No need for labeled data!</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide17_gpt3_weights.png" class="img-fluid figure-img"></p>
+<figcaption>GPT-3: 175,181,291,520 total weights organized into 27,938 matrices</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="the-revolution-transformers" class="level2">
+<h2 class="anchored" data-anchor-id="the-revolution-transformers">The revolution: Transformers</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide18_attention_paper.png" class="img-fluid figure-img"></p>
+<figcaption>First page of “Attention Is All You Need”</figcaption>
+</figure>
+</div>
+<p><em>Vaswani et al., “Attention Is All You Need” (2017).</em></p>
+<blockquote class="blockquote">
+<p>Speaker note: 2017 paper, which has over 200k citations.</p>
+</blockquote>
+<hr>
+</section>
+<section id="what-does-chatgpt-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-chatgpt-do">What does ChatGPT do?</h2>
+<ul>
+<li><strong>GPT</strong> = Generative Pretrained Transformer</li>
+<li><strong>Next word prediction</strong></li>
+<li>This is not how we write!</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide20_next_word_prediction.png" class="img-fluid figure-img"></p>
+<figcaption>The transformer outputs a probability for every word in the vocabulary as the next word after “Write a story.”</figcaption>
+</figure>
+</div>
+<p>By predicting the next word, the model must capture grammar, syntax, semantics, world knowledge, and some reasoning about <strong>context</strong>.</p>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+<section id="transformer-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-architecture">Transformer Architecture</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide21_transformer_blocks.png" class="img-fluid figure-img"></p>
+<figcaption>Input → tokenization → embedding → positional encoding → series of attention + feedforward blocks → softmax output</figcaption>
+</figure>
+</div>
+<p>The input (“Write a story.”) goes through <strong>tokenization</strong>, <strong>embedding</strong> and <strong>positional encoding</strong>, then through a series of transformer blocks, each made of an <strong>attention</strong> layer and a <strong>feedforward</strong> layer. A final softmax gives the output (“Once”).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide23_tokens_positions.png" class="img-fluid figure-img"></p>
+<figcaption>Tokens of “a fluffy blue creature roamed the verdant forest”, each with a position and a 12,288-dimensional embedding</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="transformer-architecture-attention" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-architecture-attention">Transformer Architecture: Attention</h2>
+<p>A word acquires more specific meaning from its surrounding words (context).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide24_context_words.png" class="img-fluid figure-img"></p>
+<figcaption>Adjectives “fluffy”, “blue” and “verdant” modify “creature” and “forest”</figcaption>
+</figure>
+</div>
+<p><strong>Context-aware embeddings</strong> (adjectives in this case):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide25_context_aware_embeddings.png" class="img-fluid figure-img"></p>
+<figcaption>Embeddings E1…E8 updated into context-aware embeddings E′1…E′8</figcaption>
+</figure>
+</div>
+<p>This is a <strong>made-up</strong> example: we don’t know exactly what these attention mechanisms capture!</p>
+<hr>
+</section>
+<section id="attention-step-by-step" class="level2">
+<h2 class="anchored" data-anchor-id="attention-step-by-step">Attention step by step</h2>
+<p><strong>1. Query:</strong> encoded in a matrix learned during training. Each noun “asks”: <em>any adjectives in front of me?</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide27_query_question.png" class="img-fluid figure-img"></p>
+<figcaption>The noun “creature” asks “Any adjectives in front of me?”; “fluffy” and “blue” answer “I am!”</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide28_query_matrix.png" class="img-fluid figure-img"></p>
+<figcaption>Query vector Q4 = W_Q · E4</figcaption>
+</figure>
+</div>
+<p><strong>2. Key matrix:</strong> “answers” the query.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide29_key_matrix.png" class="img-fluid figure-img"></p>
+<figcaption>Key vectors K = W_K · E answer the query</figcaption>
+</figure>
+</div>
+<p><strong>3. To measure how well each key matches each query,</strong> take the dot product between the vectors (the slides say “cross product”; it is the dot product <span class="math inline">\(K_i \cdot Q_j\)</span>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide30_key_query_grid.png" class="img-fluid figure-img"></p>
+<figcaption>Grid of all key–query dot products</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide31_dot_products.png" class="img-fluid figure-img"></p>
+<figcaption>Numeric dot products: large values where “fluffy” and “blue” meet “creature”</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide32_attend_to.png" class="img-fluid figure-img"></p>
+<figcaption>The noun “creature” attends to “fluffy” and “blue”</figcaption>
+</figure>
+</div>
+<p><strong>4. Softmax</strong> transforms these into positive weights (each column sums to 1).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide33_softmax_columns.png" class="img-fluid figure-img"></p>
+<figcaption>Softmax applied to each column of the grid</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide34_attention_weights.png" class="img-fluid figure-img"></p>
+<figcaption>Attention weights after softmax</figcaption>
+</figure>
+</div>
+<p>The model deduces which words are relevant to which other words. What now?</p>
+<p><strong>5. Update the embedding!</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide36_update_embedding.png" class="img-fluid figure-img"></p>
+<figcaption>The embedding of “creature” moves toward “fluffy”</figcaption>
+</figure>
+</div>
+<p><strong>6. Value matrix:</strong> how to update the noun embedding.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide37_value_matrix.png" class="img-fluid figure-img"></p>
+<figcaption>Value vector V = W_V · E</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide38_value_update.png" class="img-fluid figure-img"></p>
+<figcaption>Weighted sum of value vectors gives ΔE4, added to E4 to get E′4</figcaption>
+</figure>
+</div>
+<p>We obtain a more “refined” word embedding:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide39_all_updates.png" class="img-fluid figure-img"></p>
+<figcaption>Every embedding gets its own update: E′i = Ei + ΔEi</figcaption>
+</figure>
+</div>
+<p>In formula form (standard scaled dot-product attention):</p>
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V\]</span></p>
+<hr>
+</section>
+<section id="transformer-architecture-overview" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-architecture-overview">Transformer Architecture – overview</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide40_architecture_overview.png" class="img-fluid figure-img"></p>
+<figcaption>Full architecture next to the next-word prediction view</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="application-to-the-misinformation-problem" class="level1">
+<h1>Application to the misinformation problem</h1>
+<section id="application-to-the-misinformation-problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-to-the-misinformation-problem-1">Application to the misinformation problem</h2>
+<p>Use a pre-trained transformer as the <strong>encoder</strong> in the classification pipeline:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide43_encoder_pipeline.png" class="img-fluid figure-img"></p>
+<figcaption>Pipeline with a transformer encoder in place of the bag-of-words vector</figcaption>
+</figure>
+</div>
+<p>Two approaches:</p>
+<p><strong>Approach 1 (frozen encoder):</strong> - Create a sentence embedding by averaging pre-trained transformer word embeddings - Learn logistic regression parameters</p>
+<p><strong>Approach 2: fine-tune the transformer</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Formula</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td><span class="math inline">\(x = (t_1, t_2, \dots, t_T)\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Encoder</strong></td>
+<td><span class="math inline">\(h_T = f_\theta(x) \in \mathbb{R}^d\)</span></td>
+<td>transformer parameters <span class="math inline">\(\theta\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Logits</strong></td>
+<td><span class="math inline">\(z = W h_T + b\)</span></td>
+<td>classification head</td>
+</tr>
+<tr class="even">
+<td><strong>Predicted probs</strong></td>
+<td><span class="math inline">\(\hat{y} = \text{softmax}(z)\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Loss</strong></td>
+<td><span class="math inline">\(\mathcal{L}(\theta, W, b) = -\sum_{k=1}^{K} y_k \log \hat{y}_k\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide47_fine_tuning.png" class="img-fluid figure-img"></p>
+<figcaption>A pre-trained transformer fine-tuned for question answering, NER, summarization, sentiment analysis, language generation, paraphrase identification and more</figcaption>
+</figure>
+</div>
+<p>The parameters of the transformer are only “slightly” tweaked to avoid <strong>catastrophic forgetting</strong>.</p>
+<div class="callout callout-style-default callout-warning callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>DCP3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</section>
+</section>
+<section id="a-bit-of-giuseppe-ferros-research" class="level1">
+<h1>A bit of Giuseppe Ferro’s research</h1>
+<section id="the-persuasive-power-of-vagueness" class="level2">
+<h2 class="anchored" data-anchor-id="the-persuasive-power-of-vagueness">The persuasive power of vagueness</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide50_collaborators.png" class="img-fluid figure-img"></p>
+<figcaption>Collaborators: Martino Lovisetto, Boris Koulevo (Alteca, France) and Somiya Schirokauer (Princeton University)</figcaption>
+</figure>
+</div>
+<p>Joint work with Martino Lovisetto and Boris Koulevo (Alteca, France) and Somiya Schirokauer (Princeton University).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide51_video_thumbnail.png" class="img-fluid figure-img"></p>
+<figcaption>Video still: “Myth: Climate models are reliable and accurate enough to attribute recent global warming to human activities”</figcaption>
+</figure>
+</div>
+<p><em>(Video embedded in the original slides.)</em></p>
+<p>If I say “Chicago is a great place to be”…</p>
+<p>You could infer: - Chicago is cheap - Chicago is fun - Chicago is safe - Etc.</p>
+<p>By being vague, I have a higher chance of convincing you that Chicago is great, but I am not sure about what conclusions you are drawing.</p>
+<p><strong>Vagueness reduces epistemic vigilance through egocentric bias.</strong></p>
+<p>Too precise is easy to falsify. Too vague is not credible. Is there a sweet spot?</p>
+<p>Research questions:</p>
+<ul>
+<li><strong>Is there an optimal level of vagueness for persuasion?</strong></li>
+<li><strong>Does vagueness correlate with misinformation? If yes, can we use it to help identify misinformation?</strong></li>
+</ul>
+<hr>
+</section>
+<section id="russells-definition-of-vagueness" class="level2">
+<h2 class="anchored" data-anchor-id="russells-definition-of-vagueness">Russell’s definition of vagueness</h2>
+<blockquote class="blockquote">
+<p>“A <strong>representation</strong> is vague when the relation of the representing system to the represented system is not one-one, but <strong>one-many</strong>… a photograph which is so smudged that it might equally represent Brown or Jones…”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“A vague belief has a much better chance of being true than a precise one, because there are more possible facts that would verify it. If I believe that so-and-so is tall, I am more likely to be right than if I believe that his height is between 6 ft. 2 in. and 6 ft. 3 in.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="different-flavors-of-vagueness" class="level2">
+<h2 class="anchored" data-anchor-id="different-flavors-of-vagueness">Different flavors of vagueness</h2>
+<ul>
+<li><strong>Degree vagueness</strong>
+<ul>
+<li>“Gloria is tall” is true iff <span class="math inline">\(\mu_{\text{height}}(\text{Gloria}) \geq t\)</span> (for some unspecified threshold <span class="math inline">\(t\)</span>).</li>
+<li>“Gloria is taller than 185cm” is true iff <span class="math inline">\(\mu_{\text{height}}(\text{Gloria}) \geq 185\text{cm}\)</span>.</li>
+</ul></li>
+<li><strong>Approximation vagueness</strong>
+<ul>
+<li>“Around 20 people attended” is true iff <span class="math inline">\(x \in [20 - t, 20 + t]\)</span>.</li>
+</ul></li>
+<li><strong>Combinatorial vagueness</strong>
+<ul>
+<li>“Chicago is a great place to be” (many possible combinations of reasons could make it true).</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="vagueness-predicts-misinformation" class="level2">
+<h2 class="anchored" data-anchor-id="vagueness-predicts-misinformation">Vagueness “predicts” misinformation?</h2>
+<p>Count vague words such as “around”, “about”, “almost”, “nearly”, “roughly”:</p>
+<p><span class="math display">\[\text{Vagueness score} = \frac{\#\ \text{vague words}}{\#\ \text{words}}\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide61_vagueness_boxplot.png" class="img-fluid figure-img"></p>
+<figcaption>Vagueness score is higher for texts classified as biased (5,446) than legitimate (23,146); Pearson correlation 0.271</figcaption>
+</figure>
+</div>
+<p>But counting words misses context: “Between the 6-foot guy and the 5-foot guy, I prefer the <strong>tall</strong> one.” Here <em>tall</em> is not vague at all.</p>
+<p><em>Guélorget, P., Icard, B., Gadek, G., Gahbiche, S., Gatepaille, S., Atemezing, G., &amp; Égré, P. (2021, November). Combining vagueness detection with deep learning to identify fake news. In 2021 IEEE 24th International Conference on Information Fusion (FUSION) (pp.&nbsp;1-8). IEEE.</em></p>
+<hr>
+</section>
+<section id="our-vagueness-quantifier" class="level2">
+<h2 class="anchored" data-anchor-id="our-vagueness-quantifier">Our vagueness quantifier</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide63_vagueness_pipeline.png" class="img-fluid figure-img"></p>
+<figcaption>Pipeline: an LLM “sharpens” a vague sentence into precise readings, embeds them, and measures how far apart they are</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><strong>Input sentence</strong> <span class="math inline">\(u\)</span>: “Chicago is a great place to be.”</li>
+<li>An <strong>LLM sharpening generator</strong> produces <span class="math inline">\(k\)</span> precise readings: <span class="math inline">\(s_1\)</span> “Chicago has a vibrant cultural scene”, <span class="math inline">\(s_2\)</span> “The job opportunities in Chicago are plentiful”, <span class="math inline">\(s_3\)</span> “Chicago is very affordable”.</li>
+<li>A <strong>semantic embedding module</strong> maps each reading to a vector <span class="math inline">\(\mathbf{e}_i\)</span>.</li>
+<li><strong>Semantic distance computation:</strong> the more the readings disagree, the vaguer the sentence:</li>
+</ol>
+<p><span class="math display">\[V(u) = \frac{2}{k(k-1)} \sum_{i&lt;j} \bigl(1 - \cos(\mathbf{e}_i, \mathbf{e}_j)\bigr)\]</span></p>
+<p>Output vagueness for the example: <span class="math inline">\(V(u) = 0.8\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/slide64_vagueness_scores.png" class="img-fluid figure-img"></p>
+<figcaption>Vagueness metric V(u) is lowest for specific sentences, higher for simple adjectives, highest for complex adjectives</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<ul>
+<li>Check whether vagueness “predicts” misinformation.</li>
+<li>Check the relationship between vagueness and persuasion (e.g.&nbsp;GoFundMe or lab experiments).</li>
+</ul>
+</section>
+</section>
+<section id="quo-vadimus" class="level1">
+<h1>Quo Vadimus?</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>due this Friday (Nov 13):</p>
+<ul>
+<li><p>Precept 8 (1 hour)</p></li>
+<li><p>Multipass: Literature Search (20 minutes)</p></li>
+<li><p>Multipass: Literature Search (20 minutes)</p>
+<ul>
+<li>i.e.&nbsp;each person reads two papers from their literature search</li>
+</ul></li>
+</ul></li>
+<li><p>exam: Nov 18</p>
+<ul>
+<li>Refer to information page on our Canvas site</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Tucker_Bryant_AI.png" class="img-fluid figure-img"></p>
+<figcaption>sarcasm</figcaption>
+</figure>
+</div>
+<ul>
+<li>image source: <a href="https://sfstandard.com/2026/08/04/sf-ai-hype-fake-chatbot-billboard/">Tucker Bryant</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level1">
+<h1>Footnotes</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>(optional) Additional Resources and References
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Today’s slides were adapted by lectures by DataX postdocs Eric Verkebe and Giuseppe Ferro</p>
+<ul>
+<li>which in turn adapted from materials by Dan Jurafsky, Chris Manning and Karthik Narasimhan</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Session Info
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.6.1    fastmap_1.2.0     cli_3.6.6        
+ [5] tools_4.6.1       htmltools_0.5.9   otel_0.2.0        rstudioapi_0.19.0
+ [9] yaml_2.3.12       rmarkdown_2.31    knitr_1.51        jsonlite_2.0.0   
+[13] xfun_0.57         digest_0.6.39     rlang_1.2.0       evaluate_1.0.5   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"></ul>
+<div class="tab-content">
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
